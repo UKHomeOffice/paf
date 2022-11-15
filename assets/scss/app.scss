@@ -1,0 +1,15 @@
+@import "hof/frontend/themes/gov-uk/styles/govuk";
+
+.phase-banner {
+  @include phase-banner(beta);
+}
+
+ul {
+  @extend .text;
+  @extend .list;
+  @extend .list-bullet;
+}
+
+a {
+  @extend .govuk-link;
+}

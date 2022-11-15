@@ -1,0 +1,10 @@
+{
+  "appName":"Public Allegations Form",
+  "theme": "govUK",
+  "routes": [
+    "./apps/paf"
+  ],
+  "session": {
+    "name": "paf.hof.sid"
+  }
+}
