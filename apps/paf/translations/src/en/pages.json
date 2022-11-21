@@ -1,0 +1,41 @@
+{
+  "start": {
+    "header": "Public Allegations Form"
+  },
+  "crime-type": {
+    "header": "What is the crime you are reporting? - TO DO"
+  },
+  "crime-children": {
+    "header": "Are there children involved? (A child is anyone under 18 years of age)  - TO DO"
+  },
+  "when-crime-happened": {
+    "header": "When is the crime happening? - TO DO"
+  },
+  "crime-transport": {
+    "header": "Does the crime involve any vehicles, transport or travel? - TO DO"
+  },
+  "crime-delivery": {
+    "header": "Tell us which of the following the crime involves: - TO DO"
+  },
+  "crime-location": {
+    "header": "Do you know where the crime takes place, took place or will take place? - TO DO"
+  },
+  "report-person": {
+    "header": "The Person - TO Do"
+  },
+  "report-organisation": {
+    "header": "The Organisation - Do you wish to report a company, business or education provider? - TO DO"
+  },
+  "other-info-description": {
+    "header": "Other information - TO DO"
+  },
+  "other-info-another-crime": {
+    "header": "Do you want to report another crime by the same person or business? - TO DO"
+  },
+  "other-info-file-upload":{
+    "header": "Please attach any documents which may help us investigate this crime - TO DO"
+  },
+  "about-you": {
+    "header": "About You - TO DO"
+  }
+}

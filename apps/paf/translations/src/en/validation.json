@@ -1,0 +1,8 @@
+{
+  "crime-type": {
+    "required": "You must tell us what the criminals are planning or doing. This will help us to send the information to the right team immediately."
+  },
+  "crime-children": {
+    "required": "We need to know if any children are involved in the crime. They may be committing the crime or victims of it. With this information, we can make sure that we handle the case in the right way."
+  }
+}
