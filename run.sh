@@ -5,6 +5,7 @@
 # we then copy files from app/public on start of the container which
 # is why this line exists until kube has a better method of
 # sharing directiries between containers
+
 cp -r /app/public/* /public/
 
 node app.js
