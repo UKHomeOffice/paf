@@ -66,7 +66,7 @@ steps:
       branch:
         include:
         - master
-        - feature/paf-16
+        - feature/*
       event: [push, pull_request]
 
   - name: setup_deploy
@@ -81,7 +81,7 @@ steps:
       branch:
         include:
         - master
-        - feature/paf-16
+        - feature/*
       event: push
 
   - name: linting_deploy
@@ -90,7 +90,7 @@ steps:
       branch:
         include:
           - master
-          - feature/paf-16
+          - feature/*
       event: push
 
   - name: unit_tests_deploy
@@ -99,7 +99,7 @@ steps:
       branch:
         include:
           - master
-          - feature/paf-16
+          - feature/*
       event: push
 
   - name: sonar_scanner_deploy
@@ -108,7 +108,7 @@ steps:
       branch:
         include:
           - master
-          - feature/paf-16
+          - feature/*
       event: push
 
   - name: ui_integration_tests_deploy
@@ -117,7 +117,7 @@ steps:
       branch:
         include:
           - master
-          - feature/paf-16
+          - feature/*
       event: push
 
   - name: accessibility_tests_deploy
@@ -126,7 +126,7 @@ steps:
       branch:
         include:
           - master
-          - feature/paf-16
+          - feature/*
       event: push
 
   - name: build_image
@@ -142,7 +142,7 @@ steps:
       branch:
         include:
           - master
-          - feature/paf-16
+          - feature/*
       event: [push, pull_request]
 
   - name: image_to_quay
