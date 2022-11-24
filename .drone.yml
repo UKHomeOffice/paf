@@ -52,6 +52,52 @@ trigger:
 #    CUCUMBER_PUBLISH_TOKEN:
 #      from_secret: CUCUMBER_PUBLISH_TOKEN
 
+linting: &linting
+  pull: if-not-exists
+  image: node:14
+  environment:
+    NOTIFY_STUB: true
+  commands:
+    - yarn run test:lint
+
+unit_tests: &unit_tests
+  pull: if-not-exists
+  image: node:14
+  environment:
+    NOTIFY_STUB: true
+  commands:
+    - yarn run test:unit
+
+sonar_scanner: &sonar_scanner
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/sonar-scanner-node:549b75f593f28da1c4a0a6f79877ec69d3b21037
+  commands:
+    - sonar-scanner -Dproject.settings=./sonar-project.properties
+
+ui_integration_tests: &ui_integration_tests
+  pull: if-not-exists
+  image: node:14
+  environment:
+    NOTIFY_STUB: true
+  commands:
+    - yarn run test:ui-integration
+
+accessibility_tests: &accessibility_tests
+  pull: if-not-exists
+  image: buildkite/puppeteer:8.0.0@sha256:b6cebc17bfa8e7a7abfc3ab14d6f2ddbdf42b9e81b8ad786c6693385665998d5
+  environment:
+    NOTIFY_STUB: true
+    ENVIRONMENT: DRONE
+  volumes:
+    - name: dockersock
+      path: /root/.dockersock
+  commands:
+    - yarn run test:accessibility
+
+acceptance_tests: &acceptance_tests
+  pull: if-not-exists
+  image: mcr.microsoft.com/playwright:v1.12.3-focal
+
 steps:
   - name: clone_repos
     image: alpine/git
