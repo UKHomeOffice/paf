@@ -69,59 +69,59 @@ steps:
         - feature
       event: [push, pull_request]
 
-  # - name: setup_deploy
-  #   pull: if-not-exists
-  #   image: node:14
-  #   environment:
-  #     NOTIFY_STUB: true
-  #   commands:
-  #     - yarn install --frozen-lockfile
-  #     - yarn run postinstall
-  #   when:
-  #     branch:
-  #       include:
-  #       - master
-  #     event: push
-  #
-  # - name: linting_deploy
-  #   <<: *linting
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #     event: push
-  #
-  # - name: unit_tests_deploy
-  #   <<: *unit_tests
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #     event: push
-  #
-  # - name: sonar_scanner_deploy
-  #   <<: *sonar_scanner
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #     event: push
-  #
-  # - name: ui_integration_tests_deploy
-  #   <<: *ui_integration_tests
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #     event: push
-  #
-  # - name: accessibility_tests_deploy
-  #   <<: *accessibility_tests
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #     event: push
+  - name: setup_deploy
+    pull: if-not-exists
+    image: node:14
+    environment:
+      NOTIFY_STUB: true
+    commands:
+      - yarn install --frozen-lockfile
+      - yarn run postinstall
+    when:
+      branch:
+        include:
+        - master
+      event: push
+
+  - name: linting_deploy
+    <<: *linting
+    when:
+      branch:
+        include:
+          - master
+      event: push
+
+  - name: unit_tests_deploy
+    <<: *unit_tests
+    when:
+      branch:
+        include:
+          - master
+      event: push
+
+  - name: sonar_scanner_deploy
+    <<: *sonar_scanner
+    when:
+      branch:
+        include:
+          - master
+      event: push
+
+  - name: ui_integration_tests_deploy
+    <<: *ui_integration_tests
+    when:
+      branch:
+        include:
+          - master
+      event: push
+
+  - name: accessibility_tests_deploy
+    <<: *accessibility_tests
+    when:
+      branch:
+        include:
+          - master
+      event: push
 
   - name: build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
