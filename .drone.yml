@@ -23,34 +23,34 @@ trigger:
     - feature/paf-16
     - master
 
-linting: &linting
-  pull: if-not-exists
-  image: node:14
-  environment:
-    NOTIFY_KEY: USE_MOCK
-  commands:
-    - yarn run test:lint
+#linting: &linting
+#  pull: if-not-exists
+#  image: node:14
+#  environment:
+#    NOTIFY_KEY: USE_MOCK
+#  commands:
+#    - yarn run test:lint
 
-unit_tests: &unit_tests
-  pull: if-not-exists
-  image: node:14
-  environment:
-    NOTIFY_KEY: USE_MOCK
-  commands:
-    - yarn run test:unit
+#unit_tests: &unit_tests
+#  pull: if-not-exists
+#  image: node:14
+#  environment:
+#    NOTIFY_KEY: USE_MOCK
+#  commands:
+#    - yarn run test:unit
 
-sonar_scanner: &sonar_scanner
-  pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/sonar-scanner-node:549b75f593f28da1c4a0a6f79877ec69d3b21037
-  commands:
-    - sonar-scanner -Dproject.settings=./sonar-project.properties
+#sonar_scanner: &sonar_scanner
+#  pull: if-not-exists
+#  image: quay.io/ukhomeofficedigital/sonar-scanner-node:549b75f593f28da1c4a0a6f79877ec69d3b21037
+#  commands:
+#    - sonar-scanner -Dproject.settings=./sonar-project.properties
 
-acceptance_tests: &acceptance_tests
-  pull: if-not-exists
-  image: mcr.microsoft.com/playwright:v1.12.3-focal
-  environment:
-    CUCUMBER_PUBLISH_TOKEN:
-      from_secret: CUCUMBER_PUBLISH_TOKEN
+#acceptance_tests: &acceptance_tests
+#  pull: if-not-exists
+#  image: mcr.microsoft.com/playwright:v1.12.3-focal
+#  environment:
+#    CUCUMBER_PUBLISH_TOKEN:
+#      from_secret: CUCUMBER_PUBLISH_TOKEN
 
 steps:
   - name: clone_repos
