@@ -12,12 +12,12 @@ spec:
   tls:
     - hosts:
       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-        - {{ .DRONE_BUILD_NUMBER }}.internal.asc-branch.homeoffice.gov.uk
-        - asc-{{ .DRONE_SOURCE_BRANCH }}.internal.asc-branch.homeoffice.gov.uk
+        - {{ .DRONE_BUILD_NUMBER }}.internal.paf-branch.homeoffice.gov.uk
+        - paf-{{ .DRONE_SOURCE_BRANCH }}.internal.paf-branch.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-        - asc.internal.uat.sas-notprod.homeoffice.gov.uk
+        - paf.internal.uat.sas-notprod.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-        - stg.internal.asc.sas.homeoffice.gov.uk
+        - stg.internal.paf.sas.homeoffice.gov.uk
       {{ end }}
       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
       secretName: branch-tls-internal
@@ -26,11 +26,11 @@ spec:
       {{ end }}
   rules:
     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-    - host: asc-{{ .DRONE_SOURCE_BRANCH }}.internal.asc-branch.homeoffice.gov.uk
+    - host: paf-{{ .DRONE_SOURCE_BRANCH }}.internal.paf-branch.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-    - host: asc.internal.uat.sas-notprod.homeoffice.gov.uk
+    - host: paf.internal.uat.sas-notprod.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-    - host: stg.internal.asc.sas.homeoffice.gov.uk
+    - host: stg.internal.paf.sas.homeoffice.gov.uk
     {{ end }}
       http:
         paths:

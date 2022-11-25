@@ -34,22 +34,22 @@ spec:
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: asc-rds
+                  name: paf-rds
                   key: endpoint
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: asc-rds
+                  name: paf-rds
                   key: username
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
-                  name: asc-rds
+                  name: paf-rds
                   key: password
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
-                  name: asc-rds
+                  name: paf-rds
                   key: db_name
             - name: NODE_ENV
               value: production

@@ -12,10 +12,10 @@ spec:
   tls:
     - hosts:
       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-        - {{ .DRONE_BUILD_NUMBER }}.asc-branch.homeoffice.gov.uk
-        - asc-{{ .DRONE_SOURCE_BRANCH }}.asc-branch.homeoffice.gov.uk
+        - {{ .DRONE_BUILD_NUMBER }}.paf-branch.homeoffice.gov.uk
+        - paf-{{ .DRONE_SOURCE_BRANCH }}.paf-branch.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-        - asc.uat.sas-notprod.homeoffice.gov.uk
+        - paf.uat.sas-notprod.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .PROD_ENV }}
         - {{ .PRODUCTION_URL }}
       {{ end }}
@@ -26,9 +26,9 @@ spec:
       {{ end }}
   rules:
     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-    - host: asc-{{ .DRONE_SOURCE_BRANCH }}.asc-branch.homeoffice.gov.uk
+    - host: paf-{{ .DRONE_SOURCE_BRANCH }}.paf-branch.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-    - host: asc.uat.sas-notprod.homeoffice.gov.uk
+    - host: paf.uat.sas-notprod.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .PROD_ENV }}
     - host: {{ .PRODUCTION_URL }}
     {{ end }}

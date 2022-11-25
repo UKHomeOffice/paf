@@ -63,28 +63,28 @@ spec:
               valueFrom:
                 secretKeyRef:
                   key: port
-                  name: asc-rds
+                  name: paf-rds
             {{ end }}
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
                   key: endpoint
-                  name: asc-rds
+                  name: paf-rds
             - name: DB_NAME
               valueFrom:
                 secretKeyRef:
                   key: db_name
-                  name: asc-rds
+                  name: paf-rds
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
                   key: username
-                  name: asc-rds
+                  name: paf-rds
             - name: DB_PASS
               valueFrom:
                 secretKeyRef:
                   key: password
-                  name: asc-rds
+                  name: paf-rds
           resources:
             requests:
               memory: 10Mi

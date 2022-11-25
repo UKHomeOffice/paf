@@ -19,7 +19,7 @@ spec:
     {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
     - data-service.uat.sas-notprod.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-    - data-service-{{ .DRONE_SOURCE_BRANCH }}.asc-branch.homeoffice.gov.uk
+    - data-service-{{ .DRONE_SOURCE_BRANCH }}.paf-branch.homeoffice.gov.uk
     {{ end }}
     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
     secretName: branch-tls-external
@@ -34,7 +34,7 @@ spec:
   {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
   - host: data-service.uat.sas-notprod.homeoffice.gov.uk
   {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-  - host: data-service-{{ .DRONE_SOURCE_BRANCH }}.asc-branch.homeoffice.gov.uk
+  - host: data-service-{{ .DRONE_SOURCE_BRANCH }}.paf-branch.homeoffice.gov.uk
   {{ end }}
     http:
       paths:
