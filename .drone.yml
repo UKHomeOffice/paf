@@ -20,14 +20,14 @@ environment:
 
 trigger:
   branch:
-    - feature/paf-16
+    - feature/*
     - master
 
 linting: &linting
   pull: if-not-exists
   image: node:14
   environment:
-    NOTIFY_KEY: USE_MOCK
+    NOTIFY_STUB: true
   commands:
     - yarn run test:lint
 
@@ -35,7 +35,7 @@ unit_tests: &unit_tests
   pull: if-not-exists
   image: node:14
   environment:
-    NOTIFY_KEY: USE_MOCK
+    NOTIFY_STUB: true
   commands:
     - yarn run test:unit
 
@@ -45,12 +45,29 @@ sonar_scanner: &sonar_scanner
   commands:
     - sonar-scanner -Dproject.settings=./sonar-project.properties
 
+ui_integration_tests: &ui_integration_tests
+  pull: if-not-exists
+  image: node:14
+  environment:
+    NOTIFY_STUB: true
+  commands:
+    - yarn run test:ui-integration
+
+accessibility_tests: &accessibility_tests
+  pull: if-not-exists
+  image: buildkite/puppeteer:8.0.0@sha256:b6cebc17bfa8e7a7abfc3ab14d6f2ddbdf42b9e81b8ad786c6693385665998d5
+  environment:
+    NOTIFY_STUB: true
+    ENVIRONMENT: DRONE
+  volumes:
+    - name: dockersock
+      path: /root/.dockersock
+  commands:
+    - yarn run test:accessibility
+
 acceptance_tests: &acceptance_tests
   pull: if-not-exists
   image: mcr.microsoft.com/playwright:v1.12.3-focal
-  environment:
-    CUCUMBER_PUBLISH_TOKEN:
-      from_secret: CUCUMBER_PUBLISH_TOKEN
 
 steps:
   - name: clone_repos
@@ -66,7 +83,7 @@ steps:
       branch:
         include:
         - master
-        - feature/*
+      #  - feature/*
       event: [push, pull_request]
 
   - name: setup_deploy
@@ -81,52 +98,7 @@ steps:
       branch:
         include:
         - master
-        - feature/*
-      event: push
-
-  - name: linting_deploy
-    <<: *linting
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: push
-
-  - name: unit_tests_deploy
-    <<: *unit_tests
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: push
-
-  - name: sonar_scanner_deploy
-    <<: *sonar_scanner
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: push
-
-  - name: ui_integration_tests_deploy
-    <<: *ui_integration_tests
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: push
-
-  - name: accessibility_tests_deploy
-    <<: *accessibility_tests
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
+      #  - feature/*
       event: push
 
   - name: build_image
@@ -142,7 +114,7 @@ steps:
       branch:
         include:
           - master
-          - feature/*
+        #  - feature/*
       event: [push, pull_request]
 
   - name: image_to_quay
@@ -160,7 +132,7 @@ steps:
       branch:
         include:
           - master
-          - feature/paf-16
+        #  - feature/paf-16
       event: [push, pull_request]
 
   # Deploy to pull request UAT environment
@@ -168,143 +140,15 @@ steps:
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
     environment:
-      # NOTIFY_STUB: stub
       KUBE_SERVER:
         from_secret: kube_server_dev
       KUBE_TOKEN:
-        from_secret: kube_token_sas_dev
+        from_secret: kube_token_dev
     commands:
       - bin/deploy.sh $${BRANCH_ENV}
     when:
-    #  branch: master
-      branch:
-        include:
-          - master
+      branch: master
       event: pull_request
-
-# - name: setup_branch
-  #   pull: if-not-exists
-  #   image: node:14
-  #   environment:
-  #     NOTIFY_STUB: true
-  #   commands:
-  #     - yarn install --frozen-lockfile
-  #     - yarn run postinstall
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #         - feature/*
-  #     event: pull_request
-  #
-  # - name: linting_branch
-  #   <<: *linting
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #         - feature/*
-  #     event: pull_request
-  #
-  # - name: unit_tests_branch
-  #   <<: *unit_tests
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #         - feature/*
-  #     event: pull_request
-  #
-  # - name: sonar_scanner_branch
-  #   <<: *sonar_scanner
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #         - feature/*
-  #     event: pull_request
-  #
-  # - name: ui_integration_tests_branch
-  #   <<: *ui_integration_tests
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #         - feature/*
-  #     event: pull_request
-  #
-  # - name: accessibility_tests_branch
-  #   <<: *accessibility_tests
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #         - feature/*
-  #     event: pull_request
-  #
-  # - name: acceptance_tests_branch
-  #   <<: *acceptance_tests
-  #   commands:
-  #     - export ACCEPTANCE_HOST_NAME=https://$${APP_NAME}-$${DRONE_SOURCE_BRANCH}.internal.asc-branch.homeoffice.gov.uk
-  #     - npx playwright install
-  #     - npm run test:acceptance
-  #   when:
-  #     branch: master
-  #     event: pull_request
-  #
-  # # Snyk & Anchore security scans which run after branch deployment to prevent blocking of PR UAT tests
-  # - name: snyk_scan
-  #   pull: if-not-exists
-  #   image: node:14
-  #   environment:
-  #     NOTIFY_STUB: true
-  #     SNYK_TOKEN:
-  #       from_secret: snyk_token
-  #   commands:
-  #     - yarn run test:snyk
-  #   when:
-  #     branch:
-  #       include:
-  #         - master
-  #         - feature/*
-  #     event: pull_request
-  #
-  # - name: anchore_scan
-  #   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
-  #   pull: always
-  #   environment:
-  #     IMAGE_NAME: additional-security-checks:${DRONE_COMMIT_SHA}
-  #     LOCAL_IMAGE: true
-  #     TOLERATE: medium
-  #     WHITELIST_FILE: hof-services-config/Additional_Security_Checks/anchore-cve-exceptions.txt
-  #   when:
-  #     branch: master
-  #     event: pull_request
-
-  # Deploy to Master UAT environment
-#  - name: deploy_to_uat
-#    pull: if-not-exists
-#    image: quay.io/ukhomeofficedigital/kd:v1.14.0
-#    environment:
-#      KUBE_SERVER:
-#        from_secret: kube_server_dev
-#      KUBE_TOKEN:
-#        from_secret: kube_token_dev
-#    commands:
-#      - bin/deploy.sh $${UAT_ENV}
-#    when:
-#      branch: master
-#      event: push
-
-  # - name: acceptance_tests_uat
-  #   <<: *acceptance_tests
-  #   commands:
-  #     - export ACCEPTANCE_HOST_NAME=https://$${APP_NAME}.uat.internal.sas-notprod.homeoffice.gov.uk
-  #     - npx playwright install
-  #     - npm run test:acceptance
-  #   when:
-  #     branch: master
-  #     event: push
 
   # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows
   - name: get_pr_branch
@@ -339,7 +183,10 @@ steps:
     commands:
       - bin/deploy.sh tear_down
     when:
-      branch: master
+      branch:
+        include:
+          - master
+         # - feature/*
       event: push
 
  # # Deploy to Staging environment
@@ -502,9 +349,9 @@ steps:
 #      event: cron
 #      status: failure
 
-#services:
-#  - name: docker
-#    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
+services:
+  - name: docker
+    image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
 
 #  # Anchore scanning needs background service to run
 #  - name: anchore-submission-server
@@ -513,7 +360,7 @@ steps:
 #    commands:
 #      - /run.sh server
 
-  # Redis session setup in background so integration tests can run
+# Redis session setup in background so integration tests can run
 #  - name: session
 #    image: redis
 #    volumes:
@@ -523,3 +370,4 @@ steps:
 volumes:
   - name: dockersock
     temp: {}
+

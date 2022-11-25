@@ -1,0 +1,57 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ms-schema
+spec:
+  template:
+    spec:
+      containers:
+        - name: ms-schema
+          # release v1.6.0
+          image: quay.io/ukhomeofficedigital/ms-schema:e4a8f7be112bcf5a4380b0cfe49f743fa1232b36
+          command: ["npm",  "run", "db:{{ .SCHEMA_ACTION }}"]
+          env:
+            - name: HOF_USER_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: users
+                  key: hof
+            - name: RESOLVER_USER_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: users
+                  key: resolver
+            - name: GRAFANA_USER_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: users
+                  key: grafana
+            - name: REPORTS_USER_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: users
+                  key: reports
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: paf-rds
+                  key: endpoint
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: paf-rds
+                  key: username
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: paf-rds
+                  key: password
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: paf-rds
+                  key: db_name
+            - name: NODE_ENV
+              value: production
+      restartPolicy: Never
+  backoffLimit: 0
