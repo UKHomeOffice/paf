@@ -559,7 +559,7 @@ steps:
 #    commands:
 #      - /run.sh server
 
-  # Redis session setup in background so integration tests can run
+# Redis session setup in background so integration tests can run
 #  - name: session
 #    image: redis
 #    volumes:
