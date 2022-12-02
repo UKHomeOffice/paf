@@ -150,7 +150,7 @@ steps:
       KUBE_TOKEN:
         from_secret: kube_token_dev
     commands:
-      - bin/deploy.sh $${BRANCH_ENV}
+      - sh bin/deploy.sh $${BRANCH_ENV}
     when:
       branch:
         include:
