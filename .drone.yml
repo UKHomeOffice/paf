@@ -136,7 +136,7 @@ steps:
       branch:
         include:
           - main
-          - feature/*
+          - feature/paf-16
       event: [push, pull_request]
 
   # Deploy to pull request UAT environment
@@ -150,12 +150,12 @@ steps:
       KUBE_TOKEN:
         from_secret: kube_token_dev
     commands:
-      - sh bin/deploy.sh $${BRANCH_ENV}
+      - bin/deploy.sh $${BRANCH_ENV}
     when:
       branch:
         include:
           - main
-          - feature/*
+          - feature/paf-16
       event: [push, pull_request]
 
   - name: setup_branch
