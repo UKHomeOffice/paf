@@ -300,7 +300,7 @@ steps:
       KUBE_TOKEN:
         from_secret: kube_token_dev
     commands:
-      - bin/deploy.sh $${UAT_ENV}
+      - sh bin/deploy.sh $${UAT_ENV}
     when:
       branch: 
         include:
