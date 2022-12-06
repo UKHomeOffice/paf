@@ -80,13 +80,13 @@ steps:
   #       - main
   #     event: push
 
-  - name: linting_deploy
-    <<: *linting
-    when:
-      branch:
-        include:
-          - main
-      event: push
+  # - name: linting_deploy
+  #   <<: *linting
+  #   when:
+  #     branch:
+  #       include:
+  #         - main
+  #     event: push
 
   # - name: unit_tests_deploy
   #   <<: *unit_tests
@@ -167,14 +167,14 @@ steps:
   #         - feature/*
   #     event: [pull_request, push]
 
-  - name: linting_branch
-    <<: *linting
-    when:
-      branch:
-        include:
-          - main
-          # - feature/*
-      event: [pull_request, push]
+  # - name: linting_branch
+  #   <<: *linting
+  #   when:
+  #     branch:
+  #       include:
+  #         - main
+  #         # - feature/*
+  #     event: [pull_request, push]
 
   - name: unit_tests_branch
     <<: *unit_tests
