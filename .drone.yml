@@ -258,37 +258,6 @@ steps:
           - main
       event: pull_request
 
-
-  #  TEST Deploy to main UAT environment
-  # - name: TEST_deploy_to_uat
-  #   pull: if-not-exists
-  #   image: quay.io/ukhomeofficedigital/kd:v1.14.0
-  #   environment:
-  #     KUBE_SERVER:
-  #       from_secret: kube_server_dev
-  #     KUBE_TOKEN:
-  #       from_secret: kube_token_sas_dev
-  #   commands:
-  #     - bin/deploy.sh $${UAT_ENV}
-  #   when:
-  #     branch: main
-  #     event: pull_request
-  #
-  # # TEST Deploy to main STG environment
-  # - name: TEST_deploy_to_stg
-  #   pull: if-not-exists
-  #   image: quay.io/ukhomeofficedigital/kd:v1.14.0
-  #   environment:
-  #     KUBE_SERVER:
-  #       from_secret: kube_server_stg
-  #     KUBE_TOKEN:
-  #       from_secret: kube_token_stg
-  #   commands:
-  #     - bin/deploy.sh $${STG_ENV}
-  #   when:
-  #     branch: main
-  #     event: pull_request
-
   # Deploy to main UAT environment
   - name: deploy_to_uat
     pull: if-not-exists
