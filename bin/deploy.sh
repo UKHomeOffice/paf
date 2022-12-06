@@ -12,10 +12,10 @@ kd='kd --insecure-skip-tls-verify --timeout 10m --check-interval 10s'
 if [[ $1 == 'tear_down' ]]; then
   export KUBE_NAMESPACE=$BRANCH_ENV
   export DRONE_SOURCE_BRANCH=$(cat /root/.dockersock/branch_name.txt)
-
   $kd --delete -f kube/configmaps/configmap.yml
   $kd --delete -f kube/redis -f kube/app
-  echo "Torn Down UAT Branch - paf-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
+  # echo "Torn Down UAT Branch - paf-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
+  echo "Torn Down ${Branch_ENV} - paf-${DRONE_SOURCE_BRANCH}.internal.${BRANCH_ENV}.homeoffice.gov.uk"
   exit 0
 fi
 
@@ -44,5 +44,6 @@ fi
 sleep $READY_FOR_TEST_DELAY
 
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
-  echo "UAT Branch - paf-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
+  # echo "UAT Branch - paf-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
+    echo "${Branch_ENV} - paf-${DRONE_SOURCE_BRANCH}.internal.${BRANCH_ENV}.homeoffice.gov.uk"
 fi

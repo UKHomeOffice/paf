@@ -1,5 +1,6 @@
 #! /bin/bash
 set -e
+set -x
 
 export KUBE_NAMESPACE=$1
 export IGNORE_NETPOL=("acp-deny-all")
