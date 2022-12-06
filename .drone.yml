@@ -176,14 +176,14 @@ steps:
   #         # - feature/*
   #     event: [pull_request, push]
 
-  - name: unit_tests_branch
-    <<: *unit_tests
-    when:
-      branch:
-        include:
-        - main
-        - feature/*
-      event: pull_request
+  # - name: unit_tests_branch
+  #   <<: *unit_tests
+  #   when:
+  #     branch:
+  #       include:
+  #       - main
+  #       - feature/*
+  #     event: pull_request
 
   # - name: sonar_scanner_branch
   #   <<: *sonar_scanner
@@ -328,7 +328,7 @@ steps:
       - name: dockersock
         path: /root/.dockersock
     commands:
-      - bin/deploy.sh tear_down
+      - sh bin/deploy.sh tear_down
     when:
       branch: main
       event: push
