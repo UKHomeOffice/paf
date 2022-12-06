@@ -227,7 +227,6 @@ steps:
       branch:
         include:
           - main
-          - feature/*
       event: pull_request
 
   # Snyk & Anchore security scans which run after branch deployment to prevent blocking of PR UAT tests
@@ -318,7 +317,6 @@ steps:
       branch: 
         include:
           - main
-          - feature/*
       event: push
       # branch: main
       # event: push
@@ -336,7 +334,6 @@ steps:
       branch: 
         include:
           - main
-          - feature/*
       event: push
       # branch: main
       # event: push

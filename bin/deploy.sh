@@ -15,7 +15,7 @@ if [[ $1 == 'tear_down' ]]; then
   $kd --delete -f kube/configmaps/configmap.yml
   $kd --delete -f kube/redis -f kube/app
   # echo "Torn Down UAT Branch - paf-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
-  echo "Torn Down ${Branch_ENV} - paf-${DRONE_SOURCE_BRANCH}.internal.${BRANCH_ENV}.homeoffice.gov.uk"
+  echo "Torn Down Branch - paf-${DRONE_SOURCE_BRANCH}.internal.${BRANCH_ENV}.homeoffice.gov.uk"
   exit 0
 fi
 
@@ -45,5 +45,5 @@ sleep $READY_FOR_TEST_DELAY
 
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
   # echo "UAT Branch - paf-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
-    echo "${Branch_ENV} - paf-${DRONE_SOURCE_BRANCH}.internal.${BRANCH_ENV}.homeoffice.gov.uk"
+    echo "Branch - paf-${DRONE_SOURCE_BRANCH}.internal.${BRANCH_ENV}.homeoffice.gov.uk"
 fi
