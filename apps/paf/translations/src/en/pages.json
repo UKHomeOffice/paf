@@ -1,7 +1,4 @@
 {
-  "start": {
-    "header": "Public Allegations Form"
-  },
   "crime-type": {
     "header": "What is the crime you are reporting? - TO DO"
   },
@@ -21,7 +18,100 @@
     "header": "Do you know where the crime takes place, took place or will take place? - TO DO"
   },
   "report-person": {
-    "header": "The Person - TO Do"
+    "header": "The Person"
+  },
+  "report-person-name": {
+    "header": "Individual's name"
+  },
+  "report-person-nationality": {
+    "header": "Nationality"
+  },
+  "report-person-place-of-birth": {
+    "header": "Place of birth"
+  },
+  "report-person-id": {
+    "header": "Identification"
+  },
+  "report-person-location-uk-contact-details": {
+    "header": "Address Details (UK)"
+  },
+  "report-person-location-outside-uk-contact-details": {
+    "header": "Address Details (Outside UK)"
+  },
+  "report-person-location-travel-to-uk": {
+    "header": "Travelling to the UK"
+  },
+  "report-person-location-contact-details": {
+    "header": "Contact Details"
+  },
+  "report-person-occupation-type": {
+    "header": "What type of job or occupation does the person have?"
+  },
+  "report-person-occupation-hours": {
+    "header": "What hours of the day does the person work?"
+  },
+  "report-person-occupation-days": {
+    "header": "What days does the person work?"
+  },
+  "report-person-occupation-company-name": {
+    "header": "Company name"
+  },
+  "report-person-occupation-company-contact-details": {
+    "header": "Company address (if known)"
+  },
+  "report-person-occupation-company-phone": {
+    "header": "Company's telephone number including area code (if known)"
+  },
+  "report-person-occupation-company-manager": {
+    "header": "Who owns or manages the company?"
+  },
+  "report-person-study-subject": {
+    "header": "Do you know the course or the subject of study?"
+  },
+  "report-person-study-hours": {
+    "header": "What hours of the day does the person study?"
+  },
+  "report-person-study-days": {
+    "header": "What days does the person study?"
+  },
+  "report-person-study-name": {
+    "header": "Name of college or university"
+  },
+  "report-person-study-contact-details": {
+    "header": "Address"
+  },
+  "report-person-study-phone": {
+    "header": "Telephone number"
+  },
+  "report-person-study-email": {
+    "header": "Email address"
+  },
+  "report-person-study-url": {
+    "header": "Website address"
+  },
+  "report-person-study-manager": {
+    "header": "Who owns or manages the institution?"
+  },
+  "report-person-transport-details": {
+    "header": "Vehicle details"
+  },
+  "report-person-description": {
+    "header": "Please tell us anything else about the person you are reporting that you think we should know"
+  },
+  "person-details": {
+    "header": "Additional People"
+  },
+  "add-person": {
+    "header": "Individual's name"
+  },
+  "add-person-nationality": {
+    "header": "Nationality"
+  },
+  "add-person-place-of-birth": {
+    "header": "Place of birth"
+  },
+  "add-person-identity": {
+    "header": "Identification"
   },
   "report-organisation": {
     "header": "The Organisation - Do you wish to report a company, business or education provider? - TO DO"
@@ -32,10 +122,48 @@
   "other-info-another-crime": {
     "header": "Do you want to report another crime by the same person or business? - TO DO"
   },
-  "other-info-file-upload":{
+  "other-info-file-upload": {
     "header": "Please attach any documents which may help us investigate this crime - TO DO"
   },
   "about-you": {
     "header": "About You - TO DO"
+  },
+  "confirm": {
+    "header": "Check your answers before submitting your application.",
+    "sections": {
+      "crime": {
+        "header": "The Crime"
+      },
+      "person": {
+        "header": "Report a Person"
+      },
+      "personalDetails": {
+        "header": "Person's Personal Details"
+      },
+      "personId": {
+        "header": "Person's Identification Details"
+      },
+      "personLocation": {
+        "header": "Person's Location Details"
+      },
+      "personOccupation": {
+        "header": "Person's Occupation Details"
+      },
+      "personStudy": {
+        "header": "Person's Study Details"
+      },
+      "personTransport": {
+        "header": "Person's Transport Details"
+      },
+      "personDescription": {
+        "header": "The Person - Other Information"
+      },
+      "person-details": {
+        "header": "Additional People"
+      },
+      "organisation": {
+        "header": "The Organisation"
+      }
+    }
   }
 }

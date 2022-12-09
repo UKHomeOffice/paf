@@ -1,5 +1,3 @@
- # Report an immigration or customs crime
-
 The Home Office takes reports of crime made by the general public very seriously. If you suspect that someone is working illegally, has no right to be in the UK or is involved in smuggling or other criminal activity, we want to hear from you.
 
 You can submit information anonymously or you can give us your name and address if you wish. We will treat any information you give us as confidential.
