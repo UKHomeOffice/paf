@@ -1,0 +1,12 @@
+{{<partials-page}}
+   {{$page-content}}
+     {{> partials-items-table}}
+     {{#noMorePersons}}
+     <p><a role="link" class="govuk-link" aria-disabled="true">Add another {{addAnotherLinkText}}</a></p>
+     {{/noMorePersons}}
+     {{^noMorePersons}}
+     <p><a href="{{baseUrl}}/{{addStep}}" class="govuk-link add-another">Add another {{addAnotherLinkText}}</a></p>
+     {{/noMorePersons}}
+     {{#input-submit}}continue{{/input-submit}}
+   {{/page-content}}
+ {{/partials-page}}
