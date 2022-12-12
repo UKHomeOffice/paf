@@ -85,7 +85,6 @@ spec:
                 secretKeyRef:
                   name: sas-paf-branch-sqs-queue
                   key: secret_access_key
-            {{ end }}
           {{ if not (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
           livenessProbe:
             httpGet:
