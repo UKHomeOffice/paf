@@ -1,0 +1,19 @@
+module.exports = [
+  '/',
+  '/start',
+  '/crime-type',
+  '/crime-children',
+  '/when-crime-happened',
+  '/crime-transport',
+  '/crime-delivery',
+  '/crime-location',
+  '/report-person',
+  '/report-organisation',
+  '/other-info-description',
+  '/other-info-another-crime',
+  '/other-info-file-upload',
+  '/about-you',
+  '/confirm',
+  '/declaration',
+  '/confirmation'
+];

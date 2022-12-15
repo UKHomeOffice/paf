@@ -15,8 +15,9 @@
     "start": "node server.js",
     "start:dev": "hof-build watch",
     "dev": "hof-build watch --env",
-    "test": "yarn run test:lint",
+    "test": "yarn run test:lint && yarn run test:ui-integration",
     "test:lint": "eslint .",
+    "test:ui-integration": "NODE_ENV=test _mocha \"test/_ui-integration/**/*.spec.js\" --exit",
     "build": "hof-build",
     "postinstall": "yarn run build"
   },
@@ -33,8 +34,23 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "chai-subset": "^1.6.0",
     "eslint": "7.30.0",
-    "eslint-config-hof": "^1.3.1"
+    "eslint-config-hof": "^1.3.1",
+    "jsdom": "^16.4.0",
+    "mocha": "^9.2.1",
+    "sinon": "^11.1.2",
+    "sinon-chai": "^3.7.0",
+    "supertest": "^5.0.0",
+    "supertest-session": "^4.1.0"
+  },
+  "mocha": {
+    "reporter": "spec",
+    "require": "test/setup.js",
+    "recursive": "true",
+    "timeout": "9000"
   },
   "keywords": [],
   "author": ""
