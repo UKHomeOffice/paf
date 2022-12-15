@@ -2,6 +2,7 @@
   "appName":"Public Allegations Form",
   "theme": "govUK",
   "routes": [
+    "./apps/common",
     "./apps/paf"
   ],
   "session": {

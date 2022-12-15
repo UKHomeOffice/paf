@@ -10,13 +10,6 @@ describe('the journey of a paf application', () => {
     passStep = testApp.passStep;
     initSession = testApp.initSession;
   });
-
-  it('goes to the crime-type page', async () => {
-    const URI = '/start';
-    await initSession(URI);
-    const response = await passStep(URI, {});
-    expect(response.text).to.contain('Found. Redirecting to /paf/crime-type');
-  });
   
   it('goes to the crime-children page', async () => {
     const URI = '/crime-type';
