@@ -4,12 +4,7 @@ module.exports = {
   name: 'paf',
   baseUrl: '/paf',
   steps: {
-    '/start': {
-      template: 'start',
-      next: '/crime-type'
-    },
     '/crime-type': {
-      fields: ['crime-type'],
       next: '/crime-children'
     },
     '/crime-children': {

@@ -5,6 +5,7 @@ describe('Server.js app file', () => {
   let hofStub;
   let useStub;
   let sendStub;
+  let appsCommonStub;
   let appsPafStub;
   let req;
   let res;
@@ -27,6 +28,7 @@ describe('Server.js app file', () => {
     next = sinon.stub();
     hofStub = sinon.stub();
     useStub = sinon.stub();
+    appsCommonStub = sinon.stub();
     appsPafStub = sinon.stub();
 
     useStub.onCall(0).yields(req, res, next);
@@ -35,6 +37,7 @@ describe('Server.js app file', () => {
 
     proxyquire('../server', {
       hof: hofStub,
+      './apps/common': appsCommonStub,
       './apps/paf': appsPafStub,
       './config': { env: 'test' }
     });
@@ -46,6 +49,7 @@ describe('Server.js app file', () => {
         appName: 'Public Allegations Form',
         theme: 'govUK',
          routes: [
+          appsCommonStub,
           appsPafStub
         ],
         session: { name: 'paf.hof.sid' }
