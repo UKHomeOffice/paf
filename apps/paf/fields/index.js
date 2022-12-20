@@ -221,7 +221,7 @@ module.exports = {
     dependent: {
       field: 'vehicle-type',
       value: 'cars'
-    },
+    }
   },
   'crime-hgv-group': {
     mixin: 'radio-group',
@@ -238,7 +238,7 @@ module.exports = {
     dependent: {
       field: 'vehicle-type',
       value: 'hgvs'
-    },
+    }
   },
   'crime-lorry-group': {
     mixin: 'radio-group',
@@ -252,7 +252,7 @@ module.exports = {
     dependent: {
       field: 'vehicle-type',
       value: 'lorries'
-    },
+    }
   },
   'crime-van-group': {
     mixin: 'radio-group',
@@ -268,7 +268,7 @@ module.exports = {
     dependent: {
       field: 'vehicle-type',
       value: 'vans'
-    },
+    }
   },
   'boat-type': {
     isPageHeading: true,
@@ -320,7 +320,7 @@ module.exports = {
     dependent: {
       field: 'boat-type',
       value: 'carriers'
-    },
+    }
   },
   'crime-general-cargo-group': {
     mixin: 'radio-group',
@@ -334,7 +334,7 @@ module.exports = {
     dependent: {
       field: 'boat-type',
       value: 'general-cargos'
-    },
+    }
   },
   'crime-vessel-group': {
     mixin: 'radio-group',
@@ -349,7 +349,7 @@ module.exports = {
     dependent: {
       field: 'boat-type',
       value: 'vessels'
-    },
+    }
   },
   'boat-name': {
     mixin: 'input-text'
@@ -913,7 +913,7 @@ module.exports = {
     dependent: {
       field: 'report-person-transport-type',
       value: 'cars'
-    },
+    }
   },
   'report-person-transport-hgv-group': {
     mixin: 'radio-group',
@@ -930,7 +930,7 @@ module.exports = {
     dependent: {
       field: 'report-person-transport-type',
       value: 'hgv'
-    },
+    }
   },
   'report-person-transport-lorry-group': {
     mixin: 'radio-group',
@@ -944,7 +944,7 @@ module.exports = {
     dependent: {
       field: 'report-person-transport-type',
       value: 'lorries'
-    },
+    }
   },
   'report-person-transport-van-group': {
     mixin: 'radio-group',
@@ -960,7 +960,7 @@ module.exports = {
     dependent: {
       field: 'report-person-transport-type',
       value: 'vans'
-    },
+    }
   },
   'report-person-transport-make': {
     mixin: 'input-text'
@@ -1166,6 +1166,16 @@ module.exports = {
       field: 'other-info-another-crime',
       value: 'yes'
     }
+  },
+  'other-info-file-upload': {
+    mixin: 'input-file',
+    className: 'govuk-file-upload',
+    attributes: []
+  },
+  'add-other-info-file-upload': {
+    isPageHeading: true,
+    mixin: 'radio-group',
+    options: ['yes', 'no']
   },
   'about-you-first-name': {
     mixin: 'input-text'

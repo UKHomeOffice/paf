@@ -1087,6 +1087,21 @@
     },
     "legendClassName": "govuk-fieldset__legend"
   },
+  "other-info-file-upload": {
+    "hint": "You can add up to 3 documents",
+    "label": "Attachment"
+  },
+  "other-info-file-uploads-add-another": {
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    },
+    "legendClassName": "govuk-fieldset__legend"
+  },
   "persons": {
     "label": "Additional People",
     "changeLinkDescription": "Additional People"
@@ -1356,5 +1371,8 @@
   },
   "when-to-contact": {
     "label": "When would you like us to contact you?"
+  },
+  "images": {
+    "label": "Attachments"
   }
 }

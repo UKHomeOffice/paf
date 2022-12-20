@@ -1,4 +1,9 @@
 'use strict';
+const saveImage = require('./behaviours/save-file');
+const removeImage = require('./behaviours/remove-file');
+const CombineAndLoopFields = require('hof').components.combineAndLoopFields;
+const limitDocs = require('./behaviours/limit-documents');
+const disableUpload = require('./behaviours/disable-file-upload');
 const SummaryPageBehaviour = require('hof').components.summary;
 const transportBehaviour = require('./behaviours/transport-behaviour');
 const Aggregate = require('./behaviours/aggregator');
@@ -357,7 +362,7 @@ module.exports = {
           field: 'report-person-occupation',
           value: 'yes'
         }
-      },
+      }
       ]
     },
     '/report-person-occupation-type': {
@@ -663,6 +668,36 @@ module.exports = {
       next: '/other-info-file-upload'
     },
     '/other-info-file-upload': {
+      behaviours: [saveImage('other-info-file-upload'), disableUpload],
+      fields: ['other-info-file-upload'],
+      continueOnEdit: true,
+      forks: [{
+        target: '/add-other-info-file-upload',
+        condition: req => {
+          if (req.form.values['other-info-file-upload']) {
+            return true
+          }
+          return false;
+        }
+      }],
+      next: '/about-you'
+    },
+    '/add-other-info-file-upload': {
+      template: 'list-add-looped-files',
+      behaviours: [CombineAndLoopFields({
+        groupName: 'other-info-file-uploads',
+        fieldsToGroup: [
+          'other-info-file-upload'
+        ],
+        groupOptional: true,
+        removePrefix: 'other-',
+        combineValuesToSingleField: 'record',
+        returnTo: '/other-info-file-upload'
+      }), removeImage, limitDocs],
+      next: '/about-you',
+      locals: {
+        section: 'other-info-file-upload'
+      }
     },
     '/about-you': {
       fields: ['how-did-you-find-out-about-the-crime'],
