@@ -1,1 +1,18 @@
-{}
+{
+  "other-info-file-upload": {
+    "label": "Attachment"
+  },
+  "other-info-file-uploads-add-another": {
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "images": {
+    "label": "Attachments"
+  }
+}

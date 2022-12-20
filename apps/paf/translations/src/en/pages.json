@@ -33,9 +33,36 @@
     "header": "Do you want to report another crime by the same person or business? - TO DO"
   },
   "other-info-file-upload":{
-    "header": "Please attach any documents which may help us investigate this crime - TO DO"
+    "header": "Please attach any documents which may help us investigate this crime"
+  },
+  "add-other-info-file-upload": {
+    "header": "Do you need to add any other documents?",
+    "hint": "You can submit up to 3 attachments"
+  },
+  "other-info-file-uploads": {
+    "header": "Attachments"
   },
   "about-you": {
     "header": "About You - TO DO"
+  },
+  "confirm": {
+    "header": "Check your answers before submitting your application.",
+    "sections": {
+      "crime": {
+        "header": "The Crime"
+      },
+      "person": {
+        "header": "The Person"
+      },
+      "organisation": {
+        "header": "The Organisation"
+      },
+      "otherInfo": {
+        "header": "Other Info"
+      },
+      "aboutYou": {
+        "header": "About You"
+      }
+    }
   }
 }
