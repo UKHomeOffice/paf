@@ -1,0 +1,23 @@
+{{#fields}}
+  {{#renderField}}{{/renderField}}
+{{/fields}}
+{{#input-submit}}continue{{/input-submit}}
+
+  <div id="{{section}}-summary">
+    {{^values.images}}
+    <h2 class="govuk-heading-m">No files added</h2>
+    {{/values.images}}
+    {{#values.images.length}}
+    <h2>{{#t}}pages.{{field}}.header{{/t}}</h2>
+    {{/values.images.length}}
+    <table class="table-{{section}}-loop">
+      <tbody>
+        {{#values.images}}
+        <tr class="{{section}}-records">
+          <td><pre class="looped-records">{{name}}</pre></td>
+          <td><a href="?delete={{id}}">Delete</a></td>
+        </tr>
+        {{/values.images}}
+      </tbody>
+    </table>
+  </div>
