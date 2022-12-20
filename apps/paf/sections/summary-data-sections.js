@@ -217,7 +217,17 @@ module.exports = {
   'other-info': [
     'other-info-description',
     'other-info-another-crime',
-    'other-info-another-crime-description'
+    'other-info-another-crime-description',
+    {
+      step: '/add-other-info-file-upload',
+      field: 'images',
+      parse: (list, req) => {
+        if (!req.sessionModel.get('steps').includes('/add-other-info-file-upload')) {
+          return null;
+        }
+        return list && list.map(a => a.name).join('\n————————————————\n') || 'None';
+      }
+    }
   ],
   'about-you': [
     'how-did-you-find-out-about-the-crime',
@@ -237,5 +247,5 @@ module.exports = {
     'are-you-eighteen',
     'contact-number',
     'when-to-contact'
-  ]
+  ],
 };
