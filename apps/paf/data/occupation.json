@@ -1,0 +1,94 @@
+[
+  {
+    "value": "building-construction",
+    "label": "Building/Construction"
+  },
+  {
+    "value": "care-assistant",
+    "label": "Care assistant"
+  },
+  {
+    "value": "catering-and-hospitality",
+    "label": "Catering and Hospitality"
+  },
+  {
+    "value": "childcare",
+    "label": "Childcare"
+  },
+  {
+    "value": "cleaner",
+    "label": "Cleaner"
+  },
+  {
+    "value": "doctor-nurse-paramedic",
+    "label": "Doctor/Nurse/Paramedic"
+  },
+  {
+    "value": "domestic-worker",
+    "label": "Domestic worker"
+  },
+  {
+    "value": "driver",
+    "label": "Driver"
+  },
+  {
+    "value": "engineering",
+    "label": "Engineering"
+  },
+  {
+    "value": "factory-worker",
+    "label": "Factory worker"
+  },
+  {
+    "value": "farming-forestry-and-fishing",
+    "label": "Farming, Forestry and Fishing"
+  },
+  {
+    "value": "government-employee",
+    "label": "Government employee"
+  },
+  {
+    "value": "hairdressing-beauty-therapy",
+    "label": "Hairdressing/Beauty therapy"
+  },
+  {
+    "value": "Information-technology-IT",
+    "label": "Information technology (IT)"
+  },
+  {
+    "value": "office-work",
+    "label": "Office work"
+  },
+  {
+    "value": "port-airport-worker",
+    "label": "Port or Airport worker"
+  },
+  {
+    "value": "sales-and-retail",
+    "label": "Sales and Retail"
+  },
+  {
+    "value": "security",
+    "label": "Security"
+  },
+  {
+    "value": "self-employed",
+    "label": "Self-employed"
+  },
+  {
+    "value": "teacher-lecturer",
+    "label": "Teacher/Lecturer"
+  },
+  {
+    "value": "warehouse",
+    "label": "Warehouse"
+  },
+  {
+    "value": "other",
+    "label": "Other"
+  },
+  {
+    "value": "unknown",
+    "label": "I don't know"
+  }
+]
