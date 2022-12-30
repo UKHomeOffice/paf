@@ -1,4 +1,10 @@
 'use strict';
+const saveImage = require('./behaviours/save-image');
+const removeImage = require('./behaviours/remove-image');
+const CombineAndLoopFields = require('hof').components.combineAndLoopFields;
+const limitDocs = require('./behaviours/limit-documents');
+const disableUpload = require('./behaviours/disable-file-upload');
+const SummaryPageBehaviour = require('hof').components.summary;
 
 module.exports = {
   name: 'paf',
@@ -35,13 +41,35 @@ module.exports = {
       next: '/other-info-file-upload'
     },
     '/other-info-file-upload': {
-      next: '/about-you'
+      behaviours: [saveImage('other-info-file-upload'), disableUpload],
+      fields: ['other-info-file-upload'],
+      continueOnEdit: true,
+      next: '/add-other-info-file-upload'
+    },
+    '/add-other-info-file-upload': {
+      template: 'list-add-looped-items',
+      behaviours: [CombineAndLoopFields({
+        groupName: 'other-info-file-uploads',
+        fieldsToGroup: [
+          'other-info-file-upload'
+        ],
+        groupOptional: true,
+        removePrefix: 'other-',
+        combineValuesToSingleField: 'record',
+        returnTo: '/other-info-file-upload'
+      }), removeImage, limitDocs],
+      next: '/about-you',
+      locals: {
+        section: 'other-info-file-upload'
+      }
     },
     '/about-you': {
       next: '/confirm'
     },
 
     '/confirm': {
+      behaviours: [SummaryPageBehaviour, 'complete'],
+      sections: require('./sections/summary-data-sections'),
       next: '/declaration'
     },
     '/declaration': {
