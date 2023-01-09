@@ -24,7 +24,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser({limit: config.upload.maxFileSize}));
+if (config.env !== 'test') {
+  app.use(bodyParser({limit: config.upload.maxFileSize}));
+}
 
 if (config.env === 'development' || config.env === 'test') {
   app.use('/test/bootstrap-session', (req, res) => {

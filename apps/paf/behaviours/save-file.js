@@ -1,12 +1,10 @@
 'use strict';
 
 const _ = require('lodash');
-const Model = require('../models/image-upload');
+const Model = require('../models/file-upload');
 
 module.exports = name => superclass => class extends superclass {
   process(req) {
-    req.log(req.files);
-    req.log(req.files[name]);
     if (req.files && req.files[name]) {
       // set image name on values for filename extension validation
       // N:B validation controller gets values from

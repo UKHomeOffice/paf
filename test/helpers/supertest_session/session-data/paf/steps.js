@@ -12,6 +12,7 @@ module.exports = [
   '/other-info-description',
   '/other-info-another-crime',
   '/other-info-file-upload',
+  '/add-other-info-file-upload',
   '/about-you',
   '/confirm',
   '/declaration',

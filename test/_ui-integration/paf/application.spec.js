@@ -81,10 +81,19 @@ describe('the journey of a paf application', () => {
     expect(response.text).to.contain('Found. Redirecting to /paf/other-info-file-upload');
   });
 
-  it('goes to the about-you page', async () => {
+  it('goes to the add-other-info-file-upload page', async () => {
     const URI = '/other-info-file-upload';
     await initSession(URI);
     const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/add-other-info-file-upload');
+  });
+
+  it('goes to the about-you page', async () => {
+    const URI = '/add-other-info-file-upload';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'other-info-file-uploads-add-another': 'no'
+    });
     expect(response.text).to.contain('Found. Redirecting to /paf/about-you');
   });
 

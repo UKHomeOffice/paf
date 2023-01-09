@@ -10,7 +10,6 @@ module.exports = {
   person: [
   ],
   organisation: [
-    'report-organisation'
   ],
   otherInfo: [
     'other-info-file-upload',

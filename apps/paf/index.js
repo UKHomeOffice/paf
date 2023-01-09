@@ -1,6 +1,6 @@
 'use strict';
-const saveImage = require('./behaviours/save-image');
-const removeImage = require('./behaviours/remove-image');
+const saveImage = require('./behaviours/save-file');
+const removeImage = require('./behaviours/remove-file');
 const CombineAndLoopFields = require('hof').components.combineAndLoopFields;
 const limitDocs = require('./behaviours/limit-documents');
 const disableUpload = require('./behaviours/disable-file-upload');
