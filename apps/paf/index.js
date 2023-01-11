@@ -1,6 +1,6 @@
 'use strict';
-
 const SummaryPageBehaviour = require('hof').components.summary;
+const transportBehaviour = require('./behaviours/transport-behaviour');
 const Aggregate = require('./behaviours/aggregator');
 const limitPerson = require('./behaviours/limit-person');
 const personNumber = require('./behaviours/person-number');
@@ -11,21 +11,243 @@ module.exports = {
   params: '/:action?/:id?/:edit?',
   steps: {
     '/crime-type': {
+      fields: ['crime-type',
+        'immigration-crime-group',
+        'smuggling-crime-group'
+      ],
       next: '/crime-children'
     },
     '/crime-children': {
+      fields: ['crime-children'],
       next: '/when-crime-happened'
     },
     '/when-crime-happened': {
+      fields: ['when-crime-happened',
+        'happening-now-info',
+        'ongoing-info',
+        'already-happened-info'
+      ],
+      next: '/crime-transport',
+      forks: [{
+        target: '/when-will-crime-happen',
+        condition: {
+          field: 'when-crime-happened',
+          value: 'not-yet-happened'
+        }
+      }]
+    },
+    '/when-will-crime-happen': {
+      fields: ['when-will-crime-happen'],
+      next: '/crime-transport',
+      forks: [{
+        target: '/date-time-crime-will-happen',
+        condition: {
+          field: 'when-will-crime-happen',
+          value: 'more-than-twenty-four-hours'
+        }
+      }]
+    },
+    '/date-time-crime-will-happen': {
+      fields: ['date-crime-will-happen', 'time-crime-will-happen'],
+      next: '/when-will-crime-happen-more-info'
+    },
+    '/when-will-crime-happen-more-info': {
+      fields: ['when-will-crime-happen-more-info'],
       next: '/crime-transport'
     },
     '/crime-transport': {
+      fields: ['crime-transport',
+        'transport-group'
+      ],
+      behaviours: [transportBehaviour],
+      next: '/crime-delivery',
+      forks: [{
+        target: '/crime-transport-vehicle-type',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-vehicle') === 0) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-boat-type',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 0) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-train-details',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 0) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-aeroplane-details',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 0) {
+            return true
+          }
+          return false
+        }
+      }],
+      continueOnEdit: true
+    },
+    '/crime-transport-vehicle-type': {
+      fields: ['vehicle-type',
+        'crime-car-group',
+        'crime-hgv-group',
+        'crime-lorry-group',
+        'crime-van-group'
+      ],
+      next: '/crime-transport-vehicle-details',
+      continueOnEdit: true
+    },
+    '/crime-transport-vehicle-details': {
+      fields: ['vehicle-make',
+        'vehicle-model',
+        'vehicle-colour',
+        'vehicle-registration'
+      ],
+      next: '/crime-delivery',
+      forks: [{
+        target: '/crime-transport-boat-type',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 1) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-train-details',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 1) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-aeroplane-details',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 1) {
+            return true
+          }
+          return false
+        }
+      }],
+      continueOnEdit: true
+    },
+    '/crime-transport-boat-type': {
+      fields: ['boat-type',
+      'crime-carrier-group',
+      'crime-general-cargo-group',
+      'crime-vessel-group'
+    ],
+      next: '/crime-transport-boat-details',
+      continueOnEdit: true
+    },
+    '/crime-transport-boat-details': {
+      fields: ['boat-name',
+        'boat-country-departure',
+        'port-departure',
+        'port-arrival',
+        'port-departure-time',
+        'port-arrival-time'
+      ],
+      next: '/crime-delivery',
+      forks: [
+        {
+          target: '/crime-transport-train-details',
+          condition: req => {
+            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-train')) {
+              return true
+            }
+            return false
+          }
+        },
+        {
+          target: '/crime-transport-aeroplane-details',
+          condition: req => {
+            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane') && !req.sessionModel.get('transport-group').includes('crime-transport-train')) {
+              return true
+            }
+            return false
+          }
+        }],
+      continueOnEdit: true
+    },
+    '/crime-transport-train-details': {
+      fields: ['train-company',
+        'train-country-departure',
+        'station-departure',
+        'station-arrival',
+        'station-departure-time',
+        'station-arrival-time'
+      ],
+      next: '/crime-delivery',
+      forks: [
+        {
+          target: '/crime-transport-aeroplane-details',
+          condition: req => {
+            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')) {
+              return true
+            }
+            return false
+          }
+        }],
+      continueOnEdit: true
+    },
+    '/crime-transport-aeroplane-details': {
+      fields: ['airline-company',
+        'airline-flight-number',
+        'airline-country-departure',
+        'airport-departure',
+        'airport-arrival',
+        'airport-departure-time',
+        'airport-arrival-time'
+      ],
       next: '/crime-delivery'
     },
     '/crime-delivery': {
+      fields: ['crime-delivery', 'freight-more-info', 'express-more-info', 'post-more-info'],
       next: '/crime-location'
     },
     '/crime-location': {
+      fields: ['crime-location',
+        'crime-location-country',
+        'crime-location-address-building',
+        'crime-location-address-street',
+        'crime-location-address-townOrCity',
+        'crime-location-address-county',
+        'crime-location-address-postcodeOrZIPCode',
+        'crime-location-phone'],
+      next: '/report-person',
+      forks: [{
+        target: '/crime-another-location',
+        condition: {
+          field: 'crime-location',
+          value: 'yes'
+        }
+      }]
+    },
+    '/crime-another-location': {
+      fields: ['crime-another-location',
+        'crime-another-location-country',
+        'crime-another-location-address-building',
+        'crime-another-location-address-street',
+        'crime-another-location-address-townOrCity',
+        'crime-another-location-address-county',
+        'crime-another-location-address-postcodeOrZIPCode',
+        'crime-another-location-phone'
+      ],
       next: '/report-person'
     },
     '/report-person': {
@@ -270,7 +492,11 @@ module.exports = {
       ]
     },
     '/report-person-transport-type': {
-      fields: ['report-person-transport-type'],
+      fields: ['report-person-transport-type',
+        'report-person-transport-car-group',
+        'report-person-transport-hgv-group',
+        'report-person-transport-lorry-group',
+        'report-person-transport-van-group'],
       next: '/report-person-transport-details'
     },
     '/report-person-transport-details': {
@@ -305,7 +531,7 @@ module.exports = {
         'personAddFirstName',
         'personAddFamilyName',
         'personAddNickname'
-    ],
+      ],
       continueOnEdit: true,
       next: '/add-person-dob'
     },
@@ -341,7 +567,7 @@ module.exports = {
     },
     '/add-person-identity': {
       backLink: 'add-person-gender',
-      fields: ['personAddPassport', 'personAddId','personAddNi'],
+      fields: ['personAddPassport', 'personAddId', 'personAddNi'],
       continueOnEdit: true,
       next: '/person-details'
     },
@@ -437,15 +663,16 @@ module.exports = {
       next: '/confirm'
     },
     '/confirm': {
-      behaviours: [SummaryPageBehaviour, 'complete', personNumber],
+      behaviours: [SummaryPageBehaviour, personNumber],
       sections: require('./sections/summary-data-sections'),
       next: '/declaration'
     },
     '/declaration': {
+      behaviours: ['complete'],
       next: '/confirmation'
     },
     '/confirmation': {
-      template: 'confirmation'
+      backLink: false
     }
   }
 };

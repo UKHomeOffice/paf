@@ -14,29 +14,108 @@ describe('the journey of a paf application', () => {
   it('goes to the crime-children page', async () => {
     const URI = '/crime-type';
     await initSession(URI);
-    const response = await passStep(URI, {});
+    const response = await passStep(URI, {
+      'crime-type': 'immigration-crime',
+      'immigration-crime-group': 'immigration-crime-fake-marriage'
+
+    });
     expect(response.text).to.contain('Found. Redirecting to /paf/crime-children');
   });
 
   it('goes to the when-crime-happened page', async () => {
     const URI = '/crime-children';
     await initSession(URI);
-    const response = await passStep(URI, {});
+    const response = await passStep(URI, {
+      'crime-children': 'yes'
+    });
     expect(response.text).to.contain('Found. Redirecting to /paf/when-crime-happened');
   });
-
-  it('goes to the crime-transport page', async () => {
+  it('goes to the when-will-crime-happen page', async () => {
     const URI = '/when-crime-happened';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'when-crime-happened': 'not-yet-happened'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/when-will-crime-happen');
+  });
+  it('goes to the date-time-crime-will-happen page', async () => {
+    const URI = '/when-will-crime-happen';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'when-will-crime-happen': 'more-than-twenty-four-hours'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/date-time-crime-will-happen');
+  });
+  it('goes to the when-will-crime-happen-more-info page', async () => {
+    const URI = '/date-time-crime-will-happen';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/when-will-crime-happen-more-info');
+  });
+  it('goes to the crime-transport page', async () => {
+    const URI = '/when-will-crime-happen-more-info';
     await initSession(URI);
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/crime-transport');
   });
-
   it('goes to the crime-delivery page', async () => {
     const URI = '/crime-transport';
     await initSession(URI);
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/crime-delivery');
+  });
+
+  it('goes to the crime-transport-vehicle-type page', async () => {
+    const URI = '/crime-transport';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'crime-transport': 'yes',
+      'transport-group': 'crime-transport-vehicle'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-transport-vehicle-type');
+  });
+
+  it('goes to the crime-transport-vehicle-details page', async () => {
+    const URI = '/crime-transport-vehicle-type';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-transport-vehicle-details');
+  });
+  it('goes to the crime-transport-boat-type page', async () => {
+    const URI = '/crime-transport';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'crime-transport': 'yes',
+      'transport-group': 'crime-transport-boat'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-transport-boat-type');
+  });
+
+  it('goes to the crime-transport-boat-details page', async () => {
+    const URI = '/crime-transport-boat-type';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-transport-boat-details');
+  });
+
+  it('goes to the crime-transport-train-details  page', async () => {
+    const URI = '/crime-transport';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'crime-transport': 'yes',
+      'transport-group': 'crime-transport-train'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-transport-train-details');
+  });
+
+  it('goes to the crime-transport-aeroplane-details page', async () => {
+    const URI = '/crime-transport';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'crime-transport': 'yes',
+      'transport-group': 'crime-transport-aeroplane'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-transport-aeroplane-details');
   });
 
   it('goes to the crime-location page', async () => {
@@ -45,9 +124,18 @@ describe('the journey of a paf application', () => {
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/crime-location');
   });
+  
+  it('goes to the crime-another-location page', async () => {
+    const URI = '/crime-location';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'crime-location': 'yes'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-another-location');
+  });
 
   it('goes to the report-person page', async () => {
-    const URI = '/crime-location';
+    const URI = '/crime-another-location';
     await initSession(URI);
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/report-person');

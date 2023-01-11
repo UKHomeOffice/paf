@@ -1,21 +1,21 @@
 {
-  "crime-type": {
-    "header": "What is the crime you are reporting? - TO DO"
+  "date-time-crime-will-happen": {
+    "header": "Tell us the time and date the crime will happen, if you know them"
   },
-  "crime-children": {
-    "header": "Are there children involved? (A child is anyone under 18 years of age)  - TO DO"
+  "when-will-crime-happen-more-info": {
+    "header": "If you have any more information about when the crime happening please tell us here:"
   },
-  "when-crime-happened": {
-    "header": "When is the crime happening? - TO DO"
+  "crime-transport-vehicle-details": {
+    "header": "Vehicle details"
   },
-  "crime-transport": {
-    "header": "Does the crime involve any vehicles, transport or travel? - TO DO"
+  "crime-transport-boat-details": {
+    "header": "Boat details"
   },
-  "crime-delivery": {
-    "header": "Tell us which of the following the crime involves: - TO DO"
+  "crime-transport-train-details": {
+    "header": "Train details"
   },
-  "crime-location": {
-    "header": "Do you know where the crime takes place, took place or will take place? - TO DO"
+  "crime-transport-aeroplane-details": {
+    "header": "Aeroplane details"
   },
   "report-person": {
     "header": "The Person"
@@ -134,8 +134,23 @@
   "confirm": {
     "header": "Check your answers before submitting your application.",
     "sections": {
-      "crime": {
-        "header": "The Crime"
+      "crimeType": {
+        "header": "Crime Details - Crime Type"
+      },
+      "crimeChildren": {
+        "header": "Crime Details - Children Involved in Crime"
+      },
+      "crimeTime": {
+        "header": "Crime Details - Duration"
+      },
+      "crimeTransport": {
+        "header": "Crime Details - Transport Details"
+      },
+      "crimeDelivery": {
+        "header": "Crime Details - Mode of Delivery "
+      },
+      "crimeLocation": {
+        "header": "Crime Details - Location Details"
       },
       "person": {
         "header": "Report a Person"
@@ -170,6 +185,44 @@
       "about-you": {
         "header": "About you"
       }
+    },
+  "fields": {
+    "when-will-crime-happen-more-info": {
+      "label": "More information about when the crime is happening"
+    },
+    "crime-car-group": {
+      "label": "Car type"
+    },
+    "crime-hgv-group": {
+      "label": "HGV type"
+    },
+    "crime-lorry-group": {
+      "label": "Lorry type"
+    },
+    "crime-van-group": {
+      "label": "Van type"
+    },
+    "crime-carrier-group": {
+      "label": "Carrier type"
+    },
+    "crime-general-cargo-group": {
+      "label": "General cargo type"
+    },
+    "crime-vessel-group": {
+      "label": "Vessel type"
+    },
+    "report-person-transport-car-group": {
+      "label": "Car type"
+    },
+    "report-person-transport-hgv-group": {
+      "label": "HGV type"
+    },
+    "report-person-transport-lorry-group": {
+      "label": "Lorry type"
+    },
+    "report-person-transport-van-group": {
+      "label": "Van type"
     }
+  }
   }
 }
