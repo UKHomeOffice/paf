@@ -114,7 +114,16 @@
     "header": "Identification"
   },
   "report-organisation": {
-    "header": "The Organisation - Do you wish to report a company, business or education provider? - TO DO"
+    "header": "The Organisation"
+  },
+  "organisation-company-address": {
+    "header": "What is the address of the company, business or education provider (if known)?"
+  },
+  "company-contact": {
+    "header": "Enter the company's, business or education provider contact details (if known)"
+  },
+  "company-owner": {
+    "header": "Company owner"
   },
   "other-info-description": {
     "header": "Other information - TO DO"

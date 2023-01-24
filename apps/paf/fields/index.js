@@ -6,6 +6,7 @@ const countriesList = require('../data/countriesList');
 const trainCompanies = require('../data/trainCompanies');
 const airlineCompanies = require('../data/airlineCompanies');
 const occupation = require('../data/occupation');
+const companyTypes = require('../data/companyTypes');
 const dateComponent = require('hof').components.date;
 function notBothOptions(vals) {
   const values = _.castArray(vals);
@@ -918,7 +919,6 @@ module.exports = {
   'personAddNi': {
     mixin: 'input-text'
   },
-
   "does-anyone-else-know": {
     mixin: 'input-text',
     isPageHeading: true
@@ -953,7 +953,7 @@ module.exports = {
     options:
       [{
         value: '',
-        label: 'fields.about-you-nationality.options.null'
+    label: 'fields.about-you-nationality.options.null'
       }].concat(nationalities)
   },
   'about-you-gender': {
@@ -1011,5 +1011,74 @@ module.exports = {
   },
   'about-you-family-name': {
     mixin: 'input-text'
+  },
+  'report-organisation': {
+    mixin: 'radio-group',
+    options: ['yes', 'no', 'unknown']
+  },
+  'organisation-company-name': {
+    isPageHeading: true
+  },
+  'company-postcode': {
+    formatter: ['removespaces', 'uppercase'],
+    validate: ['postcode'],
+    className: ['govuk-input', 'govuk-input--width-10']
+  },
+  'company-email': {
+    formatter: ['removespaces'],
+    validate: ['email']
+  },
+  'company-website': {
+    formatter: ['removespaces'],
+    validate: ['url']
+  },
+  'company-types': {
+    isPageHeading: true,
+    mixin: 'select',
+    className: 'typeahead',
+    options:
+      [{
+        value: '',
+        label: 'fields.company-types.options.null'
+      }].concat(companyTypes)
+  },
+  'owner-know-about-the-crime': {
+    mixin: 'radio-group',
+    options: [
+      'yes',
+      'no',
+      'unknown'
+    ]
+  },
+  'company-other-info': {
+    isPageHeading: true,
+    mixin: 'textarea',
+    'ignore-defaults': true,
+    formatter: ['trim', 'hyphens'],
+    validate: [{ type: 'maxlength', arguments: 1200 }],
+    attributes: [{ attribute: 'spellcheck', value: 'true' }, { attribute: 'rows', value: 8 }]
+  },
+  'another-company': {
+    isPageHeading: true,
+    mixin: 'radio-group',
+    options: [
+      {
+        value: 'yes',
+        toggle: 'another-company-group-yes',
+        child: 'partials/another-company-group-yes'
+      },
+      'no',
+    ]
+  },
+  'another-company-group-yes': {
+    mixin: 'textarea',
+    'ignore-defaults': true,
+    formatter: ['trim', 'hyphens'],
+    validate: [{ type: 'maxlength', arguments: 1200 }],
+    attributes: [{ attribute: 'spellcheck', value: 'true' }, { attribute: 'rows', value: 5 }],
+    dependent: {
+      field: 'another-company',
+      value: 'yes'
+    },
   }
 };

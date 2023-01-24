@@ -1135,23 +1135,71 @@
   "personAddNi": {
     "label": "National insurance number or equivalent (if known)"
   },
-  "how-did-you-find-out-about-the-crime": {
-     "label": "How did you find out about the crime?"
+  "report-organisation": {
+    "hint": "If you are reporting a person rather than an organisation such as a company or college you do not need to complete this page.",
+    "legend": "Do you wish to report a company, business or education provider?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
   },
-  "does-anyone-else-know": {
-    "label": "Does anyone else know about the crime?",
-    "hint": " "
+  "organisation-company-name": {
+    "label": "What is the company, business or education provider (if known)?"
   },
-  "have-you-reported-before": {
-    "label": "Have you reported the crime before?",
-    "hint": " "
+  "company-address-line1": {
+    "label": "Address line 1"
   },
-  "how-do-you-know-the-person": {
-    "label": "How do you know this person/ these people? ",
-    "hint": " "
+  "company-address-line2": {
+    "label": "Address line 2"
   },
-  "can-use-info-without-risk": {
-    "legend": "Can we act on this information without putting you or others at risk?",
+  "company-town": {
+    "label": "Town or city"
+  },
+  "company-county": {
+    "label": "County"
+  },
+  "company-postcode": {
+    "label": "Postcode"
+  },
+  "company-phone": {
+    "label": "Phone number"
+  },
+  "company-email": {
+    "label": "Email"
+  },
+  "company-website": {
+    "label": "Website"
+  },
+  "company-types": {
+    "label": "What is the type of company, business or education provider?",
+    "hint": "Start to type the company type and options will appear"
+  },
+  "company-owner": {
+    "label": "Who owns or manages the company, business or education provider?"
+  },
+  "owner-know-about-the-crime": {
+    "legend": "Does the owner or manager know about the crime?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "company-other-info": {
+    "label": "Please tell us anything else about the company, business or education provider that you think we should know"
+  },
+  "another-company": {
+    "legend": "Do you want to tell us about another company, business or education provider that is involved in the same crime?",
     "options": {
       "yes": {
         "label": "Yes"
@@ -1200,29 +1248,55 @@
       "no": {
         "label": "No"
       }
-    }
-  },
-  "are-you-eighteen": {
-    "legend": "Are you over 18?",
-    "options": {
-      "yes": {
-        "label": "Yes"
-      },
-      "no": {
-        "label": "No"
+    },
+    "how-did-you-find-out-about-the-crime": {
+      "label": "How did you find out about the crime?"
+    },
+    "does-anyone-else-know": {
+      "label": "Does anyone else know about the crime?",
+      "hint": " "
+    },
+    "have-you-reported-before": {
+      "label": "Have you reported the crime before?",
+      "hint": " "
+    },
+    "how-do-you-know-the-person": {
+      "label": "How do you know this person/ these people? ",
+      "hint": " "
+    },
+    "can-use-info-without-risk": {
+      "legend": "Can we act on this information without putting you or others at risk?",
+      "options": {
+        "yes": {
+          "label": "Yes"
+        },
+        "no": {
+          "label": "No"
+        }
       }
-    }
-  },
-  "about-you-first-name": {
-    "label": "First name(s)"
-  },
-  "about-you-family-name": {
-    "label": "Family name(s)"
-  },
-  "contact-number": {
-    "label": "Contact number"
-  },
+    },
+    "are-you-eighteen": {
+      "legend": "Are you over 18?",
+      "options": {
+        "yes": {
+          "label": "Yes"
+        },
+        "no": {
+          "label": "No"
+        }
+      }
+    },
+    "about-you-first-name": {
+      "label": "First name(s)"
+    },
+    "about-you-family-name": {
+      "label": "Family name(s)"
+    },
+    "contact-number": {
+      "label": "Contact number"
+    },
     "when-to-contact": {
       "label": "When would you like us to contact you?"
+    }
   }
 }

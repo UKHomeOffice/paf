@@ -148,6 +148,55 @@ describe('the journey of a paf application', () => {
     expect(response.text).to.contain('Found. Redirecting to /paf/report-organisation');
   });
 
+  it('goes to the company-name page', async () => {
+    const URI = '/report-organisation';
+    await initSession(URI);
+    const response = await passStep(URI, {'report-organisation':'yes'});
+    expect(response.text).to.contain('Found. Redirecting to /paf/company-name');
+  });
+
+  it('goes to the company-address page', async () => {
+    const URI = '/company-name';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/company-address');
+  });
+
+  it('goes to the company-contact page', async () => {
+    const URI = '/company-address';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/company-contact');
+  });
+
+  it('goes to the company-types page', async () => {
+    const URI = '/company-contact';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/company-types');
+  });
+
+  it('goes to the company-owner page', async () => {
+    const URI = '/company-types';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/company-owner');
+  });
+
+  it('goes to the company-other-info page', async () => {
+    const URI = '/company-owner';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/company-other-info');
+  });
+
+  it('goes to the another-company page', async () => {
+    const URI = '/company-other-info';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/another-company');
+  });
+
   it('goes to the other-info-description page', async () => {
     const URI = '/report-organisation';
     await initSession(URI);
@@ -160,6 +209,13 @@ describe('the journey of a paf application', () => {
     await initSession(URI);
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/other-info-another-crime');
+  });
+
+  it('goes to the company-name page', async () => {
+    const URI = '/report-organisation';
+    await initSession(URI);
+    const response = await passStep(URI, {'report-organisation': 'yes'});
+    expect(response.text).to.contain('Found. Redirecting to /paf/company-name');
   });
 
   it('goes to the other-info-file-upload page', async () => {
