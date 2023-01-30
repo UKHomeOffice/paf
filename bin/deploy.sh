@@ -25,6 +25,7 @@ export DRONE_SOURCE_BRANCH=$(echo $DRONE_SOURCE_BRANCH | tr '[:upper:]' '[:lower
 
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
   $kd -f kube/configmaps
+  $kd -f kube/configmaps/file-vault-branch-configmap.yml
   $kd -f kube/certs
   $kd -f kube/redis
   $kd -f kube/app
