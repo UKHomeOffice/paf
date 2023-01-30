@@ -214,13 +214,13 @@ module.exports = {
     'another-company',
     'another-company-yes'
   ],
-  'other-info': [
-    'other-info-file-upload',
-    {
-      step: '/add-other-info-file-upload',
-      field: 'other-info-file-upload'
-    }
-  ],
+  // 'other-info': [
+  //   'other-info-file-upload',
+  //   {
+  //     step: '/add-other-info-file-upload',
+  //     field: 'other-info-file-upload'
+  //   }
+  // ],
   'about-you': [
     'how-did-you-find-out-about-the-crime',
     'does-anyone-else-know',

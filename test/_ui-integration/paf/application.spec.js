@@ -141,10 +141,114 @@ describe('the journey of a paf application', () => {
     expect(response.text).to.contain('Found. Redirecting to /paf/report-person');
   });
 
-  it('goes to the report-organisation page', async () => {
+  it('goes to the report-person-name page', async () => {
     const URI = '/report-person';
     await initSession(URI);
+    const response = await passStep(URI, {
+      'report-person': 'yes'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-name');
+  });
+
+  it('goes to the report-person-dob page', async () => {
+    const URI = '/report-person-name';
+    await initSession(URI);
     const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-dob');
+  });
+
+  it('goes to the report-person-age-range page', async () => {
+    const URI = '/report-person-dob';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-age-range');
+  });
+
+  it('goes to the report-person-nationality page', async () => {
+    const URI = '/report-person-age-range';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-nationality');
+  });
+
+  it('goes to the report-person-place-of-birth page', async () => {
+    const URI = '/report-person-nationality';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-place-of-birth');
+  });
+
+  it('goes to the report-person-gender page', async () => {
+    const URI = '/report-person-place-of-birth';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-gender');
+  });
+
+  it('goes to the report-person-id page', async () => {
+    const URI = '/report-person-gender';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-id');
+  });
+
+  it('goes to the report-person-location page', async () => {
+    const URI = '/report-person-id';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-location');
+  });
+
+  it('goes to the report-person-occupation page', async () => {
+    const URI = '/report-person-location';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-occupation');
+  });
+
+  it('goes to the report-person-study page', async () => {
+    const URI = '/report-person-occupation';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-study');
+  });
+
+  it('goes to the report-person-transport page', async () => {
+    const URI = '/report-person-study';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-transport');
+  });
+
+  it('goes to the report-person-description page', async () => {
+    const URI = '/report-person-transport';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/report-person-description');
+  });
+
+  it('goes to the has-additionalPerson page', async () => {
+    const URI = '/report-person-description';
+    await initSession(URI);
+    const response = await passStep(URI, {});
+    expect(response.text).to.contain('Found. Redirecting to /paf/has-additionalPerson');
+  });
+
+  it('goes to the person-details page when the user has additional people to add', async () => {
+    const URI = '/has-additionalPerson';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'hasAdditionalPerson': 'yes'
+    });
+    expect(response.text).to.contain('Found. Redirecting to /paf/person-details');
+  });
+
+  it('goes to the report-organisation page when the user has no additional people to add', async () => {
+    const URI = '/has-additionalPerson';
+    await initSession(URI);
+    const response = await passStep(URI, {
+      'hasAdditionalPerson': 'no'
+    });
     expect(response.text).to.contain('Found. Redirecting to /paf/report-organisation');
   });
 

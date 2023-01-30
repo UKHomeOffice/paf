@@ -12,6 +12,8 @@ function notBothOptions(vals) {
   const values = _.castArray(vals);
   return !(values.length > 1 && values.indexOf('crime-transport-unknown') > -1);
 }
+const moment = require('moment');
+const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 
 module.exports = {
   'crime-type': {
@@ -882,7 +884,8 @@ module.exports = {
   },
   'personAddDob': dateComponent('personAddDob', {
     isPageHeading: true,
-    mixin: 'input-date'
+    mixin: 'input-date',
+    parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
   }),
   'personAddAgeRange': {
     mixin: 'radio-group',
