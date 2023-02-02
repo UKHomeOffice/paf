@@ -69,12 +69,12 @@ spec:
             - name: AWS_KMS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: sas-paf-branch-sqs-queue
+                  name: paf-notprod-s3
                   key: kms_key_id
             - name: AWS_BUCKET
               valueFrom:
                 secretKeyRef:
-                  name: sas-paf-branch-sqs-queue
+                  name: paf-notprod-s3
                   key: name
             - name: AWS_PASSWORD
               valueFrom:
