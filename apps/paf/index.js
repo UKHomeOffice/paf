@@ -383,9 +383,59 @@ module.exports = {
       next: '/about-you'
     },
     '/about-you': {
+      fields: ['aboutYou'],
+      next: '/about-you-anyone-else'
+    },
+    '/about-you-anyone-else': {
+      fields: ['aboutYouAnyoneElse'],
+      next: '/about-you-reported-before'
+    },
+    '/about-you-reported-before': {
+      fields: ['aboutYouReportedBefore'],
+      next: '/about-you-know-person'
+    },
+    '/about-you-know-person': {
+      fields: ['aboutYouKnowPerson'],
+      next: '/about-you-risk'
+    },
+    '/about-you-risk': {
+      fields: ['aboutYouAreYouAtRisk'],
+      next: '/about-you-details'
+    },
+    '/about-you-details': {
+      fields: [
+        'aboutYouFirstName',
+        'aboutYouFamilyName'
+    ],
+      next: '/about-you-dob'
+    },
+    '/about-you-dob': {
+      fields: ['aboutYouDob'],
+      next: '/about-you-nationality'
+    },
+    '/about-you-nationality': {
+      fields: ['aboutYouNationality'],
+      next: '/about-you-gender'
+    },
+    '/about-you-gender': {
+      fields: ['aboutYouGender'],
+      next: '/about-you-contact'
+    },
+    '/about-you-contact': {
+      fields: ['aboutYouContact'],
+      next: '/confirm',
+      forks: [{
+        target: '/about-you-eighteen',
+        condition: {
+          field: 'aboutYouContact',
+          value: 'yes'
+        }
+      }]
+    },
+    '/about-you-eighteen': {
+      fields: ['aboutYouAreYou18','contactNumber','contactWhen'],
       next: '/confirm'
     },
-
     '/confirm': {
       behaviours: [SummaryPageBehaviour, 'complete', personNumber],
       sections: require('./sections/summary-data-sections'),

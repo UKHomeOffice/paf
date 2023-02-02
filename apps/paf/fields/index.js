@@ -356,5 +356,99 @@ module.exports = {
   },
   'personAddNi': {
     mixin: 'input-text'
+  },
+
+  "aboutYouAnyoneElse": {
+    mixin: 'input-text',
+    isPageHeading: true
+  },
+
+  "aboutYouReportedBefore": {
+    mixin: 'input-text',
+    isPageHeading: true
+  },
+
+  "aboutYouKnowPerson": {
+    mixin: 'input-text',
+    isPageHeading: true
+  },
+
+  'aboutYouAreYouAtRisk': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: [
+      'yes',
+      'no',
+    ]
+  },
+  'aboutYouDob': dateComponent('aboutYouDob', {
+    isPageHeading: true,
+    mixin: 'input-date'
+  }),
+  'aboutYouNationality': {
+    isPageHeading: true,
+    mixin: 'select',
+    className: 'typeahead',
+    options:
+      [{
+        value: '',
+        label: 'fields.aboutYouNationality.options.null'
+      }].concat(nationalities)
+  },
+  'aboutYouGender': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: [
+      'male',
+      'female',
+      'other',
+      'unknown'
+    ]
+  },
+  'aboutYouContact': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: [
+      'yes',
+      'no',
+    ]
+  },
+  'aboutYouAreYou18': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+
+    options: [{
+      value:'yes',
+      toggle:'contact-group',
+      child: 'partials/contact-group'
+    },
+      'no'
+    ]
+  },
+  'contact-group':{
+    "contactNumber": {
+      "label": "Contact number"
+    },
+      "contactWhen": {
+        "label": "When would you like us to contact you?"
+    },
+  },
+  'contactNumber': {
+    dependent: {
+      field: 'aboutYouAreYou18',
+      value: 'yes'
+    }
+  },
+  'contactWhen': {
+    dependent: {
+      field: 'aboutYouAreYou18',
+      value: 'yes'
+    }
+  },
+  'aboutYouFirstName': {
+    mixin: 'input-text'
+  },
+  'aboutYouFamilyName': {
+    mixin: 'input-text'
   }
 };

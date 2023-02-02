@@ -587,5 +587,95 @@
   },
   "personAddNi": {
     "label": "National insurance number or equivalent (if known)"
+  },
+  "aboutYou": {
+     "label": "How did you find out about the crime?"
+  },
+  "aboutYouAnyoneElse": {
+    "label": "Does anyone else know about the crime?",
+    "hint": " "
+  },
+  "aboutYouReportedBefore": {
+    "label": "Have you reported the crime before?",
+    "hint": " "
+  },
+  "aboutYouKnowPerson": {
+    "label": "How do you know this person/ these people? ",
+    "hint": " "
+  },
+  "aboutYouAreYouAtRisk": {
+    "legend": "Can we act on this information without putting you or others at risk?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "aboutYouDetails": {
+    "label": "You don't have to give us any details "
+  },
+  "aboutYouDob": {
+    "legend": "Date of Birth"
+  },
+  "aboutYouNationality": {
+    "label": "Nationality",
+    "options": {
+      "null": "Select..."
+    },
+    "hint": "Start typing the your nationality. It must appear on the list for you to be able to continue."
+  },
+  "aboutYouGender": {
+    "legend": "Gender",
+    "options": {
+      "male": {
+        "label": "Male"
+      },
+      "female": {
+        "label": "Female"
+      },
+      "other": {
+        "label": "Other"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "aboutYouContact": {
+    "legend": "Can we contact you if required, to discuss the information you have provided?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "aboutYouAreYou18": {
+    "legend": "Are you over 18?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "aboutYouFirstName": {
+    "label": "First name(s)"
+  },
+  "aboutYouFamilyName": {
+    "label": "Family name(s)"
+  },
+  "contactNumber": {
+    "label": "Contact number"
+  },
+    "contactWhen": {
+      "label": "When would you like us to contact you?"
   }
 }

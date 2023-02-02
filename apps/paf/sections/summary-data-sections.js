@@ -117,6 +117,22 @@ module.exports = {
     }
   ],
   aboutYou: [
-
+    'aboutYou',
+    'aboutYouAnyoneElse',
+    'aboutYouReportedBefore',
+    'aboutYouKnowPerson',
+    'aboutYouAreYouAtRisk',
+    'aboutYouFirstName',
+    'aboutYouFamilyName',
+    {
+      field: 'aboutYouDob',
+      parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+    },
+    'aboutYouNationality',
+    'aboutYouGender',
+    'aboutYouContact',
+    'aboutYouAreYou18',
+    'contactNumber',
+    'contactWhen'
   ]
 };
