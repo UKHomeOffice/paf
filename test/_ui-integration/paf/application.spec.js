@@ -88,36 +88,36 @@ describe('the journey of a paf application', () => {
     expect(response.text).to.contain('Found. Redirecting to /paf/about-you');
   });
 
-  it('goes to the about-you-anyone-else page', async () => {
+  it('goes to the does-anyone-else-know page', async () => {
     const URI = '/about-you';
     await initSession(URI);
     const response = await passStep(URI, {});
-    expect(response.text).to.contain('Found. Redirecting to /paf/about-you-anyone-else');
+    expect(response.text).to.contain('Found. Redirecting to /paf/does-anyone-else-know');
   });
 
-  it('goes to the about-you-reported-before page', async () => {
-    const URI = '/about-you-anyone-else';
+  it('goes to the have-you-reported-before page', async () => {
+    const URI = '/does-anyone-else-know';
     await initSession(URI);
     const response = await passStep(URI, {});
-    expect(response.text).to.contain('Found. Redirecting to /paf/about-you-reported-before');
+    expect(response.text).to.contain('Found. Redirecting to /paf/have-you-reported-before');
   });
 
-  it('goes to the about-you-know-person page', async () => {
-    const URI = '/about-you-reported-before';
+  it('goes to the how-do-you-know-person page', async () => {
+    const URI = '/have-you-reported-before';
     await initSession(URI);
     const response = await passStep(URI, {});
-    expect(response.text).to.contain('Found. Redirecting to /paf/about-you-know-person');
+    expect(response.text).to.contain('Found. Redirecting to /paf/how-do-you-know-person');
   });
 
-  it('goes to the about-you-risk page', async () => {
-    const URI = '/about-you-know-person';
+  it('goes to the can-use-info-without-risk page', async () => {
+    const URI = '/how-do-you-know-person';
     await initSession(URI);
     const response = await passStep(URI, {});
-    expect(response.text).to.contain('Found. Redirecting to /paf/about-you-risk');
+    expect(response.text).to.contain('Found. Redirecting to /paf/can-use-info-without-risk');
   });
 
   it('goes to the about-you-details page', async () => {
-    const URI = '/about-you-risk';
+    const URI = '/can-use-info-without-risk';
     await initSession(URI);
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/about-you-details');
@@ -151,7 +151,7 @@ describe('the journey of a paf application', () => {
     expect(response.text).to.contain('Found. Redirecting to /paf/about-you-contact');
   });
 
-  it('goes to the about-you-eighteen page', async () => {
+  it('goes to the are-you-eighteen page', async () => {
     const URI = '/about-you-contact';
     await initSession(URI);
     const response = await passStep(URI, {});
@@ -159,7 +159,7 @@ describe('the journey of a paf application', () => {
   });
 
   it('goes to the confirm page', async () => {
-    const URI = '/about-you-eighteen';
+    const URI = '/are-you-eighteen';
     await initSession(URI);
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/confirm');

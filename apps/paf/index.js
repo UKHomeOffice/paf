@@ -383,57 +383,57 @@ module.exports = {
       next: '/about-you'
     },
     '/about-you': {
-      fields: ['aboutYou'],
-      next: '/about-you-anyone-else'
+      fields: ['about-you'],
+      next: '/does-anyone-else-know'
     },
-    '/about-you-anyone-else': {
-      fields: ['aboutYouAnyoneElse'],
-      next: '/about-you-reported-before'
+    '/does-anyone-else-know': {
+      fields: ['does-anyone-else-know'],
+      next: '/have-you-reported-before'
     },
-    '/about-you-reported-before': {
-      fields: ['aboutYouReportedBefore'],
-      next: '/about-you-know-person'
+    '/have-you-reported-before': {
+      fields: ['have-you-reported-before'],
+      next: '/how-do-you-know-person'
     },
-    '/about-you-know-person': {
-      fields: ['aboutYouKnowPerson'],
-      next: '/about-you-risk'
+    '/how-do-you-know-person': {
+      fields: ['how-do-know-person'],
+      next: '/can-use-info-without-risk'
     },
-    '/about-you-risk': {
-      fields: ['aboutYouAreYouAtRisk'],
+    '/can-use-info-without-risk': {
+      fields: ['can-use-info-without-risk'],
       next: '/about-you-details'
     },
     '/about-you-details': {
       fields: [
-        'aboutYouFirstName',
-        'aboutYouFamilyName'
+        'about-you-first-name',
+        'about-you-family-name'
     ],
       next: '/about-you-dob'
     },
     '/about-you-dob': {
-      fields: ['aboutYouDob'],
+      fields: ['about-you-dob'],
       next: '/about-you-nationality'
     },
     '/about-you-nationality': {
-      fields: ['aboutYouNationality'],
+      fields: ['about-you-nationality'],
       next: '/about-you-gender'
     },
     '/about-you-gender': {
-      fields: ['aboutYouGender'],
+      fields: ['about-you-gender'],
       next: '/about-you-contact'
     },
     '/about-you-contact': {
-      fields: ['aboutYouContact'],
+      fields: ['about-you-contact'],
       next: '/confirm',
       forks: [{
-        target: '/about-you-eighteen',
+        target: '/are-you-eighteen',
         condition: {
-          field: 'aboutYouContact',
+          field: 'about-you-contact',
           value: 'yes'
         }
       }]
     },
-    '/about-you-eighteen': {
-      fields: ['aboutYouAreYou18','contactNumber','contactWhen'],
+    '/are-you-eighteen': {
+      fields: ['are-you-eighteen','contact-number','when-to-contact'],
       next: '/confirm'
     },
     '/confirm': {

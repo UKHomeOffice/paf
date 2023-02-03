@@ -358,22 +358,22 @@ module.exports = {
     mixin: 'input-text'
   },
 
-  "aboutYouAnyoneElse": {
+  "does-anyone-else-know": {
     mixin: 'input-text',
     isPageHeading: true
   },
 
-  "aboutYouReportedBefore": {
+  "have-you-reported-before": {
     mixin: 'input-text',
     isPageHeading: true
   },
 
-  "aboutYouKnowPerson": {
+  "how-do-know-person": {
     mixin: 'input-text',
     isPageHeading: true
   },
 
-  'aboutYouAreYouAtRisk': {
+  'can-use-info-without-risk': {
     mixin: 'radio-group',
     isPageHeading: true,
     options: [
@@ -381,21 +381,21 @@ module.exports = {
       'no',
     ]
   },
-  'aboutYouDob': dateComponent('aboutYouDob', {
+  'about-you-dob': dateComponent('about-you-dob', {
     isPageHeading: true,
     mixin: 'input-date'
   }),
-  'aboutYouNationality': {
+  'about-you-nationality': {
     isPageHeading: true,
     mixin: 'select',
     className: 'typeahead',
     options:
       [{
         value: '',
-        label: 'fields.aboutYouNationality.options.null'
+        label: 'fields.about-you-nationality.options.null'
       }].concat(nationalities)
   },
-  'aboutYouGender': {
+  'about-you-gender': {
     mixin: 'radio-group',
     isPageHeading: true,
     options: [
@@ -405,7 +405,7 @@ module.exports = {
       'unknown'
     ]
   },
-  'aboutYouContact': {
+  'about-you-contact': {
     mixin: 'radio-group',
     isPageHeading: true,
     options: [
@@ -413,7 +413,7 @@ module.exports = {
       'no',
     ]
   },
-  'aboutYouAreYou18': {
+  'are-you-eighteen': {
     mixin: 'radio-group',
     isPageHeading: true,
 
@@ -426,29 +426,29 @@ module.exports = {
     ]
   },
   'contact-group':{
-    "contactNumber": {
+    "contact-number": {
       "label": "Contact number"
     },
-      "contactWhen": {
+      "when-to-contact": {
         "label": "When would you like us to contact you?"
     },
   },
-  'contactNumber': {
+  'contact-number': {
     dependent: {
-      field: 'aboutYouAreYou18',
+      field: 'are-you-eighteen',
       value: 'yes'
     }
   },
-  'contactWhen': {
+  'when-to-contact': {
     dependent: {
-      field: 'aboutYouAreYou18',
+      field: 'are-you-eighteen',
       value: 'yes'
     }
   },
-  'aboutYouFirstName': {
+  'about-you-first-name': {
     mixin: 'input-text'
   },
-  'aboutYouFamilyName': {
+  'about-you-family-name': {
     mixin: 'input-text'
   }
 };

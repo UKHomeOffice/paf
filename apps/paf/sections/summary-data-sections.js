@@ -117,22 +117,22 @@ module.exports = {
     }
   ],
   aboutYou: [
-    'aboutYou',
-    'aboutYouAnyoneElse',
-    'aboutYouReportedBefore',
-    'aboutYouKnowPerson',
-    'aboutYouAreYouAtRisk',
-    'aboutYouFirstName',
-    'aboutYouFamilyName',
+    'about-you',
+    'does-anyone-else-know',
+    'have-you-reported-before',
+    'how-do-know-person',
+    'can-use-info-without-risk',
+    'about-you-first-name',
+    'about-you-family-name',
     {
-      field: 'aboutYouDob',
+      field: 'about-you-dob',
       parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
     },
-    'aboutYouNationality',
-    'aboutYouGender',
-    'aboutYouContact',
-    'aboutYouAreYou18',
-    'contactNumber',
-    'contactWhen'
+    'about-you-nationality',
+    'about-you-gender',
+    'about-you-contact',
+    'are-you-eighteen',
+    'contact-number',
+    'when-to-contact'
   ]
 };
