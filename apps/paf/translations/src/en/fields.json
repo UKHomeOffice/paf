@@ -588,7 +588,7 @@
   "personAddNi": {
     "label": "National insurance number or equivalent (if known)"
   },
-  "about-you": {
+  "how-did-you-find-out-about-the-crime": {
      "label": "How did you find out about the crime?"
   },
   "does-anyone-else-know": {
@@ -599,7 +599,7 @@
     "label": "Have you reported the crime before?",
     "hint": " "
   },
-  "how-do-know-person": {
+  "how-do-know-the-person": {
     "label": "How do you know this person/ these people? ",
     "hint": " "
   },
@@ -614,7 +614,7 @@
       }
     }
   },
-  "aboutYouDetails": {
+  "about-you-details": {
     "label": "You don't have to give us any details "
   },
   "about-you-dob": {

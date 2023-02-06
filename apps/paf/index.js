@@ -383,7 +383,7 @@ module.exports = {
       next: '/about-you'
     },
     '/about-you': {
-      fields: ['about-you'],
+      fields: ['how-did-you-find-out-about-the-crime'],
       next: '/does-anyone-else-know'
     },
     '/does-anyone-else-know': {
@@ -395,7 +395,7 @@ module.exports = {
       next: '/how-do-you-know-person'
     },
     '/how-do-you-know-person': {
-      fields: ['how-do-know-person'],
+      fields: ['how-do-know-the-person'],
       next: '/can-use-info-without-risk'
     },
     '/can-use-info-without-risk': {

@@ -116,11 +116,11 @@ module.exports = {
       field: 'other-info-file-upload'
     }
   ],
-  aboutYou: [
-    'about-you',
+  'about-you': [
+    'how-did-you-find-out-about-the-crime',
     'does-anyone-else-know',
     'have-you-reported-before',
-    'how-do-know-person',
+    'how-do-know-the-person',
     'can-use-info-without-risk',
     'about-you-first-name',
     'about-you-family-name',
