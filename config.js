@@ -17,5 +17,12 @@ module.exports = {
     hostname: !useMocks && process.env.FILE_VAULT_URL ?
       process.env.FILE_VAULT_URL :
       `http://localhost:${useMocks ? (process.env.PORT || 8080) : 3000}/file`
-  }
+  },
+  keycloak: {
+    token: process.env.KEYCLOAK_TOKEN_URL,
+    username: process.env.KEYCLOAK_USERNAME,
+    password: process.env.KEYCLOAK_PASSWORD,
+    clientId: process.env.KEYCLOAK_CLIENT_ID,
+    secret: process.env.KEYCLOAK_SECRET
+  },
 };

@@ -1039,7 +1039,16 @@
   },
   "hasAdditionalPerson": {
     "legend": "Do you want to tell us about another person who is involved in the same crime?",
-    "hint": "You can add up to 6 additional people"
+    "hint": "You can add up to 6 additional people",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    },
+    "legendClassName": "govuk-fieldset__legend"
   },
   "other-info-file-upload": {
     "label": "Attachment"
