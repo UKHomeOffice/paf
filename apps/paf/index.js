@@ -392,10 +392,10 @@ module.exports = {
     },
     '/have-you-reported-before': {
       fields: ['have-you-reported-before'],
-      next: '/how-do-you-know-person'
+      next: '/how-do-you-know-the-person'
     },
-    '/how-do-you-know-person': {
-      fields: ['how-do-know-the-person'],
+    '/how-do-you-know-the-person': {
+      fields: ['how-do-you-know-the-person'],
       next: '/can-use-info-without-risk'
     },
     '/can-use-info-without-risk': {

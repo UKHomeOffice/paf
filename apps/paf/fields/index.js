@@ -368,7 +368,7 @@ module.exports = {
     isPageHeading: true
   },
 
-  "how-do-know-the-person": {
+  "how-do-you-know-the-person": {
     mixin: 'input-text',
     isPageHeading: true
   },

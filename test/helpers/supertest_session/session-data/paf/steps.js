@@ -15,7 +15,7 @@ module.exports = [
   '/about-you',
   '/does-anyone-else-know',
   '/have-you-reported-before',
-  '/how-do-you-know-person',
+  '/how-do-you-know-the-person',
   '/can-use-info-without-risk',
   '/about-you-details',
   '/about-you-dob',

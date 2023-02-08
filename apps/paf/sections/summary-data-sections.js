@@ -120,7 +120,7 @@ module.exports = {
     'how-did-you-find-out-about-the-crime',
     'does-anyone-else-know',
     'have-you-reported-before',
-    'how-do-know-the-person',
+    'how-do-you-know-the-person',
     'can-use-info-without-risk',
     'about-you-first-name',
     'about-you-family-name',

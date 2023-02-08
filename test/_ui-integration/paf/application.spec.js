@@ -102,15 +102,15 @@ describe('the journey of a paf application', () => {
     expect(response.text).to.contain('Found. Redirecting to /paf/have-you-reported-before');
   });
 
-  it('goes to the how-do-you-know-person page', async () => {
+  it('goes to the how-do-you-know-the-person page', async () => {
     const URI = '/have-you-reported-before';
     await initSession(URI);
     const response = await passStep(URI, {});
-    expect(response.text).to.contain('Found. Redirecting to /paf/how-do-you-know-person');
+    expect(response.text).to.contain('Found. Redirecting to /paf/how-do-you-know-the-person');
   });
 
   it('goes to the can-use-info-without-risk page', async () => {
-    const URI = '/how-do-you-know-person';
+    const URI = '/how-do-you-know-the-person';
     await initSession(URI);
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/can-use-info-without-risk');
