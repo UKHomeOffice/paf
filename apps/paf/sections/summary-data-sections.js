@@ -6,8 +6,86 @@ const OCCUPATION = require('../data/occupation');
 const _ = require('lodash');
 
 module.exports = {
-  crime: [
-    'crime-type'
+  crimeType: [
+    'crime-type',
+    'immigration-crime-group',
+    'smuggling-crime-group',
+  ],
+  crimeChildren: [
+    'crime-children',
+  ],
+  crimeTime: [
+    'when-crime-happened',
+    'happening-now-info',
+    'ongoing-info',
+    'already-happened-info',
+    'when-will-crime-happen',
+    {
+      field: 'date-crime-will-happen',
+      parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+    },
+    'time-crime-will-happen',
+    'when-will-crime-happen-more-info',
+  ],
+  crimeTransport: [
+    'crime-transport',
+    'transport-group',
+    'vehicle-type',
+    'crime-car-group',
+    'crime-hgv-group',
+    'crime-lorry-group',
+    'crime-van-group',
+    'vehicle-make',
+    'vehicle-model',
+    'vehicle-colour',
+    'vehicle-registration',
+    'boat-type',
+    'crime-carrier-group',
+    'crime-general-cargo-group',
+    'crime-vessel-group',
+    'boat-name',
+    'boat-country-departure',
+    'port-departure',
+    'port-arrival',
+    'port-departure-time',
+    'port-arrival-time',
+    'train-company',
+    'train-country-departure',
+    'station-departure',
+    'station-arrival',
+    'station-departure-time',
+    'station-arrival-time',
+    'airline-company',
+    'airline-flight-number',
+    'airline-country-departure',
+    'airport-departure',
+    'airport-arrival',
+    'airport-departure-time',
+    'airport-arrival-time',
+  ],
+  crimeDelivery: [
+    'crime-delivery',
+    'freight-more-info',
+    'express-more-info',
+    'post-more-info',
+  ],
+  crimeLocation: [
+    'crime-location',
+    'crime-location-country',
+    'crime-location-address-building',
+    'crime-location-address-street',
+    'crime-location-address-townOrCity',
+    'crime-location-address-county',
+    'crime-location-address-postcodeOrZIPCode',
+    'crime-location-phone',
+    'crime-another-location',
+    'crime-another-location-country',
+    'crime-another-location-address-building',
+    'crime-another-location-address-street',
+    'crime-another-location-address-townOrCity',
+    'crime-another-location-address-county',
+    'crime-another-location-address-postcodeOrZIPCode',
+    'crime-another-location-phone'
   ],
   person: [
     'report-person',
@@ -51,7 +129,7 @@ module.exports = {
   personOccupation: [
     'report-person-occupation',
     {
-    field: 'report-person-occupation-type',
+      field: 'report-person-occupation-type',
       parse: v => _.get(_.find(OCCUPATION, group => group.value === v), 'label', '')
     },
     'report-person-occupation-hours',
@@ -89,6 +167,10 @@ module.exports = {
   personTransport: [
     'report-person-transport',
     'report-person-transport-type',
+    'report-person-transport-car-group',
+    'report-person-transport-hgv-group',
+    'report-person-transport-lorry-group',
+    'report-person-transport-van-group',
     'report-person-transport-make',
     'report-person-transport-model',
     'report-person-transport-colour',
