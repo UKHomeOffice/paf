@@ -574,6 +574,18 @@ module.exports = {
     mixin: 'radio-group',
     options: ['yes', 'no', 'unknown']
   },
+  'report-person-first-name': {
+    mixin: 'input-text'
+  },
+  'report-person-family-name': {
+    mixin: 'input-text'
+  },
+  'report-person-nickname': {
+    mixin: 'input-text'
+  },
+  'report-person-place-of-birth': {
+    mixin: 'input-text'
+  },
   'report-person-dob': dateComponent('report-person-dob', {
     isPageHeading: true,
     mixin: 'input-date'
@@ -611,6 +623,15 @@ module.exports = {
       'unknown'
     ]
   },
+  'report-person-passport': {
+    mixin: 'input-text'
+  },
+  'report-person-id': {
+    mixin: 'input-text'
+  },
+  'report-person-ni': {
+    mixin: 'input-text'
+  },
   'report-person-location': {
     mixin: 'radio-group',
     isPageHeading: true,
@@ -619,6 +640,12 @@ module.exports = {
       'outside-uk',
       'travel-to-uk',
       'unknown']
+  },
+  'report-person-location-uk-address-line1': {
+    mixin: 'input-text'
+  },
+  'report-person-location-uk-address-line2': {
+    mixin: 'input-text'
   },
   'report-person-location-uk-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
@@ -638,6 +665,12 @@ module.exports = {
         value: '',
         label: 'fields.report-person-location-outside-uk-address-country.options.null'
       }].concat(countriesList)
+  },
+  'report-person-location-outside-uk-address-line1': {
+    mixin: 'input-text'
+  },
+  'report-person-location-outside-uk-address-line2': {
+    mixin: 'input-text'
   },
   'report-person-location-outside-uk-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
@@ -690,10 +723,25 @@ module.exports = {
         label: 'fields.report-person-occupation-type.options.null'
       }].concat(occupation)
   },
+  'report-person-occupation-hours': {
+    mixin: 'input-text'
+  },
+  'report-person-occupation-days': {
+    mixin: 'input-text'
+  },
   'report-person-occupation-where': {
     isPageHeading: true,
     mixin: 'radio-group',
     options: ['yes', 'no', 'unknown']
+  },
+  'report-person-occupation-company-name': {
+    mixin: 'input-text'
+  },
+  'report-person-occupation-company-address-line1': {
+    mixin: 'input-text'
+  },
+  'report-person-occupation-company-address-line2': {
+    mixin: 'input-text'
   },
   'report-person-occupation-company-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
@@ -708,6 +756,9 @@ module.exports = {
   'report-person-occupation-company-phone': {
     className: ['govuk-input', 'govuk-input--width-20']
   },
+  'report-person-occupation-company-manager': {
+    mixin: 'input-text'
+  },
   'report-person-occupation-company-manager-know': {
     mixin: 'radio-group',
     options: ['yes', 'no', 'unknown']
@@ -716,6 +767,9 @@ module.exports = {
     mixin: 'radio-group',
     isPageHeading: true,
     options: ['yes', 'no', 'unknown']
+  },
+  'report-person-study-subject': {
+    mixin: 'input-text'
   },
   'report-person-study-location': {
     isPageHeading: true,
@@ -726,6 +780,21 @@ module.exports = {
     isPageHeading: true,
     mixin: 'radio-group',
     options: ['yes', 'no', 'unknown']
+  },
+  'report-person-study-hours': {
+    mixin: 'input-text'
+  },
+  'report-person-study-days': {
+    mixin: 'input-text'
+  },
+  'report-person-study-name': {
+    mixin: 'input-text'
+  },
+  'report-person-study-address-line1': {
+    mixin: 'input-text'
+  },
+  'report-person-study-address-line2': {
+    mixin: 'input-text'
   },
   'report-person-study-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
@@ -739,6 +808,15 @@ module.exports = {
   },
   'report-person-study-phone': {
     className: ['govuk-input', 'govuk-input--width-20']
+  },
+  'report-person-study-email': {
+    validate: ['email']
+  },
+  'report-person-study-url': {
+    mixin: 'input-text'
+  },
+  'report-person-study-manager': {
+    mixin: 'input-text'
   },
   'report-person-study-manager-know': {
     mixin: 'radio-group',
@@ -855,6 +933,21 @@ module.exports = {
       value: 'vans'
     },
   },
+  'report-person-transport-make': {
+    mixin: 'input-text'
+  },
+  'report-person-transport-model': {
+    mixin: 'input-text'
+  },
+  'report-person-transport-colour': {
+    mixin: 'input-text'
+  },
+  'report-person-transport-registration': {
+    mixin: 'input-text'
+  },
+  'report-person-transport-other': {
+    mixin: 'input-text'
+  },
   'report-person-description': {
     mixin: 'textarea',
     'ignore-defaults': true,
@@ -930,99 +1023,6 @@ module.exports = {
     mixin: 'input-text'
   },
   'personAddNi': {
-    mixin: 'input-text'
-  },
-  "does-anyone-else-know": {
-    mixin: 'input-text',
-    isPageHeading: true
-  },
-
-  "have-you-reported-before": {
-    mixin: 'input-text',
-    isPageHeading: true
-  },
-
-  "how-do-you-know-the-person": {
-    mixin: 'input-text',
-    isPageHeading: true
-  },
-
-  'can-use-info-without-risk': {
-    mixin: 'radio-group',
-    isPageHeading: true,
-    options: [
-      'yes',
-      'no',
-    ]
-  },
-  'about-you-dob': dateComponent('about-you-dob', {
-    isPageHeading: true,
-    mixin: 'input-date'
-  }),
-  'about-you-nationality': {
-    isPageHeading: true,
-    mixin: 'select',
-    className: 'typeahead',
-    options:
-      [{
-        value: '',
-    label: 'fields.about-you-nationality.options.null'
-      }].concat(nationalities)
-  },
-  'about-you-gender': {
-    mixin: 'radio-group',
-    isPageHeading: true,
-    options: [
-      'male',
-      'female',
-      'other',
-      'unknown'
-    ]
-  },
-  'about-you-contact': {
-    mixin: 'radio-group',
-    isPageHeading: true,
-    options: [
-      'yes',
-      'no',
-    ]
-  },
-  'are-you-eighteen': {
-    mixin: 'radio-group',
-    isPageHeading: true,
-
-    options: [{
-      value:'yes',
-      toggle:'contact-group',
-      child: 'partials/contact-group'
-    },
-      'no'
-    ]
-  },
-  'contact-group':{
-    "contact-number": {
-      "label": "Contact number"
-    },
-      "when-to-contact": {
-        "label": "When would you like us to contact you?"
-    },
-  },
-  'contact-number': {
-    dependent: {
-      field: 'are-you-eighteen',
-      value: 'yes'
-    }
-  },
-  'when-to-contact': {
-    dependent: {
-      field: 'are-you-eighteen',
-      value: 'yes'
-    }
-  },
-  'about-you-first-name': {
-    mixin: 'input-text'
-  },
-  'about-you-family-name': {
     mixin: 'input-text'
   },
   'report-organisation': {
@@ -1111,5 +1111,95 @@ module.exports = {
       field: 'another-company',
       value: 'yes'
     },
+  },
+  'about-you-first-name': {
+    mixin: 'input-text'
+  },
+  'about-you-family-name': {
+    mixin: 'input-text'
+  },
+  "does-anyone-else-know": {
+    mixin: 'input-text',
+    isPageHeading: true
+  },
+  "have-you-reported-before": {
+    mixin: 'input-text',
+    isPageHeading: true
+  },
+  "how-do-you-know-the-person": {
+    mixin: 'input-text',
+    isPageHeading: true
+  },
+  'can-use-info-without-risk': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: [
+      'yes',
+      'no',
+    ]
+  },
+  'about-you-dob': dateComponent('about-you-dob', {
+    isPageHeading: true,
+    mixin: 'input-date'
+  }),
+  'about-you-nationality': {
+    isPageHeading: true,
+    mixin: 'select',
+    className: 'typeahead',
+    options:
+      [{
+        value: '',
+        label: 'fields.about-you-nationality.options.null'
+      }].concat(nationalities)
+  },
+  'about-you-gender': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: [
+      'male',
+      'female',
+      'other',
+      'unknown'
+    ]
+  },
+  'about-you-contact': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: [
+      'yes',
+      'no',
+    ]
+  },
+  'are-you-eighteen': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+
+    options: [{
+      value: 'yes',
+      toggle: 'contact-group',
+      child: 'partials/contact-group'
+    },
+      'no'
+    ]
+  },
+  'contact-group': {
+    "contact-number": {
+      "label": "Contact number"
+    },
+    "when-to-contact": {
+      "label": "When would you like us to contact you?"
+    },
+  },
+  'contact-number': {
+    dependent: {
+      field: 'are-you-eighteen',
+      value: 'yes'
+    }
+  },
+  'when-to-contact': {
+    dependent: {
+      field: 'are-you-eighteen',
+      value: 'yes'
+    }
   }
 };

@@ -9,10 +9,10 @@ module.exports = {
   'crime-type': [
     'crime-type',
     'immigration-crime-group',
-    'smuggling-crime-group',
+    'smuggling-crime-group'
   ],
   'crime-children': [
-    'crime-children',
+    'crime-children'
   ],
   'crime-time': [
     'when-crime-happened',
@@ -25,7 +25,7 @@ module.exports = {
       parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
     },
     'time-crime-will-happen',
-    'when-will-crime-happen-more-info',
+    'when-will-crime-happen-more-info'
   ],
   'crime-transport': [
     'crime-transport',
@@ -61,13 +61,13 @@ module.exports = {
     'airport-departure',
     'airport-arrival',
     'airport-departure-time',
-    'airport-arrival-time',
+    'airport-arrival-time'
   ],
   'crime-delivery': [
     'crime-delivery',
     'freight-more-info',
     'express-more-info',
-    'post-more-info',
+    'post-more-info'
   ],
   'crime-location': [
     'crime-location',
@@ -88,7 +88,7 @@ module.exports = {
     'crime-another-location-phone'
   ],
   person: [
-    'report-person',
+    'report-person'
   ],
   'personal-details': [
     'report-person-first-name',
@@ -101,12 +101,12 @@ module.exports = {
     'report-person-age-range',
     'report-person-nationality',
     'report-person-place-of-birth',
-    'report-person-gender',
+    'report-person-gender'
   ],
   'person-id': [
     'report-person-passport',
     'report-person-id',
-    'report-person-ni',
+    'report-person-ni'
   ],
   'person-contact': [
     'report-person-location',
@@ -164,7 +164,7 @@ module.exports = {
     'report-person-study-email',
     'report-person-study-url',
     'report-person-study-manager',
-    'report-person-study-manager-know',
+    'report-person-study-manager-know'
   ],
   'person-transport': [
     'report-person-transport',
@@ -177,7 +177,7 @@ module.exports = {
     'report-person-transport-model',
     'report-person-transport-colour',
     'report-person-transport-registration',
-    'report-person-transport-other',
+    'report-person-transport-other'
   ],
   'person-description': [
     'report-person-description'
