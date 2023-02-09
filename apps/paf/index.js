@@ -293,14 +293,14 @@ module.exports = {
       fields: ['report-person-location'],
       next: '/report-person-occupation',
       forks: [{
-        target: '/report-person-location-uk-contact-details',
+        target: '/report-person-location-uk-address',
         condition: {
           field: 'report-person-location',
           value: 'uk'
         }
       },
       {
-        target: '/report-person-location-outside-uk-contact-details',
+        target: '/report-person-location-outside-uk-address',
         condition: {
           field: 'report-person-location',
           value: 'outside-uk'
@@ -314,30 +314,30 @@ module.exports = {
         }
       }]
     },
-    '/report-person-location-uk-contact-details': {
-      fields: ['report-person-location-uk-contact-details-building',
-        'report-person-location-uk-contact-details-street',
-        'report-person-location-uk-contact-details-townOrCity',
-        'report-person-location-uk-contact-details-county',
-        'report-person-location-uk-contact-details-postcodeOrZIPCode'
+    '/report-person-location-uk-address': {
+      fields: ['report-person-location-uk-address-line1',
+        'report-person-location-uk-address-line2',
+        'report-person-location-uk-address-town',
+        'report-person-location-uk-address-county',
+        'report-person-location-uk-address-postcode'
       ],
       next: '/report-person-location-type'
     },
-    '/report-person-location-outside-uk-contact-details': {
-      fields: ['report-person-location-outside-uk-contact-details-country',
-        'report-person-location-outside-uk-contact-details-building',
-        'report-person-location-outside-uk-contact-details-street',
-        'report-person-location-outside-uk-contact-details-townOrCity',
-        'report-person-location-outside-uk-contact-details-county',
-        'report-person-location-outside-uk-contact-details-postcodeOrZIPCode'
+    '/report-person-location-outside-uk-address': {
+      fields: ['report-person-location-outside-uk-address-country',
+        'report-person-location-outside-uk-address-line1',
+        'report-person-location-outside-uk-address-line2',
+        'report-person-location-outside-uk-address-town',
+        'report-person-location-outside-uk-address-county',
+        'report-person-location-outside-uk-address-postcode'
       ],
       next: '/report-person-location-type'
     },
     '/report-person-location-type': {
       fields: ['report-person-location-type'],
-      next: '/report-person-location-contact-details'
+      next: '/report-person-location-contact'
     },
-    '/report-person-location-contact-details': {
+    '/report-person-location-contact': {
       fields: [
         'report-person-location-mobile',
         'report-person-location-phone',
@@ -387,24 +387,20 @@ module.exports = {
     },
     '/report-person-occupation-company-name': {
       fields: ['report-person-occupation-company-name'],
-      next: '/report-person-occupation-company-contact-details'
+      next: '/report-person-occupation-company-address'
     },
-    '/report-person-occupation-company-contact-details': {
-      fields: ['report-person-occupation-company-contact-details-building',
-        'report-person-occupation-company-contact-details-street',
-        'report-person-occupation-company-contact-details-townOrCity',
-        'report-person-occupation-company-contact-details-county',
-        'report-person-occupation-company-contact-details-postcodeOrZIPCode',
+    '/report-person-occupation-company-address': {
+      fields: ['report-person-occupation-company-address-line1',
+        'report-person-occupation-company-address-line2',
+        'report-person-occupation-company-address-town',
+        'report-person-occupation-company-address-county',
+        'report-person-occupation-company-address-postcode',
         'report-person-occupation-company-phone'
       ],
       next: '/report-person-occupation-company-manager'
     },
     '/report-person-occupation-company-manager': {
-      fields: ['report-person-occupation-company-manager'],
-      next: '/report-person-occupation-company-manager-know'
-    },
-    '/report-person-occupation-company-manager-know': {
-      fields: ['report-person-occupation-company-manager-know'],
+      fields: ['report-person-occupation-company-manager', 'report-person-occupation-company-manager-know'],
       next: '/report-person-study'
     },
     '/report-person-study': {
@@ -457,26 +453,26 @@ module.exports = {
     },
     '/report-person-study-name': {
       fields: ['report-person-study-name'],
-      next: '/report-person-study-contact-details'
+      next: '/report-person-study-address'
     },
-    '/report-person-study-contact-details': {
-      fields: ['report-person-study-contact-details-building',
-        'report-person-study-contact-details-street',
-        'report-person-study-contact-details-townOrCity',
-        'report-person-study-contact-details-county',
-        'report-person-study-contact-details-postcodeOrZIPCode',
-        'report-person-study-phone',
-        'report-person-study-email',
-        'report-person-study-url'
+    '/report-person-study-address': {
+      fields: ['report-person-study-address-line1',
+        'report-person-study-address-line2',
+        'report-person-study-address-town',
+        'report-person-study-address-county',
+        'report-person-study-address-postcode',
       ],
-      next: '/report-person-study-manager'
+      next: '/report-person-study-contact'
+    },
+    '/report-person-study-contact': {
+      fields: ['report-person-study-phone',
+      'report-person-study-email',
+      'report-person-study-url'
+    ],
+      next: '/report-person-study-manager',
     },
     '/report-person-study-manager': {
-      fields: ['report-person-study-manager'],
-      next: '/report-person-study-manager-know'
-    },
-    '/report-person-study-manager-know': {
-      fields: ['report-person-study-manager-know'],
+      fields: ['report-person-study-manager', 'report-person-study-manager-know'],
       next: '/report-person-transport'
     },
     '/report-person-transport': {

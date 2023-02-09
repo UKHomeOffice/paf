@@ -32,17 +32,17 @@
   "report-person-id": {
     "header": "Identification"
   },
-  "report-person-location-uk-contact-details": {
-    "header": "Address Details (UK)"
+  "report-person-location-uk-address": {
+    "header": "What is the person's address (UK)?"
   },
-  "report-person-location-outside-uk-contact-details": {
-    "header": "Address Details (Outside UK)"
+  "report-person-location-outside-uk-address": {
+    "header": "What is the person's address (Outside UK)?"
   },
   "report-person-location-travel-to-uk": {
     "header": "Travelling to the UK"
   },
-  "report-person-location-contact-details": {
-    "header": "Contact Details"
+  "report-person-location-contact": {
+    "header": "Enter the person's contact details (if known)"
   },
   "report-person-occupation-type": {
     "header": "What type of job or occupation does the person have?"
@@ -56,14 +56,14 @@
   "report-person-occupation-company-name": {
     "header": "Company name"
   },
-  "report-person-occupation-company-contact-details": {
-    "header": "Company address (if known)"
+  "report-person-occupation-company-address": {
+    "header": "What is the company's contact details (if known)?"
   },
   "report-person-occupation-company-phone": {
-    "header": "Company's telephone number including area code (if known)"
+    "header": "What is the company's telephone number including area code (if known)"
   },
   "report-person-occupation-company-manager": {
-    "header": "Who owns or manages the company?"
+    "header": "Company Owner"
   },
   "report-person-study-subject": {
     "header": "Do you know the course or the subject of study?"
@@ -77,20 +77,14 @@
   "report-person-study-name": {
     "header": "Name of college or university"
   },
-  "report-person-study-contact-details": {
-    "header": "Address"
+  "report-person-study-address": {
+    "header": "What is the institution's address (if known)?"
   },
-  "report-person-study-phone": {
-    "header": "Telephone number"
-  },
-  "report-person-study-email": {
-    "header": "Email address"
-  },
-  "report-person-study-url": {
-    "header": "Website address"
+  "report-person-study-contact": {
+    "header": "What is the institution's contact details (if known)?"
   },
   "report-person-study-manager": {
-    "header": "Who owns or manages the institution?"
+    "header": "Institution Owner"
   },
   "report-person-transport-details": {
     "header": "Vehicle details"
@@ -170,8 +164,8 @@
       "person-id": {
         "header": "Person's Identification Details"
       },
-      "person-location": {
-        "header": "Person's Location Details"
+      "person-contact": {
+        "header": "Person's Contact Details"
       },
       "person-occupation": {
         "header": "Person's Occupation Details"
