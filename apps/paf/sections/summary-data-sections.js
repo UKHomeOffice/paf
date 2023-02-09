@@ -6,15 +6,15 @@ const OCCUPATION = require('../data/occupation');
 const _ = require('lodash');
 
 module.exports = {
-  crimeType: [
+  'crime-type': [
     'crime-type',
     'immigration-crime-group',
     'smuggling-crime-group',
   ],
-  crimeChildren: [
+  'crime-children': [
     'crime-children',
   ],
-  crimeTime: [
+  'crime-time': [
     'when-crime-happened',
     'happening-now-info',
     'ongoing-info',
@@ -27,7 +27,7 @@ module.exports = {
     'time-crime-will-happen',
     'when-will-crime-happen-more-info',
   ],
-  crimeTransport: [
+  'crime-transport': [
     'crime-transport',
     'transport-group',
     'vehicle-type',
@@ -63,13 +63,13 @@ module.exports = {
     'airport-departure-time',
     'airport-arrival-time',
   ],
-  crimeDelivery: [
+  'crime-delivery': [
     'crime-delivery',
     'freight-more-info',
     'express-more-info',
     'post-more-info',
   ],
-  crimeLocation: [
+  'crime-location': [
     'crime-location',
     'crime-location-country',
     'crime-location-address-building',
@@ -90,7 +90,7 @@ module.exports = {
   person: [
     'report-person',
   ],
-  personalDetails: [
+  'personal-details': [
     'report-person-first-name',
     'report-person-family-name',
     'report-person-nickname',
@@ -103,12 +103,12 @@ module.exports = {
     'report-person-place-of-birth',
     'report-person-gender',
   ],
-  personId: [
+  'person-id': [
     'report-person-passport',
     'report-person-id',
     'report-person-ni',
   ],
-  personLocation: [
+  'person-location': [
     'report-person-location-uk-contact-details-building',
     'report-person-location-uk-contact-details-street',
     'report-person-location-uk-contact-details-townOrCity',
@@ -126,7 +126,7 @@ module.exports = {
     'report-person-location-type',
     'report-person-location-travel-to-uk-country'
   ],
-  personOccupation: [
+  'person-occupation': [
     'report-person-occupation',
     {
       field: 'report-person-occupation-type',
@@ -145,7 +145,7 @@ module.exports = {
     'report-person-occupation-company-manager',
     'report-person-occupation-company-manager-know'
   ],
-  personStudy: [
+  'person-study': [
     'report-person-study',
     'report-person-study-subject',
     'report-person-study-location',
@@ -164,7 +164,7 @@ module.exports = {
     'report-person-study-manager',
     'report-person-study-manager-know',
   ],
-  personTransport: [
+  'person-transport': [
     'report-person-transport',
     'report-person-transport-type',
     'report-person-transport-car-group',
@@ -177,7 +177,7 @@ module.exports = {
     'report-person-transport-registration',
     'report-person-transport-other',
   ],
-  personDescription: [
+  'person-description': [
     'report-person-description'
   ],
   'person-details': [
@@ -189,9 +189,30 @@ module.exports = {
     }
   ],
   organisation: [
-    'report-organisation'
+    'report-organisation',
+    'organisation-company-name',
+    'company-types',
+    'company-owner',
+    'owner-know-about-the-crime'
   ],
-  otherInfo: [
+  'organisation-contact': [
+    'company-address-line1',
+    'company-address-line2',
+    'company-town',
+    'company-county',
+    'company-postcode',
+    'company-phone',
+    'company-email',
+    'company-website'
+  ],
+  'organisation-other-info': [
+    'company-other-info'
+  ],
+  'organisation-another-company': [
+    'another-company',
+    'another-company-yes'
+  ],
+  'other-info': [
     'other-info-file-upload',
     {
       step: '/add-other-info-file-upload',

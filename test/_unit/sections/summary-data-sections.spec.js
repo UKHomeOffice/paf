@@ -17,8 +17,8 @@ describe('PAF Summary Data Sections', () => {
   });
 
   describe('Section Primary Fields', () => {
-    it('should check expected fields in crimeType section', () => {
-      const sectionFields = mappedSections.crimeType;
+    it('should check expected fields in crime-type section', () => {
+      const sectionFields = mappedSections['crime-type'];
       const expectedFields = [
         'crime-type',
         'immigration-crime-group',
@@ -28,8 +28,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in crimeChildren section', () => {
-      const sectionFields = mappedSections.crimeChildren;
+    it('should check expected fields in crime-children section', () => {
+      const sectionFields = mappedSections['crime-children'];
       const expectedFields = [
         'crime-children'
       ];
@@ -37,8 +37,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in crimeTime section', () => {
-      const sectionFields = mappedSections.crimeTime;
+    it('should check expected fields in crime-time section', () => {
+      const sectionFields = mappedSections['crime-time'];
       const expectedFields = [
         'when-crime-happened',
         'happening-now-info',
@@ -53,8 +53,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in crimeTransport section', () => {
-      const sectionFields = mappedSections.crimeTransport;
+    it('should check expected fields in crime-transport section', () => {
+      const sectionFields = mappedSections['crime-transport'];
       const expectedFields = [
         'crime-transport',
         'transport-group',
@@ -95,8 +95,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in crimeDelivery section', () => {
-      const sectionFields = mappedSections.crimeDelivery;
+    it('should check expected fields in crime-delivery section', () => {
+      const sectionFields = mappedSections['crime-delivery'];
       const expectedFields = [
         'crime-delivery',
         'freight-more-info',
@@ -107,8 +107,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in crimeLocation section', () => {
-      const sectionFields = mappedSections.crimeLocation;
+    it('should check expected fields in crime-location section', () => {
+      const sectionFields = mappedSections['crime-location'];
       const expectedFields = [
         'crime-location',
         'crime-location-country',
@@ -140,8 +140,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in personalDetails section', () => {
-      const sectionFields = mappedSections.personalDetails;
+    it('should check expected fields in personal-details section', () => {
+      const sectionFields = mappedSections['personal-details'];
       const expectedFields = [
         'report-person-first-name',
         'report-person-family-name',
@@ -156,8 +156,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in personId section', () => {
-      const sectionFields = mappedSections.personId;
+    it('should check expected fields in person-id section', () => {
+      const sectionFields = mappedSections['person-id'];
       const expectedFields = [
         'report-person-passport',
         'report-person-id',
@@ -167,8 +167,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in personLocation section', () => {
-      const sectionFields = mappedSections.personLocation;
+    it('should check expected fields in person-location section', () => {
+      const sectionFields = mappedSections['person-location'];
       const expectedFields = [
         'report-person-location-uk-contact-details-building',
         'report-person-location-uk-contact-details-street',
@@ -191,8 +191,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in personOccupation section', () => {
-      const sectionFields = mappedSections.personOccupation;
+    it('should check expected fields in person-occupation section', () => {
+      const sectionFields = mappedSections['person-occupation'];
       const expectedFields = [
         'report-person-occupation',
         'report-person-occupation-type',
@@ -213,8 +213,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in personStudy section', () => {
-      const sectionFields = mappedSections.personStudy;
+    it('should check expected fields in person-study section', () => {
+      const sectionFields = mappedSections['person-study'];
       const expectedFields = [
         'report-person-study',
         'report-person-study-subject',
@@ -238,8 +238,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in personTransport section', () => {
-      const sectionFields = mappedSections.personTransport;
+    it('should check expected fields in person-transport section', () => {
+      const sectionFields = mappedSections['person-transport'];
       const expectedFields = [
         'report-person-transport',
         'report-person-transport-type',
@@ -257,8 +257,8 @@ describe('PAF Summary Data Sections', () => {
       expect(result).to.be.true;
     });
 
-    it('should check expected fields in personDescription section', () => {
-      const sectionFields = mappedSections.personDescription;
+    it('should check expected fields in person-description section', () => {
+      const sectionFields = mappedSections['person-description'];
       const expectedFields = [
         'report-person-description'
       ];
@@ -274,48 +274,96 @@ describe('PAF Summary Data Sections', () => {
       const result = areOrderedEqual(sectionFields, expectedFields);
       expect(result).to.be.true;
     });
+
+    it('should check expected fields in organisation section', () => {
+      const sectionFields = mappedSections.organisation;
+      const expectedFields = [
+        'report-organisation',
+        'organisation-company-name',
+        'company-types',
+        'company-owner',
+        'owner-know-about-the-crime'
+      ];
+      const result = areOrderedEqual(sectionFields, expectedFields);
+      expect(result).to.be.true;
+    });
+
+    it('should check expected fields in organisation-contact section', () => {
+      const sectionFields = mappedSections['organisation-contact'];
+      const expectedFields = [
+        'company-address-line1',
+        'company-address-line2',
+        'company-town',
+        'company-county',
+        'company-postcode',
+        'company-phone',
+        'company-email',
+        'company-website'
+      ];
+      const result = areOrderedEqual(sectionFields, expectedFields);
+      expect(result).to.be.true;
+    });
+
+    it('should check expected fields in organisation-other-info section', () => {
+      const sectionFields = mappedSections['organisation-other-info'];
+      const expectedFields = [
+        'company-other-info'
+      ];
+      const result = areOrderedEqual(sectionFields, expectedFields);
+      expect(result).to.be.true;
+    });
+
+    it('should check expected fields in organisation-another-company section', () => {
+      const sectionFields = mappedSections['organisation-another-company'];
+      const expectedFields = [
+        'another-company',
+        'another-company-yes'
+      ];
+      const result = areOrderedEqual(sectionFields, expectedFields);
+      expect(result).to.be.true;
+    });
   });
 
   describe('Sections and Fields', () => {
-    it('crimeType', () => {
+    it('crime-type', () => {
       expect(containsAll(
         Object.keys(fields),
-        mappedSections.crimeType)
+        mappedSections['crime-type'])
       ).to.be.true;
     });
 
-    it('crimeChildren ', () => {
+    it('crime-children ', () => {
       expect(containsAll(
         Object.keys(fields),
-        mappedSections.crimeChildren)
+        mappedSections['crime-children'])
       ).to.be.true;
     });
 
-    it('crimeTime', () => {
+    it('crime-time', () => {
       expect(containsAll(
         Object.keys(fields),
-        mappedSections.crimeTime)
+        mappedSections['crime-time'])
       ).to.be.true;
     });
 
-    it('crimeTransport', () => {
+    it('crime-transport', () => {
       expect(containsAll(
         Object.keys(fields),
-        mappedSections.crimeTransport)
+        mappedSections['crime-transport'])
       ).to.be.true;
     });
 
-    it('crimeDelivery', () => {
+    it('crime-delivery', () => {
       expect(containsAll(
         Object.keys(fields),
-        mappedSections.crimeDelivery)
+        mappedSections['crime-delivery'])
       ).to.be.true;
     });
 
-    it('crimeLocation', () => {
+    it('crime-location', () => {
       expect(containsAll(
         Object.keys(fields),
-        mappedSections.crimeLocation)
+        mappedSections['crime-location'])
       ).to.be.true;
     });
 
@@ -330,6 +378,27 @@ describe('PAF Summary Data Sections', () => {
       expect(containsAll(
         Object.keys(fields),
         mappedSections.organisation)
+      ).to.be.true;
+    });
+
+    it('organisation-contact', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['organisation-contact'])
+      ).to.be.true;
+    });
+
+    it('organisation-other-info', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['organisation-other-info'])
+      ).to.be.true;
+    });
+
+    it('organisation-another-company', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['organisation-another-company'])
       ).to.be.true;
     });
   });

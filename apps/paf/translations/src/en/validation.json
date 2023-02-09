@@ -21,7 +21,7 @@
     "postcode": "Enter a real postcode"
   },
   "company-email": {
-    "postcode": "Enter an email address in the correct format, like name@example.com"
+    "email": "Enter an email address in the correct format, like name@example.com"
   },
   "company-website": {
     "url": "Enter a website address in the correct format, like www.example.com"

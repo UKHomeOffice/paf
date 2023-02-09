@@ -1144,6 +1144,9 @@
       },
       "no": {
         "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
       }
     }
   },
@@ -1209,6 +1212,35 @@
       }
     }
   },
+  "another-company-yes": {
+    "label": "Please tell us anything else about another company, business or education provider that you think we should know:"
+  },
+  "how-did-you-find-out-about-the-crime": {
+    "label": "How did you find out about the crime?"
+  },
+  "does-anyone-else-know": {
+    "label": "Does anyone else know about the crime?",
+    "hint": " "
+  },
+  "have-you-reported-before": {
+    "label": "Have you reported the crime before?",
+    "hint": " "
+  },
+  "how-do-you-know-the-person": {
+    "label": "How do you know this person/ these people? ",
+    "hint": " "
+  },
+  "can-use-info-without-risk": {
+    "legend": "Can we act on this information without putting you or others at risk?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
   "about-you-details": {
     "label": "You don't have to give us any details "
   },
@@ -1248,55 +1280,29 @@
       "no": {
         "label": "No"
       }
-    },
-    "how-did-you-find-out-about-the-crime": {
-      "label": "How did you find out about the crime?"
-    },
-    "does-anyone-else-know": {
-      "label": "Does anyone else know about the crime?",
-      "hint": " "
-    },
-    "have-you-reported-before": {
-      "label": "Have you reported the crime before?",
-      "hint": " "
-    },
-    "how-do-you-know-the-person": {
-      "label": "How do you know this person/ these people? ",
-      "hint": " "
-    },
-    "can-use-info-without-risk": {
-      "legend": "Can we act on this information without putting you or others at risk?",
-      "options": {
-        "yes": {
-          "label": "Yes"
-        },
-        "no": {
-          "label": "No"
-        }
-      }
-    },
-    "are-you-eighteen": {
-      "legend": "Are you over 18?",
-      "options": {
-        "yes": {
-          "label": "Yes"
-        },
-        "no": {
-          "label": "No"
-        }
-      }
-    },
-    "about-you-first-name": {
-      "label": "First name(s)"
-    },
-    "about-you-family-name": {
-      "label": "Family name(s)"
-    },
-    "contact-number": {
-      "label": "Contact number"
-    },
-    "when-to-contact": {
-      "label": "When would you like us to contact you?"
     }
+  },
+  "are-you-eighteen": {
+    "legend": "Are you over 18?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "about-you-first-name": {
+    "label": "First name(s)"
+  },
+  "about-you-family-name": {
+    "label": "Family name(s)"
+  },
+  "contact-number": {
+    "label": "Contact number"
+  },
+  "when-to-contact": {
+    "label": "When would you like us to contact you?"
   }
 }

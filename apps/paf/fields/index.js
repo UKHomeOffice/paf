@@ -1019,10 +1019,25 @@ module.exports = {
   'organisation-company-name': {
     isPageHeading: true
   },
+  'company-address-line1': {
+    mixin: 'input-text'
+  },
+  'company-address-line2': {
+    mixin: 'input-text'
+  },
+  'company-town': {
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'company-county': {
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
   'company-postcode': {
     formatter: ['removespaces', 'uppercase'],
     validate: ['postcode'],
     className: ['govuk-input', 'govuk-input--width-10']
+  },
+  'company-phone': {
+    className: ['govuk-input', 'govuk-input--width-20']
   },
   'company-email': {
     formatter: ['removespaces'],
@@ -1041,6 +1056,9 @@ module.exports = {
         value: '',
         label: 'fields.company-types.options.null'
       }].concat(companyTypes)
+  },
+  'company-owner': {
+    mixin: 'input-text'
   },
   'owner-know-about-the-crime': {
     mixin: 'radio-group',
@@ -1064,13 +1082,13 @@ module.exports = {
     options: [
       {
         value: 'yes',
-        toggle: 'another-company-group-yes',
-        child: 'partials/another-company-group-yes'
+        toggle: 'another-company-yes',
+        child: 'textarea'
       },
       'no',
     ]
   },
-  'another-company-group-yes': {
+  'another-company-yes': {
     mixin: 'textarea',
     'ignore-defaults': true,
     formatter: ['trim', 'hyphens'],

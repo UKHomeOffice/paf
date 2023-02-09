@@ -116,11 +116,11 @@
   "report-organisation": {
     "header": "The Organisation"
   },
-  "organisation-company-address": {
+  "company-address": {
     "header": "What is the address of the company, business or education provider (if known)?"
   },
   "company-contact": {
-    "header": "Enter the company's, business or education provider contact details (if known)"
+    "header": "Enter the company, business or education provider's contact details (if known)"
   },
   "company-owner": {
     "header": "Company owner"
@@ -143,46 +143,46 @@
   "confirm": {
     "header": "Check your answers before submitting your application.",
     "sections": {
-      "crimeType": {
+      "crime-type": {
         "header": "Crime Details - Crime Type"
       },
-      "crimeChildren": {
+      "crime-children": {
         "header": "Crime Details - Children Involved in Crime"
       },
-      "crimeTime": {
+      "crime-time": {
         "header": "Crime Details - Duration"
       },
-      "crimeTransport": {
+      "crime-transport": {
         "header": "Crime Details - Transport Details"
       },
-      "crimeDelivery": {
+      "crime-delivery": {
         "header": "Crime Details - Mode of Delivery "
       },
-      "crimeLocation": {
+      "crime-location": {
         "header": "Crime Details - Location Details"
       },
       "person": {
         "header": "Report a Person"
       },
-      "personalDetails": {
+      "personal-details": {
         "header": "Person's Personal Details"
       },
-      "personId": {
+      "person-id": {
         "header": "Person's Identification Details"
       },
-      "personLocation": {
+      "person-location": {
         "header": "Person's Location Details"
       },
-      "personOccupation": {
+      "person-occupation": {
         "header": "Person's Occupation Details"
       },
-      "personStudy": {
+      "person-study": {
         "header": "Person's Study Details"
       },
-      "personTransport": {
+      "person-transport": {
         "header": "Person's Transport Details"
       },
-      "personDescription": {
+      "person-description": {
         "header": "The Person - Other Information"
       },
       "person-details": {
@@ -190,6 +190,15 @@
       },
       "organisation": {
         "header": "The Organisation"
+      },
+      "organisation-contact": {
+        "header": "The Organisation - Contact Details"
+      },
+      "organisation-other-info": {
+        "header": "The Organisation - Other Information"
+      },
+      "organisation-another-company": {
+        "header": "The Organisation - Another Company"
       },
       "about-you": {
         "header": "About you"

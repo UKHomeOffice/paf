@@ -632,11 +632,8 @@ module.exports = {
       next: '/another-company',
     },
     '/another-company': {
-      fields: ['another-company'],
+      fields: ['another-company', 'another-company-yes'],
       next: '/other-info-description',
-    },
-    '/other-info-description': {
-      next: '/other-info-another-crime'
     },
     '/other-info-description': {
       next: '/other-info-another-crime'
