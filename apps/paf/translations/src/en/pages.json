@@ -126,7 +126,10 @@
     "header": "Please attach any documents which may help us investigate this crime - TO DO"
   },
   "about-you": {
-    "header": "About You - TO DO"
+    "header": "About You"
+  },
+  "about-you-details": {
+    "header": "Please provide your details."
   },
   "confirm": {
     "header": "Check your answers before submitting your application.",
@@ -163,6 +166,9 @@
       },
       "organisation": {
         "header": "The Organisation"
+      },
+      "about-you": {
+        "header": "About you"
       }
     }
   }

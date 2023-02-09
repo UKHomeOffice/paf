@@ -383,9 +383,59 @@ module.exports = {
       next: '/about-you'
     },
     '/about-you': {
+      fields: ['how-did-you-find-out-about-the-crime'],
+      next: '/does-anyone-else-know'
+    },
+    '/does-anyone-else-know': {
+      fields: ['does-anyone-else-know'],
+      next: '/have-you-reported-before'
+    },
+    '/have-you-reported-before': {
+      fields: ['have-you-reported-before'],
+      next: '/how-do-you-know-the-person'
+    },
+    '/how-do-you-know-the-person': {
+      fields: ['how-do-you-know-the-person'],
+      next: '/can-use-info-without-risk'
+    },
+    '/can-use-info-without-risk': {
+      fields: ['can-use-info-without-risk'],
+      next: '/about-you-details'
+    },
+    '/about-you-details': {
+      fields: [
+        'about-you-first-name',
+        'about-you-family-name'
+    ],
+      next: '/about-you-dob'
+    },
+    '/about-you-dob': {
+      fields: ['about-you-dob'],
+      next: '/about-you-nationality'
+    },
+    '/about-you-nationality': {
+      fields: ['about-you-nationality'],
+      next: '/about-you-gender'
+    },
+    '/about-you-gender': {
+      fields: ['about-you-gender'],
+      next: '/about-you-contact'
+    },
+    '/about-you-contact': {
+      fields: ['about-you-contact'],
+      next: '/confirm',
+      forks: [{
+        target: '/are-you-eighteen',
+        condition: {
+          field: 'about-you-contact',
+          value: 'yes'
+        }
+      }]
+    },
+    '/are-you-eighteen': {
+      fields: ['are-you-eighteen','contact-number','when-to-contact'],
       next: '/confirm'
     },
-
     '/confirm': {
       behaviours: [SummaryPageBehaviour, 'complete', personNumber],
       sections: require('./sections/summary-data-sections'),

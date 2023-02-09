@@ -116,7 +116,23 @@ module.exports = {
       field: 'other-info-file-upload'
     }
   ],
-  aboutYou: [
-
+  'about-you': [
+    'how-did-you-find-out-about-the-crime',
+    'does-anyone-else-know',
+    'have-you-reported-before',
+    'how-do-you-know-the-person',
+    'can-use-info-without-risk',
+    'about-you-first-name',
+    'about-you-family-name',
+    {
+      field: 'about-you-dob',
+      parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+    },
+    'about-you-nationality',
+    'about-you-gender',
+    'about-you-contact',
+    'are-you-eighteen',
+    'contact-number',
+    'when-to-contact'
   ]
 };
