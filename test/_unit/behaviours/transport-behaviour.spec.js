@@ -46,7 +46,6 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
         req.form.values['vehicle-registration'] = 'MRVL1';
 
         controller.saveValues(req, res, () => {
-          console.log(req.sessionModel)
           req.sessionModel.unset.should.have.been.calledWithExactly([
             'vehicle-type',
             'vehicle-make',
@@ -70,7 +69,6 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
         req.form.values['port-arrival-time'] = '8pm';
 
         controller.saveValues(req, res, () => {
-          console.log(req.sessionModel)
           req.sessionModel.unset.should.have.been.calledWithExactly([
             'boat-type',
             'boat-name',
@@ -95,7 +93,6 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
         req.form.values['station-arrival-time'] = '3pm';
 
         controller.saveValues(req, res, () => {
-          console.log(req.sessionModel)
           req.sessionModel.unset.should.have.been.calledWithExactly([
             'train-company',
             'train-country-departure',
@@ -120,7 +117,6 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
         req.form.values['airport-arrival-time'] = '7pm';
 
         controller.saveValues(req, res, () => {
-          console.log(req.sessionModel)
           req.sessionModel.unset.should.have.been.calledWithExactly([
             'airline-company',
             'airline-flight-number',
