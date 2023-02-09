@@ -618,26 +618,32 @@ module.exports = {
       'travel-to-uk',
       'unknown']
   },
-  'report-person-location-uk-contact-details-townOrCity': {
+  'report-person-location-uk-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
-  'report-person-location-uk-contact-details-postcodeOrZIPCode': {
+  'report-person-location-uk-address-county': {
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'report-person-location-uk-address-postcode': {
     formatter: ['removespaces', 'uppercase'],
     className: ['govuk-input', 'govuk-input--width-10']
   },
-  'report-person-location-outside-uk-contact-details-country': {
+  'report-person-location-outside-uk-address-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
     options:
       [{
         value: '',
-        label: 'fields.report-person-location-outside-uk-contact-details-country.options.null'
+        label: 'fields.report-person-location-outside-uk-address-country.options.null'
       }].concat(countriesList)
   },
-  'report-person-location-outside-uk-contact-details-townOrCity': {
+  'report-person-location-outside-uk-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
-  'report-person-location-outside-uk-contact-details-postcodeOrZIPCode': {
+  'report-person-location-outside-uk-address-county': {
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'report-person-location-outside-uk-address-postcode': {
     formatter: ['removespaces', 'uppercase'],
     className: ['govuk-input', 'govuk-input--width-10']
   },
@@ -687,10 +693,13 @@ module.exports = {
     mixin: 'radio-group',
     options: ['yes', 'no', 'unknown']
   },
-  'report-person-occupation-company-contact-details-townOrCity': {
+  'report-person-occupation-company-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
-  'report-person-occupation-company-contact-details-postcodeOrZIPCode': {
+  'report-person-occupation-company-address-county': {
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'report-person-occupation-company-address-postcode': {
     formatter: ['removespaces', 'uppercase'],
     className: ['govuk-input', 'govuk-input--width-10']
   },
@@ -699,7 +708,6 @@ module.exports = {
   },
   'report-person-occupation-company-manager-know': {
     mixin: 'radio-group',
-    isPageHeading: true,
     options: ['yes', 'no', 'unknown']
   },
   'report-person-study': {
@@ -717,10 +725,13 @@ module.exports = {
     mixin: 'radio-group',
     options: ['yes', 'no', 'unknown']
   },
-  'report-person-study-contact-details-townOrCity': {
+  'report-person-study-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
-  'report-person-study-contact-details-postcodeOrZIPCode': {
+  'report-person-study-address-county': {
+    className: ['govuk-input', 'govuk-!-width-two-thirds']
+  },
+  'report-person-study-address-postcode': {
     formatter: ['removespaces', 'uppercase'],
     className: ['govuk-input', 'govuk-input--width-10']
   },
@@ -729,7 +740,6 @@ module.exports = {
   },
   'report-person-study-manager-know': {
     mixin: 'radio-group',
-    isPageHeading: true,
     options: ['yes', 'no', 'unknown']
   },
   'report-person-transport': {

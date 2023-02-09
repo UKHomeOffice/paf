@@ -657,41 +657,41 @@
       }
     }
   },
-  "report-person-location-uk-contact-details-building": {
-    "label": "Building"
+  "report-person-location-uk-address-line1": {
+    "label": "Address line 1"
   },
-  "report-person-location-uk-contact-details-street": {
-    "label": "Street"
+  "report-person-location-uk-address-line2": {
+    "label": "Address line 2"
   },
-  "report-person-location-uk-contact-details-townOrCity": {
+  "report-person-location-uk-address-town": {
     "label": "Town or city"
   },
-  "report-person-location-uk-contact-details-county": {
+  "report-person-location-uk-address-county": {
     "label": "County"
   },
-  "report-person-location-uk-contact-details-postcodeOrZIPCode": {
+  "report-person-location-uk-address-postcode": {
     "label": "Postcode"
   },
-  "report-person-location-outside-uk-contact-details-country": {
+  "report-person-location-outside-uk-address-country": {
     "label": "What country is the person in?",
     "options": {
       "null": "Select..."
     },
     "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
   },
-  "report-person-location-outside-uk-contact-details-building": {
-    "label": "Building"
+  "report-person-location-outside-uk-address-line1": {
+    "label": "Address line 1"
   },
-  "report-person-location-outside-uk-contact-details-street": {
-    "label": "Street"
+  "report-person-location-outside-uk-address-line2": {
+    "label": "Address line 2"
   },
-  "report-person-location-outside-uk-contact-details-townOrCity": {
+  "report-person-location-outside-uk-address-town": {
     "label": "Town or city"
   },
-  "report-person-location-outside-uk-contact-details-county": {
+  "report-person-location-outside-uk-address-county": {
     "label": "County"
   },
-  "report-person-location-outside-uk-contact-details-postcodeOrZIPCode": {
+  "report-person-location-outside-uk-address-postcode": {
     "label": "Postcode"
   },
   "report-person-location-mobile": {
@@ -773,26 +773,26 @@
   "report-person-occupation-company-name": {
     "label": "Company name (if known)"
   },
-  "report-person-occupation-company-contact-details-building": {
-    "label": "Building"
+  "report-person-occupation-company-address-line1": {
+    "label": "Address line 1"
   },
-  "report-person-occupation-company-contact-details-street": {
-    "label": "Street"
+  "report-person-occupation-company-address-line2": {
+    "label": "Address line 2"
   },
-  "report-person-occupation-company-contact-details-townOrCity": {
+  "report-person-occupation-company-address-town": {
     "label": "Town or city"
   },
-  "report-person-occupation-company-contact-details-county": {
+  "report-person-occupation-company-address-county": {
     "label": "County"
   },
-  "report-person-occupation-company-contact-details-postcodeOrZIPCode": {
+  "report-person-occupation-company-address-postcode": {
     "label": "Postcode"
   },
   "report-person-occupation-company-phone": {
     "label": "Company's telephone number including area code (if known)"
   },
   "report-person-occupation-company-manager": {
-    "label": "Owner or manager"
+    "label": "Who owns or manages the company?"
   },
   "report-person-occupation-company-manager-know": {
     "legend": "Does the owner or manager know about the crime?",
@@ -862,19 +862,19 @@
   "report-person-study-name": {
     "label": "Name of college or university"
   },
-  "report-person-study-contact-details-building": {
-    "label": "Building"
+  "report-person-study-address-line1": {
+    "label": "Address line 1"
   },
-  "report-person-study-contact-details-street": {
-    "label": "Street"
+  "report-person-study-address-line2": {
+    "label": "Address line 2"
   },
-  "report-person-study-contact-details-townOrCity": {
+  "report-person-study-address-town": {
     "label": "Town or city"
   },
-  "report-person-study-contact-details-county": {
+  "report-person-study-address-county": {
     "label": "County"
   },
-  "report-person-study-contact-details-postcodeOrZIPCode": {
+  "report-person-study-address-postcode": {
     "label": "Postcode"
   },
   "report-person-study-phone": {
@@ -884,10 +884,10 @@
     "label": "Email address"
   },
   "report-person-study-url": {
-    "label": "Website address"
+    "label": "Website"
   },
   "report-person-study-manager": {
-    "label": "Owner or manager"
+    "label": "Who owns or manages the institution?"
   },
   "report-person-study-manager-know": {
     "legend": "Does the owner or manager know about the crime?",
