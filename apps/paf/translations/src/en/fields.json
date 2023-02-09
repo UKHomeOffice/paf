@@ -1135,8 +1135,88 @@
   "personAddNi": {
     "label": "National insurance number or equivalent (if known)"
   },
+  "report-organisation": {
+    "hint": "If you are reporting a person rather than an organisation such as a company or college you do not need to complete this page.",
+    "legend": "Do you wish to report a company, business or education provider?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "organisation-company-name": {
+    "label": "What is the company, business or education provider (if known)?"
+  },
+  "company-address-line1": {
+    "label": "Address line 1"
+  },
+  "company-address-line2": {
+    "label": "Address line 2"
+  },
+  "company-town": {
+    "label": "Town or city"
+  },
+  "company-county": {
+    "label": "County"
+  },
+  "company-postcode": {
+    "label": "Postcode"
+  },
+  "company-phone": {
+    "label": "Phone number"
+  },
+  "company-email": {
+    "label": "Email"
+  },
+  "company-website": {
+    "label": "Website"
+  },
+  "company-types": {
+    "label": "What is the type of company, business or education provider?",
+    "hint": "Start to type the company type and options will appear"
+  },
+  "company-owner": {
+    "label": "Who owns or manages the company, business or education provider?"
+  },
+  "owner-know-about-the-crime": {
+    "legend": "Does the owner or manager know about the crime?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "company-other-info": {
+    "label": "Please tell us anything else about the company, business or education provider that you think we should know"
+  },
+  "another-company": {
+    "legend": "Do you want to tell us about another company, business or education provider that is involved in the same crime?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "another-company-yes": {
+    "label": "Please tell us anything else about another company, business or education provider that you think we should know:"
+  },
   "how-did-you-find-out-about-the-crime": {
-     "label": "How did you find out about the crime?"
+    "label": "How did you find out about the crime?"
   },
   "does-anyone-else-know": {
     "label": "Does anyone else know about the crime?",
@@ -1222,7 +1302,7 @@
   "contact-number": {
     "label": "Contact number"
   },
-    "when-to-contact": {
-      "label": "When would you like us to contact you?"
+  "when-to-contact": {
+    "label": "When would you like us to contact you?"
   }
 }

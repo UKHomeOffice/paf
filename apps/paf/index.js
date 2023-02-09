@@ -597,6 +597,42 @@ module.exports = {
       continueOnEdit: true
     },
     '/report-organisation': {
+      fields: ['report-organisation'],
+      next: '/other-info-description',
+      forks: [{
+        target: '/company-name',
+        condition: {
+          field: 'report-organisation',
+          value: 'yes'
+        }
+      }]
+    },
+    '/company-name': {
+      next: '/company-address',
+      fields: ['organisation-company-name'],
+    },
+    '/company-address': {
+      fields: ['company-address-line1', 'company-address-line2', 'company-town', 'company-county', 'company-postcode'],
+      next: '/company-contact',
+    },
+    '/company-contact': {
+      fields: ['company-phone', 'company-email', 'company-website'],
+      next: '/company-types',
+    },
+    '/company-types': {
+      fields: ['company-types'],
+      next: '/company-owner',
+    },
+    '/company-owner': {
+      fields: ['company-owner', 'owner-know-about-the-crime'],
+      next: '/company-other-info',
+    },
+    '/company-other-info': {
+      fields: ['company-other-info'],
+      next: '/another-company',
+    },
+    '/another-company': {
+      fields: ['another-company', 'another-company-yes'],
       next: '/other-info-description',
     },
     '/other-info-description': {
