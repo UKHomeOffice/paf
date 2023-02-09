@@ -5,7 +5,8 @@ let settings = require('./hof.settings');
 const config = require('./config.js');
 
 settings = Object.assign({}, settings, {
-  routes: settings.routes.map(require)
+  routes: settings.routes.map(require),
+  behaviours: settings.behaviours.map(require)
 });
 
 const app = hof(settings);
