@@ -385,7 +385,7 @@
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
   "port-departure": {
     "label": "Port of departure"
@@ -407,7 +407,7 @@
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
   "station-departure": {
     "label": "Departure station"
@@ -432,7 +432,7 @@
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
   "airport-departure": {
     "label": "Airport of departure"
@@ -491,7 +491,7 @@
     "options": {
       "null": "Please select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
   "crime-location-address-line1": {
     "label": "Address line 1"
@@ -527,7 +527,7 @@
     "options": {
       "null": "Please select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
   "crime-another-location-address-line1": {
     "label": "Address line 1"
@@ -572,11 +572,11 @@
     "label": "Other name(s) that they use or that people know them by"
   },
   "report-person-dob": {
-    "legend": "Date of Birth",
+    "legend": "What is the person's date of birth?",
     "hint": "If you do not know the date of birth, but you can provide a partial date of birth please enter the information in the free text box at the end of this section"
   },
   "report-person-age-range": {
-    "legend": "Approximate age",
+    "legend": "What is the person's approximate age?",
     "options": {
       "0-17": {
         "label": "0-17"
@@ -609,13 +609,13 @@
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the nationality. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the nationality and options will appear"
   },
   "report-person-place-of-birth": {
     "label": "Place of birth (if known)"
   },
   "report-person-gender": {
-    "legend": "Gender",
+    "legend": "What is the person's gender?",
     "options": {
       "male": {
         "label": "Male"
@@ -673,11 +673,11 @@
     "label": "Postcode"
   },
   "report-person-location-outside-uk-address-country": {
-    "label": "What country is the person in?",
+    "label": "Country",
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
   "report-person-location-outside-uk-address-line1": {
     "label": "Address line 1"
@@ -718,11 +718,11 @@
     }
   },
   "report-person-location-travel-to-uk-country": {
-    "label": "What country is the person travelling?",
+    "label": "What country is the person travelling from?",
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
   "report-person-location-travel-to-uk-how": {
     "label": "How is the person travelling?"
@@ -918,7 +918,7 @@
     }
   },
   "report-person-transport-type": {
-    "legend": "Vehicle type",
+    "legend": "What is the vehicle type?",
     "options": {
       "boat": {
         "label": "Boat"
@@ -1067,11 +1067,11 @@
     "label": "Other name(s) that they use or that people know them by"
   },
   "personAddDob": {
-    "legend": "Date of Birth",
+    "legend": "What is the person's date of birth?",
     "hint": "If you do not know the date of birth, but you can provide a partial date of birth please enter the information in the free text box at the end of this section"
   },
   "personAddAgeRange": {
-    "legend": "Approximate age",
+    "legend": "What is the person's approximate age?",
     "options": {
       "0-17": {
         "label": "0-17"
@@ -1104,13 +1104,13 @@
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the nationality. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the nationality and options will appear"
   },
   "personAddPlaceOfBirth": {
     "label": "Place of birth (if known)"
   },
   "personAddGender": {
-    "legend": "Gender",
+    "legend": "What is the person's gender?",
     "options": {
       "male": {
         "label": "Male"
@@ -1179,7 +1179,10 @@
   },
   "company-types": {
     "label": "What is the type of company, business or education provider?",
-    "hint": "Start to type the company type and options will appear"
+    "hint": "Start to type the company type and options will appear",
+    "options": {
+      "null": "Select..."
+    }
   },
   "company-owner": {
     "label": "Who owns or manages the company, business or education provider?"
@@ -1227,7 +1230,7 @@
     "hint": " "
   },
   "how-do-you-know-the-person": {
-    "label": "How do you know this person/ these people? ",
+    "label": "How do you know this person/ these people?",
     "hint": " "
   },
   "can-use-info-without-risk": {
@@ -1241,21 +1244,18 @@
       }
     }
   },
-  "about-you-details": {
-    "label": "You don't have to give us any details "
-  },
   "about-you-dob": {
-    "legend": "Date of Birth"
+    "legend": "What is your date of birth?"
   },
   "about-you-nationality": {
-    "label": "Nationality",
+    "label": "What is your nationality?",
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the your nationality. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the nationality and options will appear"
   },
   "about-you-gender": {
-    "legend": "Gender",
+    "legend": "What is your gender?",
     "options": {
       "male": {
         "label": "Male"
