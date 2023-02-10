@@ -376,6 +376,62 @@ describe('PAF Summary Data Sections', () => {
       ).to.be.true;
     });
 
+    it('personal-details', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['personal-details'])
+      ).to.be.true;
+    });
+
+    it('person-id', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['person-id'])
+      ).to.be.true;
+    });
+
+    it('person-contact', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['person-contact'])
+      ).to.be.true;
+    });
+
+    it('person-occupation', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['person-occupation'])
+      ).to.be.true;
+    });
+
+    it('person-study', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['person-study'])
+      ).to.be.true;
+    });
+
+    it('person-transport', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['person-transport'])
+      ).to.be.true;
+    });
+
+    it('person-description', () => {
+      expect(containsAll(
+        Object.keys(fields),
+        mappedSections['person-description'])
+      ).to.be.true;
+    });
+
+    it('person-details', () => {
+      mappedSections['person-details'].every(i => {
+        const item = i.field || i;
+        return Object.keys(fields).includes(item);
+      });
+    });
+
     it('organisation', () => {
       expect(containsAll(
         Object.keys(fields),

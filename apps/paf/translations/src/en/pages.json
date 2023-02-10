@@ -138,43 +138,43 @@
     "header": "Check your answers before submitting your application.",
     "sections": {
       "crime-type": {
-        "header": "Crime Details - Crime Type"
+        "header": "The Crime - Crime Type"
       },
       "crime-children": {
-        "header": "Crime Details - Children Involved in Crime"
+        "header": "The Crime - Children Involved in Crime"
       },
       "crime-time": {
-        "header": "Crime Details - Duration"
+        "header": "The Crime - Duration"
       },
       "crime-transport": {
-        "header": "Crime Details - Transport Details"
+        "header": " The Crime - Transport Details"
       },
       "crime-delivery": {
-        "header": "Crime Details - Mode of Delivery "
+        "header": "The Crime - Mode of Delivery "
       },
       "crime-location": {
-        "header": "Crime Details - Location Details"
+        "header": "The Crime - Location Details"
       },
       "person": {
-        "header": "Report a Person"
+        "header": "The Person"
       },
       "personal-details": {
-        "header": "Person's Personal Details"
+        "header": "The Person - Personal Details"
       },
       "person-id": {
-        "header": "Person's Identification Details"
+        "header": "The Person - Identification Details"
       },
       "person-contact": {
-        "header": "Person's Contact Details"
+        "header": "The Person - Contact Details"
       },
       "person-occupation": {
-        "header": "Person's Occupation Details"
+        "header": "The Person - Occupation Details"
       },
       "person-study": {
-        "header": "Person's Study Details"
+        "header": "The Person - Study Details"
       },
       "person-transport": {
-        "header": "Person's Transport Details"
+        "header": "The Person - Transport Details"
       },
       "person-description": {
         "header": "The Person - Other Information"
