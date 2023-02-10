@@ -514,19 +514,19 @@ module.exports = {
         label: 'fields.crime-location-country.options.null'
       }].concat(countriesList),
   },
-  'crime-location-address-building': {
+  'crime-location-address-line1': {
     mixin: 'input-text'
   },
-  'crime-location-address-street': {
+  'crime-location-address-line2': {
     mixin: 'input-text'
   },
-  'crime-location-address-townOrCity': {
+  'crime-location-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'crime-location-address-county': {
     mixin: 'input-text'
   },
-  'crime-location-address-postcodeOrZIPCode': {
+  'crime-location-address-postcode': {
     className: ['govuk-input', 'govuk-input--width-10']
   },
   'crime-location-phone': {
@@ -552,19 +552,19 @@ module.exports = {
         label: 'fields.crime-another-location-country.options.null'
       }].concat(countriesList),
   },
-  'crime-another-location-address-building': {
+  'crime-another-location-address-line1': {
     mixin: 'input-text'
   },
-  'crime-another-location-address-street': {
+  'crime-another-location-address-line2': {
     mixin: 'input-text'
   },
-  'crime-another-location-address-townOrCity': {
+  'crime-another-location-address-town': {
     className: ['govuk-input', 'govuk-!-width-two-thirds']
   },
   'crime-another-location-address-county': {
     mixin: 'input-text'
   },
-  'crime-another-location-address-postcodeOrZIPCode': {
+  'crime-another-location-address-postcode': {
     className: ['govuk-input', 'govuk-input--width-10']
   },
   'crime-another-location-phone': {

@@ -223,11 +223,11 @@ module.exports = {
     '/crime-location': {
       fields: ['crime-location',
         'crime-location-country',
-        'crime-location-address-building',
-        'crime-location-address-street',
-        'crime-location-address-townOrCity',
+        'crime-location-address-line1',
+        'crime-location-address-line2',
+        'crime-location-address-town',
         'crime-location-address-county',
-        'crime-location-address-postcodeOrZIPCode',
+        'crime-location-address-postcode',
         'crime-location-phone'],
       next: '/report-person',
       forks: [{
@@ -241,11 +241,11 @@ module.exports = {
     '/crime-another-location': {
       fields: ['crime-another-location',
         'crime-another-location-country',
-        'crime-another-location-address-building',
-        'crime-another-location-address-street',
-        'crime-another-location-address-townOrCity',
+        'crime-another-location-address-line1',
+        'crime-another-location-address-line2',
+        'crime-another-location-address-town',
         'crime-another-location-address-county',
-        'crime-another-location-address-postcodeOrZIPCode',
+        'crime-another-location-address-postcode',
         'crime-another-location-phone'
       ],
       next: '/report-person'
