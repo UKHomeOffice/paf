@@ -1,27 +1,27 @@
 [
   {
     "value": "building-construction",
-    "label": "building / construction"
+    "label": "Building / Construction"
   },
   {
     "value": "care-home",
-    "label": "care home"
+    "label": "Care home"
   },
   {
     "value": "catering-and-hospitality",
-    "label": "catering and hospitality"
+    "label": "Catering and Hospitality"
   },
   {
     "value": "child-care-nursery",
-    "label": "child care / nursery"
+    "label": "Child care / Nursery"
   },
   {
     "value": "cleaning",
-    "label": "cleaning"
+    "label": "Cleaning"
   },
   {
     "value": "engineering",
-    "label": "engineering"
+    "label": "Engineering"
   },
   {
     "value": "english-language-college",
@@ -32,67 +32,67 @@
     "label": "factory"
   },
   {
-    "value": "farming, forestry and fishing",
-    "label": "farming-forestry-and-fishing"
+    "value": "farming-forestry-and-fishing",
+    "label": "Farming, forestry and fishing"
   },
   {
     "value": "freight-agent",
-    "label": "freight agent"
+    "label": "Freight agent"
   },
   {
     "value": "government",
-    "label": "government"
+    "label": "Government"
   },
   {
     "value": "hairdressing-beauty-therapy",
-    "label": "hairdressing / beauty therapy"
+    "label": "Hairdressing / Beauty therapy"
   },
   {
     "value": "haulage",
-    "label": "haulage"
+    "label": "Haulage"
   },
   {
     "value": "information-technology",
-    "label": "information technology (IT)"
+    "label": "Information technology (IT)"
   },
   {
     "value": "sales-retail",
-    "label": "sales and retail"
+    "label": "Sales and retail"
   },
   {
     "value": "school-college-university",
-    "label": "school / college / university"
+    "label": "School / College / University"
   },
   {
     "value": "security",
-    "label": "security"
+    "label": "Security"
   },
   {
     "value": "self-store",
-    "label": "self store"
+    "label": "Self store"
   },
   {
     "value": "taxi-minicab-chauffeur",
-    "label": "taxi / minicab / chauffeur"
+    "label": "Taxi / Minicab / Chauffeur"
   },
   {
     "value": "travel-operator-agent",
-    "label": "travel operator/agent"
+    "label": "Travel operator/Agent"
   },
   {
     "value": "vehicle-rental",
-    "label": "vehicle rental"
+    "label": "Vehicle rental"
   },
   {
     "value": "warehouse",
-    "label": "warehouse"
+    "label": "Aarehouse"
   },
   {
     "value": "other",
-    "label": "other"
+    "label": "Other"
   },
   {
-    "value": "do-not-know",
-    "label": "other"
+    "value": "unknown",
+    "label": "I don't know"
   }
 ]

@@ -6,31 +6,31 @@
     "header": "If you have any more information about when the crime happening please tell us here:"
   },
   "crime-transport-vehicle-details": {
-    "header": "Vehicle details"
+    "header": "What are the vehicle details?"
   },
   "crime-transport-boat-details": {
-    "header": "Boat details"
+    "header": "What are the boat details?"
   },
   "crime-transport-train-details": {
-    "header": "Train details"
+    "header": "What are the train details?"
   },
   "crime-transport-aeroplane-details": {
-    "header": "Aeroplane details"
+    "header": "What are the aeroplane details?"
   },
   "report-person": {
     "header": "The Person"
   },
   "report-person-name": {
-    "header": "Individual's name"
+    "header": "What is the person's name?"
   },
   "report-person-nationality": {
-    "header": "Nationality"
+    "header": "What is the person's nationality?"
   },
   "report-person-place-of-birth": {
-    "header": "Place of birth"
+    "header": "What is the person's place of birth?"
   },
   "report-person-id": {
-    "header": "Identification"
+    "header": "What are the person's forms of identification?"
   },
   "report-person-location-uk-address": {
     "header": "What is the person's address (UK)?"
@@ -42,7 +42,7 @@
     "header": "Travelling to the UK"
   },
   "report-person-location-contact": {
-    "header": "Enter the person's contact details (if known)"
+    "header": "What is the person's contact details (if known)"
   },
   "report-person-occupation-type": {
     "header": "What type of job or occupation does the person have?"
@@ -54,7 +54,7 @@
     "header": "What days does the person work?"
   },
   "report-person-occupation-company-name": {
-    "header": "Company name"
+    "header": "What is the  name of the company the person works at?"
   },
   "report-person-occupation-company-address": {
     "header": "What is the company's contact details (if known)?"
@@ -75,7 +75,7 @@
     "header": "What days does the person study?"
   },
   "report-person-study-name": {
-    "header": "Name of college or university"
+    "header": "What is the name of college or university?"
   },
   "report-person-study-address": {
     "header": "What is the institution's address (if known)?"
@@ -87,7 +87,7 @@
     "header": "Institution Owner"
   },
   "report-person-transport-details": {
-    "header": "Vehicle details"
+    "header": "What are the vehicle's details?"
   },
   "report-person-description": {
     "header": "Please tell us anything else about the person you are reporting that you think we should know"
@@ -96,16 +96,16 @@
     "header": "Additional People"
   },
   "add-person": {
-    "header": "Individual's name"
+    "header": "What is the person's name?"
   },
   "add-person-nationality": {
-    "header": "Nationality"
+    "header": "What is the person's nationality?"
   },
   "add-person-place-of-birth": {
-    "header": "Place of birth"
+    "header": "What is the person's place of birth?"
   },
   "add-person-identity": {
-    "header": "Identification"
+    "header": " What are the person's forms of identification?"
   },
   "report-organisation": {
     "header": "The Organisation"
