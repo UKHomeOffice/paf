@@ -11,16 +11,29 @@
     "type": "git",
     "url": "git+https://github.com/UKHomeOffice/paf.git"
   },
+  // "scripts": {
+  //   "start": "node server.js",
+  //   "start:dev": "hof-build watch",
+  //   "dev": "hof-build watch --env",
+  //   "test": "yarn run test:lint && yarn run test:unit && yarn run test:ui-integration",
+  //   "test:lint": "eslint .",
+  //   "test:ui-integration": "NODE_ENV=test _mocha \"test/_ui-integration/**/*.spec.js\" --exit",
+  //   "test:unit": "NODE_ENV=test nyc _mocha \"test/_unit/**/*.spec.js\"",
+  //   "build": "hof-build",
+  //   "postinstall": "yarn run build"
+  // },
   "scripts": {
     "start": "node server.js",
     "start:dev": "hof-build watch",
-    "dev": "hof-build watch --env",
-    "test": "yarn run test:lint && yarn run test:unit && yarn run test:ui-integration",
-    "test:lint": "eslint .",
-    "test:ui-integration": "NODE_ENV=test _mocha \"test/_ui-integration/**/*.spec.js\" --exit",
-    "test:unit": "NODE_ENV=test nyc _mocha \"test/_unit/**/*.spec.js\"",
+    "test": "NODE_ENV=test yarn run test:lint && yarn run test:unit",
+    "test:unit": "nyc _mocha \"test/_unit/**/*.spec.js\"",
+    "test:acceptance": "TAGS=\"${TAGS:=@feature}\" npm run test:cucumber",
+    "test:acceptance_browser": "ACCEPTANCE_WITH_BROWSER=true TAGS=\"${TAGS:=@feature}\" yarn run test:cucumber",
+    "test:cucumber": "cucumber-js -f @cucumber/pretty-formatter \"test/_features/**/*.feature\" --require test/_features/test.setup.js --require \"test/_features/step_definitions/**/*.js\" --tags $TAGS",
+    "test:lint": "eslint . --config ./node_modules/eslint-config-hof/default.js",
+    "test:snyk": "snyk config set api=SNYK_TOKEN && snyk test",
     "build": "hof-build",
-    "postinstall": "yarn run build"
+    "postinstall": "hof-build"
   },
   "dependencies": {
     "accessible-autocomplete": "^2.0.2",
