@@ -247,6 +247,7 @@ steps:
       branch:
         include:
           - main
+          - feature/*
       event: pull_request
 
   # - name: anchore_scan
