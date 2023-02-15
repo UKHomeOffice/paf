@@ -248,7 +248,7 @@ steps:
         include:
           - main
           - feature/*
-      event: pull_request
+      event: [push, pull_request]
 
   # - name: anchore_scan
   #   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
