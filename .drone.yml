@@ -45,6 +45,18 @@ sonar_scanner: &sonar_scanner
   commands:
     - sonar-scanner -Dproject.settings=./sonar-project.properties
 
+accessibility_tests: &accessibility_tests
+  pull: if-not-exists
+  image: buildkite/puppeteer:8.0.0@sha256:b6cebc17bfa8e7a7abfc3ab14d6f2ddbdf42b9e81b8ad786c6693385665998d5
+  environment:
+    NOTIFY_STUB: true
+    ENVIRONMENT: DRONE
+  volumes:
+    - name: dockersock
+      path: /root/.dockersock
+  commands:
+    - yarn run test:accessibility
+    
 acceptance_tests: &acceptance_tests
   pull: if-not-exists
   image: mcr.microsoft.com/playwright:v1.12.3-focal
@@ -223,19 +235,19 @@ steps:
   #     event: pull_request
 
   # Snyk & Anchore security scans which run after branch deployment to prevent blocking of PR UAT tests
-  # - name: snyk_scan
-  #   pull: if-not-exists
-  #   image: node:14
-  #   environment:
-  #     SNYK_TOKEN:
-  #       from_secret: snyk_token
-  #   commands:
-  #     - yarn run test:snyk
-  #   when:
-  #     branch:
-  #       include:
-  #         - main
-  #     event: pull_request
+  - name: snyk_scan
+    pull: if-not-exists
+    image: node:14
+    environment:
+      SNYK_TOKEN:
+        from_secret: snyk_token
+    commands:
+      - yarn run test:snyk
+    when:
+      branch:
+        include:
+          - main
+      event: pull_request
 
   # - name: anchore_scan
   #   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
