@@ -169,20 +169,20 @@ steps:
           - feature/*
       event: [push, pull_request]
 
-  # - name: setup_branch
-  #   pull: if-not-exists
-  #   image: node:14
-  #   environment:
-  #     NOTIFY_KEY: USE_MOCK
-  #   commands:
-  #     - yarn install --frozen-lockfile
-  #     - yarn run postinstall
-  #   when:
-  #     branch:
-  #       include:
-  #         - main
-  #         - feature/*
-  #     event: [pull_request, push]
+  - name: setup_branch
+    pull: if-not-exists
+    image: node:14
+    environment:
+      NOTIFY_KEY: USE_MOCK
+    commands:
+      - yarn install --frozen-lockfile
+      - yarn run postinstall
+    when:
+      branch:
+        include:
+          - main
+          - feature/*
+      event: [pull_request, push]
 
   - name: linting_branch
     <<: *linting
@@ -190,7 +190,7 @@ steps:
       branch:
         include:
           - main
-          # - feature/*
+          - feature/*
       event: [pull_request, push]
 
   # - name: unit_tests_branch
@@ -242,9 +242,9 @@ steps:
   # Snyk & Anchore security scans which run after branch deployment to prevent blocking of PR UAT tests
   - name: snyk_scan
     pull: if-not-exists
-    image: node:18
+    image: node:14
     environment:
-      # NOTIFY_STUB: true
+      NOTIFY_STUB: true
       SNYK_TOKEN:
         from_secret: snyk_token
     commands:
