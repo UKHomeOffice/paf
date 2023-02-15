@@ -169,20 +169,20 @@ steps:
           - feature/*
       event: [push, pull_request]
 
-  - name: setup_branch
-    pull: if-not-exists
-    image: node:14
-    environment:
-      NOTIFY_KEY: USE_MOCK
-    commands:
-      - yarn install --frozen-lockfile
-      - yarn run postinstall
-    when:
-      branch:
-        include:
-          - main
-          - feature/*
-      event: [pull_request, push]
+  # - name: setup_branch
+  #   pull: if-not-exists
+  #   image: node:14
+  #   environment:
+  #     NOTIFY_KEY: USE_MOCK
+  #   commands:
+  #     - yarn install --frozen-lockfile
+  #     - yarn run postinstall
+  #   when:
+  #     branch:
+  #       include:
+  #         - main
+  #         - feature/*
+  #     event: [pull_request, push]
 
   - name: linting_branch
     <<: *linting
