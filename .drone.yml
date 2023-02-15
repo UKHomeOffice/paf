@@ -244,7 +244,7 @@ steps:
     pull: if-not-exists
     image: node:14
     environment:
-      NOTIFY_STUB: true
+      # NOTIFY_STUB: true
       SNYK_TOKEN:
         from_secret: snyk_token
     commands:
