@@ -272,7 +272,8 @@ steps:
       branch: 
         include:
           - main
-      event: pull_request
+          - feature/*
+      event: [push, pull_request]
 
   # Deploy to main UAT environment
   - name: deploy_to_uat
