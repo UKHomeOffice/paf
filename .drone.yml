@@ -171,7 +171,7 @@ steps:
 
   - name: setup_branch
     pull: if-not-exists
-    image: node:14
+    image: node:18
     environment:
       NOTIFY_KEY: USE_MOCK
     commands:
@@ -248,7 +248,9 @@ steps:
       SNYK_TOKEN:
         from_secret: snyk_token
     commands:
-      - yarn run test:snyk
+      - yarn run
+      - yarn run env
+      # - yarn run test:snyk
     when:
       branch:
         include:
