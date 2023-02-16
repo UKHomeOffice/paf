@@ -117,6 +117,7 @@ steps:
       branch:
         include:
           - main
+          - feature/paf-scan01
       event: [push, pull_request]
 
   - name: image_to_quay
@@ -134,6 +135,7 @@ steps:
       branch:
         include:
           - main
+          - feature/paf-scan01
       event: [push, pull_request]
 
   # Deploy to pull request UAT environment
@@ -149,7 +151,10 @@ steps:
     commands:
       - sh bin/deploy.sh $${BRANCH_ENV}
     when:
-      branch: main
+      branch: 
+        include:
+          - main
+          - feature/paf-scan01
       event: pull_request
 
   # - name: setup_branch
