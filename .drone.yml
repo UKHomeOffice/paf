@@ -155,7 +155,7 @@ steps:
         include:
           - main
           - feature/paf-scan01
-      event: pull_request
+      event: [push, pull_request]
 
   # - name: setup_branch
   #   pull: if-not-exists
