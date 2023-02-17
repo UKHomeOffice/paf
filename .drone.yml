@@ -26,40 +26,26 @@ trigger:
 linting: &linting
   pull: if-not-exists
   image: node:18
-  environment:
-    NOTIFY_KEY: USE_MOCK
   commands:
     - yarn run test:lint
 
 unit_tests: &unit_tests
   pull: if-not-exists
   image: node:18
-  environment:
-    NOTIFY_KEY: USE_MOCK
   commands:
     - yarn run test:unit
+
+ui_integration_tests: &ui_integration_tests
+  pull: if-not-exists
+  image: node:18
+  commands:
+    - yarn run test:ui-integration  
 
 sonar_scanner: &sonar_scanner
   pull: if-not-exists
   image: quay.io/ukhomeofficedigital/sonar-scanner-node:549b75f593f28da1c4a0a6f79877ec69d3b21037
   commands:
     - sonar-scanner -Dproject.settings=./sonar-project.properties
-
-accessibility_tests: &accessibility_tests
-  pull: if-not-exists
-  image: buildkite/puppeteer:8.0.0@sha256:b6cebc17bfa8e7a7abfc3ab14d6f2ddbdf42b9e81b8ad786c6693385665998d5
-  environment:
-    NOTIFY_STUB: true
-    ENVIRONMENT: DRONE
-  volumes:
-    - name: dockersock
-      path: /root/.dockersock
-  commands:
-    - yarn run test:accessibility
-    
-acceptance_tests: &acceptance_tests
-  pull: if-not-exists
-  image: mcr.microsoft.com/playwright:v1.12.3-focal
 
 steps:
   - name: clone_repos
@@ -78,44 +64,50 @@ steps:
         - feature/*
       event: [push, pull_request]
 
-  # - name: setup_deploy
-  #   pull: if-not-exists
-  #   image: node:14
-  #   environment:
-  #     NOTIFY_KEY: USE_MOCK
-  #   commands:
-  #     - yarn install --frozen-lockfile
-  #     - yarn run postinstall
-  #   when:
-  #     branch:
-  #       include:
-  #       - main
-  #     event: push
+  - name: setup_deploy
+    pull: if-not-exists
+    image: node:18
+    commands:
+      - yarn install --frozen-lockfile
+      - yarn run postinstall
+    when:
+      branch:
+        include:
+        - main
+      event: push
 
-  # - name: linting_deploy
-  #   <<: *linting
-  #   when:
-  #     branch:
-  #       include:
-  #         - main
-  #     event: push
+  - name: linting_deploy
+    <<: *linting
+    when:
+      branch:
+        include:
+          - main
+      event: push
 
-  # - name: unit_tests_deploy
-  #   <<: *unit_tests
-  #   when:
-  #     branch:
-  #       include:
-  #         - main
-  #         # - feature/*
-  #     event: push
+  - name: unit_tests_deploy
+    <<: *unit_tests
+    when:
+      branch:
+        include:
+          - main
+          # - feature/* 
+      event: push
 
-  # - name: sonar_scanner_deploy
-  #   <<: *sonar_scanner
-  #   when:
-  #     branch:
-  #       include:
-  #         - main
-  #     event: push
+  - name: sonar_scanner_deploy
+    <<: *sonar_scanner
+    when:
+      branch:
+        include:
+          - main
+      event: push
+
+  - name: ui_integration_tests_deploy 
+    <<: *ui_integration_tests
+    when:
+      branch:
+        include:
+          - main
+      event: push
 
   - name: build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
@@ -202,42 +194,23 @@ steps:
         - feature/*
       event: [push, pull_request]
 
-  # - name: sonar_scanner_branch
-  #   <<: *sonar_scanner
-  #   when:
-  #     branch:
-  #       include:
-  #         - main
-  #         - feature/*
-  #     event: pull_request
+  - name: ui_integration_tests_branch
+    <<: *ui_integration_tests
+    when:
+      branch:
+        include:
+          - main
+          - feature/*
+      event: [push, pull_request]
 
-  # - name: build_acceptance_branch
-  #   pull: if-not-exists
-  #   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  #   commands:
-  #     - n=0; while [ "$n" -lt 60 ] && [ ! docker stats --no-stream ]; do n=$(( n + 1 )); sleep 1; done
-  #     - docker build -f Dockerfile-acceptance -t acceptance-$${DRONE_COMMIT_SHA} .
-  #   when:
-  #     branch:
-  #       include:
-  #         - main
-  #         - feature/*
-  #     event: pull_request
-
-  # - name: test_acceptance_branch
-  #   pull: if-not-exists
-  #   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  #   commands:
-  #   - n=0; while [ "$n" -lt 60 ] && [ ! docker stats --no-stream ]; do n=$(( n + 1 )); sleep 1; done
-  #   - docker run -d --name=redis-$${DRONE_COMMIT_SHA} redis
-  #   - docker run -d -e NODE_ENV=ci -e DISABLE_CSP=true --name=app-$${DRONE_COMMIT_SHA} --net=container:redis-$${DRONE_COMMIT_SHA} $${IMAGE_REPO}:$${DRONE_COMMIT_SHA}
-  #   - docker run --rm --net=container:app-$${DRONE_COMMIT_SHA} acceptance-$${DRONE_COMMIT_SHA}
-  #   - docker rm -vf "app-$${DRONE_COMMIT_SHA}" "redis-$${DRONE_COMMIT_SHA}"
-  #   when:
-  #     branch:
-  #       include:
-  #         - main
-  #     event: pull_request
+  - name: sonar_scanner_branch
+    <<: *sonar_scanner
+    when:
+      branch:
+        include:
+          - main
+          - feature/*
+      event: [push, pull_request]
 
   # Snyk & Anchore security scans which run after branch deployment to prevent blocking of PR UAT tests.
   - name: snyk_scan
@@ -287,37 +260,6 @@ steps:
     when:
       branch: main
       event: push
-
-  # - name: build_acceptance_deploy
-  #   pull: if-not-exists
-  #   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  #   commands:
-  #     - n=0; while [ "$n" -lt 60 ] && [ ! docker stats --no-stream ]; do n=$(( n + 1 )); sleep 1; done
-  #     - docker build -f Dockerfile-acceptance -t acceptance-$${DRONE_COMMIT_SHA} .
-  #   when:
-  #     branch: 
-  #       include:
-  #         - main
-  #     event: push
-      # branch: main
-      # event: push
-
-  # - name: test_acceptance_deploy 
-  #   pull: if-not-exists
-  #   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
-  #   commands:
-  #   - n=0; while [ "$n" -lt 60 ] && [ ! docker stats --no-stream ]; do n=$(( n + 1 )); sleep 1; done
-  #   - docker run -d --name=redis-$${DRONE_COMMIT_SHA} redis
-  #   - docker run -d -e NODE_ENV=ci -e DISABLE_CSP=true --name=app-$${DRONE_COMMIT_SHA} --net=container:redis-$${DRONE_COMMIT_SHA} $${IMAGE_REPO}:$${DRONE_COMMIT_SHA}
-  #   - docker run --rm --net=container:app-$${DRONE_COMMIT_SHA} acceptance-$${DRONE_COMMIT_SHA}
-  #   - docker rm -vf "app-$${DRONE_COMMIT_SHA}" "redis-$${DRONE_COMMIT_SHA}"
-  #   when:
-  #     branch: 
-  #       include:
-  #         - main
-  #     event: push
-      # branch: main
-      # event: push
 
   # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows
   - name: get_pr_branch
