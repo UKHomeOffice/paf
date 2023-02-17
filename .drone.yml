@@ -246,7 +246,7 @@ steps:
           - feature/*
       event: [push, pull_request]
 
-  # Deploy to main UAT environment
+  # Deploy to main UAT environment.
   - name: deploy_to_uat
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
