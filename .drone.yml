@@ -304,7 +304,7 @@ steps:
       # branch: main
       # event: push
 
-  # - name: test_acceptance_deploy
+  # - name: test_acceptance_deploy 
   #   pull: if-not-exists
   #   image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
   #   commands:
