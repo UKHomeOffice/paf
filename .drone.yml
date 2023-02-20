@@ -258,7 +258,7 @@ steps:
       branch: main
       event: push
 
-  # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows
+  # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows.
   - name: get_pr_branch
     pull: if-not-exists
     image: drone/cli:alpine@sha256:14409f7f7247befb9dd2effdb2f61ac40d1f5fbfb1a80566cf6f2f8d21f3be11
