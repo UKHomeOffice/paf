@@ -21,7 +21,7 @@ environment:
 trigger:
   branch:
     - feature/*
-    - main
+    - master
 
 linting: &linting
   pull: if-not-exists
@@ -62,7 +62,7 @@ steps:
     when:
       branch:
         include:
-        - main
+        - master
         - feature/*
       event: [push, pull_request]
 
@@ -77,7 +77,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #       - main
+  #       - master
   #     event: push
 
   # - name: linting_deploy
@@ -85,7 +85,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #     event: push
 
   # - name: unit_tests_deploy
@@ -93,7 +93,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #         # - feature/*
   #     event: push
 
@@ -102,7 +102,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #     event: push
 
   - name: build_image
@@ -116,7 +116,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
       event: [push, pull_request]
 
   - name: image_to_quay
@@ -133,7 +133,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
       event: [push, pull_request]
 
   # Deploy to pull request UAT environment
@@ -149,7 +149,7 @@ steps:
     commands:
       - sh bin/deploy.sh $${BRANCH_ENV}
     when:
-      branch: main
+      branch: master
       event: pull_request
 
   # - name: setup_branch
@@ -163,7 +163,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #         - feature/*
   #     event: [pull_request, push]
 
@@ -172,7 +172,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #         # - feature/*
   #     event: [pull_request, push]
 
@@ -181,7 +181,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #       - main
+  #       - master
   #       - feature/*
   #     event: pull_request
 
@@ -190,7 +190,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #         - feature/*
   #     event: pull_request
 
@@ -203,7 +203,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #         - feature/*
   #     event: pull_request
 
@@ -219,7 +219,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #     event: pull_request
 
   # Snyk & Anchore security scans which run after branch deployment to prevent blocking of PR UAT tests
@@ -234,7 +234,7 @@ steps:
   #   when:
   #     branch:
   #       include:
-  #         - main
+  #         - master
   #     event: pull_request
 
   # - name: anchore_scan
@@ -246,12 +246,12 @@ steps:
   #     TOLERATE: medium
   #     WHITELIST_FILE: hof-services-config/Appeal_Rights_Exhausted/anchore-cve-exceptions.txt
   #   when:
-  #     branch: 
+  #     branch:
   #       include:
-  #         - main
+  #         - master
   #     event: pull_request
 
-  # Deploy to main UAT environment
+  # Deploy to master UAT environment
   - name: deploy_to_uat
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -263,7 +263,7 @@ steps:
     commands:
       - sh bin/deploy.sh $${UAT_ENV}
     when:
-      branch: main
+      branch: master
       event: push
 
   # - name: build_acceptance_deploy
@@ -273,11 +273,11 @@ steps:
   #     - n=0; while [ "$n" -lt 60 ] && [ ! docker stats --no-stream ]; do n=$(( n + 1 )); sleep 1; done
   #     - docker build -f Dockerfile-acceptance -t acceptance-$${DRONE_COMMIT_SHA} .
   #   when:
-  #     branch: 
+  #     branch:
   #       include:
-  #         - main
+  #         - master
   #     event: push
-      # branch: main
+      # branch: master
       # event: push
 
   # - name: test_acceptance_deploy
@@ -290,11 +290,11 @@ steps:
   #   - docker run --rm --net=container:app-$${DRONE_COMMIT_SHA} acceptance-$${DRONE_COMMIT_SHA}
   #   - docker rm -vf "app-$${DRONE_COMMIT_SHA}" "redis-$${DRONE_COMMIT_SHA}"
   #   when:
-  #     branch: 
+  #     branch:
   #       include:
-  #         - main
+  #         - master
   #     event: push
-      # branch: main
+      # branch: master
       # event: push
 
   # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows
@@ -312,7 +312,7 @@ steps:
     commands:
       - drone build info $GIT_REPO $DRONE_BUILD_NUMBER --format {{.Message}} | grep -o '[^ ]\+$' -m1 | sed 's|UKHomeOffice/||g' | tr '[:upper:]' '[:lower:]' | tr '/' '-' > /root/.dockersock/branch_name.txt
     when:
-      branch: main
+      branch: master
       event: push
 
   # Tear down pull request UAT environment
@@ -330,7 +330,7 @@ steps:
     commands:
       - sh bin/deploy.sh tear_down
     when:
-      branch: main
+      branch: master
       event: push
 
     # Deploy to Staging environment
@@ -345,10 +345,10 @@ steps:
   #   commands:
   #     - bin/deploy.sh $${STG_ENV}
   #   when:
-  #     branch: main
+  #     branch: master
   #     event: push
 
-  # Checks a build being promoted has passed, is on main which effectively means a healthy build on Staging
+  # Checks a build being promoted has passed, is on master which effectively means a healthy build on Staging
   - name: sanity_check_build_prod
     pull: if-not-exists
     image: drone/cli:alpine@sha256:14409f7f7247befb9dd2effdb2f61ac40d1f5fbfb1a80566cf6f2f8d21f3be11
