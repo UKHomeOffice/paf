@@ -397,7 +397,7 @@ steps:
 
   - name: cron_snyk_scan
     pull: if-not-exists
-    image: node:14
+    image: node:18
     environment:
       SNYK_TOKEN:
         from_secret: snyk_token
