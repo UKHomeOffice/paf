@@ -20,7 +20,7 @@
     "test:ui-integration": "NODE_ENV=test _mocha \"test/_ui-integration/**/*.spec.js\" --exit",
     "test:unit": "NODE_ENV=test nyc _mocha \"test/_unit/**/*.spec.js\"",
     "build": "hof-build",
-    "test:snyk": "snyk config set api=SNYK_TOKEN && snyk test",
+    "test:snyk": "snyk config set api=SNYK_TOKEN && snyk test --all-projects",
     "postinstall": "yarn run build"
   },
   "dependencies": {

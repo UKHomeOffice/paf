@@ -220,9 +220,6 @@ steps:
       SNYK_TOKEN:
         from_secret: snyk_token
     commands:
-      - yarn run
-      - yarn run env
-      - find . -type f -name snyk
       - yarn run test:snyk
     when:
       branch:
