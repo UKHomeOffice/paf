@@ -21,7 +21,7 @@ environment:
 trigger:
   branch:
     - feature/*
-    - main
+    - master
 
 linting: &linting
   pull: if-not-exists
@@ -60,7 +60,7 @@ steps:
     when:
       branch:
         include:
-        - main
+        - master
         - feature/*
       event: [push, pull_request]
 
@@ -73,7 +73,7 @@ steps:
     when:
       branch:
         include:
-        - main
+        - master
       event: push
 
   - name: linting_deploy
@@ -81,7 +81,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
       event: push
 
   - name: unit_tests_deploy
@@ -89,7 +89,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
           # - feature/* 
       event: push
 
@@ -98,7 +98,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
       event: push
 
   - name: ui_integration_tests_deploy 
@@ -106,7 +106,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
       event: push
 
   - name: build_image
@@ -120,7 +120,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
           - feature/*
       event: [push, pull_request]
 
@@ -137,7 +137,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
           - feature/*
       event: [push, pull_request]
 
@@ -155,7 +155,7 @@ steps:
     when:
       branch: 
         include:
-          - main
+          - master
           - feature/*
       event: [push, pull_request]
 
@@ -170,7 +170,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
           - feature/*
       event: [pull_request, push]
 
@@ -179,7 +179,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
           - feature/*
       event: [pull_request, push]
 
@@ -188,7 +188,7 @@ steps:
     when:
       branch:
         include:
-        - main
+        - master
         - feature/*
       event: [push, pull_request]
 
@@ -197,7 +197,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
           - feature/*
       event: [push, pull_request]
 
@@ -206,7 +206,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
           - feature/*
       event: [push, pull_request]
 
@@ -223,7 +223,7 @@ steps:
     when:
       branch:
         include:
-          - main
+          - master
           - feature/*
       event: [push, pull_request]
 
@@ -238,7 +238,7 @@ steps:
     when:
       branch: 
         include:
-          - main
+          - master
           - feature/*
       event: [push, pull_request]
 
@@ -254,7 +254,7 @@ steps:
     commands:
       - sh bin/deploy.sh $${UAT_ENV}
     when:
-      branch: main
+      branch: master
       event: push
 
   # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows.
@@ -272,7 +272,7 @@ steps:
     commands:
       - drone build info $GIT_REPO $DRONE_BUILD_NUMBER --format {{.Message}} | grep -o '[^ ]\+$' -m1 | sed 's|UKHomeOffice/||g' | tr '[:upper:]' '[:lower:]' | tr '/' '-' > /root/.dockersock/branch_name.txt
     when:
-      branch: main
+      branch: master
       event: push
 
   # Tear down pull request UAT environment.
@@ -290,7 +290,7 @@ steps:
     commands:
       - sh bin/deploy.sh tear_down
     when:
-      branch: main
+      branch: master
       event: push
 
     # Deploy to Staging environment
@@ -409,7 +409,7 @@ steps:
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
     pull: always
     environment:
-      IMAGE_NAME: paf-app:${DRONE_COMMIT_SHA}
+      IMAGE_NAME: paf:${DRONE_COMMIT_SHA}
       LOCAL_IMAGE: true
       TOLERATE: medium
       WHITELIST_FILE: hof-services-config/Appeal_Rights_Exhausted/anchore-cve-exceptions.txt
