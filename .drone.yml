@@ -236,6 +236,8 @@ steps:
       LOCAL_IMAGE: true
       TOLERATE: medium
       WHITELIST_FILE: hof-services-config/Public_Allegion_Form/anchore-cve-exceptions.txt
+    commands:
+      - find / -type f -name "anchore-cve-exceptions.txt"
     when:
       branch: 
         include:
