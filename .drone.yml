@@ -239,7 +239,7 @@ steps:
     when:
       branch: 
         include:
-          - main
+          - master
           - feature/*
       event: [push, pull_request]
 
