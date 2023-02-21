@@ -242,7 +242,7 @@ steps:
           # - feature/*
       event: [push, pull_request]
 
-  # Deploy to main UAT environment
+  # Deploy to master UAT environment
   - name: deploy_to_uat
     pull: if-not-exists
     image: quay.io/ukhomeofficedigital/kd:v1.14.0
@@ -305,7 +305,7 @@ steps:
   #   commands:
   #     - bin/deploy.sh $${STG_ENV}
   #   when:
-  #     branch: main
+  #     branch: master
   #     event: push
 
   # Checks a build being promoted has passed, is on main which effectively means a healthy build on Staging.
