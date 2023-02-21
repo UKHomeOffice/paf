@@ -232,7 +232,7 @@ steps:
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
     pull: always
     environment:
-      IMAGE_NAME: paf-app:${DRONE_COMMIT_SHA}
+      IMAGE_NAME: paf:${DRONE_COMMIT_SHA}
       LOCAL_IMAGE: true
       TOLERATE: medium
       WHITELIST_FILE: /drone/src/hof-services-config/Public_Allegation_Form/anchore-cve-exceptions.txt
