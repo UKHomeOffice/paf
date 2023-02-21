@@ -235,7 +235,7 @@ steps:
       IMAGE_NAME: paf:${DRONE_COMMIT_SHA}
       LOCAL_IMAGE: true
       TOLERATE: medium
-      WHITELIST_FILE: /drone/src/hof-services-config/Public_Allegation_Form/anchore-cve-exceptions.txt
+      WHITELIST_FILE: hof-services-config/Public_Allegation_Form/anchore-cve-exceptions.txt
     when:
       branch: 
         include:
