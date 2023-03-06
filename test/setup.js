@@ -1,6 +1,6 @@
 /* eslint no-process-env: 0 */
 
-const reqres = require('hof').utils.reqres;
+global.reqres = require('hof').utils.reqres;
 
 global.chai = require('chai')
   .use(require('sinon-chai'))

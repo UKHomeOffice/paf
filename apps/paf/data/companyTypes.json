@@ -1,0 +1,98 @@
+[
+  {
+    "value": "building-construction",
+    "label": "Building / Construction"
+  },
+  {
+    "value": "care-home",
+    "label": "Care home"
+  },
+  {
+    "value": "catering-and-hospitality",
+    "label": "Catering and Hospitality"
+  },
+  {
+    "value": "child-care-nursery",
+    "label": "Child care / Nursery"
+  },
+  {
+    "value": "cleaning",
+    "label": "Cleaning"
+  },
+  {
+    "value": "engineering",
+    "label": "Engineering"
+  },
+  {
+    "value": "english-language-college",
+    "label": "English language college"
+  },
+  {
+    "value": "factory",
+    "label": "factory"
+  },
+  {
+    "value": "farming-forestry-and-fishing",
+    "label": "Farming, forestry and fishing"
+  },
+  {
+    "value": "freight-agent",
+    "label": "Freight agent"
+  },
+  {
+    "value": "government",
+    "label": "Government"
+  },
+  {
+    "value": "hairdressing-beauty-therapy",
+    "label": "Hairdressing / Beauty therapy"
+  },
+  {
+    "value": "haulage",
+    "label": "Haulage"
+  },
+  {
+    "value": "information-technology",
+    "label": "Information technology (IT)"
+  },
+  {
+    "value": "sales-retail",
+    "label": "Sales and retail"
+  },
+  {
+    "value": "school-college-university",
+    "label": "School / College / University"
+  },
+  {
+    "value": "security",
+    "label": "Security"
+  },
+  {
+    "value": "self-store",
+    "label": "Self store"
+  },
+  {
+    "value": "taxi-minicab-chauffeur",
+    "label": "Taxi / Minicab / Chauffeur"
+  },
+  {
+    "value": "travel-operator-agent",
+    "label": "Travel operator/Agent"
+  },
+  {
+    "value": "vehicle-rental",
+    "label": "Vehicle rental"
+  },
+  {
+    "value": "warehouse",
+    "label": "Aarehouse"
+  },
+  {
+    "value": "other",
+    "label": "Other"
+  },
+  {
+    "value": "unknown",
+    "label": "I don't know"
+  }
+]

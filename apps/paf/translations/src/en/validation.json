@@ -2,7 +2,28 @@
   "crime-type": {
     "required": "You must tell us what the criminals are planning or doing. This will help us to send the information to the right team immediately."
   },
+  "immigration-crime-group": {
+    "required": "You must check at least one of the options related to Immigration Crime"
+  },
+  "smuggling-crime-group": {
+    "required": "You must check at least one of the options related to Smuggling"
+  },
   "crime-children": {
     "required": "We need to know if any children are involved in the crime. They may be committing the crime or victims of it. With this information, we can make sure that we handle the case in the right way."
+  },
+  "transport-group": {
+    "notBothOptions": "You can't choose both a vehicle type and 'I don't know'. You must deselect the 'I don't know'  option, or the selected vehicle type to continue"
+  },
+  "date-crime-will-happen": {
+    "date": "Please enter a valid date"
+  },
+  "company-postcode": {
+    "postcode": "Enter a real postcode"
+  },
+  "company-email": {
+    "email": "Enter an email address in the correct format, like name@example.com"
+  },
+  "company-website": {
+    "url": "Enter a website address in the correct format, like www.example.com"
   }
 }

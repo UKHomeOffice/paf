@@ -1,6 +1,6 @@
 'use strict';
-
 const SummaryPageBehaviour = require('hof').components.summary;
+const transportBehaviour = require('./behaviours/transport-behaviour');
 const Aggregate = require('./behaviours/aggregator');
 const limitPerson = require('./behaviours/limit-person');
 const personNumber = require('./behaviours/person-number');
@@ -11,21 +11,243 @@ module.exports = {
   params: '/:action?/:id?/:edit?',
   steps: {
     '/crime-type': {
+      fields: ['crime-type',
+        'immigration-crime-group',
+        'smuggling-crime-group'
+      ],
       next: '/crime-children'
     },
     '/crime-children': {
+      fields: ['crime-children'],
       next: '/when-crime-happened'
     },
     '/when-crime-happened': {
+      fields: ['when-crime-happened',
+        'happening-now-info',
+        'ongoing-info',
+        'already-happened-info'
+      ],
+      next: '/crime-transport',
+      forks: [{
+        target: '/when-will-crime-happen',
+        condition: {
+          field: 'when-crime-happened',
+          value: 'not-yet-happened'
+        }
+      }]
+    },
+    '/when-will-crime-happen': {
+      fields: ['when-will-crime-happen'],
+      next: '/crime-transport',
+      forks: [{
+        target: '/date-time-crime-will-happen',
+        condition: {
+          field: 'when-will-crime-happen',
+          value: 'more-than-twenty-four-hours'
+        }
+      }]
+    },
+    '/date-time-crime-will-happen': {
+      fields: ['date-crime-will-happen', 'time-crime-will-happen'],
+      next: '/when-will-crime-happen-more-info'
+    },
+    '/when-will-crime-happen-more-info': {
+      fields: ['when-will-crime-happen-more-info'],
       next: '/crime-transport'
     },
     '/crime-transport': {
+      fields: ['crime-transport',
+        'transport-group'
+      ],
+      behaviours: [transportBehaviour],
+      next: '/crime-delivery',
+      forks: [{
+        target: '/crime-transport-vehicle-type',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-vehicle') === 0) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-boat-type',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 0) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-train-details',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 0) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-aeroplane-details',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 0) {
+            return true
+          }
+          return false
+        }
+      }],
+      continueOnEdit: true
+    },
+    '/crime-transport-vehicle-type': {
+      fields: ['vehicle-type',
+        'crime-car-group',
+        'crime-hgv-group',
+        'crime-lorry-group',
+        'crime-van-group'
+      ],
+      next: '/crime-transport-vehicle-details',
+      continueOnEdit: true
+    },
+    '/crime-transport-vehicle-details': {
+      fields: ['vehicle-make',
+        'vehicle-model',
+        'vehicle-colour',
+        'vehicle-registration'
+      ],
+      next: '/crime-delivery',
+      forks: [{
+        target: '/crime-transport-boat-type',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 1) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-train-details',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 1) {
+            return true
+          }
+          return false
+        }
+      },
+      {
+        target: '/crime-transport-aeroplane-details',
+        condition: req => {
+          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 1) {
+            return true
+          }
+          return false
+        }
+      }],
+      continueOnEdit: true
+    },
+    '/crime-transport-boat-type': {
+      fields: ['boat-type',
+      'crime-carrier-group',
+      'crime-general-cargo-group',
+      'crime-vessel-group'
+    ],
+      next: '/crime-transport-boat-details',
+      continueOnEdit: true
+    },
+    '/crime-transport-boat-details': {
+      fields: ['boat-name',
+        'boat-country-departure',
+        'port-departure',
+        'port-arrival',
+        'port-departure-time',
+        'port-arrival-time'
+      ],
+      next: '/crime-delivery',
+      forks: [
+        {
+          target: '/crime-transport-train-details',
+          condition: req => {
+            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-train')) {
+              return true
+            }
+            return false
+          }
+        },
+        {
+          target: '/crime-transport-aeroplane-details',
+          condition: req => {
+            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane') && !req.sessionModel.get('transport-group').includes('crime-transport-train')) {
+              return true
+            }
+            return false
+          }
+        }],
+      continueOnEdit: true
+    },
+    '/crime-transport-train-details': {
+      fields: ['train-company',
+        'train-country-departure',
+        'station-departure',
+        'station-arrival',
+        'station-departure-time',
+        'station-arrival-time'
+      ],
+      next: '/crime-delivery',
+      forks: [
+        {
+          target: '/crime-transport-aeroplane-details',
+          condition: req => {
+            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')) {
+              return true
+            }
+            return false
+          }
+        }],
+      continueOnEdit: true
+    },
+    '/crime-transport-aeroplane-details': {
+      fields: ['airline-company',
+        'airline-flight-number',
+        'airline-country-departure',
+        'airport-departure',
+        'airport-arrival',
+        'airport-departure-time',
+        'airport-arrival-time'
+      ],
       next: '/crime-delivery'
     },
     '/crime-delivery': {
+      fields: ['crime-delivery', 'freight-more-info', 'express-more-info', 'post-more-info'],
       next: '/crime-location'
     },
     '/crime-location': {
+      fields: ['crime-location',
+        'crime-location-country',
+        'crime-location-address-line1',
+        'crime-location-address-line2',
+        'crime-location-address-town',
+        'crime-location-address-county',
+        'crime-location-address-postcode',
+        'crime-location-phone'],
+      next: '/report-person',
+      forks: [{
+        target: '/crime-another-location',
+        condition: {
+          field: 'crime-location',
+          value: 'yes'
+        }
+      }]
+    },
+    '/crime-another-location': {
+      fields: ['crime-another-location',
+        'crime-another-location-country',
+        'crime-another-location-address-line1',
+        'crime-another-location-address-line2',
+        'crime-another-location-address-town',
+        'crime-another-location-address-county',
+        'crime-another-location-address-postcode',
+        'crime-another-location-phone'
+      ],
       next: '/report-person'
     },
     '/report-person': {
@@ -71,14 +293,14 @@ module.exports = {
       fields: ['report-person-location'],
       next: '/report-person-occupation',
       forks: [{
-        target: '/report-person-location-uk-contact-details',
+        target: '/report-person-location-uk-address',
         condition: {
           field: 'report-person-location',
           value: 'uk'
         }
       },
       {
-        target: '/report-person-location-outside-uk-contact-details',
+        target: '/report-person-location-outside-uk-address',
         condition: {
           field: 'report-person-location',
           value: 'outside-uk'
@@ -92,30 +314,30 @@ module.exports = {
         }
       }]
     },
-    '/report-person-location-uk-contact-details': {
-      fields: ['report-person-location-uk-contact-details-building',
-        'report-person-location-uk-contact-details-street',
-        'report-person-location-uk-contact-details-townOrCity',
-        'report-person-location-uk-contact-details-county',
-        'report-person-location-uk-contact-details-postcodeOrZIPCode'
+    '/report-person-location-uk-address': {
+      fields: ['report-person-location-uk-address-line1',
+        'report-person-location-uk-address-line2',
+        'report-person-location-uk-address-town',
+        'report-person-location-uk-address-county',
+        'report-person-location-uk-address-postcode'
       ],
       next: '/report-person-location-type'
     },
-    '/report-person-location-outside-uk-contact-details': {
-      fields: ['report-person-location-outside-uk-contact-details-country',
-        'report-person-location-outside-uk-contact-details-building',
-        'report-person-location-outside-uk-contact-details-street',
-        'report-person-location-outside-uk-contact-details-townOrCity',
-        'report-person-location-outside-uk-contact-details-county',
-        'report-person-location-outside-uk-contact-details-postcodeOrZIPCode'
+    '/report-person-location-outside-uk-address': {
+      fields: ['report-person-location-outside-uk-address-country',
+        'report-person-location-outside-uk-address-line1',
+        'report-person-location-outside-uk-address-line2',
+        'report-person-location-outside-uk-address-town',
+        'report-person-location-outside-uk-address-county',
+        'report-person-location-outside-uk-address-postcode'
       ],
       next: '/report-person-location-type'
     },
     '/report-person-location-type': {
       fields: ['report-person-location-type'],
-      next: '/report-person-location-contact-details'
+      next: '/report-person-location-contact'
     },
-    '/report-person-location-contact-details': {
+    '/report-person-location-contact': {
       fields: [
         'report-person-location-mobile',
         'report-person-location-phone',
@@ -165,24 +387,20 @@ module.exports = {
     },
     '/report-person-occupation-company-name': {
       fields: ['report-person-occupation-company-name'],
-      next: '/report-person-occupation-company-contact-details'
+      next: '/report-person-occupation-company-address'
     },
-    '/report-person-occupation-company-contact-details': {
-      fields: ['report-person-occupation-company-contact-details-building',
-        'report-person-occupation-company-contact-details-street',
-        'report-person-occupation-company-contact-details-townOrCity',
-        'report-person-occupation-company-contact-details-county',
-        'report-person-occupation-company-contact-details-postcodeOrZIPCode',
+    '/report-person-occupation-company-address': {
+      fields: ['report-person-occupation-company-address-line1',
+        'report-person-occupation-company-address-line2',
+        'report-person-occupation-company-address-town',
+        'report-person-occupation-company-address-county',
+        'report-person-occupation-company-address-postcode',
         'report-person-occupation-company-phone'
       ],
       next: '/report-person-occupation-company-manager'
     },
     '/report-person-occupation-company-manager': {
-      fields: ['report-person-occupation-company-manager'],
-      next: '/report-person-occupation-company-manager-know'
-    },
-    '/report-person-occupation-company-manager-know': {
-      fields: ['report-person-occupation-company-manager-know'],
+      fields: ['report-person-occupation-company-manager', 'report-person-occupation-company-manager-know'],
       next: '/report-person-study'
     },
     '/report-person-study': {
@@ -235,26 +453,26 @@ module.exports = {
     },
     '/report-person-study-name': {
       fields: ['report-person-study-name'],
-      next: '/report-person-study-contact-details'
+      next: '/report-person-study-address'
     },
-    '/report-person-study-contact-details': {
-      fields: ['report-person-study-contact-details-building',
-        'report-person-study-contact-details-street',
-        'report-person-study-contact-details-townOrCity',
-        'report-person-study-contact-details-county',
-        'report-person-study-contact-details-postcodeOrZIPCode',
-        'report-person-study-phone',
-        'report-person-study-email',
-        'report-person-study-url'
+    '/report-person-study-address': {
+      fields: ['report-person-study-address-line1',
+        'report-person-study-address-line2',
+        'report-person-study-address-town',
+        'report-person-study-address-county',
+        'report-person-study-address-postcode',
       ],
-      next: '/report-person-study-manager'
+      next: '/report-person-study-contact'
+    },
+    '/report-person-study-contact': {
+      fields: ['report-person-study-phone',
+      'report-person-study-email',
+      'report-person-study-url'
+    ],
+      next: '/report-person-study-manager',
     },
     '/report-person-study-manager': {
-      fields: ['report-person-study-manager'],
-      next: '/report-person-study-manager-know'
-    },
-    '/report-person-study-manager-know': {
-      fields: ['report-person-study-manager-know'],
+      fields: ['report-person-study-manager', 'report-person-study-manager-know'],
       next: '/report-person-transport'
     },
     '/report-person-transport': {
@@ -270,7 +488,11 @@ module.exports = {
       ]
     },
     '/report-person-transport-type': {
-      fields: ['report-person-transport-type'],
+      fields: ['report-person-transport-type',
+        'report-person-transport-car-group',
+        'report-person-transport-hgv-group',
+        'report-person-transport-lorry-group',
+        'report-person-transport-van-group'],
       next: '/report-person-transport-details'
     },
     '/report-person-transport-details': {
@@ -305,7 +527,7 @@ module.exports = {
         'personAddFirstName',
         'personAddFamilyName',
         'personAddNickname'
-    ],
+      ],
       continueOnEdit: true,
       next: '/add-person-dob'
     },
@@ -341,7 +563,7 @@ module.exports = {
     },
     '/add-person-identity': {
       backLink: 'add-person-gender',
-      fields: ['personAddPassport', 'personAddId','personAddNi'],
+      fields: ['personAddPassport', 'personAddId', 'personAddNi'],
       continueOnEdit: true,
       next: '/person-details'
     },
@@ -371,6 +593,42 @@ module.exports = {
       continueOnEdit: true
     },
     '/report-organisation': {
+      fields: ['report-organisation'],
+      next: '/other-info-description',
+      forks: [{
+        target: '/company-name',
+        condition: {
+          field: 'report-organisation',
+          value: 'yes'
+        }
+      }]
+    },
+    '/company-name': {
+      next: '/company-address',
+      fields: ['organisation-company-name'],
+    },
+    '/company-address': {
+      fields: ['company-address-line1', 'company-address-line2', 'company-town', 'company-county', 'company-postcode'],
+      next: '/company-contact',
+    },
+    '/company-contact': {
+      fields: ['company-phone', 'company-email', 'company-website'],
+      next: '/company-types',
+    },
+    '/company-types': {
+      fields: ['company-types'],
+      next: '/company-owner',
+    },
+    '/company-owner': {
+      fields: ['company-owner', 'owner-know-about-the-crime'],
+      next: '/company-other-info',
+    },
+    '/company-other-info': {
+      fields: ['company-other-info'],
+      next: '/another-company',
+    },
+    '/another-company': {
+      fields: ['another-company', 'another-company-yes'],
       next: '/other-info-description',
     },
     '/other-info-description': {
@@ -383,19 +641,70 @@ module.exports = {
       next: '/about-you'
     },
     '/about-you': {
+      fields: ['how-did-you-find-out-about-the-crime'],
+      next: '/does-anyone-else-know'
+    },
+    '/does-anyone-else-know': {
+      fields: ['does-anyone-else-know'],
+      next: '/have-you-reported-before'
+    },
+    '/have-you-reported-before': {
+      fields: ['have-you-reported-before'],
+      next: '/how-do-you-know-the-person'
+    },
+    '/how-do-you-know-the-person': {
+      fields: ['how-do-you-know-the-person'],
+      next: '/can-use-info-without-risk'
+    },
+    '/can-use-info-without-risk': {
+      fields: ['can-use-info-without-risk'],
+      next: '/about-you-details'
+    },
+    '/about-you-details': {
+      fields: [
+        'about-you-first-name',
+        'about-you-family-name'
+    ],
+      next: '/about-you-dob'
+    },
+    '/about-you-dob': {
+      fields: ['about-you-dob'],
+      next: '/about-you-nationality'
+    },
+    '/about-you-nationality': {
+      fields: ['about-you-nationality'],
+      next: '/about-you-gender'
+    },
+    '/about-you-gender': {
+      fields: ['about-you-gender'],
+      next: '/about-you-contact'
+    },
+    '/about-you-contact': {
+      fields: ['about-you-contact'],
+      next: '/confirm',
+      forks: [{
+        target: '/are-you-eighteen',
+        condition: {
+          field: 'about-you-contact',
+          value: 'yes'
+        }
+      }]
+    },
+    '/are-you-eighteen': {
+      fields: ['are-you-eighteen','contact-number','when-to-contact'],
       next: '/confirm'
     },
-
     '/confirm': {
-      behaviours: [SummaryPageBehaviour, 'complete', personNumber],
+      behaviours: [SummaryPageBehaviour, personNumber],
       sections: require('./sections/summary-data-sections'),
       next: '/declaration'
     },
     '/declaration': {
+      behaviours: ['complete'],
       next: '/confirmation'
     },
     '/confirmation': {
-      template: 'confirmation'
+      backLink: false
     }
   }
 };

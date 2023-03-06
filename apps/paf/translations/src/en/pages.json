@@ -1,48 +1,48 @@
 {
-  "crime-type": {
-    "header": "What is the crime you are reporting? - TO DO"
+  "date-time-crime-will-happen": {
+    "header": "Tell us the time and date the crime will happen, if you know them"
   },
-  "crime-children": {
-    "header": "Are there children involved? (A child is anyone under 18 years of age)  - TO DO"
+  "when-will-crime-happen-more-info": {
+    "header": "If you have any more information about when the crime happening please tell us here:"
   },
-  "when-crime-happened": {
-    "header": "When is the crime happening? - TO DO"
+  "crime-transport-vehicle-details": {
+    "header": "What are the vehicle details?"
   },
-  "crime-transport": {
-    "header": "Does the crime involve any vehicles, transport or travel? - TO DO"
+  "crime-transport-boat-details": {
+    "header": "What are the boat details?"
   },
-  "crime-delivery": {
-    "header": "Tell us which of the following the crime involves: - TO DO"
+  "crime-transport-train-details": {
+    "header": "What are the train details?"
   },
-  "crime-location": {
-    "header": "Do you know where the crime takes place, took place or will take place? - TO DO"
+  "crime-transport-aeroplane-details": {
+    "header": "What are the aeroplane details?"
   },
   "report-person": {
     "header": "The Person"
   },
   "report-person-name": {
-    "header": "Individual's name"
+    "header": "What is the person's name?"
   },
   "report-person-nationality": {
-    "header": "Nationality"
+    "header": "What is the person's nationality?"
   },
   "report-person-place-of-birth": {
-    "header": "Place of birth"
+    "header": "What is the person's place of birth?"
   },
   "report-person-id": {
-    "header": "Identification"
+    "header": "What are the person's forms of identification?"
   },
-  "report-person-location-uk-contact-details": {
-    "header": "Address Details (UK)"
+  "report-person-location-uk-address": {
+    "header": "What is the person's address (UK)?"
   },
-  "report-person-location-outside-uk-contact-details": {
-    "header": "Address Details (Outside UK)"
+  "report-person-location-outside-uk-address": {
+    "header": "What is the person's address (Outside UK)?"
   },
   "report-person-location-travel-to-uk": {
     "header": "Travelling to the UK"
   },
-  "report-person-location-contact-details": {
-    "header": "Contact Details"
+  "report-person-location-contact": {
+    "header": "What is the person's contact details (if known)"
   },
   "report-person-occupation-type": {
     "header": "What type of job or occupation does the person have?"
@@ -54,16 +54,16 @@
     "header": "What days does the person work?"
   },
   "report-person-occupation-company-name": {
-    "header": "Company name"
+    "header": "What is the  name of the company the person works at?"
   },
-  "report-person-occupation-company-contact-details": {
-    "header": "Company address (if known)"
+  "report-person-occupation-company-address": {
+    "header": "What is the company's contact details (if known)?"
   },
   "report-person-occupation-company-phone": {
-    "header": "Company's telephone number including area code (if known)"
+    "header": "What is the company's telephone number including area code (if known)"
   },
   "report-person-occupation-company-manager": {
-    "header": "Who owns or manages the company?"
+    "header": "Company Owner"
   },
   "report-person-study-subject": {
     "header": "Do you know the course or the subject of study?"
@@ -75,25 +75,19 @@
     "header": "What days does the person study?"
   },
   "report-person-study-name": {
-    "header": "Name of college or university"
+    "header": "What is the name of college or university?"
   },
-  "report-person-study-contact-details": {
-    "header": "Address"
+  "report-person-study-address": {
+    "header": "What is the institution's address (if known)?"
   },
-  "report-person-study-phone": {
-    "header": "Telephone number"
-  },
-  "report-person-study-email": {
-    "header": "Email address"
-  },
-  "report-person-study-url": {
-    "header": "Website address"
+  "report-person-study-contact": {
+    "header": "What is the institution's contact details (if known)?"
   },
   "report-person-study-manager": {
-    "header": "Who owns or manages the institution?"
+    "header": "Institution Owner"
   },
   "report-person-transport-details": {
-    "header": "Vehicle details"
+    "header": "What are the vehicle's details?"
   },
   "report-person-description": {
     "header": "Please tell us anything else about the person you are reporting that you think we should know"
@@ -102,19 +96,28 @@
     "header": "Additional People"
   },
   "add-person": {
-    "header": "Individual's name"
+    "header": "What is the person's name?"
   },
   "add-person-nationality": {
-    "header": "Nationality"
+    "header": "What is the person's nationality?"
   },
   "add-person-place-of-birth": {
-    "header": "Place of birth"
+    "header": "What is the person's place of birth?"
   },
   "add-person-identity": {
-    "header": "Identification"
+    "header": " What are the person's forms of identification?"
   },
   "report-organisation": {
-    "header": "The Organisation - Do you wish to report a company, business or education provider? - TO DO"
+    "header": "The Organisation"
+  },
+  "company-address": {
+    "header": "What is the address of the company, business or education provider (if known)?"
+  },
+  "company-contact": {
+    "header": "Enter the company, business or education provider's contact details (if known)"
+  },
+  "company-owner": {
+    "header": "Company owner"
   },
   "other-info-description": {
     "header": "Other information - TO DO"
@@ -126,36 +129,54 @@
     "header": "Please attach any documents which may help us investigate this crime - TO DO"
   },
   "about-you": {
-    "header": "About You - TO DO"
+    "header": "About You"
+  },
+  "about-you-details": {
+    "header": "Please provide your details."
   },
   "confirm": {
     "header": "Check your answers before submitting your application.",
     "sections": {
-      "crime": {
-        "header": "The Crime"
+      "crime-type": {
+        "header": "The Crime - Crime Type"
+      },
+      "crime-children": {
+        "header": "The Crime - Children Involved in Crime"
+      },
+      "crime-time": {
+        "header": "The Crime - Duration"
+      },
+      "crime-transport": {
+        "header": " The Crime - Transport Details"
+      },
+      "crime-delivery": {
+        "header": "The Crime - Mode of Delivery "
+      },
+      "crime-location": {
+        "header": "The Crime - Location Details"
       },
       "person": {
-        "header": "Report a Person"
+        "header": "The Person"
       },
-      "personalDetails": {
-        "header": "Person's Personal Details"
+      "personal-details": {
+        "header": "The Person - Personal Details"
       },
-      "personId": {
-        "header": "Person's Identification Details"
+      "person-id": {
+        "header": "The Person - Identification Details"
       },
-      "personLocation": {
-        "header": "Person's Location Details"
+      "person-contact": {
+        "header": "The Person - Contact Details"
       },
-      "personOccupation": {
-        "header": "Person's Occupation Details"
+      "person-occupation": {
+        "header": "The Person - Occupation Details"
       },
-      "personStudy": {
-        "header": "Person's Study Details"
+      "person-study": {
+        "header": "The Person - Study Details"
       },
-      "personTransport": {
-        "header": "Person's Transport Details"
+      "person-transport": {
+        "header": "The Person - Transport Details"
       },
-      "personDescription": {
+      "person-description": {
         "header": "The Person - Other Information"
       },
       "person-details": {
@@ -163,7 +184,57 @@
       },
       "organisation": {
         "header": "The Organisation"
+      },
+      "organisation-contact": {
+        "header": "The Organisation - Contact Details"
+      },
+      "organisation-other-info": {
+        "header": "The Organisation - Other Information"
+      },
+      "organisation-another-company": {
+        "header": "The Organisation - Another Company"
+      },
+      "about-you": {
+        "header": "About you"
       }
+    },
+  "fields": {
+    "when-will-crime-happen-more-info": {
+      "label": "More information about when the crime is happening"
+    },
+    "crime-car-group": {
+      "label": "Car type"
+    },
+    "crime-hgv-group": {
+      "label": "HGV type"
+    },
+    "crime-lorry-group": {
+      "label": "Lorry type"
+    },
+    "crime-van-group": {
+      "label": "Van type"
+    },
+    "crime-carrier-group": {
+      "label": "Carrier type"
+    },
+    "crime-general-cargo-group": {
+      "label": "General cargo type"
+    },
+    "crime-vessel-group": {
+      "label": "Vessel type"
+    },
+    "report-person-transport-car-group": {
+      "label": "Car type"
+    },
+    "report-person-transport-hgv-group": {
+      "label": "HGV type"
+    },
+    "report-person-transport-lorry-group": {
+      "label": "Lorry type"
+    },
+    "report-person-transport-van-group": {
+      "label": "Van type"
     }
+  }
   }
 }

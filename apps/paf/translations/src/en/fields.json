@@ -1,4 +1,552 @@
 {
+  "crime-type": {
+    "legend": "What is the crime you are reporting?",
+    "options": {
+      "immigration-crime": {
+        "label": "Immigration Crime"
+      },
+      "smuggling-crime": {
+        "label": "Smuggling"
+      }
+    }
+  },
+  "immigration-crime-group": {
+    "legend": "Please classify:",
+    "options": {
+      "immigration-crime-no-permission": {
+        "label": "No permission to stay in the UK"
+      },
+      "immigration-crime-illegal-working": {
+        "label": "Illegal working"
+      },
+      "immigration-crime-employing-illegal-workers": {
+        "label": "Employer employing illegal workers"
+      },
+      "immigration-crime-full-time-student": {
+        "label": "Student working full time"
+      },
+      "immigration-crime-fake-marriage": {
+        "label": "Fake marriage"
+      },
+      "immigration-crime-fake-documents": {
+        "label": "Fake or false documents"
+      },
+      "immigration-crime-enter-stay-illegally": {
+        "label": "Helping people to enter or stay in the UK illegally"
+      },
+      "immigration-crime-lied-on-application": {
+        "label": "Lied on application"
+      },
+      "immigration-crime-enter-human-trafficking-smuggling-slavery": {
+        "label": "Human trafficking / smuggling / slavery"
+      },
+      "immigration-crime-other": {
+        "label": "Other immigration crimes"
+      }
+    }
+  },
+  "smuggling-crime-group": {
+    "legend": "Please classify:",
+    "options": {
+      "smuggling-crime-drug": {
+        "label": "Drug smuggling"
+      },
+      "smuggling-crime-cash": {
+        "label": "Cash smuggling"
+      },
+      "smuggling-crime-cigarette": {
+        "label": "Cigarette and tobacco smuggling"
+      },
+      "smuggling-crime-firearms": {
+        "label": "Firearms smuggling"
+      },
+      "smuggling-crime-alcohol": {
+        "label": "Alcohol smuggling"
+      },
+      "smuggling-crime-other": {
+        "label": "Other smuggling"
+      }
+    }
+  },
+  "crime-children": {
+    "legend": "Are there children involved? (A child is anyone under 18 years of age)",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "when-crime-happened": {
+    "legend": "When is the crime happening?",
+    "options": {
+      "happening-now": {
+        "label": "Happening now"
+      },
+      "ongoing": {
+        "label": "Ongoing"
+      },
+      "already-happened": {
+        "label": "Already happened"
+      },
+      "not-yet-happened": {
+        "label": "Not yet happened"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "when-will-crime-happen": {
+    "legend": "When will the crime happen?",
+    "options": {
+      "next-twenty-four-hours": {
+        "label": "In the next 24 hours"
+      },
+      "more-than-twenty-four-hours": {
+        "label": "Date more than 24 hours in the future"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "happening-now-info": {
+    "label": "When did it start happening?"
+  },
+  "ongoing-info": {
+    "label": "When did it start happening?"
+  },
+  "already-happened-info": {
+    "label": "When did it happen?"
+  },
+  "date-crime-will-happen": {
+    "label": "Date"
+  },
+  "time-crime-will-happen": {
+    "label": "Time"
+  },
+  "crime-transport": {
+    "legend": "Does the crime involve any vehicles, transport or travel?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "transport-group": {
+    "legend": "Please specify the type of vehicles, transport or travel involved:",
+    "options": {
+      "crime-transport-vehicle": {
+        "label": "Vehicle"
+      },
+      "crime-transport-boat": {
+        "label": "Boat"
+      },
+      "crime-transport-train": {
+        "label": "Train"
+      },
+      "crime-transport-aeroplane": {
+        "label": "Aeroplane"
+      },
+      "crime-transport-unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "vehicle-type": {
+    "legend": "What is the vehicle type?",
+    "options": {
+      "boat": {
+        "label": "Boat"
+      },
+      "bulk-carrier": {
+        "label": "Bulk carrier"
+      },
+      "cars": {
+        "label": "Car"
+      },
+      "caravan": {
+        "label": "Caravan"
+      },
+      "coach": {
+        "label": "Coach"
+      },
+      "container": {
+        "label": "Container"
+      },
+      "glass-carrier": {
+        "label": "Glass carrier"
+      },
+      "hgvs": {
+        "label": "HGV"
+      },
+      "lorries": {
+        "label": "Lorry"
+      },
+      "minibus": {
+        "label": "Minibus"
+      },
+      "motorbike": {
+        "label": "Motorbike"
+      },
+      "motorhome": {
+        "label": "Motorhome"
+      },
+      "unaccompanied-trailer": {
+        "label": "Unaccompanied trailer"
+      },
+      "vans": {
+        "label": "Van"
+      }
+    }
+  },
+  "crime-car-group": {
+    "options": {
+      "car": {
+        "label": "Car"
+      },
+      "car-transporter": {
+        "label": "Car transporter"
+      }
+    }
+  },
+  "crime-hgv-group": {
+    "options": {
+      "hgv-canvas-sided": {
+        "label": "HGV canvas sided"
+      },
+      "hgv-flatbed": {
+        "label": "HGV flatbed"
+      },
+      "hgv-hard-sided": {
+        "label": "HGV hard sided"
+      },
+      "hgv-refridgerated": {
+        "label": "HGV refridgerated"
+      },
+      "hgv-tanker": {
+        "label": "HGV tanker"
+      }
+    }
+  },
+  "crime-lorry-group": {
+    "options": {
+      "lorry": {
+        "label": "Lorry"
+      },
+      "lorry-and-drag": {
+        "label": "Lorry and drag"
+      }
+    }
+  },
+  "crime-van-group": {
+    "options": {
+      "van": {
+        "label": "Van"
+      },
+      "van-and-trailer": {
+        "label": "Van and trailer"
+      },
+      "van-other": {
+        "label": "Van (other)"
+      },
+      "seven-point-five-tonne-van": {
+        "label": "7.5 tonne van"
+      }
+    }
+  },
+  "vehicle-make": {
+    "label": "Make (manufacturer if known)"
+  },
+  "vehicle-model": {
+    "label": "Model (if known)"
+  },
+  "vehicle-colour": {
+    "label": "Colour (if known)"
+  },
+  "vehicle-registration": {
+    "label": "Registration number (if known)"
+  },
+  "boat-type": {
+    "legend": "What is the boat type?",
+    "options": {
+      "barge": {
+        "label": "Barge"
+      },
+      "cabin-cruiser": {
+        "label": "Cabin cruiser"
+      },
+      "cable-pipe-layer": {
+        "label": "Cable/pipe layer"
+      },
+      "carriers": {
+        "label": "Carrier"
+      },
+      "catamaran-multihulled": {
+        "label": "Catamaran multihulled"
+      },
+      "containership": {
+        "label": "Containership"
+      },
+      "cruise-ship": {
+        "label": "Cruise ship"
+      },
+      "dayboat": {
+        "label": "Dayboat"
+      },
+      "dinghy": {
+        "label": "Dinghy"
+      },
+      "ferry": {
+        "label": "Ferry"
+      },
+      "fishing-boat": {
+        "label": "Fishing boat"
+      },
+      "general-cargos": {
+        "label": "General cargo"
+      },
+      "ketch": {
+        "label": "Ketch"
+      },
+      "reefer": {
+        "label": "Reefer"
+      },
+      "rhib": {
+        "label": "Rhib"
+      },
+      "tanker": {
+        "label": "Tanker"
+      },
+      "tug": {
+        "label": "Tug"
+      },
+      "vessels": {
+        "label": "Vessel"
+      },
+      "yacht": {
+        "label": "Yacht"
+      }
+    }
+  },
+  "crime-carrier-group": {
+    "options": {
+      "bulk-carrier": {
+        "label": "Bulk carrier"
+      },
+      "vehicle-carrier": {
+        "label": "Vehicle carrier"
+      },
+      "vessel-carrier": {
+        "label": "Vessel carrier"
+      }
+    }
+  },
+  "crime-general-cargo-group": {
+    "options": {
+      "general-cargo": {
+        "label": "General cargo"
+      },
+      "general-cargo-with-container-capacity": {
+        "label": "General cargo with container capacity"
+      }
+    }
+  },
+  "crime-vessel-group": {
+    "options": {
+      "research-vessel": {
+        "label": "Research vessel"
+      },
+      "supply-vessel": {
+        "label": "Supply vessel"
+      },
+      "support-vessel": {
+        "label": "Support vessel"
+      }
+    }
+  },
+  "boat-name": {
+    "label": "Name"
+  },
+  "boat-country-departure": {
+    "label": "Country of departure",
+    "options": {
+      "null": "Select..."
+    },
+    "hint": "Start to type the country and options will appear"
+  },
+  "port-departure": {
+    "label": "Port of departure"
+  },
+  "port-arrival": {
+    "label": "Port of arrival"
+  },
+  "port-departure-time": {
+    "label": "Time of departure"
+  },
+  "port-arrival-time": {
+    "label": "Time of arrival"
+  },
+  "train-company": {
+    "label": "Train company"
+  },
+  "train-country-departure": {
+    "label": "Country of departure",
+    "options": {
+      "null": "Select..."
+    },
+    "hint": "Start to type the country and options will appear"
+  },
+  "station-departure": {
+    "label": "Departure station"
+  },
+  "station-arrival": {
+    "label": "Arrival station"
+  },
+  "station-departure-time": {
+    "label": "Time of departure"
+  },
+  "station-arrival-time": {
+    "label": "Time of arrival"
+  },
+  "airline-company": {
+    "label": "Airline company"
+  },
+  "airline-flight-number": {
+    "label": "Flight number"
+  },
+  "airline-country-departure": {
+    "label": "Country of departure",
+    "options": {
+      "null": "Select..."
+    },
+    "hint": "Start to type the country and options will appear"
+  },
+  "airport-departure": {
+    "label": "Airport of departure"
+  },
+  "airport-arrival": {
+    "label": "Airport of arrival"
+  },
+  "airport-departure-time": {
+    "label": "Time of departure"
+  },
+  "airport-arrival-time": {
+    "label": "Time of arrival"
+  },
+  "crime-delivery": {
+    "legend": "Tell us which of the following the crime involves:",
+    "options": {
+      "freight-cargo": {
+        "label": "Freight or cargo"
+      },
+      "express-mail-courier": {
+        "label": "Express mail/courier"
+      },
+      "post": {
+        "label": "Post"
+      },
+      "none": {
+        "label": "None of these"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "freight-more-info": {
+    "label": "If you have any more information, please tell us here:"
+  },
+  "express-more-info": {
+    "label": "If you have any more information, please tell us here:"
+  },
+  "post-more-info": {
+    "label": "If you have any more information, please tell us here:"
+  },
+  "crime-location": {
+    "legend": "Do you know where the crime takes place, took place or will take place?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "crime-location-country": {
+    "label": "Country",
+    "options": {
+      "null": "Please select..."
+    },
+    "hint": "Start to type the country and options will appear"
+  },
+  "crime-location-address-line1": {
+    "label": "Address line 1"
+  },
+  "crime-location-address-line2": {
+    "label": "Address line 2"
+  },
+  "crime-location-address-town": {
+    "label": "Town or city"
+  },
+  "crime-location-address-county": {
+    "label": "County"
+  },
+  "crime-location-address-postcode": {
+    "label": "Postcode"
+  },
+  "crime-location-phone": {
+    "label": "Telephone number (including area code)"
+  },
+  "crime-another-location": {
+    "legend": "Do you want to tell us about another location where the crime is taking place?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "crime-another-location-country": {
+    "label": "Country",
+    "options": {
+      "null": "Please select..."
+    },
+    "hint": "Start to type the country and options will appear"
+  },
+  "crime-another-location-address-line1": {
+    "label": "Address line 1"
+  },
+  "crime-another-location-address-line2": {
+    "label": "Address line 2"
+  },
+  "crime-another-location-address-town": {
+    "label": "Town or city"
+  },
+  "crime-another-location-address-county": {
+    "label": "County"
+  },
+  "crime-another-location-address-postcode": {
+    "label": "Postcode"
+  },
+  "crime-another-location-phone": {
+    "label": "Telephone number (including area code)"
+  },
   "report-person": {
     "hint": "If you are reporting an organisation such as a company or a college you do not need to complete this page. Please click 'Continue' until 'The organisation' page.",
     "legend": "Do you wish to report an individual?",
@@ -24,11 +572,11 @@
     "label": "Other name(s) that they use or that people know them by"
   },
   "report-person-dob": {
-    "legend": "Date of Birth",
+    "legend": "What is the person's date of birth?",
     "hint": "If you do not know the date of birth, but you can provide a partial date of birth please enter the information in the free text box at the end of this section"
   },
   "report-person-age-range": {
-    "legend": "Approximate age",
+    "legend": "What is the person's approximate age?",
     "options": {
       "0-17": {
         "label": "0-17"
@@ -61,13 +609,13 @@
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the your nationality. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the nationality and options will appear"
   },
   "report-person-place-of-birth": {
     "label": "Place of birth (if known)"
   },
   "report-person-gender": {
-    "legend": "Gender",
+    "legend": "What is the person's gender?",
     "options": {
       "male": {
         "label": "Male"
@@ -109,41 +657,41 @@
       }
     }
   },
-  "report-person-location-uk-contact-details-building": {
-    "label": "Building"
+  "report-person-location-uk-address-line1": {
+    "label": "Address line 1"
   },
-  "report-person-location-uk-contact-details-street": {
-    "label": "Street"
+  "report-person-location-uk-address-line2": {
+    "label": "Address line 2"
   },
-  "report-person-location-uk-contact-details-townOrCity": {
+  "report-person-location-uk-address-town": {
     "label": "Town or city"
   },
-  "report-person-location-uk-contact-details-county": {
+  "report-person-location-uk-address-county": {
     "label": "County"
   },
-  "report-person-location-uk-contact-details-postcodeOrZIPCode": {
+  "report-person-location-uk-address-postcode": {
     "label": "Postcode"
   },
-  "report-person-location-outside-uk-contact-details-country": {
-    "label": "What country is the person in?",
+  "report-person-location-outside-uk-address-country": {
+    "label": "Country",
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
-  "report-person-location-outside-uk-contact-details-building": {
-    "label": "Building"
+  "report-person-location-outside-uk-address-line1": {
+    "label": "Address line 1"
   },
-  "report-person-location-outside-uk-contact-details-street": {
-    "label": "Street"
+  "report-person-location-outside-uk-address-line2": {
+    "label": "Address line 2"
   },
-  "report-person-location-outside-uk-contact-details-townOrCity": {
+  "report-person-location-outside-uk-address-town": {
     "label": "Town or city"
   },
-  "report-person-location-outside-uk-contact-details-county": {
+  "report-person-location-outside-uk-address-county": {
     "label": "County"
   },
-  "report-person-location-outside-uk-contact-details-postcodeOrZIPCode": {
+  "report-person-location-outside-uk-address-postcode": {
     "label": "Postcode"
   },
   "report-person-location-mobile": {
@@ -170,11 +718,11 @@
     }
   },
   "report-person-location-travel-to-uk-country": {
-    "label": "What country is the person travelling?",
+    "label": "What country is the person travelling from?",
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing the name of the country. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the country and options will appear"
   },
   "report-person-location-travel-to-uk-how": {
     "label": "How is the person travelling?"
@@ -225,26 +773,26 @@
   "report-person-occupation-company-name": {
     "label": "Company name (if known)"
   },
-  "report-person-occupation-company-contact-details-building": {
-    "label": "Building"
+  "report-person-occupation-company-address-line1": {
+    "label": "Address line 1"
   },
-  "report-person-occupation-company-contact-details-street": {
-    "label": "Street"
+  "report-person-occupation-company-address-line2": {
+    "label": "Address line 2"
   },
-  "report-person-occupation-company-contact-details-townOrCity": {
+  "report-person-occupation-company-address-town": {
     "label": "Town or city"
   },
-  "report-person-occupation-company-contact-details-county": {
+  "report-person-occupation-company-address-county": {
     "label": "County"
   },
-  "report-person-occupation-company-contact-details-postcodeOrZIPCode": {
+  "report-person-occupation-company-address-postcode": {
     "label": "Postcode"
   },
   "report-person-occupation-company-phone": {
     "label": "Company's telephone number including area code (if known)"
   },
   "report-person-occupation-company-manager": {
-    "label": "Owner or manager"
+    "label": "Who owns or manages the company?"
   },
   "report-person-occupation-company-manager-know": {
     "legend": "Does the owner or manager know about the crime?",
@@ -314,19 +862,19 @@
   "report-person-study-name": {
     "label": "Name of college or university"
   },
-  "report-person-study-contact-details-building": {
-    "label": "Building"
+  "report-person-study-address-line1": {
+    "label": "Address line 1"
   },
-  "report-person-study-contact-details-street": {
-    "label": "Street"
+  "report-person-study-address-line2": {
+    "label": "Address line 2"
   },
-  "report-person-study-contact-details-townOrCity": {
+  "report-person-study-address-town": {
     "label": "Town or city"
   },
-  "report-person-study-contact-details-county": {
+  "report-person-study-address-county": {
     "label": "County"
   },
-  "report-person-study-contact-details-postcodeOrZIPCode": {
+  "report-person-study-address-postcode": {
     "label": "Postcode"
   },
   "report-person-study-phone": {
@@ -336,10 +884,10 @@
     "label": "Email address"
   },
   "report-person-study-url": {
-    "label": "Website address"
+    "label": "Website"
   },
   "report-person-study-manager": {
-    "label": "Owner or manager"
+    "label": "Who owns or manages the institution?"
   },
   "report-person-study-manager-know": {
     "legend": "Does the owner or manager know about the crime?",
@@ -370,7 +918,7 @@
     }
   },
   "report-person-transport-type": {
-    "legend": "Vehicle type",
+    "legend": "What is the vehicle type?",
     "options": {
       "boat": {
         "label": "Boat"
@@ -416,7 +964,7 @@
       }
     }
   },
-  "car-group":{
+  "report-person-transport-car-group": {
     "options": {
       "car": {
         "label": "Car"
@@ -426,7 +974,7 @@
       }
     }
   },
-  "hgv-group":{
+  "report-person-transport-hgv-group": {
     "options": {
       "hgv-canvas-sided": {
         "label": "HGV canvas sided"
@@ -445,7 +993,7 @@
       }
     }
   },
-  "lorry-group":{
+  "report-person-transport-lorry-group": {
     "options": {
       "lorry": {
         "label": "Lorry"
@@ -455,7 +1003,7 @@
       }
     }
   },
-  "van-group":{
+  "report-person-transport-van-group": {
     "options": {
       "van": {
         "label": "Van"
@@ -471,7 +1019,6 @@
       }
     }
   },
-
   "report-person-transport-make": {
     "label": "Make (manufacturer)"
   },
@@ -520,11 +1067,11 @@
     "label": "Other name(s) that they use or that people know them by"
   },
   "personAddDob": {
-    "legend": "Date of Birth",
+    "legend": "What is the person's date of birth?",
     "hint": "If you do not know the date of birth, but you can provide a partial date of birth please enter the information in the free text box at the end of this section"
   },
   "personAddAgeRange": {
-    "legend": "Approximate age",
+    "legend": "What is the person's approximate age?",
     "options": {
       "0-17": {
         "label": "0-17"
@@ -557,13 +1104,13 @@
     "options": {
       "null": "Select..."
     },
-    "hint": "Start typing your nationality. It must appear on the list for you to be able to continue."
+    "hint": "Start to type the nationality and options will appear"
   },
   "personAddPlaceOfBirth": {
     "label": "Place of birth (if known)"
   },
   "personAddGender": {
-    "legend": "Gender",
+    "legend": "What is the person's gender?",
     "options": {
       "male": {
         "label": "Male"
@@ -587,5 +1134,175 @@
   },
   "personAddNi": {
     "label": "National insurance number or equivalent (if known)"
+  },
+  "report-organisation": {
+    "hint": "If you are reporting a person rather than an organisation such as a company or college you do not need to complete this page.",
+    "legend": "Do you wish to report a company, business or education provider?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "organisation-company-name": {
+    "label": "What is the company, business or education provider (if known)?"
+  },
+  "company-address-line1": {
+    "label": "Address line 1"
+  },
+  "company-address-line2": {
+    "label": "Address line 2"
+  },
+  "company-town": {
+    "label": "Town or city"
+  },
+  "company-county": {
+    "label": "County"
+  },
+  "company-postcode": {
+    "label": "Postcode"
+  },
+  "company-phone": {
+    "label": "Phone number"
+  },
+  "company-email": {
+    "label": "Email"
+  },
+  "company-website": {
+    "label": "Website"
+  },
+  "company-types": {
+    "label": "What is the type of company, business or education provider?",
+    "hint": "Start to type the company type and options will appear",
+    "options": {
+      "null": "Select..."
+    }
+  },
+  "company-owner": {
+    "label": "Who owns or manages the company, business or education provider?"
+  },
+  "owner-know-about-the-crime": {
+    "legend": "Does the owner or manager know about the crime?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "company-other-info": {
+    "label": "Please tell us anything else about the company, business or education provider that you think we should know"
+  },
+  "another-company": {
+    "legend": "Do you want to tell us about another company, business or education provider that is involved in the same crime?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "another-company-yes": {
+    "label": "Please tell us anything else about another company, business or education provider that you think we should know:"
+  },
+  "how-did-you-find-out-about-the-crime": {
+    "label": "How did you find out about the crime?"
+  },
+  "does-anyone-else-know": {
+    "label": "Does anyone else know about the crime?",
+    "hint": " "
+  },
+  "have-you-reported-before": {
+    "label": "Have you reported the crime before?",
+    "hint": " "
+  },
+  "how-do-you-know-the-person": {
+    "label": "How do you know this person/ these people?",
+    "hint": " "
+  },
+  "can-use-info-without-risk": {
+    "legend": "Can we act on this information without putting you or others at risk?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "about-you-dob": {
+    "legend": "What is your date of birth?"
+  },
+  "about-you-nationality": {
+    "label": "What is your nationality?",
+    "options": {
+      "null": "Select..."
+    },
+    "hint": "Start to type the nationality and options will appear"
+  },
+  "about-you-gender": {
+    "legend": "What is your gender?",
+    "options": {
+      "male": {
+        "label": "Male"
+      },
+      "female": {
+        "label": "Female"
+      },
+      "other": {
+        "label": "Other"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "about-you-contact": {
+    "legend": "Can we contact you if required, to discuss the information you have provided?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "are-you-eighteen": {
+    "legend": "Are you over 18?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "about-you-first-name": {
+    "label": "First name(s)"
+  },
+  "about-you-family-name": {
+    "label": "Family name(s)"
+  },
+  "contact-number": {
+    "label": "Contact number"
+  },
+  "when-to-contact": {
+    "label": "When would you like us to contact you?"
   }
 }
