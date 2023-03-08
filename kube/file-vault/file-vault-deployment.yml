@@ -1,54 +1,54 @@
 ---
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: file-vault
-spec:
-  {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
-  replicas: 2
-  {{ else }}
-  replicas: 1
-  {{ end }}
-  selector:
-    matchLabels:
-      name: file-vault
-      service: file-vault
-  template:
-    metadata:
-      labels:
-        name: file-vault
-        service: file-vault
 # metadata:
-#   {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-#   name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
-#   {{ else }}
 #   name: file-vault
-#   {{ end }}
 # spec:
 #   {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
-#   replicas: 3
+#   replicas: 2
 #   {{ else }}
 #   replicas: 1
 #   {{ end }}
 #   selector:
 #     matchLabels:
-#       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-#       name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
-#       service: file-vault-{{ .DRONE_SOURCE_BRANCH }}
-#       {{ else }}
 #       name: file-vault
 #       service: file-vault
-#       {{ end }}
 #   template:
 #     metadata:
 #       labels:
-#         {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-#         name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
-#         service: file-vault-{{ .DRONE_SOURCE_BRANCH }}
-#         {{ else }}
 #         name: file-vault
 #         service: file-vault
-#         {{ end }}
+metadata:
+  {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+  name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
+  {{ else }}
+  name: file-vault
+  {{ end }}
+spec:
+  {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+  replicas: 3
+  {{ else }}
+  replicas: 1
+  {{ end }}
+  selector:
+    matchLabels:
+      {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+      name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
+      service: file-vault-{{ .DRONE_SOURCE_BRANCH }}
+      {{ else }}
+      name: file-vault
+      service: file-vault
+      {{ end }}
+  template:
+    metadata:
+      labels:
+        {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+        name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
+        service: file-vault-{{ .DRONE_SOURCE_BRANCH }}
+        {{ else }}
+        name: file-vault
+        service: file-vault
+        {{ end }}
     spec:
       containers:
         - name: file-vault
@@ -79,7 +79,8 @@ spec:
             {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
               value: https://supp-docs-dev.notprod.{{ .APP_NAME }}.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-              value: https://fv-branch.{{ .BRANCH_ENV }}.homeoffice.gov.uk
+              value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
+              # value: https://fv-branch.{{ .BRANCH_ENV }}.homeoffice.gov.uk
             - name: DEBUG
               value: "true"
             {{ end }}
