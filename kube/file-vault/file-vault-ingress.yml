@@ -1,9 +1,9 @@
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
-metadata:
-  name: file-vault-ingress
-{{ file .FILEVAULT_INGRESS_EXTERNAL_ANNOTATIONS | indent 2 }}
+# metadata:
+#   name: file-vault-ingress
+# {{ file .FILEVAULT_INGRESS_EXTERNAL_ANNOTATIONS | indent 2 }}
 # spec:
 #   tls:
 #   - hosts:
@@ -37,13 +37,13 @@ metadata:
 #         backend:
 #           serviceName: file-vault
 #           servicePort: 10443
-# metadata:
-#   {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-#   name: file-vault-ingress-{{ .DRONE_SOURCE_BRANCH }}
-#   {{ else }}
-#   name: file-vault-ingress
-#   {{ end }}
-# {{ file .FILEVAULT_INGRESS_EXTERNAL_ANNOTATIONS | indent 2 }}
+metadata:
+  {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+  name: file-vault-ingress-{{ .DRONE_SOURCE_BRANCH }}
+  {{ else }}
+  name: file-vault-ingress
+  {{ end }}
+{{ file .FILEVAULT_INGRESS_EXTERNAL_ANNOTATIONS | indent 2 }}
 spec:
   {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
   ingressClassName: nginx-external
