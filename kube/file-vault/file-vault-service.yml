@@ -1,32 +1,10 @@
 apiVersion: v1
 kind: Service
-metadata:
-  name: file-vault
-  labels:
-    name: file-vault
-    role: service
-spec:
-  ports:
-  - name: http
-    port: 10080
-  - name: https
-    port: 10443
-  selector:
-    name: file-vault
 # metadata:
-#   {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-#   name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
-#   {{ else }}
 #   name: file-vault
-#   {{ end }}
 #   labels:
-#     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-#     name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
-#     role: service-{{ .DRONE_SOURCE_BRANCH }}
-#     {{ else }}
 #     name: file-vault
 #     role: service
-#     {{ end }}
 # spec:
 #   ports:
 #   - name: http
@@ -34,8 +12,30 @@ spec:
 #   - name: https
 #     port: 10443
 #   selector:
-#     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-#     name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
-#     {{ else }}
 #     name: file-vault
-#     {{ end }}
+metadata:
+  {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+  name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
+  {{ else }}
+  name: file-vault
+  {{ end }}
+  labels:
+    {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+    name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
+    role: service-{{ .DRONE_SOURCE_BRANCH }}
+    {{ else }}
+    name: file-vault
+    role: service
+    {{ end }}
+spec:
+  ports:
+  - name: http
+    port: 10080
+  - name: https
+    port: 10443
+  selector:
+    {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+    name: file-vault-{{ .DRONE_SOURCE_BRANCH }}
+    {{ else }}
+    name: file-vault
+    {{ end }}
