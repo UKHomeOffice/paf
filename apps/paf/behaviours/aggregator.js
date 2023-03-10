@@ -196,6 +196,7 @@ module.exports = superclass => class extends superclass {
     return parser ? parser(value) : value;
   }
 
+  
   locals(req, res) {
     const items = this.getAggregateArray(req);
 
