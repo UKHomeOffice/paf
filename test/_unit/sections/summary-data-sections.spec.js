@@ -324,6 +324,39 @@ describe('PAF Summary Data Sections', () => {
       const result = areOrderedEqual(sectionFields, expectedFields);
       expect(result).to.be.true;
     });
+
+    it('should check expected fields in other-info section', () => {
+      const sectionFields = mappedSections['other-info'];
+      const expectedFields = [
+        'other-info-description',
+        'other-info-another-crime',
+        'other-info-another-crime-description'
+      ];
+      const result = areOrderedEqual(sectionFields, expectedFields);
+      expect(result).to.be.true;
+    });
+
+    it('should check expected fields in about-you section', () => {
+      const sectionFields = mappedSections['about-you'];
+      const expectedFields = [
+        'how-did-you-find-out-about-the-crime',
+        'does-anyone-else-know',
+        'have-you-reported-before',
+        'how-do-you-know-the-person',
+        'can-use-info-without-risk',
+        'about-you-first-name',
+        'about-you-family-name',
+        'about-you-dob',
+        'about-you-nationality',
+        'about-you-gender',
+        'about-you-contact',
+        'are-you-eighteen',
+        'contact-number',
+        'when-to-contact'
+      ];
+      const result = areOrderedEqual(sectionFields, expectedFields);
+      expect(result).to.be.true;
+    });
   });
 
   describe('Sections and Fields', () => {
@@ -458,6 +491,13 @@ describe('PAF Summary Data Sections', () => {
         Object.keys(fields),
         mappedSections['organisation-another-company'])
       ).to.be.true;
+    });
+    
+    it('other-info', () => {
+      mappedSections['other-info'].every(i => {
+        const item = i.field || i;
+        return Object.keys(fields).includes(item);
+      });
     });
   });
 });

@@ -120,10 +120,7 @@
     "header": "Company owner"
   },
   "other-info-description": {
-    "header": "Other information - TO DO"
-  },
-  "other-info-another-crime": {
-    "header": "Do you want to report another crime by the same person or business? - TO DO"
+    "header": "Other information"
   },
   "other-info-file-upload": {
     "header": "Please attach any documents which may help us investigate this crime - TO DO"
@@ -194,47 +191,53 @@
       "organisation-another-company": {
         "header": "The Organisation - Another Company"
       },
+      "other-info": {
+        "header": "Other Information"
+      },
       "about-you": {
         "header": "About you"
       }
     },
-  "fields": {
-    "when-will-crime-happen-more-info": {
-      "label": "More information about when the crime is happening"
-    },
-    "crime-car-group": {
-      "label": "Car type"
-    },
-    "crime-hgv-group": {
-      "label": "HGV type"
-    },
-    "crime-lorry-group": {
-      "label": "Lorry type"
-    },
-    "crime-van-group": {
-      "label": "Van type"
-    },
-    "crime-carrier-group": {
-      "label": "Carrier type"
-    },
-    "crime-general-cargo-group": {
-      "label": "General cargo type"
-    },
-    "crime-vessel-group": {
-      "label": "Vessel type"
-    },
-    "report-person-transport-car-group": {
-      "label": "Car type"
-    },
-    "report-person-transport-hgv-group": {
-      "label": "HGV type"
-    },
-    "report-person-transport-lorry-group": {
-      "label": "Lorry type"
-    },
-    "report-person-transport-van-group": {
-      "label": "Van type"
+    "fields": {
+      "when-will-crime-happen-more-info": {
+        "label": "More information about when the crime is happening"
+      },
+      "crime-car-group": {
+        "label": "Car type"
+      },
+      "crime-hgv-group": {
+        "label": "HGV type"
+      },
+      "crime-lorry-group": {
+        "label": "Lorry type"
+      },
+      "crime-van-group": {
+        "label": "Van type"
+      },
+      "crime-carrier-group": {
+        "label": "Carrier type"
+      },
+      "crime-general-cargo-group": {
+        "label": "General cargo type"
+      },
+      "crime-vessel-group": {
+        "label": "Vessel type"
+      },
+      "report-person-transport-car-group": {
+        "label": "Car type"
+      },
+      "report-person-transport-hgv-group": {
+        "label": "HGV type"
+      },
+      "report-person-transport-lorry-group": {
+        "label": "Lorry type"
+      },
+      "report-person-transport-van-group": {
+        "label": "Van type"
+      },
+      "other-info-another-crime-description": {
+        "label": "Another crime details"
+      }
     }
-  }
   }
 }
