@@ -3,7 +3,6 @@ Public Allegations Form
 Public Allegations Form Application built using HOF (Home Office Forms) framework.
 
 
-
 ## Getting Started
 
 ### Prerequisities
