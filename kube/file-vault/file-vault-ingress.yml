@@ -18,11 +18,11 @@ spec:
       - fv-{{ .DRONE_BUILD_NUMBER }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
       - fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-      - fv-rra.uat.sas-notprod.homeoffice.gov.uk
+      - fv-paf.uat.sas-notprod.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-      - fv-rra.stg.sas.homeoffice.gov.uk
+      - fv-paf.stg.sas.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .PROD_ENV }}
-      - fv-rra.homeoffice.gov.uk
+      - fv-paf.homeoffice.gov.uk
       {{ end }}
       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
       secretName: branch-tls-external
@@ -33,11 +33,11 @@ spec:
     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
     - host: fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-    - host: fv-rra.uat.sas-notprod.homeoffice.gov.uk
+    - host: fv-paf.uat.sas-notprod.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-    - host: fv-rra.stg.sas.homeoffice.gov.uk
+    - host: fv-paf.stg.sas.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .PROD_ENV }}
-    - host: fv-rra.homeoffice.gov.uk
+    - host: fv-paf.homeoffice.gov.uk
     {{ end }}
       http:
         paths:
