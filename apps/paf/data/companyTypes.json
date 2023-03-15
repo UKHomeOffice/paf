@@ -29,7 +29,7 @@
   },
   {
     "value": "factory",
-    "label": "factory"
+    "label": "Factory"
   },
   {
     "value": "farming-forestry-and-fishing",
@@ -50,6 +50,10 @@
   {
     "value": "haulage",
     "label": "Haulage"
+  },
+  {
+    "value": "hospital-healthcare",
+    "label": "Hospital / Healthcare"
   },
   {
     "value": "information-technology",
@@ -85,7 +89,7 @@
   },
   {
     "value": "warehouse",
-    "label": "Aarehouse"
+    "label": "Warehouse"
   },
   {
     "value": "other",
