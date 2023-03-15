@@ -12,6 +12,9 @@ function notBothOptions(vals) {
   const values = _.castArray(vals);
   return !(values.length > 1 && values.indexOf('crime-transport-unknown') > -1);
 }
+function lettersAndSpacesOnly(value) {
+    return /^[A-Za-z\s]*$/.test(value);
+}
 const moment = require('moment');
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 
@@ -99,19 +102,22 @@ module.exports = {
     dependent: {
       field: 'when-crime-happened',
       value: 'happening-now'
-    }
+    },
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'ongoing-info': {
     dependent: {
       field: 'when-crime-happened',
       value: 'ongoing'
-    }
+    },
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'already-happened-info': {
     dependent: {
       field: 'when-crime-happened',
       value: 'already-happened'
-    }
+    },
+    validate: [{ type: 'maxlength', arguments: 50}]
   },
   'when-will-crime-happen': {
     isPageHeading: true,
@@ -198,16 +204,20 @@ module.exports = {
     ]
   },
   'vehicle-make': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'vehicle-model': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'vehicle-colour': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'vehicle-registration': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'crime-car-group': {
     mixin: 'radio-group',
@@ -352,7 +362,8 @@ module.exports = {
     }
   },
   'boat-name': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'boat-country-departure': {
     mixin: 'select',
@@ -364,16 +375,20 @@ module.exports = {
       }].concat(countriesList)
   },
   'port-departure': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'port-arrival': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'port-departure-time': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'port-arrival-time': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'train-company': {
     mixin: 'select',
@@ -394,16 +409,20 @@ module.exports = {
       }].concat(countriesList)
   },
   'station-departure': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'station-arrival': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'station-departure-time': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'station-arrival-time': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'airline-company': {
     mixin: 'select',
@@ -427,16 +446,20 @@ module.exports = {
       }].concat(countriesList)
   },
   'airport-departure': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'airport-arrival': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'airport-departure-time': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'airport-arrival-time': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'crime-delivery': {
     isPageHeading: true,
@@ -527,10 +550,13 @@ module.exports = {
     mixin: 'input-text'
   },
   'crime-location-address-postcode': {
-    className: ['govuk-input', 'govuk-input--width-10']
+    formatter: ['removespaces', 'uppercase'],
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'crime-location-phone': {
-    className: ['govuk-input', 'govuk-input--width-20']
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'crime-another-location': {
     isPageHeading: true,
@@ -565,26 +591,33 @@ module.exports = {
     mixin: 'input-text'
   },
   'crime-another-location-address-postcode': {
-    className: ['govuk-input', 'govuk-input--width-10']
+    formatter: ['removespaces', 'uppercase'],
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'crime-another-location-phone': {
-    className: ['govuk-input', 'govuk-input--width-20']
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person': {
     mixin: 'radio-group',
     options: ['yes', 'no', 'unknown']
   },
   'report-person-first-name': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
   'report-person-family-name': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
   'report-person-nickname': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }, lettersAndSpacesOnly]
   },
   'report-person-place-of-birth': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
   'report-person-dob': dateComponent('report-person-dob', {
     isPageHeading: true,
@@ -624,13 +657,16 @@ module.exports = {
     ]
   },
   'report-person-passport': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-id': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-ni': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-location': {
     mixin: 'radio-group',
@@ -655,7 +691,8 @@ module.exports = {
   },
   'report-person-location-uk-address-postcode': {
     formatter: ['removespaces', 'uppercase'],
-    className: ['govuk-input', 'govuk-input--width-10']
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-outside-uk-address-country': {
     mixin: 'select',
@@ -680,7 +717,8 @@ module.exports = {
   },
   'report-person-location-outside-uk-address-postcode': {
     formatter: ['removespaces', 'uppercase'],
-    className: ['govuk-input', 'govuk-input--width-10']
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-travel-to-uk-country': {
     mixin: 'select',
@@ -701,13 +739,15 @@ module.exports = {
     ]
   },
   'report-person-location-mobile': {
-    className: ['govuk-input', 'govuk-input--width-20']
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-phone': {
-    className: ['govuk-input', 'govuk-input--width-20']
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-email': {
-    validate: ['email']
+    validate: ['email', { type: 'maxlength', arguments: 100 }]
   },
   'report-person-occupation': {
     mixin: 'radio-group',
@@ -753,10 +793,12 @@ module.exports = {
     labelClassName: 'visuallyhidden'
   },
   'report-person-occupation-hours': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-occupation-days': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-occupation-where': {
     isPageHeading: true,
@@ -764,7 +806,8 @@ module.exports = {
     options: ['yes', 'no', 'unknown']
   },
   'report-person-occupation-company-name': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-occupation-company-address-line1': {
     mixin: 'input-text'
@@ -780,13 +823,16 @@ module.exports = {
   },
   'report-person-occupation-company-address-postcode': {
     formatter: ['removespaces', 'uppercase'],
-    className: ['govuk-input', 'govuk-input--width-10']
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person-occupation-company-phone': {
-    className: ['govuk-input', 'govuk-input--width-20']
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person-occupation-company-manager': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-occupation-company-manager-know': {
     mixin: 'radio-group',
@@ -798,7 +844,8 @@ module.exports = {
     options: ['yes', 'no', 'unknown']
   },
   'report-person-study-subject': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 250 }]
   },
   'report-person-study-location': {
     isPageHeading: true,
@@ -811,13 +858,16 @@ module.exports = {
     options: ['yes', 'no', 'unknown']
   },
   'report-person-study-hours': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-study-days': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-study-name': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-study-address-line1': {
     mixin: 'input-text'
@@ -833,19 +883,24 @@ module.exports = {
   },
   'report-person-study-address-postcode': {
     formatter: ['removespaces', 'uppercase'],
-    className: ['govuk-input', 'govuk-input--width-10']
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person-study-phone': {
-    className: ['govuk-input', 'govuk-input--width-20']
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'report-person-study-email': {
-    validate: ['email']
+    validate: ['email', { type: 'maxlength', arguments: 100 }]
   },
   'report-person-study-url': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    formatters: ['removespaces'],
+    validate: ['url', { type: 'maxlength', arguments: 100 }]
   },
   'report-person-study-manager': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: ['url', { type: 'maxlength', arguments: 100 }]
   },
   'report-person-study-manager-know': {
     mixin: 'radio-group',
@@ -963,19 +1018,24 @@ module.exports = {
     }
   },
   'report-person-transport-make': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-transport-model': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-transport-colour': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-transport-registration': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-transport-other': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-description': {
     mixin: 'textarea',
@@ -996,13 +1056,16 @@ module.exports = {
     className: 'visuallyhidden'
   },
   'personAddFirstName': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
   'personAddFamilyName': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
   'personAddNickname': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }, lettersAndSpacesOnly]
   },
   'personAddDob': dateComponent('personAddDob', {
     isPageHeading: true,
@@ -1043,20 +1106,24 @@ module.exports = {
     ]
   },
   'personAddPassport': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'personAddId': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'personAddNi': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-organisation': {
     mixin: 'radio-group',
     options: ['yes', 'no', 'unknown']
   },
   'organisation-company-name': {
-    isPageHeading: true
+    isPageHeading: true,
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'company-address-line1': {
     mixin: 'input-text'
@@ -1072,19 +1139,20 @@ module.exports = {
   },
   'company-postcode': {
     formatter: ['removespaces', 'uppercase'],
-    validate: ['postcode'],
-    className: ['govuk-input', 'govuk-input--width-10']
+    className: ['govuk-input', 'govuk-input--width-10'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'company-phone': {
-    className: ['govuk-input', 'govuk-input--width-20']
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'company-email': {
     formatter: ['removespaces'],
-    validate: ['email']
+    validate: ['email', { type: 'maxlength', arguments: 100 }]
   },
   'company-website': {
     formatter: ['removespaces'],
-    validate: ['url']
+    validate: ['url', { type: 'maxlength', arguments: 100 }]
   },
   'company-types': {
     isPageHeading: true,
@@ -1097,7 +1165,8 @@ module.exports = {
       }].concat(companyTypes)
   },
   'company-owner': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: ['url', { type: 'maxlength', arguments: 100 }]
   },
   'owner-know-about-the-crime': {
     mixin: 'radio-group',
@@ -1178,22 +1247,30 @@ module.exports = {
     options: ['yes', 'no']
   },
   'about-you-first-name': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [ { type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
   'about-you-family-name': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    validate: [ { type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
+  },
+  "how-did-you-find-out-about-the-crime": {
+    validate: [ { type: 'maxlength', arguments: 500 }]
   },
   "does-anyone-else-know": {
     mixin: 'input-text',
-    isPageHeading: true
+    isPageHeading: true,
+    validate: [{ type: 'maxlength', arguments: 500 }]
   },
   "have-you-reported-before": {
     mixin: 'input-text',
-    isPageHeading: true
+    isPageHeading: true,
+    validate: [{ type: 'maxlength', arguments: 500 }]
   },
   "how-do-you-know-the-person": {
     mixin: 'input-text',
-    isPageHeading: true
+    isPageHeading: true,
+    validate: [{ type: 'maxlength', arguments: 500 }]
   },
   'can-use-info-without-risk': {
     mixin: 'radio-group',
@@ -1259,12 +1336,14 @@ module.exports = {
     dependent: {
       field: 'are-you-eighteen',
       value: 'yes'
-    }
+    },
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'when-to-contact': {
     dependent: {
       field: 'are-you-eighteen',
       value: 'yes'
-    }
+    },
+    validate: [{ type: 'maxlength', arguments: 500 }]
   }
 };
