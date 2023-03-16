@@ -632,9 +632,11 @@ module.exports = {
       next: '/other-info-description',
     },
     '/other-info-description': {
+      fields: ['other-info-description'],
       next: '/other-info-another-crime'
     },
     '/other-info-another-crime': {
+      fields: ['other-info-another-crime', 'other-info-another-crime-description'],
       next: '/other-info-file-upload'
     },
     '/other-info-file-upload': {

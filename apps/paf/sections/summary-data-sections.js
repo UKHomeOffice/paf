@@ -214,6 +214,11 @@ module.exports = {
     'another-company',
     'another-company-yes'
   ],
+  'other-info': [
+    'other-info-description',
+    'other-info-another-crime',
+    'other-info-another-crime-description'
+  ],
   'about-you': [
     'how-did-you-find-out-about-the-crime',
     'does-anyone-else-know',

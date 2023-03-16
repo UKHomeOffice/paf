@@ -1112,6 +1112,35 @@ module.exports = {
       value: 'yes'
     },
   },
+  'other-info-description': {
+    mixin: 'textarea',
+    'ignore-defaults': true,
+    formatter: ['trim', 'hyphens'],
+    validate: [{ type: 'maxlength', arguments: 1200 }],
+    attributes: [{ attribute: 'spellcheck', value: 'true' }, { attribute: 'rows', value: 8 }]
+  },
+  'other-info-another-crime': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: [{
+      value: 'yes',
+      toggle: 'other-info-another-crime-description',
+      child: 'textarea'
+    },
+      'no'
+    ]
+  },
+  'other-info-another-crime-description': {
+    mixin: 'textarea',
+    'ignore-defaults': true,
+    formatter: ['trim', 'hyphens'],
+    validate: [{ type: 'maxlength', arguments: 1200 }],
+    attributes: [{ attribute: 'spellcheck', value: 'true' }, { attribute: 'rows', value: 8 }],
+    dependent: {
+      field: 'other-info-another-crime',
+      value: 'yes'
+    }
+  },
   'about-you-first-name': {
     mixin: 'input-text'
   },

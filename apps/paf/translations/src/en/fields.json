@@ -1225,6 +1225,24 @@
     "label": "Does anyone else know about the crime?",
     "hint": " "
   },
+  "other-info-description": {
+    "label": "Please tell us anything else about the crime that you think we should know."
+  },
+  "other-info-another-crime": {
+    "legend": "Do you want to report another crime by the same person or business?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      }
+    }
+  },
+  "other-info-another-crime-description": {
+    "label": "Another crime",
+    "hint": "Please enter details of the crime"
+  },
   "have-you-reported-before": {
     "label": "Have you reported the crime before?",
     "hint": " "
