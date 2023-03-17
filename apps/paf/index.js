@@ -15,6 +15,7 @@ module.exports = {
         'immigration-crime-group',
         'smuggling-crime-group'
       ],
+      backLink: '/start',
       next: '/crime-children'
     },
     '/crime-children': {
@@ -229,7 +230,6 @@ module.exports = {
         'crime-location-address-county',
         'crime-location-address-postcode',
         'crime-location-phone'],
-      next: '/report-person',
       forks: [{
         target: '/crime-another-location',
         condition: {
@@ -248,11 +248,9 @@ module.exports = {
         'crime-another-location-address-postcode',
         'crime-another-location-phone'
       ],
-      next: '/report-person'
     },
     '/report-person': {
       fields: ['report-person'],
-      next: '/report-organisation',
       forks: [{
         target: '/report-person-name',
         condition: {
@@ -510,7 +508,6 @@ module.exports = {
     },
     '/has-additionalPerson': {
       fields: ['hasAdditionalPerson'],
-      next: '/report-organisation',
       forks: [{
         target: '/person-details',
         condition: {
@@ -589,12 +586,10 @@ module.exports = {
       addStep: ['add-person'],
       addAnotherLinkText: 'person',
       template: 'add-another',
-      next: '/report-organisation',
       continueOnEdit: true
     },
     '/report-organisation': {
       fields: ['report-organisation'],
-      next: '/other-info-description',
       forks: [{
         target: '/company-name',
         condition: {
@@ -629,7 +624,6 @@ module.exports = {
     },
     '/another-company': {
       fields: ['another-company', 'another-company-yes'],
-      next: '/other-info-description',
     },
     '/other-info-description': {
       fields: ['other-info-description'],
@@ -640,7 +634,6 @@ module.exports = {
       next: '/other-info-file-upload'
     },
     '/other-info-file-upload': {
-      next: '/about-you'
     },
     '/about-you': {
       fields: ['how-did-you-find-out-about-the-crime'],
@@ -683,7 +676,6 @@ module.exports = {
     },
     '/about-you-contact': {
       fields: ['about-you-contact'],
-      next: '/confirm',
       forks: [{
         target: '/are-you-eighteen',
         condition: {
@@ -693,8 +685,7 @@ module.exports = {
       }]
     },
     '/are-you-eighteen': {
-      fields: ['are-you-eighteen','contact-number','when-to-contact'],
-      next: '/confirm'
+      fields: ['are-you-eighteen','contact-number','when-to-contact']
     },
     '/confirm': {
       behaviours: [SummaryPageBehaviour, personNumber],
