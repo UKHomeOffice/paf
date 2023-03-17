@@ -10,7 +10,7 @@ ul {
   @extend .list-bullet;
 }
 
-a {
+a:link {
   @extend .govuk-link;
 }
 
@@ -44,6 +44,7 @@ a {
 .autocomplete__input--default {
   padding: 5px;
 }
+
 .autocomplete__input--focused {
   outline: 3px solid #fd0;
   outline-offset: 0;
@@ -55,7 +56,7 @@ a {
   cursor: pointer;
 }
 
-.autocomplete__dropdown-arrow-down{
+.autocomplete__dropdown-arrow-down {
   z-index: -1;
   display: inline-block;
   position: absolute;
@@ -106,7 +107,7 @@ a {
   position: relative;
 }
 
-.autocomplete__option > * {
+.autocomplete__option>* {
   pointer-events: none;
 }
 
@@ -149,10 +150,78 @@ a {
 }
 
 @media (min-width: 641px) {
+
   .autocomplete__hint,
   .autocomplete__input,
   .autocomplete__option {
     font-size: 19px;
     line-height: 1.31579;
   }
+}
+
+
+// navigation layout
+$navigation-height: 50px;
+
+.govuk-link:hover {
+  font-family: "GDS Transport", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: underline;
+  text-decoration-thickness: max(1px, 0.0625rem);
+  text-underline-offset: 0.1em;
+}
+
+.app-navigation__list {
+  @include govuk-media-query($from: tablet) {
+    margin-top: govuk-spacing(6) * 1.5;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    ul {
+      margin-top: govuk-spacing(2);
+      border-top: 1px govuk-shade(govuk-colour("light-grey"), 7%) solid;
+    }
+  }
+}
+
+.app-navigation__list-item {
+  @include govuk-font(16);
+
+  border-bottom: 1px govuk-shade(govuk-colour("light-grey"), 7%) solid;
+  display: block;
+  padding: govuk-spacing(2) 0;
+}
+
+
+
+.app-navigation__link {
+  text-decoration: none;
+
+  &:not(:focus):hover {
+    color: #1d70b8;
+    text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+  }
+
+  // Extend the touch area of the link to the list
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.app-navigation__list-item--current .app-navigation__link:hover {
+  text-decoration: none;
+}
+
+#govuk-header {
+  background-color: black;
 }
