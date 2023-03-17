@@ -33,21 +33,18 @@ spec:
         service: file-vault
         {{ end }}
     spec:
-      containers:
+    containers:
         - name: file-vault
-          image: quay.io/ukhomeofficedigital/file-vault:ff139ae0ebaa279d51bc75610fc7999c2658450a
+          image: quay.io/ukhomeofficedigital/file-vault:bab000624c4323823cd4df723b44bc3bd29fec2c
           imagePullPolicy: Always
           resources:
-            requests:
-              memory: 128Mi
-              cpu: 128m
             limits:
-              memory: 512Mi
-              cpu: 600m
+              memory: "1024Mi"
+              cpu: 200m
           envFrom:
             - configMapRef:
                 {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-                name: fv-branch-configmap
+                name: {{ .APP_NAME }}-configmap-{{ .DRONE_SOURCE_BRANCH }}
                 {{ else }}
                 name: {{ .APP_NAME }}-configmap
                 {{ end }}
