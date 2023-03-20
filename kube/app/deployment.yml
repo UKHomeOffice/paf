@@ -102,6 +102,40 @@ spec:
                 secretKeyRef:
                   name: sas-paf-uat-sqs-queue
                   key: secret_access_key
+            - name: NOTIFY_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: notify-key
+                  key: notify-key
+            - name: KEYCLOAK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: secret
+            - name: KEYCLOAK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: id
+            - name: KEYCLOAK_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: username
+            - name: KEYCLOAK_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: password
+            - name: FILE_VAULT_URL
+            {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+              value: https://fv.{{ .APP_NAME }}.homeoffice.gov.uk/file
+            {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
+              value: https://fv-paf.stg.sas.homeoffice.gov.uk/file
+            {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
+              value: https://fv-paf.uat.sas-notprod.homeoffice.gov.uk/file
+            {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+              value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk/file
             {{ end }}
           {{ if not (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
           livenessProbe:
