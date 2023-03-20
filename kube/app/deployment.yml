@@ -70,6 +70,31 @@ spec:
                 secretKeyRef:
                   name: session-secret
                   key: token
+            - name: NOTIFY_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: notify-key
+                  key: notify-key
+            - name: KEYCLOAK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: secret
+            - name: KEYCLOAK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: id
+            - name: KEYCLOAK_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: username
+            - name: KEYCLOAK_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: password
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL
               valueFrom:
@@ -102,31 +127,32 @@ spec:
                 secretKeyRef:
                   name: sas-paf-uat-sqs-queue
                   key: secret_access_key
-            - name: NOTIFY_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: notify-key
-                  key: notify-key
-            - name: KEYCLOAK_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-client
-                  key: secret
-            - name: KEYCLOAK_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-client
-                  key: id
-            - name: KEYCLOAK_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-user
-                  key: username
-            - name: KEYCLOAK_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-user
-                  key: password
+            {{ end }}
+            # - name: NOTIFY_KEY
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: notify-key
+            #       key: notify-key
+            # - name: KEYCLOAK_SECRET
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: keycloak-client
+            #       key: secret
+            # - name: KEYCLOAK_CLIENT_ID
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: keycloak-client
+            #       key: id
+            # - name: KEYCLOAK_USERNAME
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: keycloak-user
+            #       key: username
+            # - name: KEYCLOAK_PASSWORD
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: keycloak-user
+            #       key: password
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv.{{ .APP_NAME }}.homeoffice.gov.uk/file
