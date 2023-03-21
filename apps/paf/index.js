@@ -148,10 +148,10 @@ module.exports = {
     },
     '/crime-transport-boat-type': {
       fields: ['boat-type',
-      'crime-carrier-group',
-      'crime-general-cargo-group',
-      'crime-vessel-group'
-    ],
+        'crime-carrier-group',
+        'crime-general-cargo-group',
+        'crime-vessel-group'
+      ],
       next: '/crime-transport-boat-details',
       continueOnEdit: true
     },
@@ -361,6 +361,41 @@ module.exports = {
     },
     '/report-person-occupation-type': {
       fields: ['report-person-occupation-type'],
+      next: '/report-person-occupation-hours',
+      forks: [{
+        target: '/report-person-occupation-government-employee',
+        condition: {
+          field: 'report-person-occupation-type',
+          value: 'government-employee'
+        }
+      },
+      {
+        target: '/report-person-occupation-other',
+        condition: {
+          field: 'report-person-occupation-type',
+          value: 'other'
+        }
+      },
+      ]
+    },
+    '/report-person-occupation-government-employee': {
+      fields: ['report-person-occupation-government-employee'],
+      next: '/report-person-occupation-hours',
+      forks: [{
+        target: '/report-person-occupation-government-dept',
+        condition: {
+          field: 'report-person-occupation-government-employee',
+          value: 'yes'
+        }
+      },
+      ]
+    },
+    '/report-person-occupation-government-dept': {
+      fields: ['report-person-occupation-government-dept', 'government-dept-other'],
+      next: '/report-person-occupation-hours'
+    },
+    '/report-person-occupation-other': {
+      fields: ['report-person-occupation-other'],
       next: '/report-person-occupation-hours'
     },
     '/report-person-occupation-hours': {
@@ -464,9 +499,9 @@ module.exports = {
     },
     '/report-person-study-contact': {
       fields: ['report-person-study-phone',
-      'report-person-study-email',
-      'report-person-study-url'
-    ],
+        'report-person-study-email',
+        'report-person-study-url'
+      ],
       next: '/report-person-study-manager',
     },
     '/report-person-study-manager': {
@@ -544,16 +579,10 @@ module.exports = {
       backLink: 'add-person-age',
       fields: ['personAddNationality'],
       continueOnEdit: true,
-      next: '/add-person-place-of-birth'
-    },
-    '/add-person-place-of-birth': {
-      backLink: 'add-person-nationality',
-      fields: ['personAddPlaceOfBirth'],
-      continueOnEdit: true,
       next: '/add-person-gender'
     },
     '/add-person-gender': {
-      backLink: 'add-person-place-of-birth',
+      backLink: 'add-person-nationality',
       fields: ['personAddGender'],
       continueOnEdit: true,
       next: '/add-person-identity'
@@ -576,7 +605,6 @@ module.exports = {
         'personAddDob',
         'personAddAgeRange',
         'personAddNationality',
-        'personAddPlaceOfBirth',
         'personAddGender',
         'personAddPassport',
         'personAddId',
@@ -659,7 +687,7 @@ module.exports = {
       fields: [
         'about-you-first-name',
         'about-you-family-name'
-    ],
+      ],
       next: '/about-you-dob'
     },
     '/about-you-dob': {
@@ -685,7 +713,7 @@ module.exports = {
       }]
     },
     '/are-you-eighteen': {
-      fields: ['are-you-eighteen','contact-number','when-to-contact']
+      fields: ['are-you-eighteen', 'contact-number', 'when-to-contact']
     },
     '/confirm': {
       behaviours: [SummaryPageBehaviour, personNumber],

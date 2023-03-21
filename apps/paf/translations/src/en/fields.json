@@ -750,6 +750,43 @@
       "null": "Select..."
     }
   },
+  "report-person-occupation-government-employee": {
+    "legend": "Does the person work for the British government?",
+    "options": {
+      "yes": {
+        "label": "Yes"
+      },
+      "no": {
+        "label": "No"
+      },
+      "unknown": {
+        "label": "I don't know"
+      }
+    }
+  },
+  "report-person-occupation-government-dept": {
+    "legend": "Which government department does the person work for?",
+    "options": {
+      "uk-border-agency": {
+        "label": "UK Border Agency"
+      },
+      "border-force": {
+        "label": "Border Force"
+      },
+      "hmrc": {
+        "label": "HMRC"
+      },
+      "dwp": {
+        "label": "DWP"
+      },
+      "other": {
+        "label": "Other"
+      }
+    }
+  },
+  "government-dept-other":{
+    "label": "Other Government Department"
+  },
   "report-person-occupation-hours": {
     "label": "Hours"
   },
@@ -1105,9 +1142,6 @@
       "null": "Select..."
     },
     "hint": "Start to type the nationality and options will appear"
-  },
-  "personAddPlaceOfBirth": {
-    "label": "Place of birth (if known)"
   },
   "personAddGender": {
     "legend": "What is the person's gender?",

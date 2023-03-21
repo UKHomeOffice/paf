@@ -723,6 +723,35 @@ module.exports = {
         label: 'fields.report-person-occupation-type.options.null'
       }].concat(occupation)
   },
+  'report-person-occupation-government-employee': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: ['yes', 'no', 'unknown']
+  },
+  'report-person-occupation-government-dept': {
+    mixin: 'radio-group',
+    isPageHeading: true,
+    options: [
+      'uk-border-agency',
+      'border-force',
+      'hmrc',
+      'dwp',
+      {
+        value: 'other',
+        toggle: 'government-dept-other',
+        child: 'input-text'
+      },
+    ]
+  },
+  'government-dept-other': {
+    dependent: {
+      field: 'report-person-occupation-government-dept',
+      value: 'other'
+    }
+  },
+  'report-person-occupation-other': {
+    labelClassName: 'visuallyhidden'
+  },
   'report-person-occupation-hours': {
     mixin: 'input-text'
   },
@@ -1002,9 +1031,6 @@ module.exports = {
         value: '',
         label: 'fields.report-person-nationality.options.null'
       }].concat(nationalities)
-  },
-  'personAddPlaceOfBirth': {
-    mixin: 'input-text'
   },
   'personAddGender': {
     mixin: 'radio-group',
