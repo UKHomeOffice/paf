@@ -225,3 +225,9 @@ $navigation-height: 50px;
 #govuk-header {
   background-color: black;
 }
+pre.looped-records {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
