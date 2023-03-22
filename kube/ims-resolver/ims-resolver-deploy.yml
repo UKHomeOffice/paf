@@ -1,0 +1,73 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+  name: ims-resolver
+  {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+  annotations:
+    downscaler/uptime: {{ .NON_PROD_AVAILABILITY }}
+  name: ims-resolver-{{ .DRONE_SOURCE_BRANCH }}
+  {{ else }}
+  annotations:
+    downscaler/uptime: {{ .NON_PROD_AVAILABILITY }}
+  name: ims-resolver
+  {{ end }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+      name: ims-resolver-{{ .DRONE_SOURCE_BRANCH }}
+      {{ else }}
+      name: ims-resolver
+      {{ end }}
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/"
+      labels:
+        {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+        name: ims-resolver-{{ .DRONE_SOURCE_BRANCH }}
+        service: ims-resolver-{{ .DRONE_SOURCE_BRANCH }}
+        {{ else }}
+        name: ims-resolver
+        service: ims-resolver
+        {{ end }}
+    spec:
+      containers:
+        - name: ims-resolver
+          # no official release
+          image: quay.io/ukhomeofficedigital/ims-resolver:3cd104552571073d15995154b5a098f142beae89
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+                name: configmap-{{ .DRONE_SOURCE_BRANCH }}
+                {{ else }}
+                name: configmap
+                {{ end }}
+          env:
+            - name: TZ
+              value: Europe/London
+            - name: IMS_API_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_user
+            - name: IMS_API_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_password
+          securityContext:
+            runAsNonRoot: true
+          resources:
+            requests:
+              memory: 10Mi
+              cpu: 10m
+            limits:
+              memory: 256Mi
+              cpu: 300m
