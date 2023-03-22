@@ -225,7 +225,7 @@ module.exports = {
         if (!req.sessionModel.get('steps').includes('/add-other-info-file-upload')) {
           return null;
         }
-        return list && list.map(a => a.name).join('\n————————————————\n') || 'None';
+        return list && list.map(a => a.url).join('\n————————————————\n') || 'None';
       }
     }
   ],
