@@ -198,6 +198,10 @@ describe('PAF Summary Data Sections', () => {
       const expectedFields = [
         'report-person-occupation',
         'report-person-occupation-type',
+        'report-person-occupation-government-employee',
+        'report-person-occupation-government-dept',
+        'government-dept-other',
+        'report-person-occupation-other',
         'report-person-occupation-hours',
         'report-person-occupation-days',
         'report-person-occupation-where',
@@ -492,7 +496,7 @@ describe('PAF Summary Data Sections', () => {
         mappedSections['organisation-another-company'])
       ).to.be.true;
     });
-    
+
     it('other-info', () => {
       mappedSections['other-info'].every(i => {
         const item = i.field || i;

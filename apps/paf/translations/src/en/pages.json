@@ -47,6 +47,9 @@
   "report-person-occupation-type": {
     "header": "What type of job or occupation does the person have?"
   },
+  "report-person-occupation-other": {
+    "header": "Other - What is the type of occupation?"
+  },
   "report-person-occupation-hours": {
     "header": "What hours of the day does the person work?"
   },
@@ -100,9 +103,6 @@
   },
   "add-person-nationality": {
     "header": "What is the person's nationality?"
-  },
-  "add-person-place-of-birth": {
-    "header": "What is the person's place of birth?"
   },
   "add-person-identity": {
     "header": " What are the person's forms of identification?"
@@ -222,6 +222,9 @@
       },
       "crime-vessel-group": {
         "label": "Vessel type"
+      },
+      "report-person-occupation-other": {
+        "label":"Occupation type - Other"
       },
       "report-person-transport-car-group": {
         "label": "Car type"

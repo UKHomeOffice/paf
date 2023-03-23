@@ -134,6 +134,10 @@ module.exports = {
       field: 'report-person-occupation-type',
       parse: v => _.get(_.find(OCCUPATION, group => group.value === v), 'label', '')
     },
+    'report-person-occupation-government-employee',
+    'report-person-occupation-government-dept',
+    'government-dept-other',
+    'report-person-occupation-other',
     'report-person-occupation-hours',
     'report-person-occupation-days',
     'report-person-occupation-where',

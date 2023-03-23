@@ -31,7 +31,6 @@ describe('aggregator behaviour', () => {
           'personAddDob',
           'personAddAgeRange',
           'personAddNationality',
-          'personAddPlaceOfBirth',
           'personAddGender',
           'personAddPassport',
           'personAddId',
@@ -48,7 +47,6 @@ describe('aggregator behaviour', () => {
           personAddDob: {},
           personAddAgeRange: {},
           personAddNationality: {},
-          personAddPlaceOfBirth: {},
           personAddGender: {},
           personAddPassport: {},
           personAddId: {},
@@ -96,7 +94,6 @@ describe('aggregator behaviour', () => {
             'personAddDob',
             'personAddAgeRange',
             'personAddNationality',
-            'personAddPlaceOfBirth',
             'personAddGender',
             'personAddPassport',
             'personAddId',
@@ -119,7 +116,6 @@ describe('aggregator behaviour', () => {
             'personAddDob',
             'personAddAgeRange',
             'personAddNationality',
-            'personAddPlaceOfBirth',
             'personAddGender',
             'personAddPassport',
             'personAddId',
@@ -145,7 +141,6 @@ describe('aggregator behaviour', () => {
             'personAddDob',
             'personAddAgeRange',
             'personAddNationality',
-            'personAddPlaceOfBirth',
             'personAddGender',
             'personAddPassport',
             'personAddId',
@@ -229,7 +224,6 @@ describe('aggregator behaviour', () => {
           'personAddDob',
           'personAddAgeRange',
           'personAddNationality',
-          'personAddPlaceOfBirth',
           'personAddGender',
           'personAddPassport',
           'personAddId',
@@ -247,7 +241,6 @@ describe('aggregator behaviour', () => {
               { field: 'personAddDob', value: '2000-10-15' },
               { field: 'personAddAgeRange', value: '' },
               { field: 'personAddNationality', value: '' },
-              { field: 'personAddPlaceOfBirth', value: '' },
               { field: 'personAddGender', value: '' },
               { field: 'personAddPassport', value: '' },
               { field: 'personAddId', value: '' },
@@ -263,7 +256,6 @@ describe('aggregator behaviour', () => {
               { field: 'personAddDob', value: '' },
               { field: 'personAddAgeRange', value: '' },
               { field: 'personAddNationality', value: '' },
-              { field: 'personAddPlaceOfBirth', value: '' },
               { field: 'personAddGender', value: 'female' },
               { field: 'personAddPassport', value: '' },
               { field: 'personAddId', value: '' },
@@ -297,7 +289,6 @@ describe('aggregator behaviour', () => {
           'personAddDob',
           'personAddAgeRange',
           'personAddNationality',
-          'personAddPlaceOfBirth',
           'personAddGender',
           'personAddPassport',
           'personAddId',
@@ -316,7 +307,6 @@ describe('aggregator behaviour', () => {
                 { field: 'personAddDob', value: '2000-10-15' },
                 { field: 'personAddAgeRange', value: '' },
                 { field: 'personAddNationality', value: '' },
-                { field: 'personAddPlaceOfBirth', value: '' },
                 { field: 'personAddGender', value: '' },
                 { field: 'personAddPassport', value: '' },
                 { field: 'personAddId', value: '' },
@@ -332,7 +322,6 @@ describe('aggregator behaviour', () => {
                 { field: 'personAddDob', value: '' },
                 { field: 'personAddAgeRange', value: '' },
                 { field: 'personAddNationality', value: '' },
-                { field: 'personAddPlaceOfBirth', value: '' },
                 { field: 'personAddGender', value: 'female' },
                 { field: 'personAddPassport', value: '' },
                 { field: 'personAddId', value: '' },
@@ -350,7 +339,6 @@ describe('aggregator behaviour', () => {
         req.sessionModel.set('personAddDob', '1995-11-2');
         req.sessionModel.set('personAddAgeRange', '25-34');
         req.sessionModel.set('personAddNationality', 'United States of America');
-        req.sessionModel.set('personAddPlaceOfBirth', 'California');
         req.sessionModel.set('personAddGender', 'male');
         req.sessionModel.set('personAddPassport', '123');
         req.sessionModel.set('personAddId', '156');
@@ -368,7 +356,6 @@ describe('aggregator behaviour', () => {
         expect(req.sessionModel.get('personAddDob')).to.be.undefined;
         expect(req.sessionModel.get('personAddAgeRange')).to.be.undefined;
         expect(req.sessionModel.get('personAddNationality')).to.be.undefined;
-        expect(req.sessionModel.get('personAddPlaceOfBirth')).to.be.undefined;
         expect(req.sessionModel.get('personAddGender')).to.be.undefined;
         expect(req.sessionModel.get('personAddPassport')).to.be.undefined;
         expect(req.sessionModel.get('personAddId')).to.be.undefined;
@@ -389,7 +376,6 @@ describe('aggregator behaviour', () => {
               { field: 'personAddDob', value: '1995-11-2', parsed: '1995-11-2', },
               { field: 'personAddAgeRange', value: '25-34', parsed: '25-34' },
               { field: 'personAddNationality', value: 'United States of America', parsed: 'United States of America' },
-              { field: 'personAddPlaceOfBirth', value: 'California', parsed: 'California' },
               { field: 'personAddGender', value: 'male', parsed: 'male' },
               { field: 'personAddPassport', value: '123', parsed: '123' },
               { field: 'personAddId', value: '156', parsed: '156' },
@@ -407,7 +393,6 @@ describe('aggregator behaviour', () => {
           'personAddDob',
           'personAddAgeRange',
           'personAddNationality',
-          'personAddPlaceOfBirth',
           'personAddGender',
           'personAddPassport',
           'personAddId',
@@ -426,7 +411,6 @@ describe('aggregator behaviour', () => {
               { field: 'personAddDob', value: '2000-10-15' },
               { field: 'personAddAgeRange', value: '' },
               { field: 'personAddNationality', value: '' },
-              { field: 'personAddPlaceOfBirth', value: '' },
               { field: 'personAddGender', value: '' },
               { field: 'personAddPassport', value: '' },
               { field: 'personAddId', value: '' },
@@ -442,7 +426,6 @@ describe('aggregator behaviour', () => {
               { field: 'personAddDob', value: '' },
               { field: 'personAddAgeRange', value: '' },
               { field: 'personAddNationality', value: '' },
-              { field: 'personAddPlaceOfBirth', value: '' },
               { field: 'personAddGender', value: 'female' },
               { field: 'personAddPassport', value: '' },
               { field: 'personAddId', value: '' },
@@ -473,7 +456,6 @@ describe('aggregator behaviour', () => {
           'personAddDob',
           'personAddAgeRange',
           'personAddNationality',
-          'personAddPlaceOfBirth',
           'personAddGender',
           'personAddPassport',
           'personAddId',
@@ -488,7 +470,6 @@ describe('aggregator behaviour', () => {
         req.sessionModel.set('personAddDob', '1996-10-22');
         req.sessionModel.set('personAddAgeRange', '25-34');
         req.sessionModel.set('personAddNationality', 'France');
-        req.sessionModel.set('personAddPlaceOfBirth', 'Paris');
         req.sessionModel.set('personAddGender', 'male');
         req.sessionModel.set('personAddPassport', '123');
         req.sessionModel.set('personAddId', '156');
@@ -527,7 +508,6 @@ describe('aggregator behaviour', () => {
             { field: 'personAddDob', value: '1996-10-22', changeField: undefined, parsed: '1996-10-22', showInSummary: true },
             { field: 'personAddAgeRange', value: '25-34', changeField: undefined, parsed: '25-34', showInSummary: true },
             { field: 'personAddNationality', value: 'France', changeField: undefined, parsed: 'France', showInSummary: true },
-            { field: 'personAddPlaceOfBirth', value: 'Paris', changeField: undefined, parsed: 'Paris', showInSummary: true },
             { field: 'personAddGender', value: 'male', changeField: undefined, parsed: 'male', showInSummary: true },
             { field: 'personAddPassport', value: '123', changeField: undefined, parsed: '123', showInSummary: true },
             { field: 'personAddId', value: '156', changeField: undefined, parsed: '156', showInSummary: true },
@@ -548,7 +528,6 @@ describe('aggregator behaviour', () => {
           'personAddDob',
           'personAddAgeRange',
           'personAddNationality',
-          'personAddPlaceOfBirth',
           'personAddGender',
           'personAddPassport',
           'personAddId',
