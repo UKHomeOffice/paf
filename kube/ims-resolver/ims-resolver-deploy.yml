@@ -62,16 +62,6 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_password
-            - name: WSDL
-              valueFrom:
-                secretKeyRef:
-                  name: ims-credentials
-                  key: wsdl
-            - name: IMS_ENDPOINT
-              valueFrom:
-                secretKeyRef:
-                  name: ims-credentials
-                  key: ims_endpoint
           securityContext:
             runAsNonRoot: true
           resources:
