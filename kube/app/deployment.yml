@@ -128,31 +128,6 @@ spec:
                   name: sas-paf-uat-sqs-queue
                   key: secret_access_key
             {{ end }}
-            # - name: NOTIFY_KEY
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: notify-key
-            #       key: notify-key
-            # - name: KEYCLOAK_SECRET
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: keycloak-client
-            #       key: secret
-            # - name: KEYCLOAK_CLIENT_ID
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: keycloak-client
-            #       key: id
-            # - name: KEYCLOAK_USERNAME
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: keycloak-user
-            #       key: username
-            # - name: KEYCLOAK_PASSWORD
-            #   valueFrom:
-            #     secretKeyRef:
-            #       name: keycloak-user
-            #       key: password
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv.{{ .APP_NAME }}.homeoffice.gov.uk/file
@@ -188,6 +163,28 @@ spec:
             - mountPath: /public
               name: public
 
+#         - name: nginx-proxy
+#           # nginx-proxy-govuk:v4
+#           image: quay.io/ukhomeofficedigital/nginx-proxy-govuk@sha256:4470064d0b1d20ae08c5fd85551576cb687f342a22d6cb456fda9b2c4ce8c8df
+#           resources:
+#             requests:
+#               memory: 10Mi
+#               cpu: 10m
+#             limits:
+#               cpu: 250m
+#               memory: 256Mi
+#           env:
+# {{ file .NGINX_SETTINGS | indent 12 }}
+#           ports:
+#             - containerPort: 10443
+#           volumeMounts:
+#             - mountPath: /public
+#               name: public
+#           securityContext:
+#             runAsNonRoot: true
+#       volumes:
+#         - name: public
+#           emptyDir: {}
         - name: nginx-proxy
           # nginx-proxy-govuk:v4
           image: quay.io/ukhomeofficedigital/nginx-proxy-govuk@sha256:4470064d0b1d20ae08c5fd85551576cb687f342a22d6cb456fda9b2c4ce8c8df
@@ -199,7 +196,34 @@ spec:
               cpu: 250m
               memory: 256Mi
           env:
-{{ file .NGINX_SETTINGS | indent 12 }}
+            - name: PROXY_SERVICE_HOST
+              value: 127.0.0.1
+            - name: PROXY_SERVICE_PORT
+              value: "8080"
+            - name: ENABLE_UUID_PARAM
+              value: "FALSE"
+            - name: PORT_IN_HOST_HEADER
+              value: "FALSE"
+            - name: VERBOSE_ERROR_PAGES
+              value: "TRUE"
+            - name: EXTRA_NAXSI_RULES
+              value: |-
+                BasicRule wl:0 "mz:BODY";
+                BasicRule wl:0 "mz:$HEADERS_VAR:Cookie";
+                BasicRule wl:1500 "mz:FILE_EXT";
+            - name: ADD_NGINX_SERVER_CFG
+              value: |
+                add_header Cache-Control private;
+                add_header X-Frame-Options "SAMEORIGIN" always;
+                add_header X-Content-Type-Options "nosniff" always;
+                add_header X-XSS-Protection "1; mode=block" always;
+                location /public {
+                  add_header Cache-Control max-age=86400;
+                  add_header X-Frame-Options "SAMEORIGIN" always;
+                  add_header X-Content-Type-Options "nosniff" always;
+                  add_header X-XSS-Protection "1; mode=block" always;
+                  alias /public;
+                }
           ports:
             - containerPort: 10443
           volumeMounts:
