@@ -61,7 +61,7 @@ steps:
       branch:
         include:
         - master
-        # - feature/*
+        - feature/*
       event: [push, pull_request]
 
   - name: setup_deploy
@@ -90,7 +90,7 @@ steps:
       branch:
         include:
           - master
-          # - feature/* 
+          - feature/* 
       event: push
 
   - name: sonar_scanner_deploy
@@ -121,7 +121,7 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
+          - feature/*
       event: [push, pull_request]
 
   - name: image_to_quay
@@ -138,7 +138,7 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
+          - feature/*
       event: [push, pull_request]
 
   # Deploy to pull request UAT environment.
@@ -156,7 +156,7 @@ steps:
       branch: 
         include:
           - master
-          # - feature/*
+          - feature/*
       event: [push, pull_request]
 
   - name: setup_branch
