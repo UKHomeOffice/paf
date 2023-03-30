@@ -52,6 +52,26 @@ spec:
           env:
             - name: TZ
               value: Europe/London
+            - name: IMS_API_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_user
+            - name: IMS_API_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_password
+            - name: WSDL
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_user
+            - name: IMS_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_password
           securityContext:
             runAsNonRoot: true
           resources:
