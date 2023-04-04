@@ -334,7 +334,8 @@ describe('PAF Summary Data Sections', () => {
       const expectedFields = [
         'other-info-description',
         'other-info-another-crime',
-        'other-info-another-crime-description'
+        'other-info-another-crime-description',
+        'images'
       ];
       const result = areOrderedEqual(sectionFields, expectedFields);
       expect(result).to.be.true;

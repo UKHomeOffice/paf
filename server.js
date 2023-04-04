@@ -3,6 +3,8 @@
 const hof = require('hof');
 let settings = require('./hof.settings');
 const config = require('./config.js');
+const mockAPIs = require('./mock-apis');
+const bodyParser = require('busboy-body-parser');
 
 settings = Object.assign({}, settings, {
   routes: settings.routes.map(require),
@@ -11,6 +13,10 @@ settings = Object.assign({}, settings, {
 
 const app = hof(settings);
 
+if (config.useMocks) {
+  app.use(mockAPIs);
+}
+
 app.use((req, res, next) => {
   // Set HTML Language
   res.locals.htmlLang = 'en';
@@ -18,6 +24,10 @@ app.use((req, res, next) => {
   res.locals.feedbackUrl = 'https://eforms.homeoffice.gov.uk/outreach/feedback.ofml';
   next();
 });
+
+if (config.env !== 'test') {
+  app.use(bodyParser({limit: config.upload.maxFileSize}));
+}
 
 if (config.env === 'development' || config.env === 'test') {
   app.use('/test/bootstrap-session', (req, res) => {
