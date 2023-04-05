@@ -9,6 +9,7 @@ const transportBehaviour = require('./behaviours/transport-behaviour');
 const Aggregate = require('./behaviours/aggregator');
 const limitPerson = require('./behaviours/limit-person');
 const personNumber = require('./behaviours/person-number');
+const SendToSQS = require('./behaviours/send-to-sqs');
 
 module.exports = {
   name: 'paf',
@@ -749,7 +750,7 @@ module.exports = {
       fields: ['are-you-eighteen', 'contact-number', 'when-to-contact']
     },
     '/confirm': {
-      behaviours: [SummaryPageBehaviour, personNumber],
+      behaviours: [SummaryPageBehaviour, personNumber, SendToSQS],
       sections: require('./sections/summary-data-sections'),
       next: '/declaration'
     },

@@ -1,0 +1,728 @@
+{
+    "Fields": [
+    {
+     "IMS": "rdcrimetype",
+     "HOF": "crime-type"
+    },
+    {
+     "IMS": "ImmigrationCrime",
+     "HOF": "immigration-crime-group"
+    },
+    {
+     "IMS": "cbNoPermission",
+     "HOF": "immigration-crime-no-permission"
+    },
+    {
+     "IMS": "cbIllegWork",
+     "HOF": "immigration-crime-illegal-working"
+    },
+    {
+     "IMS": "cbIllegalEmp",
+     "HOF": "immigration-crime-employing-illegal-workers"
+    },
+    {
+     "IMS": "cbStudent",
+     "HOF": "immigration-crime-full-time-student"
+    },
+    {
+     "IMS": "cbBogMar",
+     "HOF": "immigration-crime-fake-marriage"
+    },
+    {
+     "IMS": "cbFakeDoc",
+     "HOF": "immigration-crime-fake-documents"
+    },
+    {
+     "IMS": "cbHelpIllegal",
+     "HOF": "immigration-crime-enter-stay-illegally"
+    },
+    {
+     "IMS": "cbLiedApp",
+     "HOF": "immigration-crime-lied-on-application"
+    },
+    {
+     "IMS": "cbHumanTraf",
+     "HOF": "immigration-crime-enter-human-trafficking-smuggling-slavery"
+    },
+    {
+     "IMS": "cbOther",
+     "HOF": "immigration-crime-other"
+    },
+    {
+     "IMS": "Smuggling",
+     "HOF": "smuggling-crime-group"
+    },
+    {
+     "IMS": "cbDrugSmug",
+     "HOF": "smuggling-crime-drug"
+    },
+    {
+     "IMS": "cbAlcohol",
+     "HOF": "smuggling-crime-alcohol"
+    },
+    {
+     "IMS": "cbCashSmug",
+     "HOF": "smuggling-crime-cash"
+    },
+    {
+     "IMS": "cbCigTob",
+     "HOF": "smuggling-crime-cigarette"
+    },
+    {
+     "IMS": "cbFirearm",
+     "HOF": "smuggling-crime-firearms"
+    },
+    {
+     "IMS": "cbOtherSmug",
+     "HOF": "smuggling-crime-other"
+    },
+    {
+     "IMS": "rdchildren",
+     "HOF": "crime-children"
+    },
+    {
+     "IMS": "rdWhen",
+     "HOF": "when-crime-happened"
+    },
+    {
+     "IMS": "txWhenHappen",
+     "HOF": "already-happened-info"
+    },
+    {
+     "IMS": "txWhenStart",
+     "HOF": "happening-now-info"
+    },
+    {
+     "IMS": "txDidStart",
+     "HOF": "ongoing-info"
+    },
+    {
+     "IMS": "rdWhenHappen",
+     "HOF": "when-will-crime-happen"
+    },
+    {
+     "IMS": "dtWhenHappen",
+     "HOF": "date-crime-will-happen"
+    },
+    {
+     "IMS": "tiWhenHappen",
+     "HOF": "time-crime-will-happen"
+    },
+    {
+     "IMS": "txWhenDontKnow",
+     "HOF": "when-will-crime-happen-more-info"
+    },
+    {
+     "IMS": "rdHowVehicleTravelTransport",
+     "HOF": "crime-transport"
+    },
+    {
+     "IMS": "tkHowVehicle",
+     "HOF": "transport-group"
+    },
+    {
+     "IMS": "tkHowBoat",
+     "HOF": "transport-group"
+    },
+    {
+     "IMS": "tkHowTrain",
+     "HOF": "transport-group"
+    },
+    {
+     "IMS": "tkHowAeroplane",
+     "HOF": "transport-group"
+    },
+    {
+     "IMS": "tkHowDK",
+     "HOF": "transport-group"
+    },
+    {
+     "IMS": "lsVehicle",
+     "HOF": "vehicle-type"
+    },
+    {
+     "IMS": "txVehMake",
+     "HOF": "vehicle-make"
+    },
+    {
+     "IMS": "txVechModel",
+     "HOF": "vehicle-model"
+    },
+    {
+     "IMS": "txVehColour",
+     "HOF": "vehicle-colour"
+    },
+    {
+     "IMS": "txVehReg",
+     "HOF": "vehicle-registration"
+    },
+    {
+     "IMS": "lsBoatType",
+     "HOF": "boat-type"
+    },
+    {
+     "IMS": "txBoatName",
+     "HOF": "boat-name"
+    },
+    {
+     "IMS": "lsCountry",
+     "HOF": "boat-country-departure"
+    },
+    {
+     "IMS": "txPortDep",
+     "HOF": "port-departure"
+    },
+    {
+     "IMS": "lsPortArrivalBoat",
+     "HOF": "port-arrival"
+    },
+    {
+     "IMS": "txTimeDep",
+     "HOF": "port-departure-time"
+    },
+    {
+     "IMS": "txArrTime",
+     "HOF": "port-arrival-time"
+    },
+    {
+     "IMS": "lsTrainComp",
+     "HOF": "train-company"
+    },
+    {
+     "IMS": "lsTrainDepCountry",
+     "HOF": "train-country-departure"
+    },
+    {
+     "IMS": "txTrainPortDep",
+     "HOF": "station-departure"
+    },
+    {
+     "IMS": "lsTrainPortArr",
+     "HOF": "station-arrival"
+    },
+    {
+     "IMS": "txTimeofDepTrain",
+     "HOF": "station-departure-time"
+    },
+    {
+     "IMS": "txTrainTimeArr",
+     "HOF": "station-arrival-time"
+    },
+    {
+     "IMS": "txAirlineComp",
+     "HOF": "airline-company"
+    },
+    {
+     "IMS": "txFlightNum",
+     "HOF": "airline-flight-number"
+    },
+    {
+     "IMS": "lsAirplaneConDept",
+     "HOF": "airline-country-departure"
+    },
+    {
+     "IMS": "txPortDepAero",
+     "HOF": "airport-departure"
+    },
+    {
+     "IMS": "lsPortArrAero",
+     "HOF": "airport-arrival"
+    },
+    {
+     "IMS": "txTimeDepAero",
+     "HOF": "airport-departure-time"
+    },
+    {
+     "IMS": "txTimeArrAero",
+     "HOF": "airport-arrival-time"
+    },
+    {
+     "IMS": "lsInvolve",
+     "HOF": "crime-delivery"
+    },
+    {
+     "IMS": "txPostOther",
+     "HOF": "freight-more-info\/express-more-info\/post-more-info"
+    },
+    {
+     "IMS": "rdWhereCrime",
+     "HOF": "crime-location"
+    },
+    {
+     "IMS": "lsWhereCountry",
+     "HOF": "crime-location-country"
+    },
+    {
+     "IMS": "txWherePostcode",
+     "HOF": "crime-location-address-postcode"
+    },
+    {
+     "IMS": "txWhereTelephone",
+     "HOF": "crime-location-phone"
+    },
+    {
+     "IMS": "rdWhereAnotherCrime",
+     "HOF": "crime-another-location"
+    },
+    {
+     "IMS": "lsWhereAnotherCountry",
+     "HOF": "crime-another-location-country"
+    },
+    {
+     "IMS": "txWhereAnotherPostcode",
+     "HOF": "crime-another-location-address-postcode"
+    },
+    {
+     "IMS": "txWhereAnotherTelephone",
+     "HOF": "crime-another-location-phone"
+    },
+    {
+     "IMS": "rdReportPerson",
+     "HOF": "report-person"
+    },
+    {
+     "IMS": "personName",
+     "HOF": "report-person-first-name"
+    },
+    {
+     "IMS": "personSurname",
+     "HOF": "report-person-family-name"
+    },
+    {
+     "IMS": "personAlias",
+     "HOF": "report-person-nickname"
+    },
+    {
+     "IMS": "personDOB",
+     "HOF": "report-person-dob"
+    },
+    {
+     "IMS": "personAge",
+     "HOF": "report-person-age-range"
+    },
+    {
+     "IMS": "cbPersonNat",
+     "HOF": "report-person-nationality"
+    },
+    {
+     "IMS": "personPOB",
+     "HOF": "report-person-place-of-birth"
+    },
+    {
+     "IMS": "personSex",
+     "HOF": "report-person-gender"
+    },
+    {
+     "IMS": "personPassport",
+     "HOF": "report-person-passport"
+    },
+    {
+     "IMS": "personIDNum",
+     "HOF": "report-person-id"
+    },
+    {
+     "IMS": "personNINum",
+     "HOF": "report-person-ni"
+    },
+    {
+     "IMS": "rdWhoWhere",
+     "HOF": "report-person-location"
+    },
+    {
+     "IMS": "perUKlocPostcode",
+     "HOF": "report-person-location-uk-address-postcode"
+    },
+    {
+     "IMS": "perUKlocMobile",
+     "HOF": "report-person-location-mobile"
+    },
+    {
+     "IMS": "perUKlocTelephone",
+     "HOF": "report-person-location-phone"
+    },
+    {
+     "IMS": "perUKlocEmail",
+     "HOF": "report-person-location-email"
+    },
+    {
+     "IMS": "perUKlocAddressType",
+     "HOF": "report-person-location-type"
+    },
+    {
+     "IMS": "perNonUKlocCountry",
+     "HOF": "report-person-location-outside-uk-address-country"
+    },
+    {
+     "IMS": "perNonUKlocPostcode",
+     "HOF": "report-person-location-outside-uk-address-postcode"
+    },
+    {
+     "IMS": "perNonUKlocMobile",
+     "HOF": "report-person-location-mobile"
+    },
+    {
+     "IMS": "perNonUKlocTelephone",
+     "HOF": "report-person-location-phone"
+    },
+    {
+     "IMS": "perNonUKlocEmail",
+     "HOF": "report-person-location-email"
+    },
+    {
+     "IMS": "perNonUKlocAddressType",
+     "HOF": "report-person-location-type"
+    },
+    {
+     "IMS": "cbTravelUKCountry",
+     "HOF": "report-person-location-travel-to-uk-country"
+    },
+    {
+     "IMS": "txTravelUKTranMode",
+     "HOF": "report-person-location-travel-to-uk-how"
+    },
+    {
+     "IMS": "txTravelUKArrivalLoc",
+     "HOF": "report-person-location-travel-to-uk-where"
+    },
+    {
+     "IMS": "rdPersonEmployed",
+     "HOF": "report-person-occupation"
+    },
+    {
+     "IMS": "lsJobType",
+     "HOF": "report-person-occupation-type"
+    },
+    {
+     "IMS": "rdBritGovtEmp",
+     "HOF": "report-person-occupation-government-employee"
+    },
+    {
+     "IMS": "lsGovtDept",
+     "HOF": "report-person-occupation-government-dept"
+    },
+    {
+     "IMS": "txOtherGovtDept",
+     "HOF": "government-dept-other"
+    },
+    {
+     "IMS": "txPersonOther",
+     "HOF": "report-person-occupation-other"
+    },
+    {
+     "IMS": "txPersonHours",
+     "HOF": "report-person-occupation-hours"
+    },
+    {
+     "IMS": "txPersonDays",
+     "HOF": "report-person-occupation-days"
+    },
+    {
+     "IMS": "rdPerWork",
+     "HOF": "report-person-occupation-where"
+    },
+    {
+     "IMS": "txPerWorkComp",
+     "HOF": "report-person-occupation-company-name"
+    },
+    {
+     "IMS": "txPerWorkTel",
+     "HOF": "report-person-occupation-company-phone"
+    },
+    {
+     "IMS": "txPerWorkOwner",
+     "HOF": "report-person-occupation-company-manager"
+    },
+    {
+     "IMS": "rdPerWorkKnow",
+     "HOF": "report-person-occupation-company-manager-know"
+    },
+    {
+     "IMS": "rdWhoStud",
+     "HOF": "report-person-study"
+    },
+    {
+     "IMS": "rdWhoStudCourse",
+     "HOF": "report-person-study-subject"
+    },
+    {
+     "IMS": "rdWhoStudUK",
+     "HOF": "report-person-study-location"
+    },
+    {
+     "IMS": "rdWhoStudHours",
+     "HOF": "report-person-study-hours"
+    },
+    {
+     "IMS": "rdWhoStudDays",
+     "HOF": "report-person-study-days"
+    },
+    {
+     "IMS": "rdWhoStudUKWhere",
+     "HOF": "report-person-study-where"
+    },
+    {
+     "IMS": "rdWhoStudInstit",
+     "HOF": "report-person-study-name"
+    },
+    {
+     "IMS": "rdWhoStudPostCode",
+     "HOF": "report-person-study-address-postcode"
+    },
+    {
+     "IMS": "rdWhoStudTel",
+     "HOF": "report-person-study-phone"
+    },
+    {
+     "IMS": "rdWhoStudEmail",
+     "HOF": "report-person-study-email"
+    },
+    {
+     "IMS": "rdWhoStudWeb",
+     "HOF": "report-person-study-url"
+    },
+    {
+     "IMS": "rdWhoStudMan",
+     "HOF": "report-person-study-manager"
+    },
+    {
+     "IMS": "rdWhoStudManKnow",
+     "HOF": "report-person-study-manager-know"
+    },
+    {
+     "IMS": "rdPerVechOwner",
+     "HOF": "report-person-transport"
+    },
+    {
+     "IMS": "lsPerVechType",
+     "HOF": "report-person-transport-type"
+    },
+    {
+     "IMS": "rdPerVechMake",
+     "HOF": "report-person-transport-make"
+    },
+    {
+     "IMS": "rdPerVechModel",
+     "HOF": "report-person-transport-model"
+    },
+    {
+     "IMS": "rdPerVechColour",
+     "HOF": "report-person-transport-colour"
+    },
+    {
+     "IMS": "rdPerVechReg",
+     "HOF": "report-person-transport-registration"
+    },
+    {
+     "IMS": "txPerVechElse",
+     "HOF": "report-person-transport-other"
+    },
+    {
+     "IMS": "txPerMoreInfo",
+     "HOF": "report-person-description"
+    },
+    {
+     "IMS": "rdPerMoreInfoMore",
+     "HOF": "hasAdditionalPerson"
+    },
+    {
+     "IMS": "txPerMoreFName",
+     "HOF": "personAddFirstName"
+    },
+    {
+     "IMS": "txPerMoreFamName",
+     "HOF": "personAddFamilyName"
+    },
+    {
+     "IMS": "txPerMoreOtherName",
+     "HOF": "personAddNickname"
+    },
+    {
+     "IMS": "dtPerMoreDOB",
+     "HOF": "personAddDob"
+    },
+    {
+     "IMS": "txPerMoreApproxAge",
+     "HOF": "personAddAgeRange"
+    },
+    {
+     "IMS": "cbPerMoreNationality",
+     "HOF": "personAddNationality"
+    },
+    {
+     "IMS": "rdPerMoreGender",
+     "HOF": "personAddGender"
+    },
+    {
+     "IMS": "txPerMorePassport",
+     "HOF": "personAddPassport"
+    },
+    {
+     "IMS": "txPerMoreIDCard",
+     "HOF": "personAddId"
+    },
+    {
+     "IMS": "txPerMoreNINum",
+     "HOF": "personAddNi"
+    },
+    {
+     "IMS": "rdWhoReportOrg",
+     "HOF": "report-organisation"
+    },
+    {
+     "IMS": "txWhoCompBus",
+     "HOF": "organisation-company-name"
+    },
+    {
+     "IMS": "txWhoCompPost",
+     "HOF": "company-postcode"
+    },
+    {
+     "IMS": "txWhoCompTele",
+     "HOF": "company-phone"
+    },
+    {
+     "IMS": "txWhoCompEmail",
+     "HOF": "company-email"
+    },
+    {
+     "IMS": "txWhoCompWebsite",
+     "HOF": "company-website"
+    },
+    {
+     "IMS": "lsCompType",
+     "HOF": "company-types"
+    },
+    {
+     "IMS": "txWhoCompOwns",
+     "HOF": "company-owner"
+    },
+    {
+     "IMS": "txWhoCompKnow",
+     "HOF": "owner-know-about-the-crime"
+    },
+    {
+     "IMS": "txWhoCompAnything",
+     "HOF": "company-other-info"
+    },
+    {
+     "IMS": "rdWhoCompAnother",
+     "HOF": "another-company"
+    },
+    {
+     "IMS": "txCompMoreAnother",
+     "HOF": "another-company-yes"
+    },
+    {
+     "IMS": "txOtherAnyInfo",
+     "HOF": "other-info-description"
+    },
+    {
+     "IMS": "rdReportAgain",
+     "HOF": "other-info-another-crime"
+    },
+    {
+     "IMS": "txOtherAnotherCrime",
+     "HOF": "other-info-another-crime-description"
+    },
+    {
+     "IMS": "flUpload",
+     "HOF": "other-info-file-upload"
+    },
+    {
+     "IMS": "txabouthow",
+     "HOF": "how-did-you-find-out-about-the-crime"
+    },
+    {
+     "IMS": "txaboutwhoknows",
+     "HOF": "does-anyone-else-know"
+    },
+    {
+     "IMS": "txaboutreported",
+     "HOF": "have-you-reported-before"
+    },
+    {
+     "IMS": "txaboutrelationship",
+     "HOF": "how-do-you-know-the-person"
+    },
+    {
+     "IMS": "txaboutrisk",
+     "HOF": "can-use-info-without-risk"
+    },
+    {
+     "IMS": "txaboutname",
+     "HOF": "about-you-first-name"
+    },
+    {
+     "IMS": "txaboutsurname",
+     "HOF": "about-you-family-name"
+    },
+    {
+     "IMS": "txaboutdob",
+     "HOF": "about-you-dob"
+    },
+    {
+     "IMS": "cbAboutNat",
+     "HOF": "about-you-nationality"
+    },
+    {
+     "IMS": "rdaboutgender",
+     "HOF": "about-you-gender"
+    },
+    {
+     "IMS": "rdAboutContact",
+     "HOF": "about-you-contact"
+    },
+    {
+     "IMS": "rdAbout18",
+     "HOF": "are-you-eighteen"
+    },
+    {
+     "IMS": "txaboutmobile",
+     "HOF": "contact-number"
+    },
+    {
+     "IMS": "txaboutcontime",
+     "HOF": "when-to-contact"
+    },
+    {
+     "IMS": "txWhereMobile",
+     "HOF": "Mobile Number"
+    },
+    {
+     "IMS": "txWhereEmail",
+     "HOF": "Email Address"
+    },
+    {
+     "IMS": "txWhereAnotherMobile",
+     "HOF": "Mobile Number"
+    },
+    {
+     "IMS": "txWhereAnotherEmail",
+     "HOF": "Email Address"
+    },
+    {
+     "IMS": "txPerWorkMob",
+     "HOF": "Mobile Number"
+    },
+    {
+     "IMS": "txPerWorkEmail",
+     "HOF": "Company Email Address"
+    },
+    {
+     "IMS": "txPerWorkWebsite",
+     "HOF": "Company Website Address"
+    },
+    {
+     "IMS": "rdWhoStudMob",
+     "HOF": "Mobile Number"
+    },
+    {
+     "IMS": "rdWhoDisabled",
+     "HOF": "Disabled"
+    },
+    {
+     "IMS": "dtPerMoreDOBHolder",
+     "HOF": "Disabled"
+    }
+   ]
+}
