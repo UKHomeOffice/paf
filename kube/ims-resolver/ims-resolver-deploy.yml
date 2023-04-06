@@ -1,0 +1,83 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+  name: ims-resolver
+  {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+  annotations:
+    downscaler/uptime: {{ .NON_PROD_AVAILABILITY }}
+  name: ims-resolver-{{ .DRONE_SOURCE_BRANCH }}
+  {{ else }}
+  annotations:
+    downscaler/uptime: {{ .NON_PROD_AVAILABILITY }}
+  name: ims-resolver
+  {{ end }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+      name: ims-resolver-{{ .DRONE_SOURCE_BRANCH }}
+      {{ else }}
+      name: ims-resolver
+      {{ end }}
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/"
+      labels:
+        {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+        name: ims-resolver-{{ .DRONE_SOURCE_BRANCH }}
+        service: ims-resolver-{{ .DRONE_SOURCE_BRANCH }}
+        {{ else }}
+        name: ims-resolver
+        service: ims-resolver
+        {{ end }}
+    spec:
+      containers:
+        - name: ims-resolver
+          # no official release, this is a branch version image PAF-50-deploy-ims-resolver 1be33d272cb87f60d42b873ed36d7f914585c556
+          image: quay.io/ukhomeofficedigital/ims-resolver:d35bd5b8d2239fc6f8234b51d9b9240d7740fb37
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+                name: {{ .APP_NAME }}-configmap-{{ .DRONE_SOURCE_BRANCH }}
+                {{ else }}
+                name: configmap
+                {{ end }}
+          env:
+            - name: TZ
+              value: Europe/London
+            - name: IMS_API_USER
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_user
+            - name: IMS_API_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_password
+            - name: WSDL
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_wsdl
+            - name: IMS_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_endpoint
+          securityContext:
+            runAsNonRoot: true
+          resources:
+            requests:
+              memory: 10Mi
+              cpu: 10m
+            limits:
+              memory: 256Mi
+              cpu: 300m
