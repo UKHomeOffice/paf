@@ -9,6 +9,8 @@ const transportBehaviour = require('./behaviours/transport-behaviour');
 const Aggregate = require('./behaviours/aggregator');
 const limitPerson = require('./behaviours/limit-person');
 const personNumber = require('./behaviours/person-number');
+const addressFormatter = require('./behaviours/address-formatter');
+const additionalPersonFormatter = require('./behaviours/additional-person-formatter');
 const SendToSQS = require('./behaviours/send-to-sqs');
 
 module.exports = {
@@ -422,7 +424,8 @@ module.exports = {
           value: 'yes'
         }
       }
-      ]
+      ],
+      continueOnEdit: true
     },
     '/report-person-occupation-company-name': {
       fields: ['report-person-occupation-company-name'],
@@ -750,12 +753,12 @@ module.exports = {
       fields: ['are-you-eighteen', 'contact-number', 'when-to-contact']
     },
     '/confirm': {
-      behaviours: [SummaryPageBehaviour, personNumber, SendToSQS],
+      behaviours: [addressFormatter, additionalPersonFormatter, SummaryPageBehaviour, personNumber],
       sections: require('./sections/summary-data-sections'),
       next: '/declaration'
     },
     '/declaration': {
-      behaviours: ['complete'],
+      behaviours: ['complete', SendToSQS],
       next: '/confirmation'
     },
     '/confirmation': {

@@ -171,7 +171,6 @@ describe('PAF Summary Data Sections', () => {
       const sectionFields = mappedSections['person-contact'];
       const expectedFields = [
         'report-person-location',
-        'report-person-location-type',
         'report-person-location-uk-address-line1',
         'report-person-location-uk-address-line2',
         'report-person-location-uk-address-town',
@@ -183,10 +182,10 @@ describe('PAF Summary Data Sections', () => {
         'report-person-location-outside-uk-address-town',
         'report-person-location-outside-uk-address-county',
         'report-person-location-outside-uk-address-postcode',
+        'report-person-location-type',
         'report-person-location-mobile',
         'report-person-location-phone',
         'report-person-location-email',
-        'report-person-location-type',
         'report-person-location-travel-to-uk-country'
       ];
       const result = areOrderedEqual(sectionFields, expectedFields);

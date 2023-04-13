@@ -265,6 +265,10 @@
         "HOF": "crime-another-location-country"
         },
         {
+            "IMS": "txwhereanotheraddress",
+            "HOF": "crime-another-location-address"
+        },
+        {
         "IMS": "txwhereanotherpostcode",
         "HOF": "crime-another-location-address-postcode"
         },
@@ -325,6 +329,10 @@
         "HOF": "report-person-location"
         },
         {
+            "IMS": "peruklocaddress",
+            "HOF": "report-person-location-uk-address"
+        },
+        {
         "IMS": "peruklocpostcode",
         "HOF": "report-person-location-uk-address-postcode"
         },
@@ -347,6 +355,10 @@
         {
         "IMS": "pernonukloccountry",
         "HOF": "report-person-location-outside-uk-address-country"
+        },
+        {
+            "IMS": "pernonuklocaddress",
+            "HOF": "report-person-location-outside-uk-address"
         },
         {
         "IMS": "pernonuklocpostcode",
@@ -421,6 +433,10 @@
         "HOF": "report-person-occupation-company-name"
         },
         {
+            "IMS": "txperworkaddress",
+            "HOF": "report-person-occupation-company-address"
+        },
+        {
         "IMS": "txperworkpostcode",
         "HOF": "report-person-occupation-company-address-postcode"
         },
@@ -463,6 +479,10 @@
         {
         "IMS": "rdwhostudinstit",
         "HOF": "report-person-study-name"
+        },
+        {
+            "IMS": "rdwhostudadd",
+            "HOF": "report-person-study-address"
         },
         {
         "IMS": "rdwhostudpostcode",
@@ -565,12 +585,24 @@
         "HOF": "personAddNi"
         },
         {
+            "IMS": "tbwhoaddperson",
+            "HOF": "persons"
+        },
+        {
+            "IMS": "txpermoreallholder",
+            "HOF": "additional-people-table"
+        },
+        {
         "IMS": "rdwhoreportorg",
         "HOF": "report-organisation"
         },
         {
         "IMS": "txwhocompbus",
         "HOF": "organisation-company-name"
+        },
+        {
+            "IMS": "txwhocompaddress",
+            "HOF": "company-address"
         },
         {
         "IMS": "txwhocomppost",

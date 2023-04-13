@@ -8,6 +8,10 @@
     "label": "Albania"
   },
   {
+    "value": "Nationality-Algeria",
+    "label": "Algeria"
+  },
+  {
     "value": "Nationality-Andorra",
     "label": "Andorra"
   },
@@ -108,8 +112,32 @@
     "label": "Brazil"
   },
   {
-    "value": "Nationality-Bruinei Darussalam",
-    "label": "Bruinei Darussalam"
+    "value": "Nationality-British Indian Ocean Territory",
+    "label": "British Indian Ocean Territory"
+  },
+  {
+    "value": "Nationality-British National (Overseas)",
+    "label": "British National (Overseas)"
+  },
+  {
+    "value": "Nationality-British Overseas Citizen",
+    "label": "British Overseas Citizen"
+  },
+  {
+    "value": "Nationality-British Overseas Territories Citizenship (BOTC)",
+    "label": "British Overseas Territories Citizenship (BOTC)"
+  },
+  {
+    "value": "Nationality-British Protected Person",
+    "label": "British Protected Person"
+  },
+  {
+    "value": "Nationality-British Subject",
+    "label": "British Subject"
+  },
+  {
+    "value": "Nationality-Brunei Darussalam",
+    "label": "Brunei Darussalam"
   },
   {
     "value": "Nationality-Bulgaria",
@@ -416,7 +444,7 @@
     "label": "North Korea (Democratic People's Republic of Korea)"
   },
   {
-    "value": "Nationality-Korea (South)",
+    "value": "Nationality-South Korea (Republic of Korea)",
     "label": "South Korea (Republic of Korea)"
   },
   {
@@ -436,8 +464,8 @@
     "label": "Kyrgyzstan"
   },
   {
-    "value": "Nationality-Laos",
-    "label": "Laos"
+    "value": "Nationality-Lao People's Democratic Republic",
+    "label": "Lao People's Democratic Republic"
   },
   {
     "value": "Nationality-Latvia",
@@ -692,8 +720,8 @@
     "label": "Qatar"
   },
   {
-    "value": "Nationality-Refugee - Article 1 of 1951 Convention",
-    "label": "Refugee - Article 1 of 1951 Convention"
+    "value": "Nationality-Refugee - Article 1 of the 1951 Convention",
+    "label": "Refugee - Article 1 of the 1951 Convention"
   },
   {
     "value": "Nationality-Refugee - Other",
@@ -728,8 +756,8 @@
     "label": "Saint Lucia"
   },
   {
-    "value": "Nationality-Saint Martin (French part)",
-    "label": "Saint Martin (French part)"
+    "value": "Nationality-Saint Martin",
+    "label": "Saint Martin"
   },
   {
     "value": "Nationality-Saint Pierre and Miquelon",
@@ -864,8 +892,8 @@
     "label": "Tajikistan"
   },
   {
-    "value": "Nationality-Tanzania, the United Republic of",
-    "label": "Tanzania, the United Republic of"
+    "value": "Tanzania, United Republic of",
+    "label": "Tanzania, United Republic of"
   },
   {
     "value": "Nationality-Thailand",
@@ -940,6 +968,10 @@
     "label": "United States of America"
   },
   {
+    "value": "Nationality-United Kingdom",
+    "label": "United Kingdom"
+  },
+  {
     "value": "Nationality-Unspecified Nationality",
     "label": "Unspecified Nationality"
   },
@@ -989,6 +1021,11 @@
   },
   {
     "value": "Nationality-unknown",
+    "label": "Unknown"
+  },
+  {
+    "value": "Nationality-I Dont Know",
     "label": "I don't know"
   }
-  ]
+]
+  

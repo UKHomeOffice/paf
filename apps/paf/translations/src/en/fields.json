@@ -171,7 +171,7 @@
       "boat": {
         "label": "Boat"
       },
-      "bulk-carrier": {
+      "vehicle-bulk-carrier": {
         "label": "Bulk carrier"
       },
       "cars": {
@@ -599,8 +599,8 @@
       "65-74": {
         "label": "65-74"
       },
-      "74+": {
-        "label": "74+"
+      "75+": {
+        "label": "75+"
       }
     }
   },
@@ -960,7 +960,7 @@
       "boat": {
         "label": "Boat"
       },
-      "bulk-carrier": {
+      "vehicle-bulk-carrier": {
         "label": "Bulk carrier"
       },
       "cars": {
@@ -1146,8 +1146,8 @@
       "65-74": {
         "label": "65-74"
       },
-      "74+": {
-        "label": "74+"
+      "75+": {
+        "label": "75+"
       }
     }
   },
