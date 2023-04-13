@@ -513,21 +513,45 @@ module.exports = {
         value: '',
         label: 'fields.crime-location-country.options.null'
       }].concat(countriesList),
+      dependent: {
+        field: 'crime-location',
+          value: 'yes'
+      }
   },
   'crime-location-address-line1': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-line2': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-town': {
-    className: ['govuk-input', 'govuk-!-width-two-thirds']
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-county': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-postcode': {
-    className: ['govuk-input', 'govuk-input--width-10']
+    className: ['govuk-input', 'govuk-input--width-10'],
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20']
@@ -551,21 +575,45 @@ module.exports = {
         value: '',
         label: 'fields.crime-another-location-country.options.null'
       }].concat(countriesList),
+      dependent: {
+        field: 'crime-another-location',
+        value: 'yes'
+      }
   },
   'crime-another-location-address-line1': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-line2': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-town': {
-    className: ['govuk-input', 'govuk-!-width-two-thirds']
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-county': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-postcode': {
-    className: ['govuk-input', 'govuk-input--width-10']
+    className: ['govuk-input', 'govuk-input--width-10'],
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20']
