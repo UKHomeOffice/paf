@@ -17,6 +17,16 @@
   "date-crime-will-happen": {
     "date": "Please enter a valid date"
   },
+  "time-crime-will-happen-hour": {
+    "numeric": "Please enter a valid time in digits",
+    "min": "Please enter a number from 0 to 23",
+    "max": "Please enter a number from 0 to 23"
+  },
+  "time-crime-will-happen-minute": {
+    "numeric": "Please enter a valid time in digits",
+    "min": "Please enter a number from 0 to 59",
+    "max": "Please enter a number from 0 to 59"
+  },
   "company-postcode": {
     "postcode": "Enter a real postcode"
   },

@@ -1,0 +1,17 @@
+{{<partials-page}}
+  {{$page-content}}
+    {{#input-date}}date-crime-will-happen{{/input-date}}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="time-crime-will-happen-hint">
+          <div class="time-input__item">
+            {{#input-text}}time-crime-will-happen-hour{{/input-text}}
+          </div>
+          <div class="time-input__item">
+            {{#input-text}}time-crime-will-happen-minute{{/input-text}}
+          </div>
+      </fieldset>
+    </div>
+    
+    {{#input-submit}}continue{{/input-submit}}
+  {{/page-content}}
+{{/partials-page}}

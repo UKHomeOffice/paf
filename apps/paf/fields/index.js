@@ -125,8 +125,17 @@ module.exports = {
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
     mixin: 'input-date'
   }),
-  'time-crime-will-happen': {
-    mixin: 'input-text'
+  'time-crime-will-happen-hour': {
+    mixin: 'input-text',
+    className: ['govuk-input', 'govuk-date-input__input', 'govuk-input--width-2'],
+    attributes: [{ attribute: 'maxlength', value: '2' }],
+    validate: ['numeric', { type: 'min', arguments: 0}, { type: 'max', arguments: 23 }],
+  },
+  'time-crime-will-happen-minute': {
+    mixin: 'input-text',
+    className: ['govuk-input', 'govuk-date-input__input', 'govuk-input--width-2'],
+    attributes: [{ attribute: 'maxlength', value: '2' }],
+    validate: ['numeric', { type: 'min', arguments: 0}, { type: 'max', arguments: 59 }]
   },
   'when-will-crime-happen-more-info': {
     mixin: 'textarea',
