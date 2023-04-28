@@ -39,8 +39,9 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          # no official release, this is a branch version image PAF-50-deploy-ims-resolver 1be33d272cb87f60d42b873ed36d7f914585c556
-          image: quay.io/ukhomeofficedigital/ims-resolver:d35bd5b8d2239fc6f8234b51d9b9240d7740fb37
+          # no official release, just testing the private link
+          # this is a branch version from ims-resolver PAF-49-test-private link 
+          image: quay.io/ukhomeofficedigital/ims-resolver:56acfd4dfe7e175ed871d61516799bc23564113e
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
