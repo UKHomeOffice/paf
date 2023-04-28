@@ -111,7 +111,7 @@ spec:
                 secretKeyRef:
                   name: sas-paf-branch-sqs-queue
                   key: secret_access_key
-            {{ else if (eq .KUBE_NAMESPACE .UAT_ENV) }}
+            {{ else if or (eq .KUBE_NAMESPACE .UAT_ENV) (eq .KUBE_NAMESPACE .STG_ENV) }}
             - name: SQS_URL
               valueFrom:
                 secretKeyRef:
