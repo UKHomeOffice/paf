@@ -108,8 +108,32 @@
     "label": "Brazil"
   },
   {
-    "value": "Nationality-Bruinei Darussalam",
-    "label": "Bruinei Darussalam"
+    "value": "British Indian Ocean Territory",
+    "label": "British Indian Ocean Territory"
+  },
+  {
+    "value": "British National (Overseas)",
+    "label": "British National (Overseas)"
+  },
+  {
+    "value": "British Overseas Citizen",
+    "label": "British Overseas Citizen"
+  },
+  {
+    "value": "British Overseas Territories Citizenship (BOTC)",
+    "label": "British Overseas Territories Citizenship (BOTC)"
+  },
+  {
+    "value": "British Protected Person",
+    "label": "British Protected Person"
+  },
+  {
+    "value": "British Subject",
+    "label": "British Subject"
+  },
+  {
+    "value": "Brunei Darussalam",
+    "label": "Brunei Darussalam"
   },
   {
     "value": "Nationality-Bulgaria",
@@ -416,7 +440,7 @@
     "label": "North Korea (Democratic People's Republic of Korea)"
   },
   {
-    "value": "Nationality-Korea (South)",
+    "value": "South Korea (Republic of Korea)",
     "label": "South Korea (Republic of Korea)"
   },
   {
@@ -436,8 +460,8 @@
     "label": "Kyrgyzstan"
   },
   {
-    "value": "Nationality-Laos",
-    "label": "Laos"
+    "value": "Lao People's Democratic Republic",
+    "label": "Lao People's Democratic Republic"
   },
   {
     "value": "Nationality-Latvia",
@@ -692,8 +716,8 @@
     "label": "Qatar"
   },
   {
-    "value": "Nationality-Refugee - Article 1 of 1951 Convention",
-    "label": "Refugee - Article 1 of 1951 Convention"
+    "value": "Refugee - Article 1 of the 1951 Convention",
+    "label": "Refugee - Article 1 of the 1951 Convention"
   },
   {
     "value": "Nationality-Refugee - Other",
@@ -728,8 +752,8 @@
     "label": "Saint Lucia"
   },
   {
-    "value": "Nationality-Saint Martin (French part)",
-    "label": "Saint Martin (French part)"
+    "value": "Saint Martin",
+    "label": "Saint Martin"
   },
   {
     "value": "Nationality-Saint Pierre and Miquelon",
@@ -864,8 +888,8 @@
     "label": "Tajikistan"
   },
   {
-    "value": "Nationality-Tanzania, the United Republic of",
-    "label": "Tanzania, the United Republic of"
+    "value": "Tanzania, United Republic of",
+    "label": "Tanzania, United Republic of"
   },
   {
     "value": "Nationality-Thailand",
@@ -940,7 +964,11 @@
     "label": "United States of America"
   },
   {
-    "value": "Nationality-Unspecified Nationality",
+    "value": "United Kingdom",
+    "label": "United Kingdom"
+  },
+  {
+    "value": "Unspecified Nationality",
     "label": "Unspecified Nationality"
   },
   {
@@ -988,7 +1016,12 @@
     "label": "Zimbabwe"
   },
   {
-    "value": "Nationality-unknown",
+    "value": "Unknown",
+    "label": "Unknown"
+  },
+  {
+    "value": "I Dont Know",
     "label": "I don't know"
   }
-  ]
+]
+  
