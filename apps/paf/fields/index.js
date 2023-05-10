@@ -137,6 +137,9 @@ module.exports = {
     attributes: [{ attribute: 'maxlength', value: '2' }],
     validate: ['numeric', { type: 'min', arguments: 0}, { type: 'max', arguments: 59 }]
   },
+  'time-crime-will-happen': {
+    mixin: 'input-text'
+  },
   'when-will-crime-happen-more-info': {
     mixin: 'textarea',
     'ignore-defaults': true,
