@@ -8,6 +8,7 @@ describe('Server.js app file', () => {
   let appsCommonStub;
   let appsPafStub;
   let behavioursSetNavigationSectionStub;
+  let behavioursTimeFormatterStub;
   let req;
   let res;
   let next;
@@ -32,6 +33,7 @@ describe('Server.js app file', () => {
     appsCommonStub = sinon.stub();
     appsPafStub = sinon.stub();
     behavioursSetNavigationSectionStub = sinon.stub();
+    behavioursTimeFormatterStub = sinon.stub();
 
     useStub.onCall(0).yields(req, res, next);
     useStub.onCall(1).yields(req, res);
@@ -42,6 +44,7 @@ describe('Server.js app file', () => {
       './apps/common': appsCommonStub,
       './apps/paf': appsPafStub,
       './apps/paf/behaviours/set-navigation-section': behavioursSetNavigationSectionStub,
+      './apps/paf/behaviours/time-formatter': behavioursTimeFormatterStub,
       './config': { env: 'test' }
     });
   });
@@ -55,7 +58,7 @@ describe('Server.js app file', () => {
           appsCommonStub,
           appsPafStub
         ],
-        behaviours: [ behavioursSetNavigationSectionStub],
+        behaviours: [ behavioursSetNavigationSectionStub, behavioursTimeFormatterStub ],
         session: { name: 'paf.hof.sid' }
       });
     });
