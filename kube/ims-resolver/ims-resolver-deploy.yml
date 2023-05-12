@@ -41,7 +41,7 @@ spec:
         - name: ims-resolver
           # no official release, just testing the private link
           # this is a branch version from ims-resolver PAF-49-test-private link 
-          image: quay.io/ukhomeofficedigital/ims-resolver:56acfd4dfe7e175ed871d61516799bc23564113e
+          image: quay.io/ukhomeofficedigital/ims-resolver:bab36adaeeda2f4fcf0f4d55d162a95739f701c3
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
