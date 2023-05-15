@@ -1,19 +1,14 @@
 'use strict';
 
 const { v4: uuidv4 } = require('uuid');
-const config = require('../../../config');
-const { mapFields, sendToQueue } = require('../../../lib/utils');
-
+const { addFields, sendToQueue } = require('../../../lib/utils');
 
 module.exports = superclass => class SendToSQS extends superclass {
   // eslint-disable-next-line consistent-return
   saveValues(req, res, next) {
-    let allegationId;
-    let allegationData;
-
     try {
-        allegationId = uuidv4();
-        allegationData = mapFields(req.sessionModel.attributes);
+      let allegationId = uuidv4();
+      let allegationData = addFields(req.sessionModel.attributes);
 
         return sendToQueue(allegationData, allegationId)
             .then(() => {
