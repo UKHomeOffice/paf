@@ -3,6 +3,7 @@
 const moment = require('moment');
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 const OCCUPATION = require('../data/occupation');
+const COUNTRIES = require('../data/countriesList');
 const _ = require('lodash');
 
 module.exports = {
@@ -44,20 +45,29 @@ module.exports = {
     'crime-general-cargo-group',
     'crime-vessel-group',
     'boat-name',
-    'boat-country-departure',
+    {
+      field: 'boat-country-departure',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'port-departure',
     'port-arrival',
     'port-departure-time',
     'port-arrival-time',
     'train-company',
-    'train-country-departure',
+    {
+      field: 'train-country-departure',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'station-departure',
     'station-arrival',
     'station-departure-time',
     'station-arrival-time',
     'airline-company',
     'airline-flight-number',
-    'airline-country-departure',
+    {
+      field: 'airline-country-departure',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'airport-departure',
     'airport-arrival',
     'airport-departure-time',
@@ -71,7 +81,10 @@ module.exports = {
   ],
   'crime-location': [
     'crime-location',
-    'crime-location-country',
+    {
+      field: 'crime-location-country',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'crime-location-address-line1',
     'crime-location-address-line2',
     'crime-location-address-town',
@@ -79,7 +92,10 @@ module.exports = {
     'crime-location-address-postcode',
     'crime-location-phone',
     'crime-another-location',
-    'crime-another-location-country',
+    {
+      field: 'crime-another-location-country',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'crime-another-location-address-line1',
     'crime-another-location-address-line2',
     'crime-another-location-address-town',
@@ -115,7 +131,10 @@ module.exports = {
     'report-person-location-uk-address-town',
     'report-person-location-uk-address-county',
     'report-person-location-uk-address-postcode',
-    'report-person-location-outside-uk-address-country',
+    {
+      field: 'report-person-location-outside-uk-address-country',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'report-person-location-outside-uk-address-line1',
     'report-person-location-outside-uk-address-line2',
     'report-person-location-outside-uk-address-town',
@@ -125,7 +144,10 @@ module.exports = {
     'report-person-location-mobile',
     'report-person-location-phone',
     'report-person-location-email',
-    'report-person-location-travel-to-uk-country'
+    {
+      field: 'report-person-location-travel-to-uk-country',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
   ],
   'person-occupation': [
     'report-person-occupation',
