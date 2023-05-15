@@ -1,94 +1,94 @@
 [
   {
-    "value": "building-construction",
+    "value": "job-building-construction",
     "label": "Building/Construction"
   },
   {
-    "value": "care-assistant",
+    "value": "job-care-assistant",
     "label": "Care assistant"
   },
   {
-    "value": "catering-and-hospitality",
+    "value": "job-catering-and-hospitality",
     "label": "Catering and Hospitality"
   },
   {
-    "value": "childcare",
+    "value": "job-childcare",
     "label": "Childcare"
   },
   {
-    "value": "cleaner",
+    "value": "job-cleaner",
     "label": "Cleaner"
   },
   {
-    "value": "doctor-nurse-paramedic",
+    "value": "job-doctor-nurse-paramedic",
     "label": "Doctor/Nurse/Paramedic"
   },
   {
-    "value": "domestic-worker",
+    "value": "job-domestic-worker",
     "label": "Domestic worker"
   },
   {
-    "value": "driver",
+    "value": "job-driver",
     "label": "Driver"
   },
   {
-    "value": "engineering",
+    "value": "job-engineering",
     "label": "Engineering"
   },
   {
-    "value": "factory-worker",
+    "value": "job-factory-worker",
     "label": "Factory worker"
   },
   {
-    "value": "farming-forestry-and-fishing",
+    "value": "job-farming-forestry-and-fishing",
     "label": "Farming, Forestry and Fishing"
   },
   {
-    "value": "government-employee",
+    "value": "job-government-employee",
     "label": "Government employee"
   },
   {
-    "value": "hairdressing-beauty-therapy",
+    "value": "job-hairdressing-beauty-therapy",
     "label": "Hairdressing/Beauty therapy"
   },
   {
-    "value": "Information-technology-IT",
+    "value": "job-Information-technology-IT",
     "label": "Information technology (IT)"
   },
   {
-    "value": "office-work",
+    "value": "job-office-work",
     "label": "Office work"
   },
   {
-    "value": "port-airport-worker",
+    "value": "job-port-airport-worker",
     "label": "Port or Airport worker"
   },
   {
-    "value": "sales-and-retail",
+    "value": "job-sales-and-retail",
     "label": "Sales and Retail"
   },
   {
-    "value": "security",
+    "value": "job-security",
     "label": "Security"
   },
   {
-    "value": "self-employed",
+    "value": "job-self-employed",
     "label": "Self-employed"
   },
   {
-    "value": "teacher-lecturer",
+    "value": "job-teacher-lecturer",
     "label": "Teacher/Lecturer"
   },
   {
-    "value": "warehouse",
+    "value": "job-warehouse",
     "label": "Warehouse"
   },
   {
-    "value": "other",
+    "value": "job-other",
     "label": "Other"
   },
   {
-    "value": "unknown",
+    "value": "job-unknown",
     "label": "I don't know"
   }
 ]

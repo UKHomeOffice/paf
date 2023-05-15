@@ -77,7 +77,7 @@
       "no": {
         "label": "No"
       },
-      "unknown": {
+      "crime-childen-unknown": {
         "label": "I don't know"
       }
     }
@@ -97,7 +97,7 @@
       "not-yet-happened": {
         "label": "Not yet happened"
       },
-      "unknown": {
+      "dont-know-when-it-happend": {
         "label": "I don't know"
       }
     }
@@ -111,7 +111,7 @@
       "more-than-twenty-four-hours": {
         "label": "Date more than 24 hours in the future"
       },
-      "unknown": {
+      "when-will-crime-happen-unknown": {
         "label": "I don't know"
       }
     }
@@ -626,7 +626,7 @@
       "other": {
         "label": "Other"
       },
-      "unknown": {
+      "gender-unknown": {
         "label": "I don't know"
       }
     }
@@ -652,7 +652,7 @@
       "travel-to-uk": {
         "label": "Travelling to the UK"
       },
-      "unknown": {
+      "location-unknown": {
         "label": "I don't know"
       }
     }
@@ -1155,7 +1155,7 @@
       "other": {
         "label": "Other"
       },
-      "unknown": {
+      "gender-unknown": {
         "label": "I don't know"
       }
     }
@@ -1318,7 +1318,7 @@
       "other": {
         "label": "Other"
       },
-      "unknown": {
+      "gender-unknown": {
         "label": "I don't know"
       }
     }

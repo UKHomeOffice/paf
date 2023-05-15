@@ -69,7 +69,7 @@ module.exports = {
   'crime-children': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown'],
+    options: ['yes', 'no', 'Unknown'],
     validate: 'required'
   },
   'when-crime-happened': {
@@ -92,7 +92,7 @@ module.exports = {
         child: "input-text"
       },
       'not-yet-happened',
-      'unknown'
+      'dont-know-when-it-happend'
     ],
   },
   'happening-now-info': {

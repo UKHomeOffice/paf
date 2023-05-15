@@ -1,0 +1,489 @@
+{
+    "Values": [
+        {
+            "HOF": "immigration-crime",
+            "IMS": "Immigration Crime"
+        },
+        {
+            "HOF": "smuggling-crime",
+            "IMS": "Smuggling"
+        },
+        {
+            "HOF": "yes",
+            "IMS": "Yes"
+
+        },
+        {
+            "HOF": "no",
+            "IMS": "No"
+        },
+        {
+            "HOF": "crime-childen-unknown",
+            "IMS": "Idontknow"
+        },
+        {
+            "HOF": "immigration-crime-no-permission",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-illegal-working",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-employing-illegal-workers",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-full-time-student",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-fake-marriage",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-fake-documents",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-enter-stay-illegally",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-lied-on-application",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-enter-human-trafficking-smuggling-slavery",
+            "IMS": 1
+        },
+        {
+            "HOF": "immigration-crime-other",
+            "IMS": 1
+        },
+        {
+            "HOF": "smuggling-crime-drug",
+            "IMS": 1
+        },
+        {
+            "HOF": "smuggling-crime-cash",
+            "IMS": 1
+        },
+        {
+            "HOF": "smuggling-crime-cigarette",
+            "IMS": 1
+        },
+        {
+            "HOF": "smuggling-crime-firearms",
+            "IMS": 1
+        },
+        {
+            "HOF": "smuggling-crime-alcohol",
+            "IMS": 1
+        },
+        {
+            "HOF": "smuggling-crime-other",
+            "IMS": 1
+        },
+        {
+            "HOF": "crime-transport-vehicle",
+            "IMS": 1
+        },
+        {
+            "HOF": "crime-transport-boat",
+            "IMS": 1
+        },
+        {
+            "HOF": "crime-transport-train",
+            "IMS": 1
+        },
+        {
+            "HOF": "crime-transport-aeroplane",
+            "IMS": 1
+        },
+        {
+            "HOF": "crime-transport-unknown",
+            "IMS": 1
+        },
+        {
+            "HOF": "bulk-carrier",
+            "IMS": "Bulk Carrier"
+        },
+        {
+            "HOF": "caravan",
+            "IMS": "Caravan"
+        },
+        {
+            "HOF": "coach",
+            "IMS": "Coach"
+        },
+        {
+            "HOF": "container",
+            "IMS": "Container"
+        },
+        {
+            "HOF": "glass-carrier",
+            "IMS": "Glass Carrier"
+        },
+        {
+            "HOF": "minibus",
+            "IMS": "Minibus"
+        },
+        {
+            "HOF": "motorbike",
+            "IMS": "MotorBike"
+        },
+        {
+            "HOF": "motorhome",
+            "IMS": "Motorhome"
+        },
+        {
+            "HOF": "unaccompanied-trailer",
+            "IMS": "Unaccompanied Trailer (soft)"
+        },
+        {
+            "HOF": "car",
+            "IMS": "Car"
+        },
+        {
+            "HOF": "car-transporter",
+            "IMS": "Car Transporter"
+        },
+        {
+            "HOF": "hgv-canvas-sided",
+            "IMS": "HGV Canvas Sided"
+        },
+        {
+            "HOF": "hgv-flatbed",
+            "IMS": "vehicle_type.Flat"
+        },
+        {
+            "HOF": "hgv-hard-sided",
+            "IMS": "HGV Hard-sided"
+        },
+        {
+            "HOF": "hgv-refridgerated",
+            "IMS": "HGV Refrigerated"
+        },
+        {
+            "HOF": "hgv-tanker",
+            "IMS": "HGV Tanker"
+        },
+        {
+            "HOF": "lorry",
+            "IMS": "Lorry"
+        },
+        {
+            "HOF": "lorry-and-drag",
+            "IMS": "Lorry and Drag"
+        },
+        {
+            "HOF": "van",
+            "IMS": "Van"
+        },
+        {
+            "HOF": "van-and-trailer",
+            "IMS": "Van Trailer"
+        },
+        {
+            "HOF": "van-other",
+            "IMS": "Van (Other)"
+        },
+        {
+            "HOF": "seven-point-five-tonne-van",
+            "IMS": "7.5 Tonne Van"
+        },
+        {
+            "HOF": "barge",
+            "IMS": "Barge"
+        },
+        {
+            "HOF": "cabin-cruiser",
+            "IMS": "Cabin Cruiser"
+        },
+        {
+            "HOF": "cable-pipe-layer",
+            "IMS": "Cable\/Pipe layer"
+        },
+        {
+            "HOF": "catamaran-multihulled",
+            "IMS": "Catamaran multihulled"
+        },
+        {
+            "HOF": "containership",
+            "IMS": "BoatType.Containership"
+        },
+        {
+            "HOF": "cruise-ship",
+            "IMS": "Cruise ship"
+        },
+        {
+            "HOF": "dayboat",
+            "IMS": "Dayboat"
+        },
+        {
+            "HOF": "dinghy",
+            "IMS": "Dinghy"
+        },
+        {
+            "HOF": "ferry",
+            "IMS": "Ferry"
+        },
+        {
+            "HOF": "fishing-boat",
+            "IMS": "Fishing boat"
+        },
+        {
+            "HOF": "ketch",
+            "IMS": "Ketch"
+        },
+        {
+            "HOF": "reefer",
+            "IMS": "Reefer"
+        },
+        {
+            "HOF": "rhib",
+            "IMS": "Rhib"
+        },
+        {
+            "HOF": "tanker",
+            "IMS": "Tanker"
+        },
+        {
+            "HOF": "tug",
+            "IMS": "Tug"
+        },
+        {
+            "HOF": "yacht",
+            "IMS": "Yacht"
+        },
+        {
+            "HOF": "general-cargo",
+            "IMS": "General Cargo"
+        },
+        {
+            "HOF": "general-cargo-with-container-capacity",
+            "IMS": "General Cargo with container capacity"
+        },
+        {
+            "HOF": "research-vessel",
+            "IMS": "Research vessel"
+        },
+        {
+            "HOF": "supply-vessel",
+            "IMS": "Supply vessel"
+        },
+        {
+            "HOF": "support-vessel",
+            "IMS": "Support vessel"
+        },
+        {
+            "HOF": "male",
+            "IMS": "Male"
+        },
+        {
+            "HOF": "female",
+            "IMS": "Female"
+        },
+        {
+            "HOF": "other",
+            "IMS": "Other"
+        },
+        {
+            "HOF": "gender-unknown",
+            "IMS": "DontKnow"
+        },
+        {
+            "HOF": "uk",
+            "IMS": "IntheUK"
+        },
+        {
+            "HOF": "outside-uk",
+            "IMS": "OutsidetheUK"
+        },
+        {
+            "HOF": "travel-to-uk",
+            "IMS": "TravellingtotheUK"
+        },
+        {
+            "HOF": "location-unknown",
+            "IMS": "DontKnow"
+        },
+        {
+            "HOF": "home",
+            "IMS": "HomeAddress"
+        },
+        {
+            "HOF": "relative",
+            "IMS": "RelativesAddress"
+        },
+        {
+            "HOF": "work",
+            "IMS": "WorkAddress"
+        },
+        {
+            "HOF": "uk-border-agency",
+            "IMS": "Home Office"
+        },
+        {
+            "HOF": "border-force",
+            "IMS": "Border Force"
+        },
+        {
+            "HOF": "hmrc",
+            "IMS": "HMRC"
+        },
+        {
+            "HOF": "dwp",
+            "IMS": "DWP"
+        },
+        {
+            "HOF": "other",
+            "IMS": "Other"
+        },
+        {
+            "HOF": "74+",
+            "IMS": "75+"
+        },
+        {
+            "HOF": "happening-now",
+            "IMS": "Happening Now"
+        },
+        {
+            "HOF": "ongoing",
+            "IMS": "Ongoing"
+        },
+        {
+            "HOF": "already-happened",
+            "IMS": "Already Happened"
+        },
+        {
+            "HOF": "not-yet-happened",
+            "IMS": "Not yet happened"
+        },
+        {
+            "HOF": "dont-know-when-it-happend",
+            "IMS": "DontKnow"
+        },
+        {
+            "HOF": "next-twenty-four-hours",
+            "IMS": "Inthenext24hours"
+        },
+        {
+            "HOF": "more-than-twenty-four-hours",
+            "IMS": "Datemorethan24hoursinthefuture"
+        },
+        {
+            "HOF": "when-will-crime-happen-unknown",
+            "IMS": "Idontknow"
+        },
+        {
+            "HOF": "freight-cargo",
+            "IMS": "Freight or cargo"
+        },
+        {
+            "HOF": "express-mail-courier",
+            "IMS": "Express mail or courier"
+        },
+        {
+            "HOF": "post",
+            "IMS": "Post"
+        },
+        {
+            "HOF": "building-construction",
+            "IMS": "Building \/ Construction"
+        },
+        {
+            "HOF": "care-home",
+            "IMS": "Care Assistant"
+        },
+        {
+            "HOF": "catering-and-hospitality",
+            "IMS": "Catering and Hospitality"
+        },
+        {
+            "HOF": "child-care-nursery",
+            "IMS": "Childcare"
+        },
+        {
+            "HOF": "cleaning",
+            "IMS": "Cleaner"
+        },
+        {
+            "HOF": "engineering",
+            "IMS": "Engineering"
+        },
+        {
+            "HOF": "english-language-college",
+            "IMS": "English Language College"
+        },
+        {
+            "HOF": "factory",
+            "IMS": "Factory worker"
+        },
+        {
+            "HOF": "farming-forestry-and-fishing",
+            "IMS": "Farming, Forestry &amp; Fishing"
+        },
+        {
+            "HOF": "freight-agent",
+            "IMS": "Freight Agent"
+        },
+        {
+            "HOF": "government",
+            "IMS": "Government employee"
+        },
+        {
+            "HOF": "hairdressing-beauty-therapy",
+            "IMS": "Hairdressing \/ Beauty therapy"
+        },
+        {
+            "HOF": "haulage",
+            "IMS": "Haulage"
+        },
+        {
+            "HOF": "information-technology",
+            "IMS": "Information Technology (IT)"
+        },
+        {
+            "HOF": "sales-retail",
+            "IMS": "Sales and retail"
+        },
+        {
+            "HOF": "school-college-university",
+            "IMS": "School \/ College \/ University"
+        },
+        {
+            "HOF": "security",
+            "IMS": "Security"
+        },
+        {
+            "HOF": "self-store",
+            "IMS": "Self Store"
+        },
+        {
+            "HOF": "taxi-minicab-chauffeur",
+            "IMS": "Taxi \/ Minicab \/ Chauffeur"
+        },
+        {
+            "HOF": "travel-operator-agent",
+            "IMS": "Travel Operator\/Agent"
+        },
+        {
+            "HOF": "vehicle-rental",
+            "IMS": "Vehicle Rental"
+        },
+        {
+            "HOF": "warehouse",
+            "IMS": "Warehouse"
+        },
+        {
+            "HOF": "other",
+            "IMS": "Other"
+        },
+        {
+            "HOF": "unknown",
+            "IMS": "I don’t know"
+        }
+     ]
+}

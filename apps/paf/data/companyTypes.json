@@ -1,98 +1,98 @@
 [
   {
-    "value": "building-construction",
+    "value": "company-building-construction",
     "label": "Building / Construction"
   },
   {
-    "value": "care-home",
+    "value": "company-care-home",
     "label": "Care home"
   },
   {
-    "value": "catering-and-hospitality",
+    "value": "company-catering-and-hospitality",
     "label": "Catering and Hospitality"
   },
   {
-    "value": "child-care-nursery",
+    "value": "company-child-care-nursery",
     "label": "Child care / Nursery"
   },
   {
-    "value": "cleaning",
+    "value": "company-cleaning",
     "label": "Cleaning"
   },
   {
-    "value": "engineering",
+    "value": "company-engineering",
     "label": "Engineering"
   },
   {
-    "value": "english-language-college",
+    "value": "company-english-language-college",
     "label": "English language college"
   },
   {
-    "value": "factory",
+    "value": "company-factory",
     "label": "factory"
   },
   {
-    "value": "farming-forestry-and-fishing",
+    "value": "company-farming-forestry-and-fishing",
     "label": "Farming, forestry and fishing"
   },
   {
-    "value": "freight-agent",
+    "value": "company-freight-agent",
     "label": "Freight agent"
   },
   {
-    "value": "government",
+    "value": "company-government",
     "label": "Government"
   },
   {
-    "value": "hairdressing-beauty-therapy",
+    "value": "company-hairdressing-beauty-therapy",
     "label": "Hairdressing / Beauty therapy"
   },
   {
-    "value": "haulage",
+    "value": "company-haulage",
     "label": "Haulage"
   },
   {
-    "value": "information-technology",
+    "value": "company-information-technology",
     "label": "Information technology (IT)"
   },
   {
-    "value": "sales-retail",
+    "value": "company-sales-retail",
     "label": "Sales and retail"
   },
   {
-    "value": "school-college-university",
+    "value": "company-school-college-university",
     "label": "School / College / University"
   },
   {
-    "value": "security",
+    "value": "company-security",
     "label": "Security"
   },
   {
-    "value": "self-store",
+    "value": "company-self-store",
     "label": "Self store"
   },
   {
-    "value": "taxi-minicab-chauffeur",
+    "value": "company-taxi-minicab-chauffeur",
     "label": "Taxi / Minicab / Chauffeur"
   },
   {
-    "value": "travel-operator-agent",
+    "value": "company-travel-operator-agent",
     "label": "Travel operator/Agent"
   },
   {
-    "value": "vehicle-rental",
+    "value": "company-vehicle-rental",
     "label": "Vehicle rental"
   },
   {
-    "value": "warehouse",
+    "value": "company-warehouse",
     "label": "Aarehouse"
   },
   {
-    "value": "other",
+    "value": "company-other",
     "label": "Other"
   },
   {
-    "value": "unknown",
+    "value": "company-unknown",
     "label": "I don't know"
   }
 ]
