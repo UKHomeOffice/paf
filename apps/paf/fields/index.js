@@ -69,7 +69,7 @@ module.exports = {
   'crime-children': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'Unknown'],
+    options: ['yes', 'no', 'crime-childen-unknown'],
     validate: 'required'
   },
   'when-crime-happened': {
@@ -649,7 +649,7 @@ module.exports = {
       '45-54',
       '55-64',
       '65-74',
-      '74+'
+      '75+'
     ]
   },
   'report-person-nationality': {
@@ -668,7 +668,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'unknown'
+      'gender-unknown'
     ]
   },
   'report-person-passport': {
@@ -687,7 +687,8 @@ module.exports = {
       'uk',
       'outside-uk',
       'travel-to-uk',
-      'unknown']
+      'location-unknown'
+    ]
   },
   'report-person-location-uk-address-line1': {
     mixin: 'input-text'
@@ -1068,7 +1069,7 @@ module.exports = {
       '45-54',
       '55-64',
       '65-74',
-      '74+'
+      '75+'
     ]
   },
   'personAddNationality': {
@@ -1087,7 +1088,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'unknown'
+      'gender-unknown'
     ]
   },
   'personAddPassport': {
@@ -1272,7 +1273,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'unknown'
+      'gender-unknown'
     ]
   },
   'about-you-contact': {
