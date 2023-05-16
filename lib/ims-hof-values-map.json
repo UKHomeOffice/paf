@@ -194,19 +194,23 @@
         },
         {
             "HOF": "barge",
-            "IMS": "Barge"
+            "IMS": "BoatType.Barge"
+        },
+        {
+            "HOF": "bulk-carrier",
+            "IMS": "BoatType.Bulk_Carrier"
         },
         {
             "HOF": "cabin-cruiser",
-            "IMS": "Cabin Cruiser"
+            "IMS": "BoatType.Cabin_Cruiser"
         },
         {
             "HOF": "cable-pipe-layer",
-            "IMS": "Cable\/Pipe layer"
+            "IMS": "BoatType.CablePipelayer"
         },
         {
             "HOF": "catamaran-multihulled",
-            "IMS": "Catamaran multihulled"
+            "IMS": "BoatType.Catamaran_multi"
         },
         {
             "HOF": "containership",
@@ -214,67 +218,75 @@
         },
         {
             "HOF": "cruise-ship",
-            "IMS": "Cruise ship"
+            "IMS": "BoatType.Cruise_ship"
         },
         {
             "HOF": "dayboat",
-            "IMS": "Dayboat"
+            "IMS": "BoatType.Dayboat"
         },
         {
             "HOF": "dinghy",
-            "IMS": "Dinghy"
+            "IMS": "BoatType.Dinghy"
         },
         {
             "HOF": "ferry",
-            "IMS": "Ferry"
+            "IMS": "BoatType.Ferry"
         },
         {
             "HOF": "fishing-boat",
-            "IMS": "Fishing boat"
+            "IMS": "BoatType.Fishing_boat"
         },
         {
             "HOF": "ketch",
-            "IMS": "Ketch"
+            "IMS": "BoatType.Ketch"
         },
         {
             "HOF": "reefer",
-            "IMS": "Reefer"
+            "IMS": "BoatType.Reefer"
         },
         {
             "HOF": "rhib",
-            "IMS": "Rhib"
+            "IMS": "BoatType.Rhib"
         },
         {
             "HOF": "tanker",
-            "IMS": "Tanker"
+            "IMS": "BoatType.Tanker"
         },
         {
             "HOF": "tug",
-            "IMS": "Tug"
+            "IMS": "BoatType.Tug"
         },
         {
             "HOF": "yacht",
-            "IMS": "Yacht"
+            "IMS": "BoatType.Yacht"
         },
         {
             "HOF": "general-cargo",
-            "IMS": "General Cargo"
+            "IMS": "BoatType.General_Cargo"
         },
         {
             "HOF": "general-cargo-with-container-capacity",
-            "IMS": "General Cargo with container capacity"
+            "IMS": "BoatType.GeneralCargoCon"
         },
         {
             "HOF": "research-vessel",
-            "IMS": "Research vessel"
+            "IMS": "BoatType.ResearchVessel"
         },
         {
             "HOF": "supply-vessel",
-            "IMS": "Supply vessel"
+            "IMS": "BoatType.Supplyvessel"
         },
         {
             "HOF": "support-vessel",
-            "IMS": "Support vessel"
+            "IMS": "BoatType.Supportvessel"
+        },
+        {
+            "HOF": "vehicle-carrier",
+            "IMS": "BoatType.VehicleCarrier"
+        },
+        {
+            "HOF": "vessel-carrier",
+            "IMS": "BoatType.VesselCarrier"
         },
         {
             "HOF": "male",
