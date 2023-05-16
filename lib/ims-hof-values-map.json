@@ -2795,6 +2795,118 @@
         {
             "HOF": "company-unknown",
             "IMS": "CompanyType.dontknow"
-        }
+        },
+        {
+            "HOF": "Arriva Trains Wales",
+            "IMS": "TrainCompany.Arriva"
+          },
+          {
+            "HOF": "c2c",
+            "IMS": "Traincompany.c2c"
+          },
+          {
+            "HOF": "Chiltern Railways",
+            "IMS": "Traincompany.ChilternRailways"
+          },
+          {
+            "HOF": "CrossCountry",
+            "IMS": "Traincompany.CrossCountry"
+          },
+          {
+            "HOF": "East Coast",
+            "IMS": "Traincompany.EastCoast"
+          },
+          {
+            "HOF": "East Midlands Trains",
+            "IMS": "Traincompany.EastMidlands"
+          },
+          {
+            "HOF": "Eurostar",
+            "IMS": "Traincompany.Eurostar"
+          },
+          {
+            "HOF": "First Capital Connect",
+            "IMS": "Traincompany.FirstCapital"
+          },
+          {
+            "HOF": "First Great Western",
+            "IMS": "Traincompany.FirstGreat"
+          },
+          {
+            "HOF": "First Hull Trains",
+            "IMS": "Traincompany.FirstHull"
+          },
+          {
+            "HOF": "First TransPennine Express",
+            "IMS": "Traincompany.FirstTransPenni"
+          },
+          {
+            "HOF": "Gatwick Express",
+            "IMS": "Traincompany.GatwickExpress"
+          },
+          {
+            "HOF": "Grand Central",
+            "IMS": "Traincompany.GrandCentral"
+          },
+          {
+            "HOF": "Greater Anglia",
+            "IMS": "Traincompany.GreaterAnglia"
+          },
+          {
+            "HOF": "Heathrow Connect",
+            "IMS": "Traincompany.HeathrowConnect"
+          },
+          {
+            "HOF": "Heathrow Express",
+            "IMS": "Traincompany.HeathrowExpress"
+          },
+          {
+            "HOF": "Island Line",
+            "IMS": "Traincompany.IslandLine"
+          },
+          {
+            "HOF": "London Midland",
+            "IMS": "Traincompany.LondonMidland"
+          },
+          {
+            "HOF": "London Overground",
+            "IMS": "Traincompany.LondonOverground"
+          },
+          {
+            "HOF": "London Underground",
+            "IMS": "Traincompany.LondonUnderground"
+          },
+          {
+            "HOF": "Merseyrail",
+            "IMS": "Traincompany.Merseyrail"
+          },
+          {
+            "HOF": "Northern Rail",
+            "IMS": "Traincompany.NorthernRail"
+          },
+          {
+            "HOF": "ScotRail",
+            "IMS": "Traincompany.ScotRail"
+          },
+          {
+            "HOF": "South West Trains",
+            "IMS": "Traincompany.SouthWestTrains"
+          },
+          {
+            "HOF": "Southeastern",
+            "IMS": "Traincompany.SouthEastern"
+          },
+          {
+            "HOF": "Southern",
+            "IMS": "Traincompany.Southern"
+          },
+          {
+            "HOF": "Stansted Express",
+            "IMS": "Traincompany.StanstedExpress"
+          },
+          {
+            "HOF": "Virgin Trains",
+            "IMS": "Traincompany.VirginTrains"
+          }
     ]
 }
