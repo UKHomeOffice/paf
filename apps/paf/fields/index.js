@@ -166,7 +166,7 @@ module.exports = {
     isPageHeading: true,
     mixin: 'radio-group',
     options: [
-      'bulk-carrier',
+      'vehicle-bulk-carrier',
       {
         value: 'cars',
         toggle: 'crime-car-group',
@@ -918,7 +918,7 @@ module.exports = {
     mixin: 'radio-group',
     options: [
       'boat',
-      'bulk-carrier',
+      'vehicle-bulk-carrier',
       {
         value: 'cars',
         toggle: 'report-person-transport-car-group',
