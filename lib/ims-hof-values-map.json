@@ -1627,6 +1627,970 @@
         {
             "HOF": "Country-Unknown",
             "IMS": "CountryList.UKN"
+        },
+        {
+            "HOF": "Nationality-Afghanistan",
+            "IMS": "NatList.AFG"
+        },
+        {
+            "HOF": "Nationality-Albania",
+            "IMS": "NatList.ALB"
+        },
+        {
+            "HOF": "Nationality-Algeria",
+            "IMS": "NatList.DZA"
+        },
+        {
+            "HOF": "Nationality-Andorra",
+            "IMS": "NatList.AND"
+        },
+        {
+            "HOF": "Nationality-Angola",
+            "IMS": "NatList.AGO"
+        },
+        {
+            "HOF": "Nationality-Anguilla",
+            "IMS": "NatList.AIA"
+        },
+        {
+            "HOF": "Nationality-Antigua and Barbuda",
+            "IMS": "NatList.ATG"
+        },
+        {
+            "HOF": "Nationality-Argentina",
+            "IMS": "NatList.ARG"
+        },
+        {
+            "HOF": "Nationality-Armenia",
+            "IMS": "NatList.ARM"
+        },
+        {
+            "HOF": "Nationality-Australia",
+            "IMS": "NatList.AUS"
+        },
+        {
+            "HOF": "Nationality-Austria",
+            "IMS": "NatList.AUT"
+        },
+        {
+            "HOF": "Nationality-Azerbaijan",
+            "IMS": "NatList.AZE"
+        },
+        {
+            "HOF": "Nationality-Bahamas",
+            "IMS": "NatList.BHS"
+        },
+        {
+            "HOF": "Nationality-Bahrain",
+            "IMS": "NatList.BHR"
+        },
+        {
+            "HOF": "Nationality-Bangladesh",
+            "IMS": "NatList.BGD"
+        },
+        {
+            "HOF": "Nationality-Barbados",
+            "IMS": "NatList.BRB"
+        },
+        {
+            "HOF": "Nationality-Belarus",
+            "IMS": "NatList.BLR"
+        },
+        {
+            "HOF": "Nationality-Belguim",
+            "IMS": "NatList.BEL"
+        },
+        {
+            "HOF": "Nationality-Belize",
+            "IMS": "NatList.BLZ"
+        },
+        {
+            "HOF": "Nationality-Benin",
+            "IMS": "NatList.BEN"
+        },
+        {
+            "HOF": "Nationality-Bermuda",
+            "IMS": "NatList.BMU"
+        },
+        {
+            "HOF": "Nationality-Bhutan",
+            "IMS": "NatList.BTN"
+        },
+        {
+            "HOF": "Nationality-Bolivia",
+            "IMS": "NatList.BOL"
+        },
+        {
+            "HOF": "Nationality-Bosnia and Herzegovina",
+            "IMS": "NatList.BIH"
+        },
+        {
+            "HOF": "Nationality-Botswana",
+            "IMS": "NatList.BWA"
+        },
+        {
+            "HOF": "Nationality-Brazil",
+            "IMS": "NatList.BRA"
+        },
+        {
+            "HOF": "Nationality-British Indian Ocean Territory",
+            "IMS": "NatList.IOT"
+        },
+        {
+            "HOF": "Nationality-British National (Overseas)",
+            "IMS": "NatList.GBN"
+        },
+        {
+            "HOF": "Nationality-British Overseas Citizen",
+            "IMS": "NatList.GBO"
+        },
+        {
+            "HOF": "Nationality-British Overseas Territories Citizenship (BOTC)",
+            "IMS": "NatList.GBD"
+        },
+        {
+            "HOF": "Nationality-British Protected Person",
+            "IMS": "NatList.GBP"
+        },
+        {
+            "HOF": "Nationality-British Subject",
+            "IMS": "NatList.GBS"
+        },
+        {
+            "HOF": "Nationality-Brunei Darussalam",
+            "IMS": "NatList.BRN"
+        },
+        {
+            "HOF": "Nationality-Bulgaria",
+            "IMS": "NatList.BGR"
+        },
+        {
+            "HOF": "Nationality-Burkina Faso",
+            "IMS": "NatList.BFA"
+        },
+        {
+            "HOF": "Nationality-Burma",
+            "IMS": "NatList.BUR"
+        },
+        {
+            "HOF": "Nationality-Burundi",
+            "IMS": "NatList.BDI"
+        },
+        {
+            "HOF": "Nationality-Byelorussian SSR",
+            "IMS": "NatList.BYS"
+        },
+        {
+            "HOF": "Nationality-Cambodia",
+            "IMS": "NatList.KHM"
+        },
+        {
+            "HOF": "Nationality-Cameroon",
+            "IMS": "NatList.CMR"
+        },
+        {
+            "HOF": "Nationality-Canada",
+            "IMS": "NatList.CAN"
+        },
+        {
+            "HOF": "Nationality-Cape Verde",
+            "IMS": "NatList.CPV"
+        },
+        {
+            "HOF": "Nationality-Cayman Islands",
+            "IMS": "NatList.CYM"
+        },
+        {
+            "HOF": "Nationality-Central African Republic",
+            "IMS": "NatList.CAF"
+        },
+        {
+            "HOF": "Nationality-Chad",
+            "IMS": "NatList.TCD"
+        },
+        {
+            "HOF": "Nationality-Chile",
+            "IMS": "NatList.CHL"
+        },
+        {
+            "HOF": "Nationality-China",
+            "IMS": "NatList.CHN"
+        },
+        {
+            "HOF": "Nationality-Colombia",
+            "IMS": "NatList.COL"
+        },
+        {
+            "HOF": "Nationality-Comoros",
+            "IMS": "NatList.COM"
+        },
+        {
+            "HOF": "Nationality-Congo",
+            "IMS": "NatList.CON"
+        },
+        {
+            "HOF": "Nationality-Costa Rica",
+            "IMS": "NatList.CRI"
+        },
+        {
+            "HOF": "Nationality-Cote D'Ivoire (Ivory Coast)",
+            "IMS": "NatList.CIV"
+        },
+        {
+            "HOF": "Nationality-Croatia",
+            "IMS": "NatList.HRV"
+        },
+        {
+            "HOF": "Nationality-Cuba",
+            "IMS": "NatList.CUB"
+        },
+        {
+            "HOF": "Nationality-Curacao",
+            "IMS": "NatList.CUW"
+        },
+        {
+            "HOF": "Nationality-Cyprus",
+            "IMS": "NatList.CYP"
+        },
+        {
+            "HOF": "Nationality-Czech Republic",
+            "IMS": "NatList.CZE"
+        },
+        {
+            "HOF": "Nationality-Czechoslavakia",
+            "IMS": " NatList.CSK"
+        },
+        {
+            "HOF": "Nationality-Democratic People's Republic of Korea",
+            "IMS": "NatList.PRK"
+        },
+        {
+            "HOF": "Nationality-Democratic Republic of the Congo",
+            "IMS": "NatList.COD"
+        },
+        {
+            "HOF": "Nationality-Denmark",
+            "IMS": "NatList.DNK"
+        },
+        {
+            "HOF": "Nationality-Djibouti",
+            "IMS": "NatList.DJI"
+        },
+        {
+            "HOF": "Nationality-Dominica",
+            "IMS": "NatList.DMA"
+        },
+        {
+            "HOF": "Nationality-Dominican Republic",
+            "IMS": "NatList.DOM"
+        },
+        {
+            "HOF": "Nationality-East Timor",
+            "IMS": "NatList.TMP"
+        },
+        {
+            "HOF": "Nationality-Ecuador",
+            "IMS": "NatList.ECU"
+        },
+        {
+            "HOF": "Nationality-Egypt",
+            "IMS": "NatList.EGY"
+        },
+        {
+            "HOF": "Nationality-El Salvador",
+            "IMS": "NatList.SLV"
+        },
+        {
+            "HOF": "Nationality-Equatorial Guinea",
+            "IMS": "NatList.GNQ"
+        },
+        {
+            "HOF": "Nationality-Eritrea",
+            "IMS": "NatList.ERI"
+        },
+        {
+            "HOF": "Nationality-Estonia",
+            "IMS": "NatList.EST"
+        },
+        {
+            "HOF": "Nationality-Ethiopia",
+            "IMS": "NatList.ETH"
+        },
+        {
+            "HOF": "Nationality-Fiji",
+            "IMS": "NatList.FJI"
+        },
+        {
+            "HOF": "Nationality-Finland",
+            "IMS": "NatList.FIN"
+        },
+        {
+            "HOF": "Nationality-France",
+            "IMS": "NatList.FRA"
+        },
+        {
+            "HOF": "Nationality-Gabon",
+            "IMS": "NatList.GAB"
+        },
+        {
+            "HOF": "Nationality-Gambia",
+            "IMS": "NatList.GMB"
+        },
+        {
+            "HOF": "Nationality-Georgia",
+            "IMS": "NatList.GEO"
+        },
+        {
+            "HOF": "Nationality-Germany",
+            "IMS": "NatList.DEU"
+        },
+        {
+            "HOF": "Nationality-Ghana",
+            "IMS": "NatList.GHA"
+        },
+        {
+            "HOF": "Nationality-Gibraltar",
+            "IMS": "NatList.GIB"
+        },
+        {
+            "HOF": "Nationality-Greece",
+            "IMS": "NatList.GRC"
+        },
+        {
+            "HOF": "Nationality-Greenland",
+            "IMS": "NatList.GRL"
+        },
+        {
+            "HOF": "Nationality-Grenada",
+            "IMS": "NatList.GRD"
+        },
+        {
+            "HOF": "Nationality-Guadeloupe",
+            "IMS": "NatList.GLP"
+        },
+        {
+            "HOF": "Nationality-Guatemala",
+            "IMS": "NatList.GTM"
+        },
+        {
+            "HOF": "Nationality-Guinea",
+            "IMS": "NatList.GIN"
+        },
+        {
+            "HOF": "Nationality-Guinea-Bissau",
+            "IMS": "NatList.GNB"
+        },
+        {
+            "HOF": "Nationality-Guyana",
+            "IMS": "NatList.GUY"
+        },
+        {
+            "HOF": "Nationality-Haiti",
+            "IMS": "NatList.HTI"
+        },
+        {
+            "HOF": "Nationality-Holy See (Vatican City State)",
+            "IMS": "NatList.VTN"
+        },
+        {
+            "HOF": "Nationality-Honduras",
+            "IMS": "NatList.HND"
+        },
+        {
+            "HOF": "Nationality-Hong Kong Special Administrative Region of China",
+            "IMS": "NatList.HKG"
+        },
+        {
+            "HOF": "Nationality-Hungary",
+            "IMS": "NatList.HUN"
+        },
+        {
+            "HOF": "Nationality-Iceland",
+            "IMS": "NatList.ISL"
+        },
+        {
+            "HOF": "Nationality-India",
+            "IMS": "NatList.IND"
+        },
+        {
+            "HOF": "Nationality-Indonesia",
+            "IMS": "NatList.IDN"
+        },
+        {
+            "HOF": "Nationality-Iran, Islamic Republic of",
+            "IMS": "NatList.IRN"
+        },
+        {
+            "HOF": "Nationality-Iraq",
+            "IMS": "NatList.IRQ"
+        },
+        {
+            "HOF": "Nationality-Ireland",
+            "IMS": "NatList.IRL"
+        },
+        {
+            "HOF": "Nationality-Israel",
+            "IMS": "NatList.ISR"
+        },
+        {
+            "HOF": "Nationality-Italy",
+            "IMS": "NatList.ITA"
+        },
+        {
+            "HOF": "Nationality-Jamaica",
+            "IMS": "NatList.JAM"
+        },
+        {
+            "HOF": "Nationality-Japan",
+            "IMS": "NatList.JPN"
+        },
+        {
+            "HOF": "Nationality-Jordan",
+            "IMS": "NatList.JOR"
+        },
+        {
+            "HOF": "Nationality-Kazakhstan",
+            "IMS": "NatList.KAZ"
+        },
+        {
+            "HOF": "Nationality-Kenya",
+            "IMS": "NatList.KEN"
+        },
+        {
+            "HOF": "Nationality-Kiribati",
+            "IMS": "NatList.KIR"
+        },
+        {
+            "HOF": "Nationality-Kosovo (UN Travel Document)",
+            "IMS": "NatList.UNK"
+        },
+        {
+            "HOF": "Nationality-Kosovo",
+            "IMS": "NatList.XXK"
+        },
+        {
+            "HOF": "Nationality-Kuwait",
+            "IMS": "NatList.KWT"
+        },
+        {
+            "HOF": "Nationality-Kyrgyzstan",
+            "IMS": "NatList.KGZ"
+        },
+        {
+            "HOF": "Nationality-Lao People's Democratic Republic",
+            "IMS": "NatList.LAO"
+        },
+        {
+            "HOF": "Nationality-Latvia",
+            "IMS": "NatList.LVA"
+        },
+        {
+            "HOF": "Nationality-Lebanon",
+            "IMS": "NatList.LBN"
+        },
+        {
+            "HOF": "Nationality-Lesotho",
+            "IMS": "NatList.LSO"
+        },
+        {
+            "HOF": "Nationality-Liberia",
+            "IMS": "NatList.LBR"
+        },
+        {
+            "HOF": "Nationality-Libya",
+            "IMS": "NatList.LBY2"
+        },
+        {
+            "HOF": "Nationality-Liechtenstein",
+            "IMS": "NatList.LIE"
+        },
+        {
+            "HOF": "Nationality-Lithuania",
+            "IMS": "NatList.LTU"
+        },
+        {
+            "HOF": "Nationality-Luxembourg",
+            "IMS": "NatList.LUX"
+        },
+        {
+            "HOF": "Nationality-Macedonia, The Former Yugoslav Republic Of",
+            "IMS": "NatList.MKD"
+        },
+        {
+            "HOF": "Nationality-Madagascar",
+            "IMS": "NatList.MDG"
+        },
+        {
+            "HOF": "Nationality-Malawi",
+            "IMS": "NatList.MWI"
+        },
+        {
+            "HOF": "Nationality-Malaysia",
+            "IMS": "NatList.MYS"
+        },
+        {
+            "HOF": "Nationality-Maldives",
+            "IMS": "NatList.MDV"
+        },
+        {
+            "HOF": "Nationality-Mali",
+            "IMS": "NatList.MLI"
+        },
+        {
+            "HOF": "Nationality-Malta",
+            "IMS": "NatList.MLT"
+        },
+        {
+            "HOF": "Nationality-Marshall Islands",
+            "IMS": "NatList.MHL"
+        },
+        {
+            "HOF": "Nationality-Mauritania",
+            "IMS": "NatList.MRT"
+        },
+        {
+            "HOF": "Nationality-Mauritius",
+            "IMS": "NatList.MUS"
+        },
+        {
+            "HOF": "Nationality-Mexico",
+            "IMS": "NatList.MEX"
+        },
+        {
+            "HOF": "Nationality-Micronesia (Federated States of)",
+            "IMS": "NatList.FSM"
+        },
+        {
+            "HOF": "Nationality-Moldova, Republic of",
+            "IMS": "NatList.MDA"
+        },
+        {
+            "HOF": "Nationality-Monaco",
+            "IMS": "NatList.MCO"
+        },
+        {
+            "HOF": "Nationality-Mongolia",
+            "IMS": "NatList.MNG"
+        },
+        {
+            "HOF": "Nationality-Montenegro",
+            "IMS": "NatList.MNE"
+        },
+        {
+            "HOF": "Nationality-Montserrat",
+            "IMS": "NatList.MSR"
+        },
+        {
+            "HOF": "Nationality-Morocco",
+            "IMS": "NatList.MAR"
+        },
+        {
+            "HOF": "Nationality-Mozambique",
+            "IMS": "NatList.MOZ"
+        },
+        {
+            "HOF": "Nationality-Namibia",
+            "IMS": "NatList.NAM"
+        },
+        {
+            "HOF": "Nationality-Nationality Currently Unknown",
+            "IMS": "NatList.ZZZ"
+        },
+        {
+            "HOF": "Nationality-Nauru",
+            "IMS": "NatList.NRU"
+        },
+        {
+            "HOF": "Nationality-Nepal",
+            "IMS": "NatList.NPL"
+        },
+        {
+            "HOF": "Nationality-Netherlands",
+            "IMS": "NatList.NLD"
+        },
+        {
+            "HOF": "Nationality-Netherlands Antilles",
+            "IMS": "NatList.ANT"
+        },
+        {
+            "HOF": "Nationality-New Zealand",
+            "IMS": "NatList.NZL"
+        },
+        {
+            "HOF": "Nationality-Nicaragua",
+            "IMS": "NatList.NIC"
+        },
+        {
+            "HOF": "Nationality-Niger",
+            "IMS": "NatList.NER"
+        },
+        {
+            "HOF": "Nationality-Nigeria",
+            "IMS": "NatList.NGA"
+        },
+        {
+            "HOF": "Nationality-Niue",
+            "IMS": "NatList.NIU"
+        },
+        {
+            "HOF": "Nationality-Norway",
+            "IMS": "NatList.NOR"
+        },
+        {
+            "HOF": "Nationality-Officially Stateless",
+            "IMS": "NatList.XYZ"
+        },
+        {
+            "HOF": "Nationality-Oman",
+            "IMS": "NatList.OMN"
+        },
+        {
+            "HOF": "Nationality-Pacific Islands, Trust Territory of the",
+            "IMS": "NatList.PCI"
+        },
+        {
+            "HOF": "Nationality-Pakistan",
+            "IMS": "NatList.PAK"
+        },
+        {
+            "HOF": "Nationality-Palestinian Territory Occupied",
+            "IMS": "NatList.PSE"
+        },
+        {
+            "HOF": "Nationality-Panama",
+            "IMS": "NatList.PAN"
+        },
+        {
+            "HOF": "Nationality-Papua New Guinea",
+            "IMS": "NatList.PNG"
+        },
+        {
+            "HOF": "Nationality-Paraguay",
+            "IMS": "NatList.PRY"
+        },
+        {
+            "HOF": "Nationality-Peru",
+            "IMS": "NatList.PER"
+        },
+        {
+            "HOF": "Nationality-Philipines",
+            "IMS": "NatList.PHL"
+        },
+        {
+            "HOF": "Nationality-Polish",
+            "IMS": "NatList.POL"
+        },
+        {
+            "HOF": "Nationality-Portugal",
+            "IMS": "NatList.PRT"
+        },
+        {
+            "HOF": "Nationality-Qatar",
+            "IMS": "NatList.QAT"
+        },
+        {
+            "HOF": "Nationality-Refugee - Article 1 of the 1951 Convention",
+            "IMS": "NatList.XXB"
+        },
+        {
+            "HOF": "Nationality-Refugee - Other",
+            "IMS": "NatList.XXC"
+        },
+        {
+            "HOF": "Nationality-Romania",
+            "IMS": "NatList.ROU"
+        },
+        {
+            "HOF": "Nationality-Russian Federation",
+            "IMS": "NatList.RUS"
+        },
+        {
+            "HOF": "Nationality-Rwanda",
+            "IMS": "NatList.RWA"
+        },
+        {
+            "HOF": "Nationality-Saint Barthelemy",
+            "IMS": "NatList.BLM"
+        },
+        {
+            "HOF": "Nationality-Saint Helena, Ascension and Tristan da Cunha",
+            "IMS": "NatList.SHN"
+        },
+        {
+            "HOF": "Nationality-Saint Kitts and Nevis",
+            "IMS": "NatList.KNA"
+        },
+        {
+            "HOF": "Nationality-Saint Lucia",
+            "IMS": "NatList.LCA"
+        },
+        {
+            "HOF": "Nationality-Saint Martin",
+            "IMS": "NatList.MAK"
+        },
+        {
+            "HOF": "Nationality-Saint Pierre and Miquelon",
+            "IMS": "NatList.SPM"
+        },
+        {
+            "HOF": "Nationality-Saint Vincent and the Grenadines",
+            "IMS": "NatList.VCT"
+        },
+        {
+            "HOF": "Nationality-Samoa",
+            "IMS": "NatList.WSM"
+        },
+        {
+            "HOF": "Nationality-San Marino",
+            "IMS": "NatList.SMR"
+        },
+        {
+            "HOF": "Nationality-Sao Tome and Principe",
+            "IMS": "NatList.STP"
+        },
+        {
+            "HOF": "Nationality-Saudi Arabia",
+            "IMS": "NatList.SAU"
+        },
+        {
+            "HOF": "Nationality-Senegal",
+            "IMS": "NatList.SEN"
+        },
+        {
+            "HOF": "Nationality-Serbia",
+            "IMS": "NatList.SRB"
+        },
+        {
+            "HOF": "Nationality-Serbia and Montenegro",
+            "IMS": "NatList.SCG"
+        },
+        {
+            "HOF": "Nationality-Seychelles",
+            "IMS": "NatList.SYC"
+        },
+        {
+            "HOF": "Nationality-Sierra Leone",
+            "IMS": "NatList.SLE"
+        },
+        {
+            "HOF": "Nationality-Sikkim",
+            "IMS": "NatList.SKP"
+        },
+        {
+            "HOF": "Nationality-Singapore",
+            "IMS": "NatList.SGP"
+        },
+        {
+            "HOF": "Nationality-Sint Maarten (Dutch part)",
+            "IMS": "Sint Maarten (Dutch part)"
+        },
+        {
+            "HOF": "Nationality-Slovakia",
+            "IMS": "NatList.SVK"
+        },
+        {
+            "HOF": "Nationality-Slovenia",
+            "IMS": "NatList.SVN"
+        },
+        {
+            "HOF": "Nationality-Solomon Islands",
+            "IMS": "NatList.SLB"
+        },
+        {
+            "HOF": "Nationality-Somalia",
+            "IMS": "NatList.SOM"
+        },
+        {
+            "HOF": "Nationality-South Africa",
+            "IMS": "NatList.ZAF"
+        },
+        {
+            "HOF": "Nationality-South Georgia and the South Sandwich Islands",
+            "IMS": "NatList.SGS"
+        },
+        {
+            "HOF": "Nationality-South Korea (Republic of Korea)",
+            "IMS": "NatList.KOR"
+        },
+        {
+            "HOF": "Nationality-South Sudan",
+            "IMS": "NatList.SSD"
+        },
+        {
+            "HOF": "Nationality-Spain",
+            "IMS": "NatList.ESP"
+        },
+        {
+            "HOF": "Nationality-Sri Lanka",
+            "IMS": "NatList.LKA"
+        },
+        {
+            "HOF": "Nationality-Stateless Person (Article 1 of 1954 Convention)",
+            "IMS": "NatList.XXA"
+        },
+        {
+            "HOF": "Nationality-Sudan",
+            "IMS": "NatList.SDN"
+        },
+        {
+            "HOF": "Nationality-Suriname",
+            "IMS": "NatList.SUR"
+        },
+        {
+            "HOF": "Nationality-Swaziland",
+            "IMS": "NatList.SWZ"
+        },
+        {
+            "HOF": "Nationality-Sweden",
+            "IMS": "NatList.SWE"
+        },
+        {
+            "HOF": "Nationality-Switzerland",
+            "IMS": "NatList.CHE"
+        },
+        {
+            "HOF": "Nationality-Syria Arab Republic",
+            "IMS": "NatList.SYR"
+        },
+        {
+            "HOF": "Nationality-Taiwan",
+            "IMS": "NatList.TWN"
+        },
+        {
+            "HOF": "Nationality-Tajikistan",
+            "IMS": "NatList.TJK"
+        },
+        {
+            "HOF": "Tanzania, United Republic of",
+            "IMS": "NatList.TZA"
+        },
+        {
+            "HOF": "Nationality-Thailand",
+            "IMS": "NatList.THA"
+        },
+        {
+            "HOF": "Nationality-Togo",
+            "IMS": "NatList.TGO"
+        },
+        {
+            "HOF": "Nationality-Tokelau",
+            "IMS": "NatList.TKL"
+        },
+        {
+            "HOF": "Nationality-Tonga",
+            "IMS": "NatList.TON"
+        },
+        {
+            "HOF": "Nationality-Trinidad and Tobago",
+            "IMS": "NatList.TTO"
+        },
+        {
+            "HOF": "Nationality-Tunisia",
+            "IMS": "NatList.TUN"
+        },
+        {
+            "HOF": "Nationality-Turkey",
+            "IMS": "NatList.TUR"
+        },
+        {
+            "HOF": "Nationality-Turkish controlled area of Cyprus",
+            "IMS": "NatList.XXT"
+        },
+        {
+            "HOF": "Nationality-Turkmenistan",
+            "IMS": "NatList.TKM"
+        },
+        {
+            "HOF": "Nationality-Turks and Caicos Islands",
+            "IMS": "NatList.TCA"
+        },
+        {
+            "HOF": "Nationality-Tuvalu",
+            "IMS": "NatList.TUV"
+        },
+        {
+            "HOF": "Nationality-Uganda",
+            "IMS": "NatList.UGA"
+        },
+        {
+            "HOF": "Nationality-Ukraine",
+            "IMS": "NatList.UKR"
+        },
+        {
+            "HOF": "Nationality-United Arab Emirates",
+            "IMS": "NatList.ARE"
+        },
+        {
+            "HOF": "Nationality-United Kingdom of Great Britain and Northern Ireland",
+            "IMS": "NatList.GBR"
+        },
+        {
+            "HOF": "Nationality-United Nations",
+            "IMS": "NatList.UNO"
+        },
+        {
+            "HOF": "Nationality-United Nations Agency",
+            "IMS": "NatList.UNA"
+        },
+        {
+            "HOF": "Nationality-United States of America",
+            "IMS": "NatList.USA"
+        },
+        {
+            "HOF": "Nationality-Unspecified Nationality",
+            "IMS": "NatList.XXX"
+        },
+        {
+            "HOF": "Nationality-Upper Volta",
+            "IMS": "NatList.HVO"
+        },
+        {
+            "HOF": "Nationality-Uruguay",
+            "IMS": "NatList.URY"
+        },
+        {
+            "HOF": "Nationality-Uzbekistan",
+            "IMS": "NatList.UZB"
+        },
+        {
+            "HOF": "Nationality-Vanuatu",
+            "IMS": "NatList.VUT"
+        },
+        {
+            "HOF": "Nationality-Venezuela",
+            "IMS": "NatList.VEN"
+        },
+        {
+            "HOF": "Nationality-Vietnam",
+            "IMS": "NatList.VNM"
+        },
+        {
+            "HOF": "Nationality-Yemen",
+            "IMS": "NatList.YEM"
+        },
+        {
+            "HOF": "Nationality-Yugoslavia",
+            "IMS": "NatList.YUG"
+        },
+        {
+            "HOF": "Nationality-Zaire",
+            "IMS": "NatList.ZAR"
+        },
+        {
+            "HOF": "Nationality-Zambia",
+            "IMS": "NatList.ZMB"
+        },
+        {
+            "HOF": "Nationality-Zimbabwe",
+            "IMS": "NatList.ZWE"
+        },
+        {
+            "HOF": "Nationality-unknown",
+            "IMS": "NatList.UKN"
+        },
+        {
+            "HOF": "Nationality-I Dont Know",
+            "IMS": "NatList.DontKnow"
         }
     ]
 }
