@@ -5,6 +5,7 @@ const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 const OCCUPATION = require('../data/occupation');
 const COUNTRIES = require('../data/countriesList');
 const NATIONALITIES = require('../data/nationalities');
+const COMPANY_TYPES = require('../data/companyTypes');
 const _ = require('lodash');
 
 module.exports = {
@@ -222,7 +223,10 @@ module.exports = {
   organisation: [
     'report-organisation',
     'organisation-company-name',
-    'company-types',
+    {
+      field: 'company-types',
+      parse: v => _.get(_.find(COMPANY_TYPES, group => group.value === v), 'label', '')
+    },
     'company-owner',
     'owner-know-about-the-crime'
   ],
