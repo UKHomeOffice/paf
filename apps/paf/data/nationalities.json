@@ -8,6 +8,10 @@
     "label": "Albania"
   },
   {
+    "value": "Nationality-Algeria",
+    "label": "Algeria"
+  },
+  {
     "value": "Nationality-Andorra",
     "label": "Andorra"
   },
@@ -108,31 +112,31 @@
     "label": "Brazil"
   },
   {
-    "value": "British Indian Ocean Territory",
+    "value": "Nationality-British Indian Ocean Territory",
     "label": "British Indian Ocean Territory"
   },
   {
-    "value": "British National (Overseas)",
+    "value": "Nationality-British National (Overseas)",
     "label": "British National (Overseas)"
   },
   {
-    "value": "British Overseas Citizen",
+    "value": "Nationality-British Overseas Citizen",
     "label": "British Overseas Citizen"
   },
   {
-    "value": "British Overseas Territories Citizenship (BOTC)",
+    "value": "Nationality-British Overseas Territories Citizenship (BOTC)",
     "label": "British Overseas Territories Citizenship (BOTC)"
   },
   {
-    "value": "British Protected Person",
+    "value": "Nationality-British Protected Person",
     "label": "British Protected Person"
   },
   {
-    "value": "British Subject",
+    "value": "Nationality-British Subject",
     "label": "British Subject"
   },
   {
-    "value": "Brunei Darussalam",
+    "value": "Nationality-Brunei Darussalam",
     "label": "Brunei Darussalam"
   },
   {
@@ -440,7 +444,7 @@
     "label": "North Korea (Democratic People's Republic of Korea)"
   },
   {
-    "value": "South Korea (Republic of Korea)",
+    "value": "Nationality-South Korea (Republic of Korea)",
     "label": "South Korea (Republic of Korea)"
   },
   {
@@ -460,7 +464,7 @@
     "label": "Kyrgyzstan"
   },
   {
-    "value": "Lao People's Democratic Republic",
+    "value": "Nationality-Lao People's Democratic Republic",
     "label": "Lao People's Democratic Republic"
   },
   {
@@ -716,7 +720,7 @@
     "label": "Qatar"
   },
   {
-    "value": "Refugee - Article 1 of the 1951 Convention",
+    "value": "Nationality-Refugee - Article 1 of the 1951 Convention",
     "label": "Refugee - Article 1 of the 1951 Convention"
   },
   {
@@ -752,7 +756,7 @@
     "label": "Saint Lucia"
   },
   {
-    "value": "Saint Martin",
+    "value": "Nationality-Saint Martin",
     "label": "Saint Martin"
   },
   {
@@ -964,11 +968,11 @@
     "label": "United States of America"
   },
   {
-    "value": "United Kingdom",
+    "value": "Nationality-United Kingdom",
     "label": "United Kingdom"
   },
   {
-    "value": "Unspecified Nationality",
+    "value": "Nationality-Unspecified Nationality",
     "label": "Unspecified Nationality"
   },
   {
@@ -1016,11 +1020,11 @@
     "label": "Zimbabwe"
   },
   {
-    "value": "Unknown",
+    "value": "Nationality-unknown",
     "label": "Unknown"
   },
   {
-    "value": "I Dont Know",
+    "value": "Nationality-I Dont Know",
     "label": "I don't know"
   }
 ]

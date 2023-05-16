@@ -4,6 +4,7 @@ const moment = require('moment');
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 const OCCUPATION = require('../data/occupation');
 const COUNTRIES = require('../data/countriesList');
+const NATIONALITIES = require('../data/nationalities');
 const _ = require('lodash');
 
 module.exports = {
@@ -115,7 +116,10 @@ module.exports = {
       parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
     },
     'report-person-age-range',
-    'report-person-nationality',
+    {
+      field: 'report-person-nationality',
+      parse: v => _.get(_.find(NATIONALITIES, group => group.value === v), 'label', '')
+    },
     'report-person-place-of-birth',
     'report-person-gender'
   ],
@@ -266,7 +270,10 @@ module.exports = {
       field: 'about-you-dob',
       parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
     },
-    'about-you-nationality',
+    {
+      field: 'about-you-nationality',
+      parse: v => _.get(_.find(NATIONALITIES, group => group.value === v), 'label', '')
+    },
     'about-you-gender',
     'about-you-contact',
     'are-you-eighteen',
