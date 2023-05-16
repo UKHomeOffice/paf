@@ -2591,6 +2591,198 @@
         {
             "HOF": "Nationality-I Dont Know",
             "IMS": "NatList.DontKnow"
+        },
+        {
+            "HOF": "job-building-construction",
+            "IMS": "JobType.Building"
+        },
+        {
+            "HOF": "job-care-assistant",
+            "IMS": "JobType.Care"
+        },
+        {
+            "HOF": "job-catering-and-hospitality",
+            "IMS": "JobType.Catering"
+        },
+        {
+            "HOF": "job-childcare",
+            "IMS": "JobType.Childcare"
+        },
+        {
+            "HOF": "job-cleaner",
+            "IMS": "JobType.Cleaner"
+        },
+        {
+            "HOF": "job-doctor-nurse-paramedic",
+            "IMS": "JobType.DoctorNurse"
+        },
+        {
+            "HOF": "job-domestic-worker",
+            "IMS": "JobType.Domestic"
+        },
+        {
+            "HOF": "job-driver",
+            "IMS": "JobType.Driver"
+        },
+        {
+            "HOF": "job-engineering",
+            "IMS": "JobType.Engineering"
+        },
+        {
+            "HOF": "job-factory-worker",
+            "IMS": "JobType.Factoryworker"
+        },
+        {
+            "HOF": "job-farming-forestry-and-fishing",
+            "IMS": "JobType.Agriculture"
+        },
+        {
+            "HOF": "job-government-employee",
+            "IMS": "JobType.GovernmentEmplo"
+        },
+        {
+            "HOF": "job-hairdressing-beauty-therapy",
+            "IMS": "JobType.HairdressingBea"
+        },
+        {
+            "HOF": "job-Information-technology-IT",
+            "IMS": "JobType.IT"
+        },
+        {
+            "HOF": "job-office-work",
+            "IMS": "JobType.OfficeWork"
+        },
+        {
+            "HOF": "job-port-airport-worker",
+            "IMS": "JobType.PortAirport"
+        },
+        {
+            "HOF": "job-sales-and-retail",
+            "IMS": "JobType.Salesretail"
+        },
+        {
+            "HOF": "job-security",
+            "IMS": "JobType.Security"
+        },
+        {
+            "HOF": "job-self-employed",
+            "IMS": "JobType.SelfEmployed"
+        },
+        {
+            "HOF": "job-teacher-lecturer",
+            "IMS": "JobType.TeacherLecturer"
+        },
+        {
+            "HOF": "job-warehouse",
+            "IMS": "JobType.Warehouse"
+        },
+        {
+            "HOF": "job-other",
+            "IMS": "JobType.Other"
+        },
+        {
+            "HOF": "job-unknown",
+            "IMS": "JobType.DontKnow"
+        },
+        {
+            "HOF": "company-building-construction",
+            "IMS": "CompanyType.BuildingConstru"
+        },
+        {
+            "HOF": "company-care-home",
+            "IMS": "CompanyType.CareHome"
+        },
+        {
+            "HOF": "company-catering-and-hospitality",
+            "IMS": "CompanyType.CateringHospita"
+        },
+        {
+            "HOF": "company-child-care-nursery",
+            "IMS": "CompanyType.ChildcareNurser"
+        },
+        {
+            "HOF": "company-cleaning",
+            "IMS": "CompanyType.Cleaning"
+        },
+        {
+            "HOF": "company-engineering",
+            "IMS": "CompanyType.Engineering"
+        },
+        {
+            "HOF": "company-english-language-college",
+            "IMS": "CompanyType.EngLanguageColl"
+        },
+        {
+            "HOF": "company-factory",
+            "IMS": "CompanyType.Factory"
+        },
+        {
+            "HOF": "company-farming-forestry-and-fishing",
+            "IMS": "CompanyType.FarmingForestry"
+        },
+        {
+            "HOF": "company-freight-agent",
+            "IMS": "CompanyType.FreightAgent"
+        },
+        {
+            "HOF": "company-government",
+            "IMS": "CompanyType.Government"
+        },
+        {
+            "HOF": "company-hairdressing-beauty-therapy",
+            "IMS": "CompanyType.HairdressingBea"
+        },
+        {
+            "HOF": "company-haulage",
+            "IMS": "CompanyType.Haulage"
+        },
+        {
+            "HOF": "company-hospital-healthcare",
+            "IMS": "CompanyType.HospitalHealthc"
+        },
+        {
+            "HOF": "company-information-technology",
+            "IMS": "CompanyType.InformationTech"
+        },
+        {
+            "HOF": "company-sales-retail",
+            "IMS": "CompanyType.Salesretail"
+        },
+        {
+            "HOF": "company-school-college-university",
+            "IMS": "CompanyType.SchoolCollegeUn"
+        },
+        {
+            "HOF": "company-security",
+            "IMS": "CompanyType.Security"
+        },
+        {
+            "HOF": "company-self-store",
+            "IMS": "CompanyType.SelfStore"
+        },
+        {
+            "HOF": "company-taxi-minicab-chauffeur",
+            "IMS": "CompanyType.TaxiMinicabChau"
+        },
+        {
+            "HOF": "company-travel-operator-agent",
+            "IMS": "CompanyType.TravelOp"
+        },
+        {
+            "HOF": "company-vehicle-rental",
+            "IMS": "CompanyType.VehicleRental"
+        },
+        {
+            "HOF": "company-warehouse",
+            "IMS": "CompanyType.Warehouse"
+        },
+        {
+            "HOF": "company-other",
+            "IMS": "CompanyType.Other"
+        },
+        {
+            "HOF": "company-unknown",
+            "IMS": "CompanyType.dontknow"
         }
     ]
 }

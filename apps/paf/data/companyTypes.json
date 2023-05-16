@@ -52,6 +52,10 @@
     "label": "Haulage"
   },
   {
+    "value": "company-hospital-healthcare",
+    "label": "Hospital / Healthcare"
+  },
+  {
     "value": "company-information-technology",
     "label": "Information technology (IT)"
   },
@@ -85,7 +89,7 @@
   },
   {
     "value": "company-warehouse",
-    "label": "Aarehouse"
+    "label": "Warehouse"
   },
   {
     "value": "company-other",
