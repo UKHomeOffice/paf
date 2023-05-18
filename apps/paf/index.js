@@ -678,8 +678,7 @@ module.exports = {
           }
           return false;
         }
-      }],
-      next: '/about-you'
+      }]
     },
     '/add-other-info-file-upload': {
       template: 'list-add-looped-files',
@@ -693,7 +692,6 @@ module.exports = {
         combineValuesToSingleField: 'record',
         returnTo: '/other-info-file-upload'
       }), removeImage, limitDocs],
-      next: '/about-you',
       locals: {
         section: 'other-info-file-upload'
       }

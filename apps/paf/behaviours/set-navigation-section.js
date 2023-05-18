@@ -1,6 +1,7 @@
 module.exports = superclass => class extends superclass {
-  configure(req, res, next) {
-    // Person section - set next property for preceeding pages and set backlink
+  getValues(req, res, next) {
+    return super.getValues(req, res, (err, values) => {
+        // Person section - set next property for preceeding pages and set backlink
     if (req.query.section === 'person') {
       req.form.options.steps['/crime-location'].next = '/report-person'
       req.form.options.steps['/crime-another-location'].next = '/report-person'
@@ -73,9 +74,10 @@ module.exports = superclass => class extends superclass {
     // About You section - set next property for preceeding pages and set backlink
     if (req.query.section === 'about-you') {
       req.form.options.steps['/other-info-file-upload'].next = '/about-you'
+      req.form.options.steps['/add-other-info-file-upload'].next = '/about-you'
       res.locals.backLink = 'other-info-description'
     }
-    if (req.form.options.route === '/other-info-file-upload') {
+    if (req.form.options.route === '/other-info-file-upload' || req.form.options.route === '/add-other-info-file-upload' ) {
       req.form.options.next = '/about-you'
     }
     // Add about you page backlink
@@ -106,7 +108,8 @@ module.exports = superclass => class extends superclass {
         res.locals.backLink = 'about-you-contact'
       }
     }
-    next();
+      return next(null, values);
+    });
   }
 
   locals(req, res) {
