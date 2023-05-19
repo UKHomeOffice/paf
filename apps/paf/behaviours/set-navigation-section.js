@@ -73,9 +73,13 @@ module.exports = superclass => class extends superclass {
     // About You section - set next property for preceeding pages and set backlink
     if (req.query.section === 'about-you') {
       req.form.options.steps['/other-info-file-upload'].next = '/about-you'
+      req.form.options.steps['/add-other-info-file-upload'].next = '/about-you'
       res.locals.backLink = 'other-info-description'
     }
     if (req.form.options.route === '/other-info-file-upload') {
+      req.form.options.next = '/about-you'
+    }
+    if (req.form.options.route === '/add-other-info-file-upload') {
       req.form.options.next = '/about-you'
     }
     // Add about you page backlink

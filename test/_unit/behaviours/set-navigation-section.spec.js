@@ -127,6 +127,16 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
         })
       });
 
+      it(`the add-other-info-file-upload page has the next page as '/about-you'`, () => {
+        req.query.section = 'about-you';
+        req.form.options.route = '/add-other-info-file-upload';
+        controller.configure(req, res, () => {
+          const addOtherInfoFileUploadNext = req.form.options.steps['/add-other-info-file-upload'].next;
+          addOtherInfoFileUploadNext.should.deep.equal('/about-you');
+          req.form.options.next.should.deep.equal('/about-you')
+        })
+      });
+
       it(`the about-you-contact page has the next page as '/confirm'`, () => {
         req.query.section = 'check-answers';
         req.form.options.route = '/about-you-contact';
