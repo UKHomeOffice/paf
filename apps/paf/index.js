@@ -692,6 +692,7 @@ module.exports = {
         combineValuesToSingleField: 'record',
         returnTo: '/other-info-file-upload'
       }), removeImage, limitDocs],
+      next: '/about-you',
       locals: {
         section: 'other-info-file-upload'
       }
