@@ -35,6 +35,8 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
             '/report-organisation': {},
             '/another-company': {},
             '/other-info-file-upload': {},
+            '/add-other-info-file-upload': {},
+            '/add-other-info-file-upload': {},
             '/about-you-contact': {},
             '/are-you-eighteen': {},
           }
@@ -172,6 +174,8 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
             '/another-company': {},
             '/other-info-description': {},
             '/other-info-file-upload': {},
+            '/add-other-info-file-upload': {},
+            '/add-other-info-file-upload': {},
             '/about-you': {},
             '/about-you-contact': {},
             '/are-you-eighteen': {},

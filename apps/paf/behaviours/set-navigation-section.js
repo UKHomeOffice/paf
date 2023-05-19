@@ -76,7 +76,7 @@ module.exports = superclass => class extends superclass {
       req.form.options.steps['/add-other-info-file-upload'].next = '/about-you'
       res.locals.backLink = 'other-info-description'
     }
-    if (req.form.options.route === '/other-info-file-upload') {
+    if (req.form.options.route === '/other-info-file-upload' || req.form.options.route === '/add-other-info-file-upload' ) {
       req.form.options.next = '/about-you'
     }
     if (req.form.options.route === '/add-other-info-file-upload') {
