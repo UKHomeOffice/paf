@@ -1,6 +1,10 @@
 {
     "Fields": [
         {
+        "IMS": "lsvehicle",
+        "HOF": "vehicle-type"
+        },
+        {
         "IMS": "rdcrimetype",
         "HOF": "crime-type"
         },
@@ -247,6 +251,10 @@
         {
         "IMS": "lswherecountry",
         "HOF": "crime-location-country"
+        },
+        {
+         "IMS": "txwhereaddress",
+         "HOF": "crime-location-address"
         },
         {
         "IMS": "txwherepostcode",
