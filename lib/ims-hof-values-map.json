@@ -202,6 +202,14 @@
              "IMS": "BoatType.Bulk_Carrier"
             },
             {
+             "HOF": "vehicle-carrier",
+             "IMS": "BoatType.VehicleCarrier"
+            },
+            {
+             "HOF": "vessel-carrier",
+             "IMS": "BoatType.VesselCarrier"
+            },
+            {
              "HOF": "cabin-cruiser",
              "IMS": "BoatType.Cabin_Cruiser"
             },
