@@ -157,7 +157,7 @@ steps:
         include:
           - master
           - feature/*
-      event: [push, pull_request]
+      event: pull_request
 
   - name: setup_branch
     pull: if-not-exists
@@ -171,8 +171,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
-      event: [pull_request, push]
+          - feature/*
+      event: pull_request
 
   - name: linting_branch
     <<: *linting
@@ -180,8 +180,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
-      event: [pull_request, push]
+          - feature/*
+      event: pull_request
 
   - name: unit_tests_branch
     <<: *unit_tests
@@ -189,8 +189,8 @@ steps:
       branch:
         include:
         - master
-        # - feature/*
-      event: [push, pull_request]
+        - feature/*
+      event: pull_request
 
   - name: ui_integration_tests_branch
     <<: *ui_integration_tests
@@ -198,8 +198,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
-      event: [push, pull_request]
+          - feature/*
+      event: pull_request
 
   - name: sonar_scanner_branch
     <<: *sonar_scanner
@@ -207,8 +207,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
-      event: [push, pull_request]
+          - feature/*
+      event: pull_request
 
   # Snyk & Anchore security scans which run after branch deployment to prevent blocking of PR UAT tests.
   - name: snyk_scan
@@ -224,8 +224,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
-      event: [push, pull_request]
+          - feature/*
+      event: pull_request
 
   - name: anchore_scan
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
@@ -239,8 +239,8 @@ steps:
       branch: 
         include:
           - master
-          # - feature/*
-      event: [push, pull_request]
+          - feature/*
+      event: pull_request
 
   # Deploy to master UAT environment
   - name: deploy_to_uat
