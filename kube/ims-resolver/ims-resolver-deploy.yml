@@ -39,8 +39,8 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          # no official release, this is a branch version image PAF-50-deploy-ims-resolver 1be33d272cb87f60d42b873ed36d7f914585c556
-          image: quay.io/ukhomeofficedigital/ims-resolver:d35bd5b8d2239fc6f8234b51d9b9240d7740fb37
+          # no official release, this connects to the private link
+          image: quay.io/ukhomeofficedigital/ims-resolver:3ef948c3cf90b88a66e2213da4ad929d4af607af
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -72,6 +72,10 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_endpoint
+            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
+            - name: NODE_TLS_REJECT_UNAUTHORIZED
+              value: "0"
+            {{ end }}
           securityContext:
             runAsNonRoot: true
           resources:
