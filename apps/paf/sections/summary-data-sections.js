@@ -3,6 +3,9 @@
 const moment = require('moment');
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 const OCCUPATION = require('../data/occupation');
+const COUNTRIES = require('../data/countriesList');
+const NATIONALITIES = require('../data/nationalities');
+const COMPANY_TYPES = require('../data/companyTypes');
 const _ = require('lodash');
 
 module.exports = {
@@ -44,20 +47,29 @@ module.exports = {
     'crime-general-cargo-group',
     'crime-vessel-group',
     'boat-name',
-    'boat-country-departure',
+    {
+      field: 'boat-country-departure',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'port-departure',
     'port-arrival',
     'port-departure-time',
     'port-arrival-time',
     'train-company',
-    'train-country-departure',
+    {
+      field: 'train-country-departure',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'station-departure',
     'station-arrival',
     'station-departure-time',
     'station-arrival-time',
     'airline-company',
     'airline-flight-number',
-    'airline-country-departure',
+    {
+      field: 'airline-country-departure',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'airport-departure',
     'airport-arrival',
     'airport-departure-time',
@@ -71,7 +83,10 @@ module.exports = {
   ],
   'crime-location': [
     'crime-location',
-    'crime-location-country',
+    {
+      field: 'crime-location-country',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'crime-location-address-line1',
     'crime-location-address-line2',
     'crime-location-address-town',
@@ -79,7 +94,10 @@ module.exports = {
     'crime-location-address-postcode',
     'crime-location-phone',
     'crime-another-location',
-    'crime-another-location-country',
+    {
+      field: 'crime-another-location-country',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'crime-another-location-address-line1',
     'crime-another-location-address-line2',
     'crime-another-location-address-town',
@@ -99,7 +117,10 @@ module.exports = {
       parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
     },
     'report-person-age-range',
-    'report-person-nationality',
+    {
+      field: 'report-person-nationality',
+      parse: v => _.get(_.find(NATIONALITIES, group => group.value === v), 'label', '')
+    },
     'report-person-place-of-birth',
     'report-person-gender'
   ],
@@ -110,23 +131,28 @@ module.exports = {
   ],
   'person-contact': [
     'report-person-location',
-    'report-person-location-type',
     'report-person-location-uk-address-line1',
     'report-person-location-uk-address-line2',
     'report-person-location-uk-address-town',
     'report-person-location-uk-address-county',
     'report-person-location-uk-address-postcode',
-    'report-person-location-outside-uk-address-country',
+    {
+      field: 'report-person-location-outside-uk-address-country',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
     'report-person-location-outside-uk-address-line1',
     'report-person-location-outside-uk-address-line2',
     'report-person-location-outside-uk-address-town',
     'report-person-location-outside-uk-address-county',
     'report-person-location-outside-uk-address-postcode',
+    'report-person-location-type',
     'report-person-location-mobile',
     'report-person-location-phone',
     'report-person-location-email',
-    'report-person-location-type',
-    'report-person-location-travel-to-uk-country'
+    {
+      field: 'report-person-location-travel-to-uk-country',
+      parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
+    },
   ],
   'person-occupation': [
     'report-person-occupation',
@@ -197,7 +223,10 @@ module.exports = {
   organisation: [
     'report-organisation',
     'organisation-company-name',
-    'company-types',
+    {
+      field: 'company-types',
+      parse: v => _.get(_.find(COMPANY_TYPES, group => group.value === v), 'label', '')
+    },
     'company-owner',
     'owner-know-about-the-crime'
   ],
@@ -245,7 +274,10 @@ module.exports = {
       field: 'about-you-dob',
       parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
     },
-    'about-you-nationality',
+    {
+      field: 'about-you-nationality',
+      parse: v => _.get(_.find(NATIONALITIES, group => group.value === v), 'label', '')
+    },
     'about-you-gender',
     'about-you-contact',
     'are-you-eighteen',

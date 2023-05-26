@@ -9,6 +9,10 @@ const transportBehaviour = require('./behaviours/transport-behaviour');
 const Aggregate = require('./behaviours/aggregator');
 const limitPerson = require('./behaviours/limit-person');
 const personNumber = require('./behaviours/person-number');
+const addressFormatter = require('./behaviours/address-formatter');
+const additionalPersonFormatter = require('./behaviours/additional-person-formatter');
+const vehicleToggleFormatter = require('./behaviours/vehicle-toggle-formatter');
+const SendToSQS = require('./behaviours/send-to-sqs');
 
 module.exports = {
   name: 'paf',
@@ -421,7 +425,8 @@ module.exports = {
           value: 'yes'
         }
       }
-      ]
+      ],
+      continueOnEdit: true
     },
     '/report-person-occupation-company-name': {
       fields: ['report-person-occupation-company-name'],
@@ -678,7 +683,8 @@ module.exports = {
           }
           return false;
         }
-      }]
+      }],
+      next: '/about-you'
     },
     '/add-other-info-file-upload': {
       template: 'list-add-looped-files',
@@ -692,6 +698,7 @@ module.exports = {
         combineValuesToSingleField: 'record',
         returnTo: '/other-info-file-upload'
       }), removeImage, limitDocs],
+      next: '/about-you',
       locals: {
         section: 'other-info-file-upload'
       }
@@ -754,7 +761,7 @@ module.exports = {
       next: '/declaration'
     },
     '/declaration': {
-      behaviours: ['complete'],
+      behaviours: ['complete', addressFormatter, additionalPersonFormatter,vehicleToggleFormatter, SendToSQS],
       next: '/confirmation'
     },
     '/confirmation': {

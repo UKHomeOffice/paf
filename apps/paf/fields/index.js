@@ -72,7 +72,7 @@ module.exports = {
   'crime-children': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown'],
+    options: ['yes', 'no', 'crime-childen-unknown'],
     validate: 'required'
   },
   'when-crime-happened': {
@@ -95,7 +95,7 @@ module.exports = {
         child: "input-text"
       },
       'not-yet-happened',
-      'unknown'
+      'dont-know-when-it-happend'
     ],
   },
   'happening-now-info': {
@@ -172,7 +172,7 @@ module.exports = {
     isPageHeading: true,
     mixin: 'radio-group',
     options: [
-      'bulk-carrier',
+      'vehicle-bulk-carrier',
       {
         value: 'cars',
         toggle: 'crime-car-group',
@@ -536,23 +536,45 @@ module.exports = {
         value: '',
         label: 'fields.crime-location-country.options.null'
       }].concat(countriesList),
+      dependent: {
+        field: 'crime-location',
+          value: 'yes'
+      }
   },
   'crime-location-address-line1': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-line2': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-town': {
-    className: ['govuk-input', 'govuk-!-width-two-thirds']
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-county': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-postcode': {
-    formatter: ['removespaces', 'uppercase'],
     className: ['govuk-input', 'govuk-input--width-10'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
@@ -577,23 +599,45 @@ module.exports = {
         value: '',
         label: 'fields.crime-another-location-country.options.null'
       }].concat(countriesList),
+      dependent: {
+        field: 'crime-another-location',
+        value: 'yes'
+      }
   },
   'crime-another-location-address-line1': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-line2': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-town': {
-    className: ['govuk-input', 'govuk-!-width-two-thirds']
+    className: ['govuk-input', 'govuk-!-width-two-thirds'],
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-county': {
-    mixin: 'input-text'
+    mixin: 'input-text',
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-postcode': {
-    formatter: ['removespaces', 'uppercase'],
     className: ['govuk-input', 'govuk-input--width-10'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
@@ -634,7 +678,7 @@ module.exports = {
       '45-54',
       '55-64',
       '65-74',
-      '74+'
+      '75+'
     ]
   },
   'report-person-nationality': {
@@ -653,7 +697,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'unknown'
+      'gender-unknown'
     ]
   },
   'report-person-passport': {
@@ -675,7 +719,8 @@ module.exports = {
       'uk',
       'outside-uk',
       'travel-to-uk',
-      'unknown']
+      'location-unknown'
+    ]
   },
   'report-person-location-uk-address-line1': {
     mixin: 'input-text'
@@ -925,7 +970,7 @@ module.exports = {
     mixin: 'radio-group',
     options: [
       'boat',
-      'bulk-carrier',
+      'vehicle-bulk-carrier',
       {
         value: 'cars',
         toggle: 'report-person-transport-car-group',
@@ -1083,7 +1128,7 @@ module.exports = {
       '45-54',
       '55-64',
       '65-74',
-      '74+'
+      '75+'
     ]
   },
   'personAddNationality': {
@@ -1102,7 +1147,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'unknown'
+      'gender-unknown'
     ]
   },
   'personAddPassport': {
@@ -1301,7 +1346,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'unknown'
+      'gender-unknown'
     ]
   },
   'about-you-contact': {
