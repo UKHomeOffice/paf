@@ -220,7 +220,7 @@ steps:
       KUBE_TOKEN:
         from_secret: kube_token_prod
     commands:
-      - /bin/sh ./bin/deploy.sh $${STG_ENV}
+      - sh bin/deploy.sh $${STG_ENV}
     when:
       branch: 
         include:
