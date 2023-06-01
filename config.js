@@ -26,7 +26,7 @@ module.exports = {
     secret: process.env.KEYCLOAK_SECRET
   },
   awsSqs: {
-    region: process.env.AWS_REGION || 'eu-west-2',
+    region: process.env.AWS_REGION,
     queueUrl: process.env.SQS_URL,
     credentials: {
       accessKeyId: process.env.ACCESS_KEY_ID,
