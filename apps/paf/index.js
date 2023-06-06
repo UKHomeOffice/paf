@@ -9,6 +9,9 @@ const transportBehaviour = require('./behaviours/transport-behaviour');
 const Aggregate = require('./behaviours/aggregator');
 const limitPerson = require('./behaviours/limit-person');
 const personNumber = require('./behaviours/person-number');
+const addressFormatter = require('./behaviours/address-formatter');
+const vehicleToggleFormatter = require('./behaviours/vehicle-toggle-formatter');
+const SendToSQS = require('./behaviours/send-to-sqs');
 
 module.exports = {
   name: 'paf',
@@ -421,7 +424,8 @@ module.exports = {
           value: 'yes'
         }
       }
-      ]
+      ],
+      continueOnEdit: true
     },
     '/report-person-occupation-company-name': {
       fields: ['report-person-occupation-company-name'],
@@ -754,7 +758,7 @@ module.exports = {
       next: '/declaration'
     },
     '/declaration': {
-      behaviours: ['complete'],
+      behaviours: ['complete', addressFormatter, vehicleToggleFormatter, SendToSQS],
       next: '/confirmation'
     },
     '/confirmation': {
