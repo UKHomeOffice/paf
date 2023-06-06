@@ -621,7 +621,8 @@ module.exports = {
   },
   'report-person-dob': dateComponent('report-person-dob', {
     isPageHeading: true,
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: ['date', 'before']
   }),
   'report-person-age-range': {
     mixin: 'radio-group',
@@ -1070,6 +1071,7 @@ module.exports = {
   'personAddDob': dateComponent('personAddDob', {
     isPageHeading: true,
     mixin: 'input-date',
+    validate: ['date', 'before'],
     parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
   }),
   'personAddAgeRange': {
@@ -1282,7 +1284,8 @@ module.exports = {
   },
   'about-you-dob': dateComponent('about-you-dob', {
     isPageHeading: true,
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: ['date', 'before']
   }),
   'about-you-nationality': {
     isPageHeading: true,

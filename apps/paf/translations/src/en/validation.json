@@ -117,6 +117,10 @@
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
     "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank"
   },
+  "report-person-dob": {
+    "date": "Please enter a valid date",
+    "before": "Please enter a date that is in the past"
+  },
   "report-person-passport": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
@@ -234,6 +238,10 @@
   "personAddNi": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
+  "personAddDob": {
+    "date": "Please enter a valid date",
+    "before": "Please enter a date that is in the past"
+  },
   "company-other-info": {
     "maxlength": "You must enter no more than 1200 characters"
   },
@@ -258,6 +266,10 @@
   "about-you-family-name": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
     "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank"
+  },
+  "about-you-dob": {
+    "date": "Please enter a valid date",
+    "before": "Please enter a date that is in the past"
   },
   "how-did-you-find-out-about-the-crime": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
