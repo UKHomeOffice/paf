@@ -554,51 +554,51 @@
         },
         {
         "IMS": "txpermorefname",
-        "HOF": "personAddFirstName"
+        "HOF": ""
         },
         {
         "IMS": "txpermorefamname",
-        "HOF": "personAddFamilyName"
+        "HOF": ""
         },
         {
         "IMS": "txpermoreothername",
-        "HOF": "personAddNickname"
+        "HOF": ""
         },
         {
         "IMS": "dtpermoredob",
-        "HOF": "personAddDob"
+        "HOF": ""
         },
         {
         "IMS": "txpermoreapproxage",
-        "HOF": "personAddAgeRange"
+        "HOF": ""
         },
         {
         "IMS": "cbpermorenationality",
-        "HOF": "personAddNationality"
+        "HOF": ""
         },
         {
         "IMS": "rdpermoregender",
-        "HOF": "personAddGender"
+        "HOF": ""
         },
         {
         "IMS": "txpermorepassport",
-        "HOF": "personAddPassport"
+        "HOF": ""
         },
         {
         "IMS": "txpermoreidcard",
-        "HOF": "personAddId"
+        "HOF": ""
         },
         {
         "IMS": "txpermoreninum",
-        "HOF": "personAddNi"
+        "HOF": ""
         },
         {
             "IMS": "tbwhoaddperson",
-            "HOF": "persons"
+            "HOF": ""
         },
         {
             "IMS": "txpermoreallholder",
-            "HOF": "additional-people-table"
+            "HOF": ""
         },
         {
         "IMS": "rdwhoreportorg",
