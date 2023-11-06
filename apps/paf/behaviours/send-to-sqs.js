@@ -2,7 +2,50 @@
 
 const { v4: uuidv4 } = require('uuid');
 const { sendToQueue } = require('../../../lib/utils');
-const { addAllegationData } = require('../../../lib/add-allegation-data');
+var _ = require('lodash');
+const fieldsMap = require('../../../lib/ims-hof-fields-map.json');
+const valuesMap = require('../../../lib/ims-hof-values-map.json');
+
+let eform = {
+    "EformFields": []
+  }
+
+  const addFieldToEform = (fieldName, fieldValue) => {
+     eform.EformFields.push({"FieldName" : fieldName, "FieldValue" : fieldValue}) ;
+  }
+
+  const addGroup = (value)  => {
+    addField(value, value);
+  };
+
+  const addField = (name, value) => {
+    let imsName = _.find(fieldsMap.Fields, {"HOF":name});
+    if ( imsName != undefined) {
+      let imsValue = _.find(valuesMap.Values, {"HOF":value});
+      if (imsValue != undefined ) {
+        addFieldToEform(imsName.IMS, imsValue.IMS);
+      }
+      else {
+        addFieldToEform(imsName.IMS, value);
+      }
+    }
+  };
+
+  const addAllegationData = (data) => {
+    Object.entries(data).forEach(entry => {
+      const [key, value] = entry;
+      if (value != '') {
+        if (key.includes('group')) {
+          const groups = Array.isArray(value) ? value : value.split(",");
+          groups.map(addGroup);
+        }
+        else {
+          addField(key, value);
+        }
+      }
+    });
+    return JSON.stringify(eform);
+  }
 
 module.exports = superclass => class SendToSQS extends superclass {
   // eslint-disable-next-line consistent-return
