@@ -54,11 +54,11 @@ spec:
               value: "0"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
-              value: https://supp-docs.prod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv.prod.{{ .APP_NAME }}.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-              value: https://supp-docs-dev.notprod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv-stg.prod.{{ .APP_NAME }}.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-              value: https://supp-docs-dev.notprod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv-uat.notprod.{{ .APP_NAME }}.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
               value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
             - name: DEBUG
