@@ -254,8 +254,11 @@ steps:
     commands:
       - sh bin/deploy.sh $${UAT_ENV}
     when:
-      branch: master
-      event: push
+      branch: 
+        include:
+          - master
+          - feature/*
+      event: pull_request
 
   # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows.
   - name: get_pr_branch
