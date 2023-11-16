@@ -183,6 +183,24 @@ steps:
           - feature/*
       event: pull_request
 
+  # Deploy to master UAT environment
+  - name: deploy_to_uat
+    pull: if-not-exists
+    image: quay.io/ukhomeofficedigital/kd:v1.14.0
+    environment:
+      KUBE_SERVER:
+        from_secret: kube_server_dev
+      KUBE_TOKEN:
+        from_secret: kube_token_dev
+    commands:
+      - sh bin/deploy.sh $${UAT_ENV}
+    when:
+      branch: 
+        include:
+          - master
+          - feature/*
+      event: pull_request    
+
   - name: unit_tests_branch
     <<: *unit_tests
     when:
@@ -235,24 +253,6 @@ steps:
       LOCAL_IMAGE: true
       TOLERATE: medium
       WHITELIST_FILE: hof-services-config/Public_Allegation_Form/anchore-cve-exceptions.txt
-    when:
-      branch: 
-        include:
-          - master
-          - feature/*
-      event: pull_request
-
-  # Deploy to master UAT environment
-  - name: deploy_to_uat
-    pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd:v1.14.0
-    environment:
-      KUBE_SERVER:
-        from_secret: kube_server_dev
-      KUBE_TOKEN:
-        from_secret: kube_token_dev
-    commands:
-      - sh bin/deploy.sh $${UAT_ENV}
     when:
       branch: 
         include:
