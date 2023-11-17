@@ -241,6 +241,7 @@ steps:
           - master
           - feature/*
       event: pull_request
+      
   # Deploy to master UAT environment
   - name: deploy_to_uat
     pull: if-not-exists
