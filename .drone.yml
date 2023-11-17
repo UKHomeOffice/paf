@@ -183,24 +183,6 @@ steps:
           - feature/*
       event: pull_request
 
-  # Deploy to master UAT environment
-  - name: deploy_to_uat
-    pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd:v1.14.0
-    environment:
-      KUBE_SERVER:
-        from_secret: kube_server_dev
-      KUBE_TOKEN:
-        from_secret: kube_token_dev
-    commands:
-      - sh bin/deploy.sh $${UAT_ENV}
-    when:
-      branch: 
-        include:
-          - master
-          - feature/*
-      event: pull_request    
-
   - name: unit_tests_branch
     <<: *unit_tests
     when:
@@ -259,6 +241,21 @@ steps:
           - master
           - feature/*
       event: pull_request
+  
+  # Deploy to master UAT environment
+  - name: deploy_to_uat
+    pull: if-not-exists
+    image: quay.io/ukhomeofficedigital/kd:v1.14.0
+    environment:
+      KUBE_SERVER:
+        from_secret: kube_server_dev
+      KUBE_TOKEN:
+        from_secret: kube_token_dev
+    commands:
+      - sh bin/deploy.sh $${UAT_ENV}
+    when:
+      branch: master
+      event: push
 
   # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows.
   - name: get_pr_branch
