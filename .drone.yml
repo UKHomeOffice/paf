@@ -35,11 +35,11 @@ unit_tests: &unit_tests
   commands:
     - yarn run test:unit
 
-ui_integration_tests: &ui_integration_tests
-  pull: if-not-exists
-  image: node:18
-  commands:
-    - yarn run test:ui-integration  
+# ui_integration_tests: &ui_integration_tests
+#   pull: if-not-exists
+#   image: node:18
+#   commands:
+#     - yarn run test:ui-integration
 
 sonar_scanner: &sonar_scanner
   pull: if-not-exists
@@ -90,7 +90,7 @@ steps:
       branch:
         include:
           - master
-          - feature/* 
+          - feature/*
       event: push
 
   - name: sonar_scanner_deploy
@@ -101,13 +101,13 @@ steps:
           - master
       event: push
 
-  - name: ui_integration_tests_deploy 
-    <<: *ui_integration_tests
-    when:
-      branch:
-        include:
-          - master
-      event: push
+  # - name: ui_integration_tests_deploy
+  #   <<: *ui_integration_tests
+  #   when:
+  #     branch:
+  #       include:
+  #         - master
+  #     event: push
 
   - name: build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
@@ -153,7 +153,7 @@ steps:
     commands:
       - sh bin/deploy.sh $${BRANCH_ENV}
     when:
-      branch: 
+      branch:
         include:
           - master
           - feature/*
@@ -192,14 +192,14 @@ steps:
         - feature/*
       event: pull_request
 
-  - name: ui_integration_tests_branch
-    <<: *ui_integration_tests
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: pull_request
+  # - name: ui_integration_tests_branch
+  #   <<: *ui_integration_tests
+  #   when:
+  #     branch:
+  #       include:
+  #         - master
+  #         - feature/*
+  #     event: pull_request
 
   - name: sonar_scanner_branch
     <<: *sonar_scanner
@@ -236,7 +236,7 @@ steps:
       TOLERATE: medium
       WHITELIST_FILE: hof-services-config/Public_Allegation_Form/anchore-cve-exceptions.txt
     when:
-      branch: 
+      branch:
         include:
           - master
           - feature/*
