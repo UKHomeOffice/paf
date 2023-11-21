@@ -945,7 +945,7 @@ module.exports = {
   },
   'report-person-study-manager': {
     mixin: 'input-text',
-    validate: ['url', { type: 'maxlength', arguments: 100 }]
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'report-person-study-manager-know': {
     mixin: 'radio-group',
@@ -1211,7 +1211,7 @@ module.exports = {
   },
   'company-owner': {
     mixin: 'input-text',
-    validate: ['url', { type: 'maxlength', arguments: 100 }]
+    validate: [{ type: 'maxlength', arguments: 100 }]
   },
   'owner-know-about-the-crime': {
     mixin: 'radio-group',
