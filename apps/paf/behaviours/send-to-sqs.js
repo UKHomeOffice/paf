@@ -2,8 +2,8 @@
 
 const { v4: uuidv4 } = require('uuid');
 const { sendToQueue } = require('../../../lib/utils');
-var _ = require('lodash');
 const { addAllegationData } = require('../../../lib/add-allegation-data');
+var _ = require('lodash');
 
 module.exports = superclass => class SendToSQS extends superclass {
   // eslint-disable-next-line consistent-return
