@@ -2,6 +2,7 @@
 
 const { v4: uuidv4 } = require('uuid');
 const { sendToQueue } = require('../../../lib/utils');
+const { addAllegationData } = require('../../../lib/add-allegation-data');
 var _ = require('lodash');
 const fieldsMap = require('../../../lib/ims-hof-fields-map.json');
 const valuesMap = require('../../../lib/ims-hof-values-map.json');

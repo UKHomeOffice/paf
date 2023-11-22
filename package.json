@@ -13,8 +13,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "start:dev": "hof-build watch",
-    "dev": "hof-build watch --env",
+    "start:dev": "hof-build watch --env",
     "test": "NODE_ENV=test yarn run test:lint && yarn run test:unit && yarn run test:ui-integration",
     "test:lint": "eslint .",
     "test:ui-integration": "NODE_ENV=test _mocha \"test/_ui-integration/**/*.spec.js\" --exit",
