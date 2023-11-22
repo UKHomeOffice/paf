@@ -7,11 +7,19 @@ const fieldsMap = require('../../../lib/ims-hof-fields-map.json');
 const valuesMap = require('../../../lib/ims-hof-values-map.json');
 
 let eform = {
-    "EformFields": []
+    "EformFields": [],
+    "AdditionalPeople":[],
+    "Attachements":[] 
   }
 
   const addFieldToEform = (fieldName, fieldValue) => {
-     eform.EformFields.push({"FieldName" : fieldName, "FieldValue" : fieldValue}) ;
+     if (fieldName === 'images') {
+      eform.Attachements.push({"url": fieldValue})
+     } else if (fieldName === 'txpermoreallholder') {
+      eform.AdditionalPeople.push({"FieldName" : fieldName, "FieldValue" : fieldValue})
+     } else {
+      eform.EformFields.push({"FieldName" : fieldName, "FieldValue" : fieldValue}) ;
+     }
   }
 
   const addGroup = (value)  => {
@@ -20,7 +28,7 @@ let eform = {
 
   const addField = (name, value) => {
     let imsName = _.find(fieldsMap.Fields, {"HOF":name});
-    if ( imsName != undefined) {
+    if ( imsName != undefined && !(name === 'images')) {
       let imsValue = _.find(valuesMap.Values, {"HOF":value});
       if (imsValue != undefined ) {
         addFieldToEform(imsName.IMS, imsValue.IMS);
@@ -29,12 +37,17 @@ let eform = {
         addFieldToEform(imsName.IMS, value);
       }
     }
+    if (name === 'images'){
+      console.log("Value :: ", value)
+      addFieldToEform(name, value);
+    }
   };
 
   const addAllegationData = (data) => {
+    console.log("Data attributes ", data);
     Object.entries(data).forEach(entry => {
       const [key, value] = entry;
-      if (value != '') {
+      if (value != '' && key != 'images') {
         if (key.includes('group')) {
           const groups = Array.isArray(value) ? value : value.split(",");
           groups.map(addGroup);
@@ -42,6 +55,9 @@ let eform = {
         else {
           addField(key, value);
         }
+      }
+      if(key === 'images') {
+        addField(key, value[0].url);
       }
     });
     return JSON.stringify(eform);
