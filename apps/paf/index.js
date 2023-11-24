@@ -75,36 +75,36 @@ module.exports = {
         target: '/crime-transport-vehicle-type',
         condition: req => {
           if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-vehicle') === 0) {
-            return true
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-boat-type',
         condition: req => {
           if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 0) {
-            return true
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-train-details',
         condition: req => {
           if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 0) {
-            return true
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-aeroplane-details',
         condition: req => {
           if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 0) {
-            return true
+            return true;
           }
-          return false
+          return false;
         }
       }],
       continueOnEdit: true
@@ -130,27 +130,27 @@ module.exports = {
         target: '/crime-transport-boat-type',
         condition: req => {
           if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 1) {
-            return true
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-train-details',
         condition: req => {
           if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 1) {
-            return true
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-aeroplane-details',
         condition: req => {
           if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 1) {
-            return true
+            return true;
           }
-          return false
+          return false;
         }
       }],
       continueOnEdit: true
@@ -178,18 +178,18 @@ module.exports = {
           target: '/crime-transport-train-details',
           condition: req => {
             if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-train')) {
-              return true
+              return true;
             }
-            return false
+            return false;
           }
         },
         {
           target: '/crime-transport-aeroplane-details',
           condition: req => {
             if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane') && !req.sessionModel.get('transport-group').includes('crime-transport-train')) {
-              return true
+              return true;
             }
-            return false
+            return false;
           }
         }],
       continueOnEdit: true
@@ -208,9 +208,9 @@ module.exports = {
           target: '/crime-transport-aeroplane-details',
           condition: req => {
             if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')) {
-              return true
+              return true;
             }
-            return false
+            return false;
           }
         }],
       continueOnEdit: true
@@ -256,7 +256,7 @@ module.exports = {
         'crime-another-location-address-county',
         'crime-another-location-address-postcode',
         'crime-another-location-phone'
-      ],
+      ]
     },
     '/report-person': {
       fields: ['report-person'],
@@ -384,7 +384,7 @@ module.exports = {
           field: 'report-person-occupation-type',
           value: 'other'
         }
-      },
+      }
       ]
     },
     '/report-person-occupation-government-employee': {
@@ -396,7 +396,7 @@ module.exports = {
           field: 'report-person-occupation-government-employee',
           value: 'yes'
         }
-      },
+      }
       ]
     },
     '/report-person-occupation-government-dept': {
@@ -503,7 +503,7 @@ module.exports = {
         'report-person-study-address-line2',
         'report-person-study-address-town',
         'report-person-study-address-county',
-        'report-person-study-address-postcode',
+        'report-person-study-address-postcode'
       ],
       next: '/report-person-study-contact'
     },
@@ -512,7 +512,7 @@ module.exports = {
         'report-person-study-email',
         'report-person-study-url'
       ],
-      next: '/report-person-study-manager',
+      next: '/report-person-study-manager'
     },
     '/report-person-study-manager': {
       fields: ['report-person-study-manager', 'report-person-study-manager-know'],
@@ -638,30 +638,30 @@ module.exports = {
     },
     '/company-name': {
       next: '/company-address',
-      fields: ['organisation-company-name'],
+      fields: ['organisation-company-name']
     },
     '/company-address': {
       fields: ['company-address-line1', 'company-address-line2', 'company-town', 'company-county', 'company-postcode'],
-      next: '/company-contact',
+      next: '/company-contact'
     },
     '/company-contact': {
       fields: ['company-phone', 'company-email', 'company-website'],
-      next: '/company-types',
+      next: '/company-types'
     },
     '/company-types': {
       fields: ['company-types'],
-      next: '/company-owner',
+      next: '/company-owner'
     },
     '/company-owner': {
       fields: ['company-owner', 'owner-know-about-the-crime'],
-      next: '/company-other-info',
+      next: '/company-other-info'
     },
     '/company-other-info': {
       fields: ['company-other-info'],
-      next: '/another-company',
+      next: '/another-company'
     },
     '/another-company': {
-      fields: ['another-company', 'another-company-yes'],
+      fields: ['another-company', 'another-company-yes']
     },
     '/other-info-description': {
       fields: ['other-info-description'],
@@ -679,7 +679,7 @@ module.exports = {
         target: '/add-other-info-file-upload',
         condition: req => {
           if (req.form.values['other-info-file-upload']) {
-            return true
+            return true;
           }
           return false;
         }
@@ -761,7 +761,7 @@ module.exports = {
       next: '/declaration'
     },
     '/declaration': {
-      behaviours: ['complete', addressFormatter, additionalPersonFormatter,vehicleToggleFormatter, SendToSQS],
+      behaviours: ['complete', addressFormatter, additionalPersonFormatter, vehicleToggleFormatter, SendToSQS],
       next: '/confirmation'
     },
     '/confirmation': {

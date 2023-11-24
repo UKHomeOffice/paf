@@ -51,7 +51,7 @@ describe('Server.js app file', () => {
       hofStub.should.have.been.calledOnce.calledWithExactly({
         appName: 'Public Allegations Form',
         theme: 'govUK',
-         routes: [
+        routes: [
           appsCommonStub,
           appsPafStub
         ],
@@ -93,7 +93,7 @@ describe('Server.js app file', () => {
     it('should set locals on the response', () => {
       res.locals.should.eql({
         htmlLang: 'en',
-        feedbackUrl: 'https://eforms.homeoffice.gov.uk/outreach/feedback.ofml',
+        feedbackUrl: 'https://eforms.homeoffice.gov.uk/outreach/feedback.ofml'
       });
     });
 

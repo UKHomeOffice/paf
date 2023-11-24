@@ -18,15 +18,14 @@ describe('apps/paf/behaviours/limit-person', () => {
     });
 
     describe('limit additional people', () => {
-
       it('locals should not have noMorePersons property if additional people is less then 6', () => {
         req.sessionModel.set('persons', {
           aggregatedValues: [
             { itemTitle: 'Person 1', fields: [Array] },
-            { itemTitle: 'Person 2', fields: [Array] },
+            { itemTitle: 'Person 2', fields: [Array] }
           ]
-        })
-        controller.locals(req, res).should.not.have.property('noMorePersons')
+        });
+        controller.locals(req, res).should.not.have.property('noMorePersons');
       });
 
       it('locals.noMorePersons is true if additional people is equal to or more then 6', () => {
@@ -39,7 +38,7 @@ describe('apps/paf/behaviours/limit-person', () => {
             { itemTitle: 'Person 5', fields: [Array] },
             { itemTitle: 'Person 6', fields: [Array] }
           ]
-        })
+        });
         controller.locals(req, res).should.have.property('noMorePersons')
           .and.deep.equal(true);
       });

@@ -152,7 +152,7 @@ module.exports = {
     {
       field: 'report-person-location-travel-to-uk-country',
       parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
-    },
+    }
   ],
   'person-occupation': [
     'report-person-occupation',

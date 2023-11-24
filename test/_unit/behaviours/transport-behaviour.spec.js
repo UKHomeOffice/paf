@@ -28,7 +28,7 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
           'crime-transport-boat',
           'crime-transport-train',
           'crime-transport-aeroplane'
-        ]
+        ];
       });
 
       afterEach(() => {
@@ -37,7 +37,7 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
 
       it('removes values for crime-transport-vehicle that are not checked and have unchecked counterparts', () => {
         sandbox.stub(req.sessionModel, 'unset');
-  
+
         req.form.values['transport-group'][0] = '';
         req.form.values['vehicle-type'] = 'Benz';
         req.form.values['vehicle-make'] = 'C-class';
@@ -58,7 +58,7 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
 
       it('removes values for boat-transport-vehicle that are not checked and have unchecked counterparts', () => {
         sandbox.stub(req.sessionModel, 'unset');
-  
+
         req.form.values['transport-group'][1] = '';
         req.form.values['boat-type'] = 'yacht';
         req.form.values['boat-name'] = 'Boaty';
@@ -83,7 +83,7 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
 
       it('removes values for train-transport-vehicle that are not checked and have unchecked counterparts', () => {
         sandbox.stub(req.sessionModel, 'unset');
-  
+
         req.form.values['transport-group'][2] = '';
         req.form.values['train-company'] = 'Eurostar';
         req.form.values['train-country-departure'] = 'Belgium';
@@ -106,7 +106,7 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
 
       it('removes values for aeroplane-transport-vehicle that are not checked and have unchecked counterparts', () => {
         sandbox.stub(req.sessionModel, 'unset');
-  
+
         req.form.values['transport-group'][3] = '';
         req.form.values['airline-company'] = 'British Airways';
         req.form.values['airline-flight-number'] = 'BA0001';
@@ -129,6 +129,5 @@ describe('apps/paf/behaviours/transport-behaviour', () => {
         });
       });
     });
-
   });
 });
