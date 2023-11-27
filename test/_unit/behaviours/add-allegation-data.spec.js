@@ -31,7 +31,9 @@ describe("apps/lib 'add-allegation-data' behaviour should ", () => {
         .to.have.deep.equal([{FieldName: 'txpermoreallholder', FieldValue: [
           'Person Added IS =personAddFirstName:testb, personAddFamilyName:test',
           'Person Added IS =personAddFirstName:testc',
-          'Person Added IS =personAddFirstName:testd, personAddFamilyName:test, personAddNickname:test, personAddDob:1985-02-01, personAddAgeRange:35-44, personAddNationality:Nationality-India, personAddGender:male'
+          'Person Added IS =personAddFirstName:testd, personAddFamilyName:test, '
+          + 'personAddNickname:test, personAddDob:1985-02-01, personAddAgeRange:35-44, '
+          + 'personAddNationality:Nationality-India, personAddGender:male'
         ]}]);
     });
 

@@ -1,3 +1,4 @@
+/* eslint-disable node/no-deprecated-api */
 'use strict';
 
 const url = require('url');
@@ -31,7 +32,7 @@ module.exports = class UploadModel extends Model {
         if (err) {
           return reject(err);
         }
-        resolve(data);
+        return resolve(data);
       });
     });
     this.set({ url: result.url });
@@ -66,7 +67,7 @@ module.exports = class UploadModel extends Model {
           return reject(err || new Error(`${body.error} - ${body.error_description}`));
         }
 
-        resolve({
+        return resolve({
           bearer: JSON.parse(response.body).access_token
         });
       });

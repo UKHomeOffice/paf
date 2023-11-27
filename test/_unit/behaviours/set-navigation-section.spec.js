@@ -290,7 +290,8 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
       controller._configure(req, res, done);
     });
 
-    describe('disables and enables sections links based on whether required crime type and crime children questions have been completed', () => {
+    describe('disables and enables sections links based on whether required crime type '
+    + 'and crime children questions have been completed', () => {
       it('locals should not have enableSection property if all required fields not completed', () => {
         req.sessionModel.set('crime-type', undefined);
         req.sessionModel.set('immigration-crime-group', undefined);
@@ -298,7 +299,8 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
         controller.locals(req, res).should.not.have.property('enableSection');
       });
 
-      it('locals should not have enableSection property if required crime-type toggle and crime-children fields not completed', () => {
+      it('locals should not have enableSection property if required crime-type '
+      + 'toggle and crime-children fields not completed', () => {
         req.sessionModel.set('crime-type', 'immigration-crime');
         req.sessionModel.set('immigration-crime-group', undefined);
         req.sessionModel.set('crime-children', undefined);

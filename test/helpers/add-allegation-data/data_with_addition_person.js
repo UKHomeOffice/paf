@@ -59,7 +59,9 @@ module.exports = {
   'additional-people-table': [
     'Person Added IS =personAddFirstName:testb, personAddFamilyName:test',
     'Person Added IS =personAddFirstName:testc',
-    'Person Added IS =personAddFirstName:testd, personAddFamilyName:test, personAddNickname:test, personAddDob:1985-02-01, personAddAgeRange:35-44, personAddNationality:Nationality-India, personAddGender:male'
+    'Person Added IS =personAddFirstName:testd, personAddFamilyName:test, '
+    + 'personAddNickname:test, personAddDob:1985-02-01, personAddAgeRange:35-44, '
+    + 'personAddNationality:Nationality-India, personAddGender:male'
   ],
   'crime-transport': 'unknown',
   'transport-group': '',

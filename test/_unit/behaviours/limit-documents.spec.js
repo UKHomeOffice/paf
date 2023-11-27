@@ -44,7 +44,7 @@ describe("apps/paf 'limit-documents' behaviour should ", () => {
       ];
 
       req.sessionModel.set('images', req.form.values.images);
-      const images = req.sessionModel.get('images');
+      // const images = req.sessionModel.get('images');
       req.form.values['other-info-file-uploads-add-another'] = 'yes';
       behaviour.validate(req, res, err => {
         err['other-info-file-uploads-add-another'].should.be.an.instanceof(behaviour.ValidationError);

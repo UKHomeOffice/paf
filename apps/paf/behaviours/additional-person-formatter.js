@@ -11,7 +11,7 @@ module.exports = superclass => class  extends superclass {
           (item.field + ':' + item.value) : '');
         // Remove person number value as this is not relevant for IMS
         peopleValue.splice(0, 1);
-        const peopleValueFiltered = peopleValue.filter(entry => entry != '');
+        const peopleValueFiltered = peopleValue.filter(entry => entry !== '');
 
         additionalPeople.push('Person Added IS =' + peopleValueFiltered.join(', '));
 

@@ -74,7 +74,8 @@ module.exports = {
       forks: [{
         target: '/crime-transport-vehicle-type',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-vehicle') === 0) {
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-vehicle') === 0) {
             return true;
           }
           return false;
@@ -83,7 +84,8 @@ module.exports = {
       {
         target: '/crime-transport-boat-type',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 0) {
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 0) {
             return true;
           }
           return false;
@@ -92,7 +94,8 @@ module.exports = {
       {
         target: '/crime-transport-train-details',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 0) {
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 0) {
             return true;
           }
           return false;
@@ -101,7 +104,8 @@ module.exports = {
       {
         target: '/crime-transport-aeroplane-details',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 0) {
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 0) {
             return true;
           }
           return false;
@@ -129,7 +133,8 @@ module.exports = {
       forks: [{
         target: '/crime-transport-boat-type',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 1) {
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 1) {
             return true;
           }
           return false;
@@ -138,7 +143,8 @@ module.exports = {
       {
         target: '/crime-transport-train-details',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 1) {
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 1) {
             return true;
           }
           return false;
@@ -147,7 +153,8 @@ module.exports = {
       {
         target: '/crime-transport-aeroplane-details',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 1) {
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 1) {
             return true;
           }
           return false;
@@ -177,7 +184,8 @@ module.exports = {
         {
           target: '/crime-transport-train-details',
           condition: req => {
-            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-train')) {
+            if (req.sessionModel.get('crime-transport') === 'yes'
+              && req.sessionModel.get('transport-group').includes('crime-transport-train')) {
               return true;
             }
             return false;
@@ -186,7 +194,9 @@ module.exports = {
         {
           target: '/crime-transport-aeroplane-details',
           condition: req => {
-            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane') && !req.sessionModel.get('transport-group').includes('crime-transport-train')) {
+            if (req.sessionModel.get('crime-transport') === 'yes'
+              && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')
+              && !req.sessionModel.get('transport-group').includes('crime-transport-train')) {
               return true;
             }
             return false;
@@ -207,7 +217,8 @@ module.exports = {
         {
           target: '/crime-transport-aeroplane-details',
           condition: req => {
-            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')) {
+            if (req.sessionModel.get('crime-transport') === 'yes'
+              && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')) {
               return true;
             }
             return false;
@@ -353,7 +364,9 @@ module.exports = {
       next: '/report-person-occupation'
     },
     '/report-person-location-travel-to-uk': {
-      fields: ['report-person-location-travel-to-uk-country', 'report-person-location-travel-to-uk-how', 'report-person-location-travel-to-uk-where'],
+      fields: ['report-person-location-travel-to-uk-country',
+        'report-person-location-travel-to-uk-how',
+        'report-person-location-travel-to-uk-where'],
       next: '/report-person-occupation'
     },
     '/report-person-occupation': {
@@ -761,7 +774,8 @@ module.exports = {
       next: '/declaration'
     },
     '/declaration': {
-      behaviours: ['complete', addressFormatter, additionalPersonFormatter, vehicleToggleFormatter, SendToSQS],
+      behaviours: ['complete', addressFormatter, additionalPersonFormatter,
+        vehicleToggleFormatter, SendToSQS],
       next: '/confirmation'
     },
     '/confirmation': {

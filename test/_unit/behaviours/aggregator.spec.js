@@ -87,68 +87,68 @@ describe('aggregator behaviour', () => {
 
       it('sends the addItem action when url action is missing, but new fields to add are present, ' +
         'and no elements exist', () => {
-          req.form.options.aggregateFrom = ['personAddNumber',
-            'personAddFirstName',
-            'personAddFamilyName',
-            'personAddNickname',
-            'personAddDob',
-            'personAddAgeRange',
-            'personAddNationality',
-            'personAddGender',
-            'personAddPassport',
-            'personAddId',
-            'personAddNi'];
+        req.form.options.aggregateFrom = ['personAddNumber',
+          'personAddFirstName',
+          'personAddFamilyName',
+          'personAddNickname',
+          'personAddDob',
+          'personAddAgeRange',
+          'personAddNationality',
+          'personAddGender',
+          'personAddPassport',
+          'personAddId',
+          'personAddNi'];
 
-          req.sessionModel.set('personAddFirstName', 'Ronald');
-          req.sessionModel.set('personAddFamilyName', 'Testman');
+        req.sessionModel.set('personAddFirstName', 'Ronald');
+        req.sessionModel.set('personAddFamilyName', 'Testman');
 
-          behaviour.getValues(req, res, next);
+        behaviour.getValues(req, res, next);
 
-          behaviour.handleAction.should.be.calledOnceWithExactly(req, res, next, 'addItem');
-        });
+        behaviour.handleAction.should.be.calledOnceWithExactly(req, res, next, 'addItem');
+      });
 
       it('sends the addItem action when url action is missing, but new fields to add are present, ' +
         'and elements already exist', () => {
-          req.form.options.aggregateFrom = ['personAddNumber',
-            'personAddFirstName',
-            'personAddFamilyName',
-            'personAddNickname',
-            'personAddDob',
-            'personAddAgeRange',
-            'personAddNationality',
-            'personAddGender',
-            'personAddPassport',
-            'personAddId',
-            'personAddNi'];
+        req.form.options.aggregateFrom = ['personAddNumber',
+          'personAddFirstName',
+          'personAddFamilyName',
+          'personAddNickname',
+          'personAddDob',
+          'personAddAgeRange',
+          'personAddNationality',
+          'personAddGender',
+          'personAddPassport',
+          'personAddId',
+          'personAddNi'];
 
-          req.sessionModel.set('persons', [{ itemTitle: '', fields: {} }]);
+        req.sessionModel.set('persons', [{ itemTitle: '', fields: {} }]);
 
 
-          req.sessionModel.set('personAddFirstName', 'Ronald');
-          req.sessionModel.set('personAddFamilyName', 'Testman');
+        req.sessionModel.set('personAddFirstName', 'Ronald');
+        req.sessionModel.set('personAddFamilyName', 'Testman');
 
-          behaviour.getValues(req, res, next);
+        behaviour.getValues(req, res, next);
 
-          behaviour.handleAction.should.be.calledOnceWithExactly(req, res, next, 'addItem');
-        });
+        behaviour.handleAction.should.be.calledOnceWithExactly(req, res, next, 'addItem');
+      });
 
       it('sends the redirectToAddStep action when url action is not present, no new fields to add are present, ' +
         'and no elements have been added', () => {
-          req.form.options.aggregateFrom = ['personAddNumber',
-            'personAddFirstName',
-            'personAddFamilyName',
-            'personAddNickname',
-            'personAddDob',
-            'personAddAgeRange',
-            'personAddNationality',
-            'personAddGender',
-            'personAddPassport',
-            'personAddId',
-            'personAddNi'];
-          behaviour.getValues(req, res, next);
+        req.form.options.aggregateFrom = ['personAddNumber',
+          'personAddFirstName',
+          'personAddFamilyName',
+          'personAddNickname',
+          'personAddDob',
+          'personAddAgeRange',
+          'personAddNationality',
+          'personAddGender',
+          'personAddPassport',
+          'personAddId',
+          'personAddNi'];
+        behaviour.getValues(req, res, next);
 
-          behaviour.handleAction.should.be.calledOnceWithExactly(req, res, next, 'redirectToAddStep');
-        });
+        behaviour.handleAction.should.be.calledOnceWithExactly(req, res, next, 'redirectToAddStep');
+      });
     });
 
     describe('#handleAction', () => {
@@ -195,7 +195,7 @@ describe('aggregator behaviour', () => {
         req.sessionModel.set('persons', {
           aggregatedValues: [
             { itemTitle: 'Person 1', fields: [Array] },
-            { itemTitle: 'Person 2', fields: [Array] },
+            { itemTitle: 'Person 2', fields: [Array] }
           ]
         });
         req.params.id = '1';
@@ -235,31 +235,31 @@ describe('aggregator behaviour', () => {
             {
               itemTitle: '',
               fields: [{ field: 'personAddNumber', value: 'Person 1' },
-              { field: 'personAddFirstName', value: 'Ronald' },
-              { field: 'personAddFamilyName', value: 'Testman' },
-              { field: 'personAddNickname', value: '' },
-              { field: 'personAddDob', value: '2000-10-15' },
-              { field: 'personAddAgeRange', value: '' },
-              { field: 'personAddNationality', value: '' },
-              { field: 'personAddGender', value: '' },
-              { field: 'personAddPassport', value: '' },
-              { field: 'personAddId', value: '' },
-              { field: 'personAddNi', value: '' }
+                { field: 'personAddFirstName', value: 'Ronald' },
+                { field: 'personAddFamilyName', value: 'Testman' },
+                { field: 'personAddNickname', value: '' },
+                { field: 'personAddDob', value: '2000-10-15' },
+                { field: 'personAddAgeRange', value: '' },
+                { field: 'personAddNationality', value: '' },
+                { field: 'personAddGender', value: '' },
+                { field: 'personAddPassport', value: '' },
+                { field: 'personAddId', value: '' },
+                { field: 'personAddNi', value: '' }
               ]
             },
             {
               itemTitle: '',
               fields: [{ field: 'personAddNumber', value: 'Person 1' },
-              { field: 'personAddFirstName', value: 'Ronda' },
-              { field: 'personAddFamilyName', value: 'Testman' },
-              { field: 'personAddNickname', value: '' },
-              { field: 'personAddDob', value: '' },
-              { field: 'personAddAgeRange', value: '' },
-              { field: 'personAddNationality', value: '' },
-              { field: 'personAddGender', value: 'female' },
-              { field: 'personAddPassport', value: '' },
-              { field: 'personAddId', value: '' },
-              { field: 'personAddNi', value: '' }
+                { field: 'personAddFirstName', value: 'Ronda' },
+                { field: 'personAddFamilyName', value: 'Testman' },
+                { field: 'personAddNickname', value: '' },
+                { field: 'personAddDob', value: '' },
+                { field: 'personAddAgeRange', value: '' },
+                { field: 'personAddNationality', value: '' },
+                { field: 'personAddGender', value: 'female' },
+                { field: 'personAddPassport', value: '' },
+                { field: 'personAddId', value: '' },
+                { field: 'personAddNi', value: '' }
               ]
             }
           ]
@@ -301,31 +301,31 @@ describe('aggregator behaviour', () => {
               {
                 itemTitle: 'Person 1',
                 fields: [{ field: 'personAddNumber', value: 'Person 1' },
-                { field: 'personAddFirstName', value: 'Ronald' },
-                { field: 'personAddFamilyName', value: 'Testman' },
-                { field: 'personAddNickname', value: '' },
-                { field: 'personAddDob', value: '2000-10-15' },
-                { field: 'personAddAgeRange', value: '' },
-                { field: 'personAddNationality', value: '' },
-                { field: 'personAddGender', value: '' },
-                { field: 'personAddPassport', value: '' },
-                { field: 'personAddId', value: '' },
-                { field: 'personAddNi', value: '' }
+                  { field: 'personAddFirstName', value: 'Ronald' },
+                  { field: 'personAddFamilyName', value: 'Testman' },
+                  { field: 'personAddNickname', value: '' },
+                  { field: 'personAddDob', value: '2000-10-15' },
+                  { field: 'personAddAgeRange', value: '' },
+                  { field: 'personAddNationality', value: '' },
+                  { field: 'personAddGender', value: '' },
+                  { field: 'personAddPassport', value: '' },
+                  { field: 'personAddId', value: '' },
+                  { field: 'personAddNi', value: '' }
                 ]
               },
               {
                 itemTitle: 'Person 2',
                 fields: [{ field: 'personAddNumber', value: 'Person 2' },
-                { field: 'personAddFirstName', value: 'Ronda' },
-                { field: 'personAddFamilyName', value: 'Testman' },
-                { field: 'personAddNickname', value: '' },
-                { field: 'personAddDob', value: '' },
-                { field: 'personAddAgeRange', value: '' },
-                { field: 'personAddNationality', value: '' },
-                { field: 'personAddGender', value: 'female' },
-                { field: 'personAddPassport', value: '' },
-                { field: 'personAddId', value: '' },
-                { field: 'personAddNi', value: '' }
+                  { field: 'personAddFirstName', value: 'Ronda' },
+                  { field: 'personAddFamilyName', value: 'Testman' },
+                  { field: 'personAddNickname', value: '' },
+                  { field: 'personAddDob', value: '' },
+                  { field: 'personAddAgeRange', value: '' },
+                  { field: 'personAddNationality', value: '' },
+                  { field: 'personAddGender', value: 'female' },
+                  { field: 'personAddPassport', value: '' },
+                  { field: 'personAddId', value: '' },
+                  { field: 'personAddNi', value: '' }
                 ]
               }
             ]
@@ -364,25 +364,25 @@ describe('aggregator behaviour', () => {
 
       it('replaces an item with the source step fields when itemToReplaceId is present ' +
         'in the session and action is edit', () => {
-          const updatedElement = req.sessionModel.get('persons').aggregatedValues[1];
+        const updatedElement = req.sessionModel.get('persons').aggregatedValues[1];
 
-          updatedElement.should.be.eql({
-            itemTitle: 'Person 2',
-            fields: [
-              { field: 'personAddNumber', value: 'Person 2', parsed: 'Person 2' },
-              { field: 'personAddFirstName', value: 'Buzz', parsed: 'Buzz' },
-              { field: 'personAddFamilyName', value: 'Lightyear', parsed: 'Lightyear' },
-              { field: 'personAddNickname', value: 'Infinity', parsed: 'Infinity' },
-              { field: 'personAddDob', value: '1995-11-2', parsed: '1995-11-2', },
-              { field: 'personAddAgeRange', value: '25-34', parsed: '25-34' },
-              { field: 'personAddNationality', value: 'United States of America', parsed: 'United States of America' },
-              { field: 'personAddGender', value: 'male', parsed: 'male' },
-              { field: 'personAddPassport', value: '123', parsed: '123' },
-              { field: 'personAddId', value: '156', parsed: '156' },
-              { field: 'personAddNi', value: 'TS1995', parsed: 'TS1995' }
-            ]
-          });
+        updatedElement.should.be.eql({
+          itemTitle: 'Person 2',
+          fields: [
+            { field: 'personAddNumber', value: 'Person 2', parsed: 'Person 2' },
+            { field: 'personAddFirstName', value: 'Buzz', parsed: 'Buzz' },
+            { field: 'personAddFamilyName', value: 'Lightyear', parsed: 'Lightyear' },
+            { field: 'personAddNickname', value: 'Infinity', parsed: 'Infinity' },
+            { field: 'personAddDob', value: '1995-11-2', parsed: '1995-11-2' },
+            { field: 'personAddAgeRange', value: '25-34', parsed: '25-34' },
+            { field: 'personAddNationality', value: 'United States of America', parsed: 'United States of America' },
+            { field: 'personAddGender', value: 'male', parsed: 'male' },
+            { field: 'personAddPassport', value: '123', parsed: '123' },
+            { field: 'personAddId', value: '156', parsed: '156' },
+            { field: 'personAddNi', value: 'TS1995', parsed: 'TS1995' }
+          ]
         });
+      });
 
       it('should return to the confirm step if user comes from summary', () => {
         req.form.options.aggregateFrom = [
@@ -405,31 +405,31 @@ describe('aggregator behaviour', () => {
             {
               itemTitle: 'Person 1',
               fields: [{ field: 'personAddNumber', value: 'Person 1' },
-              { field: 'personAddFirstName', value: 'Ronald' },
-              { field: 'personAddFamilyName', value: 'Testman' },
-              { field: 'personAddNickname', value: '' },
-              { field: 'personAddDob', value: '2000-10-15' },
-              { field: 'personAddAgeRange', value: '' },
-              { field: 'personAddNationality', value: '' },
-              { field: 'personAddGender', value: '' },
-              { field: 'personAddPassport', value: '' },
-              { field: 'personAddId', value: '' },
-              { field: 'personAddNi', value: '' }
+                { field: 'personAddFirstName', value: 'Ronald' },
+                { field: 'personAddFamilyName', value: 'Testman' },
+                { field: 'personAddNickname', value: '' },
+                { field: 'personAddDob', value: '2000-10-15' },
+                { field: 'personAddAgeRange', value: '' },
+                { field: 'personAddNationality', value: '' },
+                { field: 'personAddGender', value: '' },
+                { field: 'personAddPassport', value: '' },
+                { field: 'personAddId', value: '' },
+                { field: 'personAddNi', value: '' }
               ]
             },
             {
               itemTitle: '',
               fields: [{ field: 'personAddNumber', value: '' },
-              { field: 'personAddFirstName', value: 'Ronda' },
-              { field: 'personAddFamilyName', value: 'Testman' },
-              { field: 'personAddNickname', value: '' },
-              { field: 'personAddDob', value: '' },
-              { field: 'personAddAgeRange', value: '' },
-              { field: 'personAddNationality', value: '' },
-              { field: 'personAddGender', value: 'female' },
-              { field: 'personAddPassport', value: '' },
-              { field: 'personAddId', value: '' },
-              { field: 'personAddNi', value: '' }
+                { field: 'personAddFirstName', value: 'Ronda' },
+                { field: 'personAddFamilyName', value: 'Testman' },
+                { field: 'personAddNickname', value: '' },
+                { field: 'personAddDob', value: '' },
+                { field: 'personAddAgeRange', value: '' },
+                { field: 'personAddNationality', value: '' },
+                { field: 'personAddGender', value: 'female' },
+                { field: 'personAddPassport', value: '' },
+                { field: 'personAddId', value: '' },
+                { field: 'personAddNi', value: '' }
               ]
             }
           ]
@@ -480,13 +480,13 @@ describe('aggregator behaviour', () => {
             {
               itemTitle: 'Person 1',
               fields: [{ field: 'personAddFirstName', value: 'Buzz' },
-              { field: 'personAddFamilyName', value: 'Lightyear' },
+                { field: 'personAddFamilyName', value: 'Lightyear' }
               ]
             },
             {
               itemTitle: 'Person 2',
               fields: [{ field: 'personAddFirstName', value: 'Tony' },
-              { field: 'personAddFamilyName', value: 'McTester' }
+                { field: 'personAddFamilyName', value: 'McTester' }
               ]
             }
           ]
@@ -501,17 +501,28 @@ describe('aggregator behaviour', () => {
         addedElement.should.be.eql({
           itemTitle: 'Person 3',
           fields: [
-            { field: 'personAddNumber', value: 'Person 3', changeField: undefined, parsed: 'Person 3', showInSummary: false },
-            { field: 'personAddFirstName', value: 'Ronald', changeField: undefined, parsed: 'Ronald', showInSummary: true },
-            { field: 'personAddFamilyName', value: 'Testman', changeField: undefined, parsed: 'Testman', showInSummary: true },
-            { field: 'personAddNickname', value: 'Testy', changeField: undefined, parsed: 'Testy', showInSummary: true },
-            { field: 'personAddDob', value: '1996-10-22', changeField: undefined, parsed: '1996-10-22', showInSummary: true },
-            { field: 'personAddAgeRange', value: '25-34', changeField: undefined, parsed: '25-34', showInSummary: true },
-            { field: 'personAddNationality', value: 'France', changeField: undefined, parsed: 'France', showInSummary: true },
-            { field: 'personAddGender', value: 'male', changeField: undefined, parsed: 'male', showInSummary: true },
-            { field: 'personAddPassport', value: '123', changeField: undefined, parsed: '123', showInSummary: true },
-            { field: 'personAddId', value: '156', changeField: undefined, parsed: '156', showInSummary: true },
-            { field: 'personAddNi', value: '', changeField: undefined, parsed: '', showInSummary: true }
+            { field: 'personAddNumber', value: 'Person 3', changeField: undefined,
+              parsed: 'Person 3', showInSummary: false },
+            { field: 'personAddFirstName', value: 'Ronald', changeField: undefined,
+              parsed: 'Ronald', showInSummary: true },
+            { field: 'personAddFamilyName', value: 'Testman', changeField: undefined,
+              parsed: 'Testman', showInSummary: true },
+            { field: 'personAddNickname', value: 'Testy', changeField: undefined,
+              parsed: 'Testy', showInSummary: true },
+            { field: 'personAddDob', value: '1996-10-22', changeField: undefined,
+              parsed: '1996-10-22', showInSummary: true },
+            { field: 'personAddAgeRange', value: '25-34', changeField: undefined,
+              parsed: '25-34', showInSummary: true },
+            { field: 'personAddNationality', value: 'France', changeField: undefined,
+              parsed: 'France', showInSummary: true },
+            { field: 'personAddGender', value: 'male', changeField: undefined, parsed: 'male',
+              showInSummary: true },
+            { field: 'personAddPassport', value: '123', changeField: undefined, parsed: '123',
+              showInSummary: true },
+            { field: 'personAddId', value: '156', changeField: undefined, parsed: '156',
+              showInSummary: true },
+            { field: 'personAddNi', value: '', changeField: undefined, parsed: '',
+              showInSummary: true }
           ]
         });
       });
@@ -587,7 +598,7 @@ describe('aggregator behaviour', () => {
         req.form.options.fieldsConfig =
           { personAddDob: { parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT) } };
 
-        const value = 1970 - 01 - 01;
+        const value = 1970 - parseInt('01', 8) - parseInt('01', 8);
 
         const field = {
           field: 'personAddDob',

@@ -3,7 +3,7 @@
 const { v4: uuidv4 } = require('uuid');
 const { sendToQueue } = require('../../../lib/utils');
 const { addAllegationData } = require('../../../lib/add-allegation-data');
-const _ = require('lodash');
+
 module.exports = superclass => class SendToSQS extends superclass {
   // eslint-disable-next-line consistent-return
   saveValues(req, res, next) {
