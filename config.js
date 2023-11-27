@@ -1,5 +1,6 @@
 'use strict';
 /* eslint no-process-env: 0 */
+/* eslint-disable no-unused-vars */
 const AWS = require('aws-sdk');
 
 const env = process.env.NODE_ENV;
