@@ -1,8 +1,7 @@
 {
     "Values": [
-        {
-            "HOF": "immigration-crime",
-            "IMS": "Immigration Crime"
+        { "HOF": "immigration-crime",
+          "IMS": "Immigration Crime"
         },
         {
             "HOF": "smuggling-crime",

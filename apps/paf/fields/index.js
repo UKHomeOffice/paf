@@ -13,7 +13,7 @@ function notBothOptions(vals) {
   return !(values.length > 1 && values.indexOf('crime-transport-unknown') > -1);
 }
 function lettersAndSpacesOnly(value) {
-    return /^[A-Za-z\s]*$/.test(value);
+  return /^[A-Za-z\s]*$/.test(value);
 }
 const moment = require('moment');
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
@@ -82,21 +82,21 @@ module.exports = {
       {
         value: 'happening-now',
         toggle: 'happening-now-info',
-        child: "input-text"
+        child: 'input-text'
       },
       {
         value: 'ongoing',
         toggle: 'ongoing-info',
-        child: "input-text"
+        child: 'input-text'
       },
       {
         value: 'already-happened',
         toggle: 'already-happened-info',
-        child: "input-text"
+        child: 'input-text'
       },
       'not-yet-happened',
       'dont-know-when-it-happend'
-    ],
+    ]
   },
   'happening-now-info': {
     dependent: {
@@ -126,7 +126,7 @@ module.exports = {
       'next-twenty-four-hours',
       'more-than-twenty-four-hours',
       'unknown'
-    ],
+    ]
   },
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
     mixin: 'input-date'
@@ -150,8 +150,8 @@ module.exports = {
       toggle: 'transport-group',
       child: 'checkbox-group'
     },
-      'no',
-      'unknown']
+    'no',
+    'unknown']
   },
   'transport-group': {
     mixin: 'checkbox-group',
@@ -273,7 +273,7 @@ module.exports = {
       'van',
       'van-and-trailer',
       'van-other',
-      'seven-point-five-tonne-van',
+      'seven-point-five-tonne-van'
     ],
     dependent: {
       field: 'vehicle-type',
@@ -482,7 +482,7 @@ module.exports = {
       },
       'none',
       'unknown'
-    ],
+    ]
   },
   'freight-more-info': {
     mixin: 'textarea',
@@ -536,10 +536,10 @@ module.exports = {
         value: '',
         label: 'fields.crime-location-country.options.null'
       }].concat(countriesList),
-      dependent: {
-        field: 'crime-location',
-          value: 'yes'
-      }
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-location-address-line1': {
     mixin: 'input-text',
@@ -599,10 +599,10 @@ module.exports = {
         value: '',
         label: 'fields.crime-another-location-country.options.null'
       }].concat(countriesList),
-      dependent: {
-        field: 'crime-another-location',
-        value: 'yes'
-      }
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'crime-another-location-address-line1': {
     mixin: 'input-text',
@@ -825,7 +825,7 @@ module.exports = {
         value: 'other',
         toggle: 'government-dept-other',
         child: 'input-text'
-      },
+      }
     ]
   },
   'government-dept-other': {
@@ -1055,7 +1055,7 @@ module.exports = {
       'van',
       'van-and-trailer',
       'van-other',
-      'seven-point-five-tonne-van',
+      'seven-point-five-tonne-van'
     ],
     dependent: {
       field: 'report-person-transport-type',
@@ -1090,34 +1090,34 @@ module.exports = {
     attributes: [{ attribute: 'spellcheck', value: 'true' }, { attribute: 'rows', value: 8 }],
     labelClassName: 'visuallyhidden'
   },
-  'hasAdditionalPerson': {
+  hasAdditionalPerson: {
     isPageHeading: true,
     mixin: 'radio-group',
     options: ['yes', 'no']
   },
-  'personAddNumber': {
+  personAddNumber: {
     mixin: 'input-text',
     labelClassName: 'visuallyhidden',
     className: 'visuallyhidden'
   },
-  'personAddFirstName': {
+  personAddFirstName: {
     mixin: 'input-text',
     validate: [{ type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
-  'personAddFamilyName': {
+  personAddFamilyName: {
     mixin: 'input-text',
     validate: [{ type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
-  'personAddNickname': {
+  personAddNickname: {
     mixin: 'input-text',
     validate: [{ type: 'maxlength', arguments: 100 }, lettersAndSpacesOnly]
   },
-  'personAddDob': dateComponent('personAddDob', {
+  personAddDob: dateComponent('personAddDob', {
     isPageHeading: true,
     mixin: 'input-date',
     parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
   }),
-  'personAddAgeRange': {
+  personAddAgeRange: {
     mixin: 'radio-group',
     isPageHeading: true,
     options: [
@@ -1131,7 +1131,7 @@ module.exports = {
       '75+'
     ]
   },
-  'personAddNationality': {
+  personAddNationality: {
     mixin: 'select',
     className: ['typeahead'],
     options:
@@ -1140,7 +1140,7 @@ module.exports = {
         label: 'fields.report-person-nationality.options.null'
       }].concat(nationalities)
   },
-  'personAddGender': {
+  personAddGender: {
     mixin: 'radio-group',
     isPageHeading: true,
     options: [
@@ -1150,15 +1150,15 @@ module.exports = {
       'gender-unknown'
     ]
   },
-  'personAddPassport': {
+  personAddPassport: {
     mixin: 'input-text',
     validate: [{ type: 'maxlength', arguments: 100 }]
   },
-  'personAddId': {
+  personAddId: {
     mixin: 'input-text',
     validate: [{ type: 'maxlength', arguments: 100 }]
   },
-  'personAddNi': {
+  personAddNi: {
     mixin: 'input-text',
     validate: [{ type: 'maxlength', arguments: 100 }]
   },
@@ -1238,7 +1238,7 @@ module.exports = {
         toggle: 'another-company-yes',
         child: 'textarea'
       },
-      'no',
+      'no'
     ]
   },
   'another-company-yes': {
@@ -1250,7 +1250,7 @@ module.exports = {
     dependent: {
       field: 'another-company',
       value: 'yes'
-    },
+    }
   },
   'other-info-description': {
     mixin: 'textarea',
@@ -1267,7 +1267,7 @@ module.exports = {
       toggle: 'other-info-another-crime-description',
       child: 'textarea'
     },
-      'no'
+    'no'
     ]
   },
   'other-info-another-crime-description': {
@@ -1299,20 +1299,20 @@ module.exports = {
     mixin: 'input-text',
     validate: [ { type: 'maxlength', arguments: 50 }, lettersAndSpacesOnly]
   },
-  "how-did-you-find-out-about-the-crime": {
+  'how-did-you-find-out-about-the-crime': {
     validate: [ { type: 'maxlength', arguments: 500 }]
   },
-  "does-anyone-else-know": {
+  'does-anyone-else-know': {
     mixin: 'input-text',
     isPageHeading: true,
     validate: [{ type: 'maxlength', arguments: 500 }]
   },
-  "have-you-reported-before": {
+  'have-you-reported-before': {
     mixin: 'input-text',
     isPageHeading: true,
     validate: [{ type: 'maxlength', arguments: 500 }]
   },
-  "how-do-you-know-the-person": {
+  'how-do-you-know-the-person': {
     mixin: 'input-text',
     isPageHeading: true,
     validate: [{ type: 'maxlength', arguments: 500 }]
@@ -1322,7 +1322,7 @@ module.exports = {
     isPageHeading: true,
     options: [
       'yes',
-      'no',
+      'no'
     ]
   },
   'about-you-dob': dateComponent('about-you-dob', {
@@ -1354,7 +1354,7 @@ module.exports = {
     isPageHeading: true,
     options: [
       'yes',
-      'no',
+      'no'
     ]
   },
   'are-you-eighteen': {
@@ -1366,16 +1366,16 @@ module.exports = {
       toggle: 'contact-group',
       child: 'partials/contact-group'
     },
-      'no'
+    'no'
     ]
   },
   'contact-group': {
-    "contact-number": {
-      "label": "Contact number"
+    'contact-number': {
+      label: 'Contact number'
     },
-    "when-to-contact": {
-      "label": "When would you like us to contact you?"
-    },
+    'when-to-contact': {
+      label: 'When would you like us to contact you?'
+    }
   },
   'contact-number': {
     dependent: {
