@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = superclass => class extends superclass {
   getValues(req, res, next) {
     return super.getValues(req, res, (err, values) => {

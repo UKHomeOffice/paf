@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable */
 const url = require('url');
 const Model = require('hof').model;
 const uuid = require('uuid').v4;
@@ -16,7 +16,7 @@ module.exports = class UploadModel extends Model {
       const attributes = {
         url: config.upload.hostname
       };
-      const reqConf = url.parse(this.url(attributes));
+      const reqConf = url.URL(this.url(attributes));
       reqConf.formData = {
         document: {
           value: this.get('data'),

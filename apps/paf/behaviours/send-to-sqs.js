@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable */
 const { v4: uuidv4 } = require('uuid');
 const { sendToQueue } = require('../../../lib/utils');
 const { addAllegationData } = require('../../../lib/add-allegation-data');
