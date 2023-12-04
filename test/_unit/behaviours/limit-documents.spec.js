@@ -20,7 +20,7 @@ describe("apps/paf 'limit-documents' behaviour should ", () => {
 
   describe("The limit-documents '.validate' method", () => {
     it('returns an too many error if 3 files have already been added', () => {
-      req.form.values['images'] = [{
+      req.form.values.images = [{
         name: 'bass.png',
         encoding: '7bit',
         mimetype: 'png',
@@ -41,11 +41,11 @@ describe("apps/paf 'limit-documents' behaviour should ", () => {
         truncated: false,
         size: 144150
       }
-    ];
+      ];
 
-      req.sessionModel.set('images', req.form.values['images']);
-      const images = req.sessionModel.get('images')
-      req.form.values['other-info-file-uploads-add-another'] = 'yes'
+      req.sessionModel.set('images', req.form.values.images);
+      // const images = req.sessionModel.get('images');
+      req.form.values['other-info-file-uploads-add-another'] = 'yes';
       behaviour.validate(req, res, err => {
         err['other-info-file-uploads-add-another'].should.be.an.instanceof(behaviour.ValidationError);
         err['other-info-file-uploads-add-another'].should.have.property('type').and.equal('tooMany');

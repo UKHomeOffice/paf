@@ -3,7 +3,6 @@
 const { v4: uuidv4 } = require('uuid');
 const { sendToQueue } = require('../../../lib/utils');
 const { addAllegationData } = require('../../../lib/add-allegation-data');
-var _ = require('lodash');
 
 module.exports = superclass => class SendToSQS extends superclass {
   // eslint-disable-next-line consistent-return
@@ -16,14 +15,14 @@ module.exports = superclass => class SendToSQS extends superclass {
       allegationData = addAllegationData(req.sessionModel.attributes);
 
       return sendToQueue(allegationData, allegationId)
-          .then(() => {
-              next();
-          })
-          .catch(err => {
-              SendToSQS.handleError(next, err, allegationId, allegationData);
-          });
+        .then(() => {
+          next();
+        })
+        .catch(err => {
+          SendToSQS.handleError(next, err, allegationId, allegationData);
+        });
     } catch (err) {
-        SendToSQS.handleError(next, err, allegationId, allegationData);
+      SendToSQS.handleError(next, err, allegationId, allegationData);
     }
   }
 

@@ -79,7 +79,6 @@ describe('SendToSQS', () => {
   });
 
   describe('saveValues', () => {
-
     describe('If valid allegation data', () => {
       it('addAllegationData should have been called once with sessionModel attributes', () => {
         testSendToSQS.saveValues(req, res, nextStub);

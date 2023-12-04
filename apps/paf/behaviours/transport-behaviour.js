@@ -4,7 +4,7 @@ module.exports = superclass => class extends superclass {
     const boatTransport = req.form.values['transport-group'].includes('crime-transport-boat');
     const trainTransport = req.form.values['transport-group'].includes('crime-transport-train');
     const aeroplaneTransport = req.form.values['transport-group'].includes('crime-transport-aeroplane');
-   
+
 
     // this updates fields and change links for the in-progress check your answers page
     if (!vehicleTransport) {
@@ -13,7 +13,7 @@ module.exports = superclass => class extends superclass {
         'vehicle-make',
         'vehicle-model',
         'vehicle-colour',
-        'vehicle-registration' 
+        'vehicle-registration'
       ]);
     } else if (!boatTransport) {
       req.sessionModel.unset([
@@ -45,7 +45,7 @@ module.exports = superclass => class extends superclass {
         'airport-arrival-time'
       ]);
     }
-    
+
     return super.saveValues(req, res, next);
   }
 };

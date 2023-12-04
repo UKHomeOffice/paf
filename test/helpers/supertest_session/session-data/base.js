@@ -1,8 +1,8 @@
 const _ = require('lodash');
 
 module.exports = (appName, overridenPages) => {
-  const appIndex = require('../../../../apps/paf/index')
-  const commonIndex = require('../../../../apps/common')
+  const appIndex = require('../../../../apps/paf/index');
+  const commonIndex = require('../../../../apps/common');
   const possibleSteps = (Object.keys(appIndex.steps)).concat(Object.keys(commonIndex.steps));
 
   return (stepOrData, data) => {
