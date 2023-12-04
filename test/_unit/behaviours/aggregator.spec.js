@@ -499,17 +499,28 @@ describe('aggregator behaviour', () => {
         addedElement.should.be.eql({
           itemTitle: 'Person 3',
           fields: [
-            { field: 'personAddNumber', value: 'Person 3', changeField: undefined, parsed: 'Person 3', showInSummary: false },
-            { field: 'personAddFirstName', value: 'Ronald', changeField: undefined, parsed: 'Ronald', showInSummary: true },
-            { field: 'personAddFamilyName', value: 'Testman', changeField: undefined, parsed: 'Testman', showInSummary: true },
-            { field: 'personAddNickname', value: 'Testy', changeField: undefined, parsed: 'Testy', showInSummary: true },
-            { field: 'personAddDob', value: '1996-10-22', changeField: undefined, parsed: '1996-10-22', showInSummary: true },
-            { field: 'personAddAgeRange', value: '25-34', changeField: undefined, parsed: '25-34', showInSummary: true },
-            { field: 'personAddNationality', value: 'France', changeField: undefined, parsed: 'France', showInSummary: true },
-            { field: 'personAddGender', value: 'male', changeField: undefined, parsed: 'male', showInSummary: true },
-            { field: 'personAddPassport', value: '123', changeField: undefined, parsed: '123', showInSummary: true },
-            { field: 'personAddId', value: '156', changeField: undefined, parsed: '156', showInSummary: true },
-            { field: 'personAddNi', value: '', changeField: undefined, parsed: '', showInSummary: true }
+            { field: 'personAddNumber', value: 'Person 3', changeField: undefined,
+              parsed: 'Person 3', showInSummary: false },
+            { field: 'personAddFirstName', value: 'Ronald', changeField: undefined,
+              parsed: 'Ronald', showInSummary: true },
+            { field: 'personAddFamilyName', value: 'Testman', changeField: undefined,
+              parsed: 'Testman', showInSummary: true },
+            { field: 'personAddNickname', value: 'Testy', changeField: undefined,
+              parsed: 'Testy', showInSummary: true },
+            { field: 'personAddDob', value: '1996-10-22', changeField: undefined,
+              parsed: '1996-10-22', showInSummary: true },
+            { field: 'personAddAgeRange', value: '25-34', changeField: undefined,
+              parsed: '25-34', showInSummary: true },
+            { field: 'personAddNationality', value: 'France', changeField: undefined,
+              parsed: 'France', showInSummary: true },
+            { field: 'personAddGender', value: 'male', changeField: undefined, parsed: 'male',
+              showInSummary: true },
+            { field: 'personAddPassport', value: '123', changeField: undefined, parsed: '123',
+              showInSummary: true },
+            { field: 'personAddId', value: '156', changeField: undefined, parsed: '156',
+              showInSummary: true },
+            { field: 'personAddNi', value: '', changeField: undefined, parsed: '',
+              showInSummary: true }
           ]
         });
       });
@@ -585,7 +596,9 @@ describe('aggregator behaviour', () => {
     //     req.form.options.fieldsConfig =
     //       { personAddDob: { parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT) } };
 
-    //     const value = 1970 - 01 - 01;
+
+  //      const value = 1970 - parseInt('01', 8) - parseInt('01', 8);
+
 
     //     const field = {
     //       field: 'personAddDob',
