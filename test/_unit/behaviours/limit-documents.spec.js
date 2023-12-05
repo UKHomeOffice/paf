@@ -43,7 +43,7 @@ describe("apps/paf 'limit-documents' behaviour should ", () => {
       }
       ];
 
-      //req.sessionModel.set('images', req.form.values.images);
+      req.sessionModel.set('images', req.form.values.images);
 
       // const images = req.sessionModel.get('images');
 

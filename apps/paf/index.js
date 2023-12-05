@@ -75,10 +75,8 @@ module.exports = {
       forks: [{
         target: '/crime-transport-vehicle-type',
         condition: req => {
-
           if (req.sessionModel.get('crime-transport') === 'yes'
             && req.sessionModel.get('transport-group').indexOf('crime-transport-vehicle') === 0) {
-
             return true;
           }
           return false;
@@ -87,10 +85,8 @@ module.exports = {
       {
         target: '/crime-transport-boat-type',
         condition: req => {
-
           if (req.sessionModel.get('crime-transport') === 'yes'
             && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 0) {
-
             return true;
           }
           return false;
@@ -99,10 +95,8 @@ module.exports = {
       {
         target: '/crime-transport-train-details',
         condition: req => {
-
           if (req.sessionModel.get('crime-transport') === 'yes'
             && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 0) {
-
             return true;
           }
           return false;
@@ -111,10 +105,8 @@ module.exports = {
       {
         target: '/crime-transport-aeroplane-details',
         condition: req => {
-
           if (req.sessionModel.get('crime-transport') === 'yes'
             && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 0) {
-
             return true;
           }
           return false;
@@ -142,10 +134,8 @@ module.exports = {
       forks: [{
         target: '/crime-transport-boat-type',
         condition: req => {
-
           if (req.sessionModel.get('crime-transport') === 'yes'
             && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 1) {
-
             return true;
           }
           return false;
@@ -154,10 +144,8 @@ module.exports = {
       {
         target: '/crime-transport-train-details',
         condition: req => {
-
           if (req.sessionModel.get('crime-transport') === 'yes'
             && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 1) {
-
             return true;
           }
           return false;
@@ -166,10 +154,8 @@ module.exports = {
       {
         target: '/crime-transport-aeroplane-details',
         condition: req => {
-
           if (req.sessionModel.get('crime-transport') === 'yes'
             && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 1) {
-
             return true;
           }
           return false;
@@ -199,10 +185,8 @@ module.exports = {
         {
           target: '/crime-transport-train-details',
           condition: req => {
-
             if (req.sessionModel.get('crime-transport') === 'yes'
               && req.sessionModel.get('transport-group').includes('crime-transport-train')) {
-
               return true;
             }
             return false;
@@ -211,11 +195,9 @@ module.exports = {
         {
           target: '/crime-transport-aeroplane-details',
           condition: req => {
-
             if (req.sessionModel.get('crime-transport') === 'yes'
               && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')
               && !req.sessionModel.get('transport-group').includes('crime-transport-train')) {
-
               return true;
             }
             return false;
@@ -236,10 +218,8 @@ module.exports = {
         {
           target: '/crime-transport-aeroplane-details',
           condition: req => {
-
             if (req.sessionModel.get('crime-transport') === 'yes'
               && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')) {
-
               return true;
             }
             return false;

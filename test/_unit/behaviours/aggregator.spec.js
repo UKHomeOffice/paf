@@ -597,7 +597,7 @@ describe('aggregator behaviour', () => {
     //       { personAddDob: { parse: d => d && moment(d).format(config.PRETTY_DATE_FORMAT) } };
 
 
-  //      const value = 1970 - parseInt('01', 8) - parseInt('01', 8);
+    //      const value = 1970 - parseInt('01', 8) - parseInt('01', 8);
 
 
     //     const field = {

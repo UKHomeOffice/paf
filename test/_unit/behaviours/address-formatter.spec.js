@@ -55,11 +55,9 @@ describe('apps/paf/behaviours/address-formatter', () => {
         req.sessionModel.set('crime-location-address-town', 'London');
         req.sessionModel.set('crime-location-address-county', 'Greater London');
         controller.configure(req, res, () => {
-
           req.sessionModel.get('crime-location-address')
             .should.deep.equal('1 Road Lane, Mansion House, ' +
           'London, Greater London');
-
         });
       });
 
@@ -69,10 +67,8 @@ describe('apps/paf/behaviours/address-formatter', () => {
         req.sessionModel.set('crime-another-location-address-town', 'London');
         req.sessionModel.set('crime-another-location-address-county', 'Greater London');
         controller.configure(req, res, () => {
-
           req.sessionModel.get('crime-another-location-address')
             .should.deep.equal('2 Road Lane, Castle House, London, Greater London');
-
         });
       });
 
@@ -82,10 +78,8 @@ describe('apps/paf/behaviours/address-formatter', () => {
         req.sessionModel.set('report-person-location-uk-address-town', 'Liverpool');
         req.sessionModel.set('report-person-location-uk-address-county', 'Merseyside');
         controller.configure(req, res, () => {
-
           req.sessionModel.get('report-person-location-uk-address')
             .should.deep.equal('3 Road Lane, Cottage House, Liverpool, Merseyside');
-
         });
       });
 
@@ -95,10 +89,8 @@ describe('apps/paf/behaviours/address-formatter', () => {
         req.sessionModel.set('report-person-location-outside-uk-address-town', 'Barcelona');
         req.sessionModel.set('report-person-location-outside-uk-address-county', 'Catalonia');
         controller.configure(req, res, () => {
-
           req.sessionModel.get('report-person-location-outside-uk-address')
             .should.deep.equal('Passeig 1, Ciutadella, Barcelona, Catalonia');
-
         });
       });
 
@@ -108,10 +100,8 @@ describe('apps/paf/behaviours/address-formatter', () => {
         req.sessionModel.set('report-person-occupation-company-address-town', 'Leeds');
         req.sessionModel.set('report-person-occupation-company-address-county', 'East Midlands');
         controller.configure(req, res, () => {
-
           req.sessionModel.get('report-person-occupation-company-address')
             .should.deep.equal('4 Road Lane, Tower House, Leeds, East Midlands');
-
         });
       });
 
@@ -121,10 +111,8 @@ describe('apps/paf/behaviours/address-formatter', () => {
         req.sessionModel.set('report-person-study-address-town', 'Coventry');
         req.sessionModel.set('report-person-study-address-county', 'West Midlands');
         controller.configure(req, res, () => {
-
           req.sessionModel.get('report-person-study-address')
             .should.deep.equal('5 Road Lane, University of Warwick, Coventry, West Midlands');
-
         });
       });
 
@@ -134,10 +122,8 @@ describe('apps/paf/behaviours/address-formatter', () => {
         req.sessionModel.set('company-town', 'Manchester');
         req.sessionModel.set('company-county', 'Greater Manchester');
         controller.configure(req, res, () => {
-
           req.sessionModel.get('company-address')
             .should.deep.equal('6 Road Lane, Field House, Manchester, Greater Manchester');
-
         });
       });
     });

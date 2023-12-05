@@ -8,7 +8,7 @@ module.exports = superclass => class extends superclass {
       req.sessionModel.get('crime-location-address-town') ||
       req.sessionModel.get('crime-location-address-county')) {
       let crimeAddress = [];
-      
+
       crimeAddress.push(req.sessionModel.get('crime-location-address-line1'),
         req.sessionModel.get('crime-location-address-line2'),
         req.sessionModel.get('crime-location-address-town'),
