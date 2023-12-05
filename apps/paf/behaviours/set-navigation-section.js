@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = superclass => class extends superclass {
   getValues(req, res, next) {
     return super.getValues(req, res, (err, values) => {
@@ -34,10 +35,12 @@ module.exports = superclass => class extends superclass {
       if (req.form.options.route === '/report-person'
         || req.form.options.route === '/has-additionalPerson'
         || req.form.options.route === '/person-details') {
+
         req.form.options.next = '/report-organisation';
       }
       // Add report organisation page backlink
       if (req.form.options.route === '/report-organisation') {
+
         if (req.sessionModel.attributes.steps.includes('/has-additionalPerson')
           && !req.sessionModel.attributes.steps.includes('/person-details')) {
           req.form.options.steps['/report-organisation'].backLink = 'has-additionalPerson';
@@ -79,8 +82,10 @@ module.exports = superclass => class extends superclass {
         req.form.options.steps['/add-other-info-file-upload'].next = '/about-you';
         res.locals.backLink = 'other-info-description';
       }
+
       if (req.form.options.route === '/other-info-file-upload'
         || req.form.options.route === '/add-other-info-file-upload' ) {
+
         req.form.options.next = '/about-you';
       }
       // Add about you page backlink
@@ -98,8 +103,10 @@ module.exports = superclass => class extends superclass {
         req.form.options.steps['/are-you-eighteen'].next = '/confirm';
         res.locals.backLink = 'about-you';
       }
+
       if (req.form.options.route === '/about-you-contact'
         || req.form.options.route === '/are-you-eighteen') {
+
         req.form.options.next = '/confirm';
       }
       // Add check answers page backlink

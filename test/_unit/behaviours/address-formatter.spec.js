@@ -1,4 +1,5 @@
 'use strict';
+/* eslint max-len: 0 */
 
 const Controller = require('hof').controller;
 const Behaviour = require('../../../apps/paf/behaviours/address-formatter');

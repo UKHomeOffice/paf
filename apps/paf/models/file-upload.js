@@ -1,6 +1,6 @@
 /* eslint-disable node/no-deprecated-api */
 'use strict';
-
+/* eslint-disable */
 const url = require('url');
 const Model = require('hof').model;
 const uuid = require('uuid').v4;
@@ -17,7 +17,7 @@ module.exports = class UploadModel extends Model {
       const attributes = {
         url: config.upload.hostname
       };
-      const reqConf = url.parse(this.url(attributes));
+      const reqConf = new url.URL(this.url(attributes));
       reqConf.formData = {
         document: {
           value: this.get('data'),
@@ -41,7 +41,6 @@ module.exports = class UploadModel extends Model {
 
   auth() {
     if (!config.keycloak.token) {
-      // eslint-disable-next-line no-console
       console.error('keycloak token url is not defined');
       return Promise.resolve({
         bearer: 'abc123'

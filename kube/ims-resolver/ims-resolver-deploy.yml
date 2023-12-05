@@ -39,8 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          # no official release, this connects to the private link
-          image: quay.io/ukhomeofficedigital/ims-resolver:3ef948c3cf90b88a66e2213da4ad929d4af607af
+          image: quay.io/ukhomeofficedigital/ims-resolver:52a3d57ec082d06b2451f762a4d42e586f72ab96
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -75,6 +74,39 @@ spec:
             {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
             - name: NODE_TLS_REJECT_UNAUTHORIZED
               value: "0"
+            {{ end }}
+            {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
+            - name: SQS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-branch-sqs-queue
+                  key: sqs_url
+            - name: ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-branch-sqs-queue
+                  key: access_key_id
+            - name: SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-branch-sqs-queue
+                  key: secret_access_key
+            {{ else if (eq .KUBE_NAMESPACE .UAT_ENV) }}
+            - name: SQS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-uat-sqs-queue
+                  key: sqs_url
+            - name: ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-uat-sqs-queue
+                  key: access_key_id
+            - name: SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-uat-sqs-queue
+                  key: secret_access_key
             {{ end }}
           securityContext:
             runAsNonRoot: true

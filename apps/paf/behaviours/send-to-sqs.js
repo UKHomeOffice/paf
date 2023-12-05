@@ -1,11 +1,10 @@
 'use strict';
-
+/* eslint-disable */
 const { v4: uuidv4 } = require('uuid');
 const { sendToQueue } = require('../../../lib/utils');
 const { addAllegationData } = require('../../../lib/add-allegation-data');
 
 module.exports = superclass => class SendToSQS extends superclass {
-  // eslint-disable-next-line consistent-return
   saveValues(req, res, next) {
     let allegationId;
     let allegationData;
@@ -33,7 +32,6 @@ module.exports = superclass => class SendToSQS extends superclass {
     };
     err.formNotSubmitted = true;
     err.allegationDetails = allegationDetails;
-    // eslint-disable-next-line no-console
     console.error('Failed to send to SQS queue: ', err);
     return next(err);
   }

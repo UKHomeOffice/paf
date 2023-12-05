@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable max-len */
 const saveImage = require('./behaviours/save-file');
 const removeImage = require('./behaviours/remove-file');
 const CombineAndLoopFields = require('hof').components.combineAndLoopFields;
@@ -774,8 +775,10 @@ module.exports = {
       next: '/declaration'
     },
     '/declaration': {
+
       behaviours: ['complete', addressFormatter, additionalPersonFormatter,
         vehicleToggleFormatter, SendToSQS],
+
       next: '/confirmation'
     },
     '/confirmation': {

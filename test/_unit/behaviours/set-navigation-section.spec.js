@@ -1,5 +1,5 @@
 'use strict';
-
+/* eslint-disable max-len */
 const Controller = require('hof').controller;
 const Behaviour = require('../../../apps/paf/behaviours/set-navigation-section');
 
@@ -290,6 +290,7 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
       controller._configure(req, res, done);
     });
 
+
     describe('disables and enables sections links based on whether required crime type '
     + 'and crime children questions have been completed', () => {
       it('locals should not have enableSection property if all required fields not completed', () => {
@@ -298,6 +299,7 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
         req.sessionModel.set('crime-children', undefined);
         controller.locals(req, res).should.not.have.property('enableSection');
       });
+
 
       it('locals should not have enableSection property if required crime-type '
       + 'toggle and crime-children fields not completed', () => {

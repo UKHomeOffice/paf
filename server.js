@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable no-undef */
 
 const hof = require('hof');
 let settings = require('./hof.settings');

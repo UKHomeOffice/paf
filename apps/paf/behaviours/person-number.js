@@ -1,4 +1,5 @@
 const _ = require('lodash');
+/* eslint-disable max-len */
 
 module.exports = superclass => class extends superclass {
 // Additional person fields are optional, so this behaviour
