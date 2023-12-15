@@ -93,12 +93,19 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-location-phone": {
+    "required": "Enter a valid phone number",
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+  },
+
+  "report-person-study-phone": {
+    "required": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-another-location-address-postcode": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-another-location-phone": {
+    "required": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} numbers for your answer"
   },
   "report-person-first-name": {
@@ -130,6 +137,7 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-location-phone": {
+    "required": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-location-email": {
@@ -156,6 +164,11 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-occupation-company-phone": {
+    "required": "Enter a valid phone number",
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+  },
+  "company-phone": {
+    "required": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-occupation-company-manager": {
@@ -276,5 +289,33 @@
   },
   "when-to-contact": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+  },
+  "boat-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "airline-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "crime-location-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "crime-another-location-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "train-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "report-person-location-outside-uk-address-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "report-person-location-travel-to-uk-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
   }
 }
