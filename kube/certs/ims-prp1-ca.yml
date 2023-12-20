@@ -7,6 +7,6 @@ spec:
   dnsNames:
   - "*.{{ .BRANCH_ENV }}.homeoffice.gov.uk"
   issuerRef:
-    kind: ClusterIssuer
-    name: letsencrypt-prod
+    kind: selfsigned-cluster-issuer
+    name: selfsigned-issuer
   secretName: ims-prp1-ca
