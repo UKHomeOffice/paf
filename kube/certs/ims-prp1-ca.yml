@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ims-prp1-ca
+spec:
+  commonName: "*.{{ .BRANCH_ENV }}.homeoffice.gov.uk"
+  dnsNames:
+  - "*.{{ .BRANCH_ENV }}.homeoffice.gov.uk"
+  issuerRef:
+    kind: ClusterIssuer
+    name: letsencrypt-prod
+  secretName: ims-prp1-ca
