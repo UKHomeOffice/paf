@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: {{ .DEPLOYMENT_NAME }}-service-tls
+  name: ims-resolver-paf-49-test-private-link-service-tls
 spec:
   secretName: ims-prp1-ca
   issuerRef:
