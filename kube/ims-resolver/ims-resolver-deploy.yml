@@ -85,3 +85,7 @@ spec:
             limits:
               memory: 256Mi
               cpu: 300m
+      volumes:
+        - name: certs
+          secret:
+            secretName: ims-prp1-ca
