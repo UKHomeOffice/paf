@@ -10,5 +10,6 @@
   ],
   "session": {
     "name": "paf.hof.sid"
-  }
+  },
+  "getAccessibility": true
 }

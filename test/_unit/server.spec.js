@@ -54,7 +54,8 @@ describe('Server.js app file', () => {
           appsPafStub
         ],
         behaviours: [ behavioursSetNavigationSectionStub],
-        session: { name: 'paf.hof.sid' }
+        session: { name: 'paf.hof.sid' },
+        getAccessibility: true
       });
     });
 
