@@ -10,7 +10,7 @@ metadata:
     name: {{ .APP_NAME }}
     {{ end }}
 data:
-  ims-prp1-ca.crt: | 
+  ims-prp1-ca.crt: |-
     -----BEGIN CERTIFICATE-----
 MIIFlDCCA3ygAwIBAgIUS7dw1bxkgkeD9EU8SnxsgpWe4awwDQYJKoZIhvcNAQEL
 BQAwfDELMAkGA1UEBhMCR0IxEDAOBgNVBAgTB0VuZ2xhbmQxFDASBgNVBAoTC0hv
