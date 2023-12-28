@@ -8,7 +8,7 @@ export NGINX_SETTINGS=$HOF_CONFIG/nginx-settings.yaml
 export FILEVAULT_NGINX_SETTINGS=$HOF_CONFIG/filevault-nginx-settings.yaml
 export FILEVAULT_INGRESS_EXTERNAL_ANNOTATIONS=$HOF_CONFIG/filevault-ingress-external-annotations.yaml
 
-kd='kd --insecure-skip-tls-verify --timeout 10m --check-interval 10s'
+kd='kd --insecure-skip-tls-verify --timeout 20m --check-interval 10s'
 
 if [[ $1 == 'tear_down' ]]; then
   export KUBE_NAMESPACE=$BRANCH_ENV
