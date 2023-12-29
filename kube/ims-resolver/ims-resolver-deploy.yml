@@ -49,6 +49,8 @@ spec:
                 {{ else }}
                 name: configmap
                 {{ end }}
+            - configMapRef:
+                name: cacert-store
           env:
             - name: TZ
               value: Europe/London
