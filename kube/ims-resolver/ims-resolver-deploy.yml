@@ -80,13 +80,13 @@ spec:
             #  {{ end }}
           securityContext:
             runAsNonRoot: true
-          resources:
-            requests:
-              memory: 10Mi
-              cpu: 10m
+         resources:
             limits:
-              memory: 256Mi
-              cpu: 300   
+              memory: "2048Mi"
+              cpu: "2000m"
+            requests:
+              memory: "2048Mi"
+              cpu: "2000m"
           volumeMounts:
             - name: cacert-store
               mountPath: /etc/ssl/certs/ims-prp1-ca.crt
