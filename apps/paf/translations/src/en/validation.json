@@ -113,6 +113,11 @@
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
     "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
   },
+  "report-person-dob": {
+    "date": "Please enter a valid date",
+    "before": "Enter a date in the past",
+    "after": "Enter a date after 01 01 1900"
+  },
   "report-person-place-of-birth": {
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
     "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank"
@@ -224,6 +229,11 @@
   "personAddNickname": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
     "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
+  },
+  "personAddDob": {
+    "date": "Please enter a valid date",
+    "before": "Enter a date in the past",
+    "after": "Enter a date after 01 01 1900"
   },
   "personAddPassport": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
