@@ -276,5 +276,11 @@
   },
   "when-to-contact": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+  },
+  "personAddDob":{
+    "required": "Enter your date of birth"
+  },
+  "report-person-dob":{
+    "required": "Enter your date of birth"
   }
 }
