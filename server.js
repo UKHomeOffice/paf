@@ -14,12 +14,15 @@ const _ = require('lodash');
 =======
 const mockAPIs = require('./mock-apis');
 const bodyParser = require('busboy-body-parser');
->>>>>>> 84527e4 (PAF-11: create attachments)
+const certificate = require('./certs');
 
 settings = Object.assign({}, settings, {
   routes: settings.routes.map(require),
   behaviours: settings.behaviours.map(require)
 });
+
+certificate.getCertificate();
+certificate.options.ca;
 
 const app = hof(settings);
 
@@ -54,7 +57,9 @@ if (config.env === 'development' || config.env === 'test') {
     });
 
     res.send('Session populate complete');
+  
   });
+  
 }
 
 app.use((req, res, next) => {

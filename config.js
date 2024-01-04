@@ -27,13 +27,3 @@ module.exports = {
     secret: process.env.KEYCLOAK_SECRET
   },
 };
-const https = require('https');
-const fs = require('fs');
-
-const options = {
-  ca: fs.readFileSync('/etc/ssl/certs/ims-prp1-ca.crt')
-};
-
-https.get('https://ho-it-prp1-i-ie-ims.report-and-manage-intelligence.np.immigrationservices.phz/lagan/services/FL', options, (res) => {
-  // Handle the response
-});
