@@ -93,12 +93,16 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-location-phone": {
+    "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Please enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-another-location-address-postcode": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-another-location-phone": {
+    "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Please enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} numbers for your answer"
   },
   "report-person-first-name": {
@@ -130,6 +134,8 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-location-phone": {
+    "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Please enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-location-email": {
@@ -156,6 +162,8 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-occupation-company-phone": {
+    "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Please enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-occupation-company-manager": {
@@ -272,7 +280,9 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "contact-number": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "required": "Please enter a phone number",
+    "internationalPhoneNumber": "Please enter a valid phone number"
   },
   "when-to-contact": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"

@@ -578,7 +578,7 @@ module.exports = {
   },
   'crime-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 200 }]
   },
   'crime-another-location': {
     isPageHeading: true,
@@ -641,7 +641,7 @@ module.exports = {
   },
   'crime-another-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 200 }]
   },
   'report-person': {
     mixin: 'radio-group',
@@ -785,11 +785,11 @@ module.exports = {
   },
   'report-person-location-mobile': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: [{ type: 'maxlength', arguments: 200 }]
   },
   'report-person-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 200 }]
   },
   'report-person-location-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
@@ -873,7 +873,7 @@ module.exports = {
   },
   'report-person-occupation-company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-occupation-company-manager': {
     mixin: 'input-text',
@@ -933,7 +933,7 @@ module.exports = {
   },
   'report-person-study-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-study-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
@@ -1189,7 +1189,7 @@ module.exports = {
   },
   'company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 200 }]
   },
   'company-email': {
     formatter: ['removespaces'],
@@ -1382,7 +1382,7 @@ module.exports = {
       field: 'are-you-eighteen',
       value: 'yes'
     },
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 30 }]
   },
   'when-to-contact': {
     dependent: {
