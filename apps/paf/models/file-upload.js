@@ -17,7 +17,8 @@ module.exports = class UploadModel extends Model {
       const attributes = {
         url: config.upload.hostname
       };
-      const reqConf = new url.URL(this.url(attributes));
+      const reqConf = url.parse(this.url(attributes));
+      // const reqConf = new url.URL(this.url(attributes));
       reqConf.formData = {
         document: {
           value: this.get('data'),
@@ -59,7 +60,7 @@ module.exports = class UploadModel extends Model {
     };
 
     return new Promise((resolve, reject) => {
-      this._request(tokenReq, (err, response) => {
+      return this._request(tokenReq, (err, response) => {
         const body = JSON.parse(response.body);
 
         if (err || body.error) {
