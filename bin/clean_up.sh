@@ -7,9 +7,9 @@ export IGNORE_CONFIGMAP=("bundle")
 
 export kubectl="kubectl --insecure-skip-tls-verify --server=$KUBE_SERVER --namespace=$KUBE_NAMESPACE --token=$KUBE_TOKEN"
 
-$kubectl delete --all deploy
-$kubectl delete --all svc
-$kubectl delete --all ing
+$kubectl delete --all deploy --v=0
+$kubectl delete --all svc --v=0
+$kubectl delete --all ing --v=0
 
 for each in $($kubectl get netpol -o jsonpath="{.items[*].metadata.name}");
 do
