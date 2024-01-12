@@ -359,7 +359,7 @@ steps:
       KUBE_SERVER:
         from_secret: KUBE_SERVER_DEV
       KUBE_TOKEN:
-        from_secret: KUBE_TOKEN_DEV
+        from_secret: kube_token_sas_dev
     commands:
       - bin/clean_up.sh $${BRANCH_ENV}
     when:
