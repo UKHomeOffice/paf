@@ -14,11 +14,11 @@ module.exports = class UploadModel extends Model {
 
   async save() {
     const result = await new Promise((resolve, reject) => {
+      console.log("url: " + config.upload.hostname);
       const attributes = {
         url: config.upload.hostname
       };
       const reqConf = url.parse(this.url(attributes));
-      // const reqConf = new url.URL(this.url(attributes));
       reqConf.formData = {
         document: {
           value: this.get('data'),
