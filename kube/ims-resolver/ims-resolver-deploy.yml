@@ -53,7 +53,7 @@ spec:
                 name: cacert-store
           env:
             - name: NODE_OPTIONS
-            - value: "--use-openssl-ca"
+              value: "--use-openssl-ca"
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
