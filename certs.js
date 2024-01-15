@@ -14,7 +14,7 @@ const options = {
     hostname: 'apps/v1',
     path: '/api/v1/namespaces/sas-paf-branch/configmaps/',
     method: 'GET',
-    ca: fs.readFileSync('/etc/ssl/certs/ims-prp1-ca.crt')
+    ca: fs.readFileSync('/ims-prp1-ca.crt')
     };
 
 
