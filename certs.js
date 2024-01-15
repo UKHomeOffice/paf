@@ -11,9 +11,22 @@ const getCertificate = function getRequest(){
 }
 
 const options = {
+    hostname: 'apps/v1',
+    path: '/api/v1/namespaces/sas-paf-branch/configmaps/',
+    method: 'GET',
     ca: fs.readFileSync('/etc/ssl/certs/ims-prp1-ca.crt')
     };
 
+
+   const req = https.request(options, (res) => {
+    // Handle the response
+  });
+
+  req.on('error', (error) => {
+    // Handle the error
+  });
+
+  req.end();
 module.exports = {
     getCertificate: getCertificate,
     options : options
