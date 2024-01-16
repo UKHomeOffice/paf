@@ -52,8 +52,8 @@ spec:
             - configMapRef:
                 name: cacert-store
           env:
-            # - name: NODE_OPTIONS
-            #   value: "--use-openssl-ca"
+            - name: NODE_OPTIONS
+              value: "--use-openssl-ca"
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
@@ -91,7 +91,7 @@ spec:
               cpu: 2000m
           volumeMounts:
             - name: cacert-store
-              mountPath: /ims-prp1-ca.crt
+              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
               subPath: ims-prp1-ca.crt
               readOnly: false
       volumes:
