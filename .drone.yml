@@ -183,7 +183,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
+          - PAF-49-test-private-link
+          - PAF-49-test-cert-2
       event: [pull_request, push]
 
   - name: linting_branch
