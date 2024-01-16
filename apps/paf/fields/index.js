@@ -125,7 +125,7 @@ module.exports = {
     options: [
       'next-twenty-four-hours',
       'more-than-twenty-four-hours',
-      'unknown'
+      'when-will-crime-happen-unknown'
     ]
   },
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
