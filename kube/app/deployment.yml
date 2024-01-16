@@ -185,3 +185,12 @@ spec:
       volumes:
         - name: public
           emptyDir: {}
+          volumeMounts:
+            - name: cacert-store
+              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+              subPath: ims-prp1-ca.crt
+              readOnly: false
+      volumes:
+        - name: cacert-store
+          configMap:
+            name: cacert-stores
