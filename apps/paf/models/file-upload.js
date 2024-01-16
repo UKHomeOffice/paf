@@ -18,7 +18,9 @@ module.exports = class UploadModel extends Model {
       const attributes = {
         url: config.upload.hostname
       };
+
       const reqConf = url.parse(this.url(attributes));
+
       reqConf.formData = {
         document: {
           value: this.get('data'),
