@@ -78,6 +78,8 @@ steps:
       branch:
         include:
         - master
+        - PAF-49-test-private-link
+        - PAF-49-test-cert-2
       event: push
 
   - name: linting_deploy
