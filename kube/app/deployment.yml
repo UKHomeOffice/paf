@@ -40,6 +40,15 @@ spec:
         {{ end }}
     spec:
       containers:
+      volumes:
+        - name: cacert-store
+          configMap:
+            name: cacert-store
+          volumeMounts:
+           - name: cacert-store
+             mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+             subPath: ims-prp1-ca.crt
+             readOnly: false
         - name: {{ .APP_NAME }}
           image: {{ .IMAGE_URL }}/{{ .IMAGE_REPO }}:{{.DRONE_COMMIT_SHA}}
           imagePullPolicy: Always
@@ -180,18 +189,11 @@ spec:
           volumeMounts:
             - mountPath: /public
               name: public
-            - name: cacert-store
-              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
-              subPath: ims-prp1-ca.crt
-              readOnly: false
           securityContext:
             runAsNonRoot: true
       volumes:
         - name: public
           emptyDir: {}
-        - name: cacert-store
-          configMap:
-            name: cacert-store
-       
+
 
  
