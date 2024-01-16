@@ -5,7 +5,6 @@ let settings = require('./hof.settings');
 const config = require('./config.js');
 const mockAPIs = require('./mock-apis');
 const bodyParser = require('busboy-body-parser');
-const certificate = require('./certs');
 
 settings = Object.assign({}, settings, {
   routes: settings.routes.map(require),
