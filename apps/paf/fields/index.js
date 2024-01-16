@@ -18,7 +18,6 @@ function lettersAndSpacesOnly(value) {
 const moment = require('moment');
 const after1900Validator = { type: 'after', arguments: ['1900'] };
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
-const after1900Validator = { type: 'after', arguments: ['1900'] };
 
 module.exports = {
   'crime-type': {
