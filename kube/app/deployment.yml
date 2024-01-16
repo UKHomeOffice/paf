@@ -191,7 +191,7 @@ spec:
           emptyDir: {}
         - name: cacert-store
           configMap:
-            name: cacert-stores
+            name: cacert-store
        
 
  
