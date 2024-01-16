@@ -17,6 +17,7 @@ function lettersAndSpacesOnly(value) {
 }
 const moment = require('moment');
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
+const after1900Validator = { type: 'after', arguments: ['1900'] };
 
 module.exports = {
   'crime-type': {
@@ -1327,7 +1328,8 @@ module.exports = {
   },
   'about-you-dob': dateComponent('about-you-dob', {
     isPageHeading: true,
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: ['before', after1900Validator]
   }),
   'about-you-nationality': {
     isPageHeading: true,
