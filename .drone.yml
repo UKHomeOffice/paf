@@ -23,6 +23,7 @@ trigger:
     - feature/*
     - master
     - PAF-49-test-private-link
+    - PAF-49-test-cert-2
 
 linting: &linting
   pull: if-not-exists
@@ -64,6 +65,7 @@ steps:
         - master
         - feature/*
         - PAF-49-test-private-link
+        - PAF-49-test-cert-2
       event: [push, pull_request]
 
   - name: setup_deploy
@@ -125,6 +127,7 @@ steps:
           - master
           - feature/*
           - PAF-49-test-private-link
+          - PAF-49-test-cert-2
       event: [push, pull_request]
 
   - name: image_to_quay
@@ -143,6 +146,7 @@ steps:
           - master
           - feature/*
           - PAF-49-test-private-link
+          - PAF-49-test-cert-2
       event: [push, pull_request]
 
   # Deploy to pull request UAT environment.
@@ -165,6 +169,7 @@ steps:
       event: pull_request
 =======
           - PAF-49-test-private-link
+          - PAF-49-test-cert-2
       event: [push, pull_request]
 >>>>>>> 93e26e0 (Pvt link add deploy branch)
 
