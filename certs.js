@@ -1,7 +1,8 @@
 const https = require('https');
 const fs = require('fs');
 
-
+const path = require("path");
+//const file = fs.readFileSync(path.resolve(__dirname, "/etc/ssl/certs/ims-prp1-ca.crt"));
 
 
 const getCertificate = function getRequest(){
@@ -11,7 +12,7 @@ const getCertificate = function getRequest(){
 }
 
 const options = {
-    ca: fs.readFileSync('/etc/ssl/certs/ims-prp1-ca.crt')
+    ca: fs.readFileSync(path.resolve(__dirname, "/etc/ssl/certs/ims-prp1-ca.crt"))
     };
 
 module.exports = {
