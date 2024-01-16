@@ -16,6 +16,7 @@ function lettersAndSpacesOnly(value) {
   return /^[A-Za-z\s]*$/.test(value);
 }
 const moment = require('moment');
+const after1900Validator = { type: 'after', arguments: ['1900'] };
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 const after1900Validator = { type: 'after', arguments: ['1900'] };
 
@@ -666,7 +667,8 @@ module.exports = {
   },
   'report-person-dob': dateComponent('report-person-dob', {
     isPageHeading: true,
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: ['before', after1900Validator]
   }),
   'report-person-age-range': {
     mixin: 'radio-group',
@@ -1116,6 +1118,7 @@ module.exports = {
   personAddDob: dateComponent('personAddDob', {
     isPageHeading: true,
     mixin: 'input-date',
+    validate: ['before', after1900Validator],
     parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
   }),
   personAddAgeRange: {
