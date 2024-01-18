@@ -128,8 +128,11 @@
   "date-crime-will-happen": {
     "label": "Date"
   },
-  "time-crime-will-happen": {
-    "label": "Time"
+  "time-crime-will-happen-hour": {
+    "label": "Hour"
+  },
+  "time-crime-will-happen-minute": {
+    "label": "Minute"
   },
   "crime-transport": {
     "legend": "Does the crime involve any vehicles, transport or travel?",

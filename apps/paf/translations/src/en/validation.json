@@ -190,6 +190,19 @@
     "url": "Enter a website address in the correct format, like www.example.com",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
+  "time-crime-will-happen-hour": {
+    "numeric": "Please enter a valid time in digits",
+    "min": "Please enter a number from 0 to 23",
+    "max": "Please enter a number from 0 to 23"
+  },
+  "time-crime-will-happen-minute": {
+    "numeric": "Please enter a valid time in digits",
+    "min": "Please enter a number from 0 to 59",
+    "max": "Please enter a number from 0 to 59"
+  },
+  "company-postcode": {
+    "postcode": "Enter a real postcode"
+  },
   "company-email": {
     "email": "There is a problem with the email you have entered. Please ensure it is not longer than 100 characters, it does not include invalid characters and it is in the format of <name>@<domain name> e.g. name@email.co.uk. If you do not know this information, please leave this field blank."
   },
