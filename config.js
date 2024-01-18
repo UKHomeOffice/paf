@@ -14,30 +14,17 @@ module.exports = {
   upload: {
     maxFileSize: '100mb',
     allowedMimeTypes: [
-      'application/json',
-      'application/msword',
       'application/pdf',
-      'application/rtf',
-      'application/vnd.ms-excel',
-      'application/vnd.ms-outlook',
-      'application/vnd.ms-powerpoint',
-      'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+      'application/msword',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-      'application/xml',
-      'application/x-tika-ooxml',
-      'audio/vnd.wave',
-      'audio/wav',
-      'audio/x-wav',
-      'image/bmp',
+      'application/vnd.ms-excel',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
       'image/jpeg',
       'image/jpg',
       'image/png',
-      'message/rfc822',
-      'text/csv',
       'text/plain',
-      'text/xml'
+      'application/vnd.oasis.opendocument.text',
+      'application/vnd.oasis.opendocument.spreadsheet'
     ],
     // if mocks set use file service served up by app otherwise use filevault's port 3000
     hostname: !useMocks && process.env.FILE_VAULT_URL ?
