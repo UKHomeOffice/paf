@@ -206,6 +206,9 @@
       }
     },
     "fields": {
+      "time-crime-will-happen": {
+        "label": "Time"
+      },
       "when-will-crime-happen-more-info": {
         "label": "More information about when the crime is happening"
       },
