@@ -304,5 +304,9 @@
   },
   "when-to-contact": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+  },
+  "other-info-file-upload": {
+    "maxFileSize": "Select a file that is smaller than 100 MB",
+    "fileType": "This file is not a valid file format you can upload to this service."
   }
 }
