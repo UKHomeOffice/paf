@@ -20,9 +20,6 @@ settings = Object.assign({}, settings, {
   behaviours: settings.behaviours.map(require)
 });
 
-// certificate.getCertificate();
-// certificate.options.ca;
-
 const app = hof(settings);
 
 if (config.useMocks) {
@@ -56,9 +53,7 @@ if (config.env === 'development' || config.env === 'test') {
     });
 
     res.send('Session populate complete');
-  
   });
-  
 }
 
 app.use((req, res, next) => {
