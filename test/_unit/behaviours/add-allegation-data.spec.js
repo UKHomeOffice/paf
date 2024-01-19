@@ -15,10 +15,10 @@ describe("apps/lib 'add-allegation-data' behaviour should ", () => {
       addAllegationDataWithAdditionalPerAndFileRes = addAllegationData(dataWithAdditionalPersonAndFile);
     });
 
-    it('addAlligationData response have EformFields, AdditionalPeople, Attachements', () => {
+    it('addAlligationData response have EformFields, AdditionalPeople, Attachments', () => {
       JSON.parse(addAllegationDataWithAdditionalPerAndFileRes).should.have.property('EformFields');
       JSON.parse(addAllegationDataWithAdditionalPerAndFileRes).should.have.property('AdditionalPeople');
-      JSON.parse(addAllegationDataWithAdditionalPerAndFileRes).should.have.property('Attachements');
+      JSON.parse(addAllegationDataWithAdditionalPerAndFileRes).should.have.property('Attachments');
     });
 
     it('addAlligationData contain rdpermoreinfomore set to true when Additional person is selected', () => {
