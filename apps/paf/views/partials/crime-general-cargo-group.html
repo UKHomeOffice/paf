@@ -2,13 +2,13 @@
   <fieldset class="govuk-fieldset">
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="crime-general-cargo-group" id="crime-general-cargo-group-general-cargo"  value="general-cargo">
+        <input class="govuk-radios__input"  type="radio" name="crime-general-cargo-group" id="crime-general-cargo-group-general-cargo"  value="general-cargo" {{#generalChecked}}checked="checked"{{/generalChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-general-cargo-group-general-cargo">
           {{#t}}fields.crime-general-cargo-group.options.general-cargo{{/t}}
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="crime-general-cargo-group" id="crime-general-cargo-group-general-cargo-with-container-capacity"  value="general-cargo-with-container-capacity">
+        <input class="govuk-radios__input"  type="radio" name="crime-general-cargo-group" id="crime-general-cargo-group-general-cargo-with-container-capacity"  value="general-cargo-with-container-capacity" {{#generalContainerChecked}}checked="checked"{{/generalContainerChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-general-cargo-group-general-cargo-with-container-capacity">
           {{#t}}fields.crime-general-cargo-group.options.general-cargo-with-container-capacity{{/t}}
         </label>

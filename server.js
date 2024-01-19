@@ -1,10 +1,12 @@
 'use strict';
+/* eslint-disable no-undef */
 
 const hof = require('hof');
 let settings = require('./hof.settings');
 const config = require('./config.js');
 const mockAPIs = require('./mock-apis');
 const bodyParser = require('busboy-body-parser');
+const _ = require('lodash');
 
 settings = Object.assign({}, settings, {
   routes: settings.routes.map(require),

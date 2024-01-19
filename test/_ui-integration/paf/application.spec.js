@@ -124,7 +124,7 @@ describe('the journey of a paf application', () => {
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/crime-location');
   });
-  
+
   it('goes to the crime-another-location page', async () => {
     const URI = '/crime-location';
     await initSession(URI);
@@ -238,7 +238,7 @@ describe('the journey of a paf application', () => {
     const URI = '/has-additionalPerson';
     await initSession(URI);
     const response = await passStep(URI, {
-      'hasAdditionalPerson': 'yes'
+      hasAdditionalPerson: 'yes'
     });
     expect(response.text).to.contain('Found. Redirecting to /paf/person-details');
   });
@@ -247,7 +247,7 @@ describe('the journey of a paf application', () => {
     const URI = '/has-additionalPerson';
     await initSession(URI);
     const response = await passStep(URI, {
-      'hasAdditionalPerson': 'no'
+      hasAdditionalPerson: 'no'
     });
     expect(response.text).to.contain('Found. Redirecting to /paf/report-organisation');
   });
@@ -255,7 +255,7 @@ describe('the journey of a paf application', () => {
   it('goes to the company-name page', async () => {
     const URI = '/report-organisation';
     await initSession(URI);
-    const response = await passStep(URI, {'report-organisation':'yes'});
+    const response = await passStep(URI, {'report-organisation': 'yes'});
     expect(response.text).to.contain('Found. Redirecting to /paf/company-name');
   });
 

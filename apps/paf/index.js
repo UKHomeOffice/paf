@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable max-len */
 const saveImage = require('./behaviours/save-file');
 const removeImage = require('./behaviours/remove-file');
 const CombineAndLoopFields = require('hof').components.combineAndLoopFields;
@@ -6,9 +7,15 @@ const limitDocs = require('./behaviours/limit-documents');
 const disableUpload = require('./behaviours/disable-file-upload');
 const SummaryPageBehaviour = require('hof').components.summary;
 const transportBehaviour = require('./behaviours/transport-behaviour');
+const transportToggle = require('./behaviours/set-transport-toggle');
 const Aggregate = require('./behaviours/aggregator');
 const limitPerson = require('./behaviours/limit-person');
 const personNumber = require('./behaviours/person-number');
+const addressFormatter = require('./behaviours/address-formatter');
+const additionalPersonFormatter = require('./behaviours/additional-person-formatter');
+const vehicleToggleFormatter = require('./behaviours/vehicle-toggle-formatter');
+const SendToSQS = require('./behaviours/send-to-sqs');
+const timeFormatter = require('./behaviours/time-formatter');
 
 module.exports = {
   name: 'paf',
@@ -54,7 +61,7 @@ module.exports = {
       }]
     },
     '/date-time-crime-will-happen': {
-      fields: ['date-crime-will-happen', 'time-crime-will-happen'],
+      fields: ['date-crime-will-happen', 'time-crime-will-happen-hour', 'time-crime-will-happen-minute'],
       next: '/when-will-crime-happen-more-info'
     },
     '/when-will-crime-happen-more-info': {
@@ -70,42 +77,47 @@ module.exports = {
       forks: [{
         target: '/crime-transport-vehicle-type',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-vehicle') === 0) {
-            return true
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-vehicle') === 0) {
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-boat-type',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 0) {
-            return true
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 0) {
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-train-details',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 0) {
-            return true
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 0) {
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-aeroplane-details',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 0) {
-            return true
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 0) {
+            return true;
           }
-          return false
+          return false;
         }
       }],
       continueOnEdit: true
     },
     '/crime-transport-vehicle-type': {
+      behaviours: [transportToggle],
       fields: ['vehicle-type',
         'crime-car-group',
         'crime-hgv-group',
@@ -125,33 +137,37 @@ module.exports = {
       forks: [{
         target: '/crime-transport-boat-type',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 1) {
-            return true
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-boat') === 1) {
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-train-details',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 1) {
-            return true
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-train') === 1) {
+            return true;
           }
-          return false
+          return false;
         }
       },
       {
         target: '/crime-transport-aeroplane-details',
         condition: req => {
-          if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 1) {
-            return true
+          if (req.sessionModel.get('crime-transport') === 'yes'
+            && req.sessionModel.get('transport-group').indexOf('crime-transport-aeroplane') === 1) {
+            return true;
           }
-          return false
+          return false;
         }
       }],
       continueOnEdit: true
     },
     '/crime-transport-boat-type': {
+      behaviours: [transportToggle],
       fields: ['boat-type',
         'crime-carrier-group',
         'crime-general-cargo-group',
@@ -173,19 +189,22 @@ module.exports = {
         {
           target: '/crime-transport-train-details',
           condition: req => {
-            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-train')) {
-              return true
+            if (req.sessionModel.get('crime-transport') === 'yes'
+              && req.sessionModel.get('transport-group').includes('crime-transport-train')) {
+              return true;
             }
-            return false
+            return false;
           }
         },
         {
           target: '/crime-transport-aeroplane-details',
           condition: req => {
-            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane') && !req.sessionModel.get('transport-group').includes('crime-transport-train')) {
-              return true
+            if (req.sessionModel.get('crime-transport') === 'yes'
+              && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')
+              && !req.sessionModel.get('transport-group').includes('crime-transport-train')) {
+              return true;
             }
-            return false
+            return false;
           }
         }],
       continueOnEdit: true
@@ -203,10 +222,11 @@ module.exports = {
         {
           target: '/crime-transport-aeroplane-details',
           condition: req => {
-            if (req.sessionModel.get('crime-transport') === 'yes' && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')) {
-              return true
+            if (req.sessionModel.get('crime-transport') === 'yes'
+              && req.sessionModel.get('transport-group').includes('crime-transport-aeroplane')) {
+              return true;
             }
-            return false
+            return false;
           }
         }],
       continueOnEdit: true
@@ -252,7 +272,7 @@ module.exports = {
         'crime-another-location-address-county',
         'crime-another-location-address-postcode',
         'crime-another-location-phone'
-      ],
+      ]
     },
     '/report-person': {
       fields: ['report-person'],
@@ -349,7 +369,9 @@ module.exports = {
       next: '/report-person-occupation'
     },
     '/report-person-location-travel-to-uk': {
-      fields: ['report-person-location-travel-to-uk-country', 'report-person-location-travel-to-uk-how', 'report-person-location-travel-to-uk-where'],
+      fields: ['report-person-location-travel-to-uk-country',
+        'report-person-location-travel-to-uk-how',
+        'report-person-location-travel-to-uk-where'],
       next: '/report-person-occupation'
     },
     '/report-person-occupation': {
@@ -380,7 +402,7 @@ module.exports = {
           field: 'report-person-occupation-type',
           value: 'other'
         }
-      },
+      }
       ]
     },
     '/report-person-occupation-government-employee': {
@@ -392,7 +414,7 @@ module.exports = {
           field: 'report-person-occupation-government-employee',
           value: 'yes'
         }
-      },
+      }
       ]
     },
     '/report-person-occupation-government-dept': {
@@ -421,7 +443,8 @@ module.exports = {
           value: 'yes'
         }
       }
-      ]
+      ],
+      continueOnEdit: true
     },
     '/report-person-occupation-company-name': {
       fields: ['report-person-occupation-company-name'],
@@ -498,7 +521,7 @@ module.exports = {
         'report-person-study-address-line2',
         'report-person-study-address-town',
         'report-person-study-address-county',
-        'report-person-study-address-postcode',
+        'report-person-study-address-postcode'
       ],
       next: '/report-person-study-contact'
     },
@@ -507,7 +530,7 @@ module.exports = {
         'report-person-study-email',
         'report-person-study-url'
       ],
-      next: '/report-person-study-manager',
+      next: '/report-person-study-manager'
     },
     '/report-person-study-manager': {
       fields: ['report-person-study-manager', 'report-person-study-manager-know'],
@@ -526,6 +549,7 @@ module.exports = {
       ]
     },
     '/report-person-transport-type': {
+      behaviours: [transportToggle],
       fields: ['report-person-transport-type',
         'report-person-transport-car-group',
         'report-person-transport-hgv-group',
@@ -633,30 +657,30 @@ module.exports = {
     },
     '/company-name': {
       next: '/company-address',
-      fields: ['organisation-company-name'],
+      fields: ['organisation-company-name']
     },
     '/company-address': {
       fields: ['company-address-line1', 'company-address-line2', 'company-town', 'company-county', 'company-postcode'],
-      next: '/company-contact',
+      next: '/company-contact'
     },
     '/company-contact': {
       fields: ['company-phone', 'company-email', 'company-website'],
-      next: '/company-types',
+      next: '/company-types'
     },
     '/company-types': {
       fields: ['company-types'],
-      next: '/company-owner',
+      next: '/company-owner'
     },
     '/company-owner': {
       fields: ['company-owner', 'owner-know-about-the-crime'],
-      next: '/company-other-info',
+      next: '/company-other-info'
     },
     '/company-other-info': {
       fields: ['company-other-info'],
-      next: '/another-company',
+      next: '/another-company'
     },
     '/another-company': {
-      fields: ['another-company', 'another-company-yes'],
+      fields: ['another-company', 'another-company-yes']
     },
     '/other-info-description': {
       fields: ['other-info-description'],
@@ -674,7 +698,7 @@ module.exports = {
         target: '/add-other-info-file-upload',
         condition: req => {
           if (req.form.values['other-info-file-upload']) {
-            return true
+            return true;
           }
           return false;
         }
@@ -751,12 +775,15 @@ module.exports = {
       fields: ['are-you-eighteen', 'contact-number', 'when-to-contact']
     },
     '/confirm': {
-      behaviours: [SummaryPageBehaviour, personNumber],
+      behaviours: [SummaryPageBehaviour, personNumber, timeFormatter],
       sections: require('./sections/summary-data-sections'),
       next: '/declaration'
     },
     '/declaration': {
-      behaviours: ['complete'],
+
+      behaviours: ['complete', addressFormatter, additionalPersonFormatter,
+        vehicleToggleFormatter, SendToSQS],
+
       next: '/confirmation'
     },
     '/confirmation': {

@@ -39,8 +39,12 @@ spec:
     spec:
       containers:
         - name: ims-resolver
+<<<<<<< HEAD
           # no official release, this connects to the private link
           image: quay.io/ukhomeofficedigital/ims-resolver:56506c546f92c6e2ba8e0328ee99379aa8b35593
+=======
+          image: quay.io/ukhomeofficedigital/ims-resolver:cf0d3271dc2e851583f2d2f15f62af334ddbacf8
+>>>>>>> master
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -49,11 +53,15 @@ spec:
                 {{ else }}
                 name: configmap
                 {{ end }}
+<<<<<<< HEAD
             - configMapRef:
                 name: cacert-store
           env:
             - name: NODE_OPTIONS
               value: "--use-openssl-ca"
+=======
+          env:
+>>>>>>> master
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
@@ -76,6 +84,7 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_endpoint
+<<<<<<< HEAD
              {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
             - name: NODE_TLS_REJECT_UNAUTHORIZED
               value: "0"
@@ -98,3 +107,51 @@ spec:
         - name: cacert-store
           configMap:
             name: cacert-store
+=======
+            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
+            - name: NODE_TLS_REJECT_UNAUTHORIZED
+              value: "0"
+            {{ end }}
+            {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
+            - name: SQS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-branch-sqs-queue
+                  key: sqs_url
+            - name: ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-branch-sqs-queue
+                  key: access_key_id
+            - name: SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-branch-sqs-queue
+                  key: secret_access_key
+            {{ else if (eq .KUBE_NAMESPACE .UAT_ENV) }}
+            - name: SQS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-uat-sqs-queue
+                  key: sqs_url
+            - name: ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-uat-sqs-queue
+                  key: access_key_id
+            - name: SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-uat-sqs-queue
+                  key: secret_access_key
+            {{ end }}
+          securityContext:
+            runAsNonRoot: true
+          resources:
+            requests:
+              memory: 10Mi
+              cpu: 10m
+            limits:
+              memory: 256Mi
+              cpu: 300m
+>>>>>>> master

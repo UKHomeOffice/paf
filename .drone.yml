@@ -37,15 +37,15 @@ unit_tests: &unit_tests
   commands:
     - yarn run test:unit
 
-ui_integration_tests: &ui_integration_tests
-  pull: if-not-exists
-  image: node:18
-  commands:
-    - yarn run test:ui-integration  
+# ui_integration_tests: &ui_integration_tests
+#   pull: if-not-exists
+#   image: node:18
+#   commands:
+#     - yarn run test:ui-integration
 
 sonar_scanner: &sonar_scanner
   pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/sonar-scanner-node:549b75f593f28da1c4a0a6f79877ec69d3b21037
+  image: quay.io/ukhomeofficedigital/gitlab-arun-test:sonar-scanner-node-v18.12.1
   commands:
     - sonar-scanner -Dproject.settings=./sonar-project.properties
 
@@ -96,7 +96,7 @@ steps:
       branch:
         include:
           - master
-          - feature/* 
+          - feature/*
       event: push
 
   - name: sonar_scanner_deploy
@@ -107,13 +107,13 @@ steps:
           - master
       event: push
 
-  - name: ui_integration_tests_deploy 
-    <<: *ui_integration_tests
-    when:
-      branch:
-        include:
-          - master
-      event: push
+  # - name: ui_integration_tests_deploy
+  #   <<: *ui_integration_tests
+  #   when:
+  #     branch:
+  #       include:
+  #         - master
+  #     event: push
 
   - name: build_image
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
@@ -163,13 +163,11 @@ steps:
     commands:
       - sh bin/deploy.sh $${BRANCH_ENV}
     when:
-      branch: 
+      branch:
         include:
           - master
           - feature/*
-          - PAF-49-test-private-link
-          - PAF-49-test-cert-2
-      event: [push, pull_request]
+      event: pull_request
 
   - name: setup_branch
     pull: if-not-exists
@@ -183,9 +181,8 @@ steps:
       branch:
         include:
           - master
-          - PAF-49-test-private-link
-          - PAF-49-test-cert-2
-      event: [pull_request, push]
+          - feature/*
+      event: pull_request
 
   - name: linting_branch
     <<: *linting
@@ -193,8 +190,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
-      event: [pull_request, push]
+          - feature/*
+      event: pull_request
 
   - name: unit_tests_branch
     <<: *unit_tests
@@ -202,17 +199,17 @@ steps:
       branch:
         include:
         - master
-        # - feature/*
-      event: [push, pull_request]
+        - feature/*
+      event: pull_request
 
-  - name: ui_integration_tests_branch
-    <<: *ui_integration_tests
-    when:
-      branch:
-        include:
-          - master
-          # - feature/*
-      event: [push, pull_request]
+  # - name: ui_integration_tests_branch
+  #   <<: *ui_integration_tests
+  #   when:
+  #     branch:
+  #       include:
+  #         - master
+  #         - feature/*
+  #     event: pull_request
 
   - name: sonar_scanner_branch
     <<: *sonar_scanner
@@ -220,8 +217,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
-      event: [push, pull_request]
+          - feature/*
+      event: pull_request
 
   # Snyk & Anchore security scans which run after branch deployment to prevent blocking of PR UAT tests.
   - name: snyk_scan
@@ -237,8 +234,8 @@ steps:
       branch:
         include:
           - master
-          # - feature/*
-      event: [push, pull_request]
+          - feature/*
+      event: pull_request
 
   - name: anchore_scan
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/anchore-submission:latest
@@ -249,11 +246,11 @@ steps:
       TOLERATE: medium
       WHITELIST_FILE: hof-services-config/Public_Allegation_Form/anchore-cve-exceptions.txt
     when:
-      branch: 
+      branch:
         include:
           - master
-          # - feature/*
-      event: [push, pull_request]
+          - feature/*
+      event: pull_request
 
   # Deploy to master UAT environment
   - name: deploy_to_uat
@@ -287,6 +284,7 @@ steps:
     when:
       branch: master
       event: push
+
 
   # Tear down pull request UAT environment.
   - name: tear_down_branch

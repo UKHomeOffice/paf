@@ -2,13 +2,13 @@
   <fieldset class="govuk-fieldset">
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" type="radio" name="lreport-person-transport-orry-group" id="report-person-transport-lorry-group-lorry" value="lorry">
+        <input class="govuk-radios__input" type="radio" name="report-person-transport-lorry-group" id="report-person-transport-lorry-group-lorry" value="lorry" {{#personLorryChecked}}checked="checked"{{/personLorryChecked}}>
         <label class="govuk-label govuk-radios__label" for="report-person-transport-lorry-group-lorry">
           {{#t}}fields.report-person-transport-lorry-group.options.lorry{{/t}}
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="report-person-transport-lorry-group" id="report-person-transport-lorry-group-lorry-and-drag"  value="lorry-and-drag">
+        <input class="govuk-radios__input"  type="radio" name="report-person-transport-lorry-group" id="report-person-transport-lorry-group-lorry-and-drag"  value="lorry-and-drag" {{#personLorryDragChecked}}checked="checked"{{/personLorryDragChecked}}>
         <label class="govuk-label govuk-radios__label" for="report-person-transport-lorry-group-lorry-and-drag">
           {{#t}}fields.report-person-transport-lorry-group.options.lorry-and-drag{{/t}}
         </label>

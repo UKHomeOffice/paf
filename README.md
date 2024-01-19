@@ -4,11 +4,11 @@ Public Allegations Form (PAF) Application built using HOF (Home Office Forms) fr
 
 ## Architecture
 
-The PAF app will send data to an AWS SQS (Simple Queue Service), the [ims-resolver](https://github.com/UKHomeOffice/ims-resolver/) will pull from the queue and attempt to send the data to the IMS system.  The ims-resolver is a github repo supported by the HOF team.  The IMS system is hosted on EBSA hosted by a supplier, Verint.
+The PAF app will send data to an AWS SQS (Simple Queue Service), the [ims-resolver](https://github.com/UKHomeOffice/ims-resolver/) will receive from the queue and attempt to send the data to the IMS system.  The ims-resolver is a github repo supported by the HOF team.  The IMS system is hosted on EBSA hosted by a supplier, Verint.
 
 ## IMS API integration
 
-There is some sensitive information about IMS integration.  The documentation of this can be found in an internal repo 
+There is some sensitive information about IMS integration.  The documentation of this can be found in an internal repo
 https://github.com/UKHomeOffice/ims-integration-documentation
 
 ## Getting Started
