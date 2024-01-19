@@ -236,8 +236,8 @@
       "hgv-hard-sided": {
         "label": "HGV hard sided"
       },
-      "hgv-refridgerated": {
-        "label": "HGV refridgerated"
+      "hgv-refrigerated": {
+        "label": "HGV refrigerated"
       },
       "hgv-tanker": {
         "label": "HGV tanker"
@@ -1025,8 +1025,8 @@
       "hgv-hard-sided": {
         "label": "HGV hard sided"
       },
-      "hgv-refridgerated": {
-        "label": "HGV refridgerated"
+      "hgv-refrigerated": {
+        "label": "HGV refrigerated"
       },
       "hgv-tanker": {
         "label": "HGV tanker"

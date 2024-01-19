@@ -255,7 +255,7 @@ module.exports = {
       'hgv-canvas-sided',
       'hgv-flatbed',
       'hgv-hard-sided',
-      'hgv-refridgerated',
+      'hgv-refrigerated',
       'hgv-tanker'
     ],
     dependent: {
@@ -1038,7 +1038,7 @@ module.exports = {
       'hgv-canvas-sided',
       'hgv-flatbed',
       'hgv-hard-sided',
-      'hgv-refridgerated',
+      'hgv-refrigerated',
       'hgv-tanker'
     ],
     dependent: {
