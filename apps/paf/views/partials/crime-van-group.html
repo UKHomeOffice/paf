@@ -2,25 +2,25 @@
   <fieldset class="govuk-fieldset">
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" type="radio" name="crime-van-group" id="crime-van-group-van" value="van">
+        <input class="govuk-radios__input" type="radio" name="crime-van-group" id="crime-van-group-van" value="van" {{#vanChecked}}checked="checked"{{/vanChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-van-group-van">
           {{#t}}fields.crime-van-group.options.van{{/t}}
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="crime-van-group" id="crime-van-group-van-and-trailer"  value="van-and-trailer">
+        <input class="govuk-radios__input"  type="radio" name="crime-van-group" id="crime-van-group-van-and-trailer"  value="van-and-trailer" {{#vanTrailerChecked}}checked="checked"{{/vanTrailerChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-van-group-van-and-trailer">
           {{#t}}fields.crime-van-group.options.van-and-trailer{{/t}}
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="crime-van-group" id="crime-van-group-van-other"  value="van-other">
+        <input class="govuk-radios__input"  type="radio" name="crime-van-group" id="crime-van-group-van-other"  value="van-other" {{#vanOtherChecked}}checked="checked"{{/vanOtherChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-van-group-van-other">
           {{#t}}fields.crime-van-group.options.van-other{{/t}}
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="crime-van-group" id="crime-van-group-seven-point-five-tonne-van"  value="seven-point-five-tonne-van">
+        <input class="govuk-radios__input"  type="radio" name="crime-van-group" id="crime-van-group-seven-point-five-tonne-van"  value="seven-point-five-tonne-van" {{#sevenVanChecked}}checked="checked"{{/sevenVanChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-van-group-seven-point-five-tonne-van">
           {{#t}}fields.crime-van-group.options.seven-point-five-tonne-van{{/t}}
         </label>

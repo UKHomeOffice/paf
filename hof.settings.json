@@ -2,7 +2,8 @@
   "appName":"Public Allegations Form",
   "theme": "govUK",
   "behaviours": [
-    "./apps/paf/behaviours/set-navigation-section"
+    "./apps/paf/behaviours/set-navigation-section",
+    "./apps/paf/behaviours/time-formatter"
   ],
   "routes": [
     "./apps/common",
