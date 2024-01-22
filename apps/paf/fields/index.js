@@ -3,6 +3,8 @@
 const nationalities = require('../data/nationalities');
 const _ = require('lodash');
 const countriesList = require('../data/countriesList');
+const hours = require('../data/hour');
+const minutes = require('../data/minutes');
 const trainCompanies = require('../data/trainCompanies');
 const airlineCompanies = require('../data/airlineCompanies');
 const occupation = require('../data/occupation');
@@ -132,8 +134,24 @@ module.exports = {
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
     mixin: 'input-date'
   }),
-  'time-crime-will-happen': {
-    mixin: 'input-text'
+  'time-crime-will-happen': {},
+  'time-crime-will-happen-hour': {
+    mixin: 'select',
+    className: ['js-hidden'],
+    options:
+      [{
+        value: '',
+        label: 'fields.hour.options.null'
+      }].concat(hours)
+  },
+  'time-crime-will-happen-minutes': {
+    mixin: 'select',
+    className: ['js-hidden'],
+    options:
+      [{
+        value: '',
+        label: 'fields.minutes.options.null'
+      }].concat(minutes)
   },
   'when-will-crime-happen-more-info': {
     mixin: 'textarea',

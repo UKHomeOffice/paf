@@ -1374,5 +1374,17 @@
   },
   "images": {
     "label": "Attachments"
+  },
+  "time-crime-will-happen-hour": {
+    "label": "Hour",
+    "options": {
+      "null": "hh"
+    }
+  },
+  "time-crime-will-happen-minutes": {
+    "label": "Minute",
+    "options": {
+      "null": "mm"
+    }
   }
 }

@@ -15,6 +15,7 @@ const addressFormatter = require('./behaviours/address-formatter');
 const additionalPersonFormatter = require('./behaviours/additional-person-formatter');
 const vehicleToggleFormatter = require('./behaviours/vehicle-toggle-formatter');
 const SendToSQS = require('./behaviours/send-to-sqs');
+const timeCrimeBehaviour = require('./behaviours/time-crime-happened');
 
 module.exports = {
   name: 'paf',
@@ -60,8 +61,9 @@ module.exports = {
       }]
     },
     '/date-time-crime-will-happen': {
-      fields: ['date-crime-will-happen', 'time-crime-will-happen'],
-      next: '/when-will-crime-happen-more-info'
+      fields: ['date-crime-will-happen', 'time-crime-will-happen', 'time-crime-will-happen-hour', 'time-crime-will-happen-minutes'],
+      next: '/when-will-crime-happen-more-info',
+      behaviours: [timeCrimeBehaviour],
     },
     '/when-will-crime-happen-more-info': {
       fields: ['when-will-crime-happen-more-info'],

@@ -231,3 +231,11 @@ pre.looped-records {
   word-break: break-all;
 }
 
+.time-view {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.time-view span {
+  margin-right: 10px;
+}
