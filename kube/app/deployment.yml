@@ -130,7 +130,7 @@ spec:
             {{ end }}
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
-              value: https://fv.{{ .APP_NAME }}.homeoffice.gov.uk/file
+              value: https://fv-paf.sas.homeoffice.gov.uk/file
             {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
               value: https://fv-paf.stg.sas.homeoffice.gov.uk/file
             {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}

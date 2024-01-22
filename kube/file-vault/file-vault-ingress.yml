@@ -22,7 +22,7 @@ spec:
       {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
       - fv-paf.stg.sas.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .PROD_ENV }}
-      - fv-paf.homeoffice.gov.uk
+      - fv-paf.sas.homeoffice.gov.uk
       {{ end }}
       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
       secretName: branch-tls-external
@@ -37,7 +37,7 @@ spec:
     {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
     - host: fv-paf.stg.sas.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .PROD_ENV }}
-    - host: fv-paf.homeoffice.gov.uk
+    - host: fv-paf.sas.homeoffice.gov.uk
     {{ end }}
       http:
         paths:

@@ -39,8 +39,8 @@ describe('apps/paf/behaviours/set-transport-toggle', () => {
         req.form.values['crime-hgv-group'] = 'hgv-hard-sided';
         controller.locals(req, res).should.have.property('hgvHSChecked').and.deep.equal(true);
       });
-      it('locals should have hgvRChecked property as true if hgv refridgerated has been selected', () => {
-        req.form.values['crime-hgv-group'] = 'hgv-refridgerated';
+      it('locals should have hgvRChecked property as true if hgv refrigerated has been selected', () => {
+        req.form.values['crime-hgv-group'] = 'hgv-refrigerated';
         controller.locals(req, res).should.have.property('hgvRChecked').and.deep.equal(true);
       });
       it('locals should have hgvTCheckedproperty as true if hgv tanker has been selected', () => {
@@ -126,8 +126,8 @@ describe('apps/paf/behaviours/set-transport-toggle', () => {
         req.form.values['report-person-transport-hgv-group'] = 'hgv-hard-sided';
         controller.locals(req, res).should.have.property('personHgvHSChecked').and.deep.equal(true);
       });
-      it('locals should have personHgvRChecked property as true if hgv refridgerated has been selected', () => {
-        req.form.values['report-person-transport-hgv-group'] = 'hgv-refridgerated';
+      it('locals should have personHgvRChecked property as true if hgv refrigerated has been selected', () => {
+        req.form.values['report-person-transport-hgv-group'] = 'hgv-refrigerated';
         controller.locals(req, res).should.have.property('personHgvRChecked').and.deep.equal(true);
       });
       it('locals should have personHgvTChecked property as true if hgv tanker has been selected', () => {

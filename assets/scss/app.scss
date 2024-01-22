@@ -239,3 +239,18 @@ pre.looped-records {
 .time-view span {
   margin-right: 10px;
 }
+.time-input__item {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+.time-input__item  .govuk-input__wrapper {
+display: block;
+}
+.time-input__item .govuk-form-group--error {
+  border-left: none;
+  padding-left: 0px;
+}
+.time-input__item .govuk-error-message {
+  display: none;
+}
