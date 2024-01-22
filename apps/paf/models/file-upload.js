@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-/* eslint-disable node/no-deprecated-api */
-'use strict';
-/* eslint-disable */
-=======
 'use strict';
 
->>>>>>> 84527e4 (PAF-11: create attachments)
 const url = require('url');
 const Model = require('hof').model;
 const uuid = require('uuid').v4;

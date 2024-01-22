@@ -56,11 +56,19 @@ spec:
               value: "0"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+<<<<<<< HEAD
               value: https://fv-paf.sas.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
               value: https://fv-paf.stg.sas.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
               value: https://fv-paf.uat.sas-notprod.homeoffice.gov.uk
+=======
+              value: fv-paf.sas.homeoffice.gov.uk
+            {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
+              value: fv-paf.stg.sas.homeoffice.gov.uk
+            {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
+              value: fv-paf.uat.sas-notprod.homeoffice.gov.uk
+>>>>>>> ce4244b (Fix discrepancies between fv URLs across deployments and ingress (#122))
             {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
               value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
             - name: DEBUG
@@ -119,11 +127,19 @@ spec:
                   key: id
             - name: PROXY_REDIRECTION_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+<<<<<<< HEAD
               value: https://fv-paf.sas.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
               value: https://fv-paf.stg.sas.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
               value: https://fv-paf.uat.sas-notprod.homeoffice.gov.uk
+=======
+              value: fv-paf.sas.homeoffice.gov.uk
+            {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
+              value: fv-paf.stg.sas.homeoffice.gov.uk
+            {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
+              value: fv-paf.uat.sas-notprod.homeoffice.gov.uk
+>>>>>>> ce4244b (Fix discrepancies between fv URLs across deployments and ingress (#122))
             {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
               value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
             {{ end }}
