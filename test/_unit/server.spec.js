@@ -58,11 +58,11 @@ describe('Server.js app file', () => {
       });
     });
 
-    it('should call the app use method twice if env set to test', () => {
-      useStub.callCount.should.equal(2);
+    it('should call the app use method three times if env set to test', () => {
+      useStub.callCount.should.equal(3);
     });
 
-    it('should call the app use method twice if env set to development', () => {
+    it('should call the app use method three times if env set to development', () => {
       const use = sinon.stub();
       const hof = () => ({ use });
 
@@ -71,10 +71,10 @@ describe('Server.js app file', () => {
         './config': { env: 'development' }
       });
 
-      useStub.callCount.should.equal(2);
+      useStub.callCount.should.equal(3);
     });
 
-    it('should call the app use method twice if env set to anything else', () => {
+    it('should call the app use method three times if env set to anything else', () => {
       const use = sinon.stub();
       const hof = () => ({ use });
 
@@ -83,15 +83,14 @@ describe('Server.js app file', () => {
         './config': { env: 'production' }
       });
 
-      use.should.have.been.calledTwice;
+      use.should.have.been.calledThrice;
     });
   });
 
   describe('Use Locals', () => {
     it('should set locals on the response', () => {
       res.locals.should.eql({
-        htmlLang: 'en',
-        feedbackUrl: 'https://eforms.homeoffice.gov.uk/outreach/feedback.ofml'
+        htmlLang: 'en'
       });
     });
 
