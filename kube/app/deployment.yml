@@ -159,9 +159,9 @@ spec:
             limits:
               cpu: "100m"
               memory: "200Mi"
-        #   volumeMounts:
-        #     - mountPath: /public
-        #       name: public
+          volumeMounts:
+            - mountPath: /public
+              name: public
         #     - name: cacert-store
         #       mountPath: /etc/ssl/certs/ims-prp1-ca.crt
         #       readOnly: false
@@ -191,6 +191,3 @@ spec:
       volumes:
         - name: public
           emptyDir: {}
-
-
- 
