@@ -155,23 +155,17 @@ spec:
           resources:
             requests:
               cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "250m"
-              memory: "512Mi"
+              memory: "200Mi"
           volumeMounts:
             - mountPath: /public
               name: public
-            - name: cacert-store
-              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
-              readOnly: false
-        volumes:
-          - name: cacert-store
-            configMap:
-              name: cacert-store
-         
-        
-
+        #     - name: cacert-store
+        #       mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+        #       readOnly: false
+        # volumes:
+        #   - name: cacert-store
+        #     configMap:
+        #       name: cacert-store        
         - name: nginx-proxy
           # nginx-proxy-govuk:v4
           image: quay.io/ukhomeofficedigital/nginx-proxy-govuk@sha256:4470064d0b1d20ae08c5fd85551576cb687f342a22d6cb456fda9b2c4ce8c8df
@@ -194,6 +188,3 @@ spec:
       volumes:
         - name: public
           emptyDir: {}
-
-
- 
