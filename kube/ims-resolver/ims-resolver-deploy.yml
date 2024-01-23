@@ -117,11 +117,11 @@ spec:
             runAsNonRoot: true
           resources:
             limits:
-              memory: 2048Mi
-              cpu: 2000m
+              memory: 256Mi
+              cpu: 300m
             requests:
-              memory: 2048Mi
-              cpu: 2000m
+              memory: 10Mi
+              cpu: 10m
           volumeMounts:
             - name: cacert-store
               mountPath: /etc/ssl/certs/ims-prp1-ca.crt
