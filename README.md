@@ -15,7 +15,7 @@ https://github.com/UKHomeOffice/ims-integration-documentation
 
 ### Prerequisities
 
-- [Node.js](https://nodejs.org/en/) - Tested against LTS
+- [Node.js](https://nodejs.org/en/) - Tested against LTS 
 - NPM (installed with Node.js) - Works with versions 2 and 3
 - [Redis server](http://redis.io/download) running on the default port
 
