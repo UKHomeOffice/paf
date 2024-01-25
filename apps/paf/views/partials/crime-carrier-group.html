@@ -2,19 +2,19 @@
   <fieldset class="govuk-fieldset">
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" type="radio" name="crime-carrier-group" id="crime-carrier-group-bulk-carrier" value="bulk-carrier">
+        <input class="govuk-radios__input" type="radio" name="crime-carrier-group" id="crime-carrier-group-bulk-carrier" value="bulk-carrier" {{#bulkChecked}}checked="checked"{{/bulkChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-carrier-group-bulk-carrier">
           {{#t}}fields.crime-carrier-group.options.bulk-carrier{{/t}}
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="crime-carrier-group" id="crime-carrier-group-vehicle-carrier"  value="vehicle-carrier">
+        <input class="govuk-radios__input"  type="radio" name="crime-carrier-group" id="crime-carrier-group-vehicle-carrier"  value="vehicle-carrier" {{#vehicleChecked}}checked="checked"{{/vehicleChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-carrier-group-vehicle-carrier">
           {{#t}}fields.crime-carrier-group.options.vehicle-carrier{{/t}}
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="crime-carrier-group" id="crime-carrier-group-vessel-carrier"  value="vessel-carrier">
+        <input class="govuk-radios__input"  type="radio" name="crime-carrier-group" id="crime-carrier-group-vessel-carrier"  value="vessel-carrier" {{#vesselChecked}}checked="checked"{{/vesselChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-carrier-group-vessel-carrier">
           {{#t}}fields.crime-carrier-group.options.vessel-carrier{{/t}}
         </label>

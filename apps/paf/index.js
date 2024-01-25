@@ -7,6 +7,7 @@ const limitDocs = require('./behaviours/limit-documents');
 const disableUpload = require('./behaviours/disable-file-upload');
 const SummaryPageBehaviour = require('hof').components.summary;
 const transportBehaviour = require('./behaviours/transport-behaviour');
+const transportToggle = require('./behaviours/set-transport-toggle');
 const Aggregate = require('./behaviours/aggregator');
 const limitPerson = require('./behaviours/limit-person');
 const personNumber = require('./behaviours/person-number');
@@ -14,6 +15,7 @@ const addressFormatter = require('./behaviours/address-formatter');
 const additionalPersonFormatter = require('./behaviours/additional-person-formatter');
 const vehicleToggleFormatter = require('./behaviours/vehicle-toggle-formatter');
 const SendToSQS = require('./behaviours/send-to-sqs');
+const timeFormatter = require('./behaviours/time-formatter');
 
 module.exports = {
   name: 'paf',
@@ -59,7 +61,7 @@ module.exports = {
       }]
     },
     '/date-time-crime-will-happen': {
-      fields: ['date-crime-will-happen', 'time-crime-will-happen'],
+      fields: ['date-crime-will-happen', 'time-crime-will-happen-hour', 'time-crime-will-happen-minute'],
       next: '/when-will-crime-happen-more-info'
     },
     '/when-will-crime-happen-more-info': {
@@ -115,6 +117,7 @@ module.exports = {
       continueOnEdit: true
     },
     '/crime-transport-vehicle-type': {
+      behaviours: [transportToggle],
       fields: ['vehicle-type',
         'crime-car-group',
         'crime-hgv-group',
@@ -164,6 +167,7 @@ module.exports = {
       continueOnEdit: true
     },
     '/crime-transport-boat-type': {
+      behaviours: [transportToggle],
       fields: ['boat-type',
         'crime-carrier-group',
         'crime-general-cargo-group',
@@ -545,6 +549,7 @@ module.exports = {
       ]
     },
     '/report-person-transport-type': {
+      behaviours: [transportToggle],
       fields: ['report-person-transport-type',
         'report-person-transport-car-group',
         'report-person-transport-hgv-group',
@@ -770,7 +775,7 @@ module.exports = {
       fields: ['are-you-eighteen', 'contact-number', 'when-to-contact']
     },
     '/confirm': {
-      behaviours: [SummaryPageBehaviour, personNumber],
+      behaviours: [SummaryPageBehaviour, personNumber, timeFormatter],
       sections: require('./sections/summary-data-sections'),
       next: '/declaration'
     },
