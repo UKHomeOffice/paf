@@ -231,6 +231,48 @@ pre.looped-records {
   word-break: break-all;
 }
 
+.crime-nav {
+  background-color: #1d70b8;
+}
+.crime-nav > a {
+  color: white !important;
+}
+
+.person-nav {
+  background-color: #1d70b8;
+}
+.person-nav > a {
+  color: white !important;
+}
+
+.organisation-nav {
+  background-color: #1d70b8;
+}
+.organisation-nav > a {
+  color: white !important;
+}
+
+.other-info-nav {
+  background-color: #1d70b8;
+}
+.other-info-nav > a {
+  color: white !important;
+}
+
+.about-you-nav {
+  background-color: #1d70b8;
+}
+.about-you-nav > a {
+  color: white !important;
+}
+
+.check-answers-nav {
+  background-color: #1d70b8;
+}
+.check-answers-nav > a {
+  color: white !important;
+}
+
 .time-input__item {
   display: inline-block;
   margin-right: 20px;
@@ -246,3 +288,4 @@ display: block;
 .time-input__item .govuk-error-message {
   display: none;
 }
+
