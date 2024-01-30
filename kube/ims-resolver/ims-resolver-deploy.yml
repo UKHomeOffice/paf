@@ -39,8 +39,12 @@ spec:
     spec:
       containers:
         - name: ims-resolver
+<<<<<<< HEAD
           # no official release, this connects to the private link
           image: quay.io/ukhomeofficedigital/ims-resolver:56506c546f92c6e2ba8e0328ee99379aa8b35593
+=======
+          image: quay.io/ukhomeofficedigital/ims-resolver:91979bf3dd2eabee61f1b01385e07bba8e518abc
+>>>>>>> 22d1383 (PAF-61 Update ims-resolver deployment to use branch image (#119))
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -76,6 +80,26 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_endpoint
+            - name: KEYCLOAK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: secret
+            - name: KEYCLOAK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: id
+            - name: KEYCLOAK_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: username
+            - name: KEYCLOAK_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: password
             {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
             - name: NODE_TLS_REJECT_UNAUTHORIZED
               value: "0"
