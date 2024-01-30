@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:df2027b4761378e9b167d8ce2c83f5cb62bde055
+          image: quay.io/ukhomeofficedigital/ims-resolver:9b87ac6b7bc756fe6aea448a1e097a47767d486a
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
