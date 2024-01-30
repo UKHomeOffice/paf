@@ -318,6 +318,34 @@
   "when-to-contact": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
+  "boat-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "airline-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "crime-location-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "crime-another-location-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "train-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "report-person-location-outside-uk-address-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "report-person-location-travel-to-uk-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
   "other-info-file-upload": {
     "maxFileSize": "Select a file that is smaller than 100 MB",
     "fileType": "This file is not a valid file format you can upload to this service."
