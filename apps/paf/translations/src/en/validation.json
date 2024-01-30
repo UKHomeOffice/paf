@@ -120,6 +120,11 @@
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
     "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
   },
+  "report-person-dob": {
+    "date": "Please enter a valid date",
+    "before": "Enter a date in the past",
+    "after": "Enter a date after 01 01 1900"
+  },
   "report-person-place-of-birth": {
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
     "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank"
@@ -198,6 +203,19 @@
     "url": "Enter a website address in the correct format, like www.example.com",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
+  "time-crime-will-happen-hour": {
+    "numeric": "Please enter a valid time in digits",
+    "min": "Please enter a number from 0 to 23",
+    "max": "Please enter a number from 0 to 23"
+  },
+  "time-crime-will-happen-minute": {
+    "numeric": "Please enter a valid time in digits",
+    "min": "Please enter a number from 0 to 59",
+    "max": "Please enter a number from 0 to 59"
+  },
+  "company-postcode": {
+    "postcode": "Enter a real postcode"
+  },
   "company-email": {
     "email": "There is a problem with the email you have entered. Please ensure it is not longer than 100 characters, it does not include invalid characters and it is in the format of <name>@<domain name> e.g. name@email.co.uk. If you do not know this information, please leave this field blank."
   },
@@ -237,6 +255,11 @@
   "personAddNickname": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
     "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
+  },
+  "personAddDob": {
+    "date": "Please enter a valid date",
+    "before": "Enter a date in the past",
+    "after": "Enter a date after 01 01 1900"
   },
   "personAddPassport": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
@@ -284,6 +307,11 @@
   "how-do-you-know-the-person": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
+  "about-you-dob": {
+    "date": "Please enter a valid date",
+    "before": "Enter a date in the past",
+    "after": "Enter a date after 01 01 1900"
+  },
   "contact-number": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
@@ -317,5 +345,9 @@
   "report-person-location-travel-to-uk-country": {
     "required": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
+  },
+  "other-info-file-upload": {
+    "maxFileSize": "Select a file that is smaller than 100 MB",
+    "fileType": "This file is not a valid file format you can upload to this service."
   }
 }

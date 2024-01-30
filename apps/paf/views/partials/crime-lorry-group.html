@@ -2,13 +2,13 @@
   <fieldset class="govuk-fieldset">
     <div class="govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" type="radio" name="crime-lorry-group" id="crime-lorry-group-lorry" value="lorry">
+        <input class="govuk-radios__input" type="radio" name="crime-lorry-group" id="crime-lorry-group-lorry" value="lorry" {{#lorryChecked}} checked="checked"{{/lorryChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-lorry-group-lorry">
           {{#t}}fields.crime-lorry-group.options.lorry{{/t}}
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input"  type="radio" name="crime-lorry-group" id="crime-lorry-group-lorry-and-drag"  value="lorry-and-drag">
+        <input class="govuk-radios__input"  type="radio" name="crime-lorry-group" id="crime-lorry-group-lorry-and-drag"  value="lorry-and-drag" {{#lorryDragChecked}} checked="checked"{{/lorryDragChecked}}>
         <label class="govuk-label govuk-radios__label" for="crime-lorry-group-lorry-and-drag">
           {{#t}}fields.crime-lorry-group.options.lorry-and-drag{{/t}}
         </label>
