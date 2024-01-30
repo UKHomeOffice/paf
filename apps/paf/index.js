@@ -14,6 +14,7 @@ const addressFormatter = require('./behaviours/address-formatter');
 const additionalPersonFormatter = require('./behaviours/additional-person-formatter');
 const vehicleToggleFormatter = require('./behaviours/vehicle-toggle-formatter');
 const SendToSQS = require('./behaviours/send-to-sqs');
+const UnsetCrimeCountry = require('./behaviours/unset-crime-country');
 
 module.exports = {
   name: 'paf',
@@ -257,7 +258,8 @@ module.exports = {
           field: 'crime-location',
           value: 'yes'
         }
-      }]
+      }],
+      behaviours: [UnsetCrimeCountry]
     },
     '/crime-another-location': {
       fields: ['crime-another-location',
