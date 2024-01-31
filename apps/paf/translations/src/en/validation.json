@@ -1,12 +1,12 @@
 {
   "crime-type": {
-    "required": "You must tell us what the criminals are planning or doing. This will help us to send the information to the right team immediately."
+    "": "You must tell us what the criminals are planning or doing. This will help us to send the information to the right team immediately."
   },
   "immigration-crime-group": {
-    "required": "You must check at least one of the options related to Immigration Crime"
+    "": "You must check at least one of the options related to Immigration Crime"
   },
   "smuggling-crime-group": {
-    "required": "You must check at least one of the options related to Smuggling"
+    "": "You must check at least one of the options related to Smuggling"
   },
   "crime-children": {
     "required": "We need to know if any children are involved in the crime. They may be committing the crime or victims of it. With this information, we can make sure that we handle the case in the right way."
@@ -317,7 +317,7 @@
   },
   "contact-number": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "required": "Please enter a phone number",
+    "required": "Enter a valid phone number",
     "internationalPhoneNumber": "Please enter a valid phone number"
   },
   "when-to-contact": {
@@ -340,15 +340,15 @@
     "notUrl": "Enter a valid country on the list"
   },
   "train-country-departure": {
-    "required": "Enter a valid country",
+    "": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
   "report-person-location-outside-uk-address-country": {
-    "required": "Enter a valid country",
+    "": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
   "report-person-location-travel-to-uk-country": {
-    "required": "Enter a valid country",
+    "": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
   "other-info-file-upload": {
