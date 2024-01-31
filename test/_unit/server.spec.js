@@ -6,6 +6,7 @@ describe('Server.js app file', () => {
   let appsCommonStub;
   let appsPafStub;
   let behavioursSetNavigationSectionStub;
+  let behavioursTimeFormatterStub;
   let req;
   let res;
   let next;
@@ -30,6 +31,7 @@ describe('Server.js app file', () => {
     appsCommonStub = sinon.stub();
     appsPafStub = sinon.stub();
     behavioursSetNavigationSectionStub = sinon.stub();
+    behavioursTimeFormatterStub = sinon.stub();
 
     useStub.onCall(0).yields(req, res, next);
     useStub.onCall(1).yields(req, res);
@@ -40,6 +42,7 @@ describe('Server.js app file', () => {
       './apps/common': appsCommonStub,
       './apps/paf': appsPafStub,
       './apps/paf/behaviours/set-navigation-section': behavioursSetNavigationSectionStub,
+      './apps/paf/behaviours/time-formatter': behavioursTimeFormatterStub,
       './config': { env: 'test' }
     });
   });
@@ -53,16 +56,17 @@ describe('Server.js app file', () => {
           appsCommonStub,
           appsPafStub
         ],
-        behaviours: [ behavioursSetNavigationSectionStub],
-        session: { name: 'paf.hof.sid' }
+        behaviours: [ behavioursSetNavigationSectionStub, behavioursTimeFormatterStub],
+        session: { name: 'paf.hof.sid' },
+        getAccessibility: true
       });
     });
 
-    it('should call the app use method twice if env set to test', () => {
-      useStub.callCount.should.equal(2);
+    it('should call the app use method three times if env set to test', () => {
+      useStub.callCount.should.equal(3);
     });
 
-    it('should call the app use method twice if env set to development', () => {
+    it('should call the app use method three times if env set to development', () => {
       const use = sinon.stub();
       const hof = () => ({ use });
 
@@ -71,10 +75,10 @@ describe('Server.js app file', () => {
         './config': { env: 'development' }
       });
 
-      useStub.callCount.should.equal(2);
+      useStub.callCount.should.equal(3);
     });
 
-    it('should call the app use method twice if env set to anything else', () => {
+    it('should call the app use method three times if env set to anything else', () => {
       const use = sinon.stub();
       const hof = () => ({ use });
 
@@ -83,15 +87,14 @@ describe('Server.js app file', () => {
         './config': { env: 'production' }
       });
 
-      use.should.have.been.calledTwice;
+      use.should.have.been.calledThrice;
     });
   });
 
   describe('Use Locals', () => {
     it('should set locals on the response', () => {
       res.locals.should.eql({
-        htmlLang: 'en',
-        feedbackUrl: 'https://eforms.homeoffice.gov.uk/outreach/feedback.ofml'
+        htmlLang: 'en'
       });
     });
 

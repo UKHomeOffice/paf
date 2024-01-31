@@ -3,7 +3,7 @@
     "header": "Tell us the time and date the crime will happen, if you know them"
   },
   "when-will-crime-happen-more-info": {
-    "header": "If you have any more information about when the crime happening please tell us here:"
+    "header": "If you have any more information about when it is happening please tell us here:"
   },
   "crime-transport-vehicle-details": {
     "header": "What are the vehicle details?"
@@ -206,6 +206,9 @@
       }
     },
     "fields": {
+      "time-crime-will-happen": {
+        "label": "Time"
+      },
       "when-will-crime-happen-more-info": {
         "label": "More information about when the crime is happening"
       },

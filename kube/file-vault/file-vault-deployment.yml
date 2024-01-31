@@ -42,6 +42,8 @@ spec:
             limits:
               memory: "1024Mi"
               cpu: 200m
+            requests:
+              memory: 512Mi
           envFrom:
             - configMapRef:
                 {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
@@ -54,11 +56,11 @@ spec:
               value: "0"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
-              value: https://fv.prod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv-paf.sas.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-              value: https://fv-stg.prod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv-paf.stg.sas.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-              value: https://fv-uat.notprod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv-paf.uat.sas-notprod.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
               value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
             - name: DEBUG
@@ -93,8 +95,6 @@ spec:
                 secretKeyRef:
                   name: ses
                   key: smtp_password
-            - name: FILE_EXTENSION_WHITELIST
-              value: 'pdf,doc,docx,txt,jpg,jpeg,png,xls,xlsx,odt,ods'
           securityContext:
             runAsNonRoot: true
 
@@ -104,6 +104,8 @@ spec:
             limits:
               memory: "1024Mi"
               cpu: 200m
+            requests:
+              memory: 512Mi
           env:
             - name: PROXY_CLIENT_SECRET
               valueFrom:
@@ -117,11 +119,11 @@ spec:
                   key: id
             - name: PROXY_REDIRECTION_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
-              value: https://fv.prod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv-paf.sas.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-              value: https://fv-stg.prod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv-paf.stg.sas.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-              value: https://fv-uat.notprod.{{ .APP_NAME }}.homeoffice.gov.uk
+              value: https://fv-paf.uat.sas-notprod.homeoffice.gov.uk
             {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
               value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
             {{ end }}
@@ -163,6 +165,8 @@ spec:
             limits:
               memory: "1024Mi"
               cpu: 200m
+            requests:
+              memory: 512Mi
           env:
 {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
           securityContext:
