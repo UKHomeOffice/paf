@@ -1382,7 +1382,7 @@ module.exports = {
       field: 'are-you-eighteen',
       value: 'yes'
     },
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 30 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 200 }]
   },
   'when-to-contact': {
     dependent: {
