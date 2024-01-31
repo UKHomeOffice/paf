@@ -122,6 +122,7 @@ spec:
             requests:
               memory: 10Mi
               cpu: 10m
+              
           volumeMounts:
             - name: cacert-store
               mountPath: /etc/ssl/certs/ims-prp1-ca.crt
