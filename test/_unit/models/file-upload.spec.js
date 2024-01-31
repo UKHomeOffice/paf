@@ -28,19 +28,19 @@ describe('File Upload Model', () => {
       expect(response).to.be.an.instanceOf(Promise);
     });
 
-    // it('makes a call to file upload api', () => {
-    //   const model = new Model();
-    //   const response = model.save();
-    //   return response.then(() => {
-    //     expect(model.request).to.have.been.calledOnce;
-    //     expect(model.request).to.have.been.calledWith(sinon.match({
-    //       method: 'POST',
-    //       host: 'file-upload.example.com',
-    //       path: '/file/upload',
-    //       protocol: 'http:'
-    //     }));
-    //   });
-    // });
+    it('makes a call to file upload api', () => {
+      const model = new Model();
+      const response = model.save();
+      return response.then(() => {
+        expect(model.request).to.have.been.calledOnce;
+        expect(model.request).to.have.been.calledWith(sinon.match({
+          method: 'POST',
+          host: 'file-upload.example.com',
+          path: '/file/upload',
+          protocol: 'http:'
+        }));
+      });
+    });
 
     it('resolves with response from api endpoint', async () => {
       const model = new Model();

@@ -1,9 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const config = require('../../../config');
 const Model = require('../models/file-upload');
-const fileSizeNum = size => size.match(/\d+/g)[0];
 
 module.exports = name => superclass => class extends superclass {
   process(req) {
@@ -22,41 +20,7 @@ module.exports = name => superclass => class extends superclass {
     if (!Object.keys(req.form.errors).length) {
       req.form.values['other-info-file-upload'] = null;
     }
-    const maxNum = fileSizeNum(config.upload.maxFileSize);
-    const maxSize = config.upload.maxFileSize.match(/[a-zA-Z]+/g)[0].toUpperCase();
-    return Object.assign({}, super.locals(req, res, next), {
-      maxFileSize: `${maxNum} ${maxSize}`
-    });
-  }
-
-  validateField(key, req) {
-    if (req.form.values['other-info-file-upload']) {
-      const fileUpload = _.get(req.files, `${name}`);
-      if (fileUpload) {
-        const uploadSize = fileUpload.size;
-        const mimetype = fileUpload.mimetype;
-        const uploadSizeTooBig = uploadSize > (fileSizeNum(config.upload.maxFileSize) * 1000000);
-        const uploadSizeBeyondServerLimits = uploadSize === null;
-        const invalidMimetype = !config.upload.allowedMimeTypes.includes(mimetype);
-        const invalidSize = uploadSizeTooBig || uploadSizeBeyondServerLimits;
-
-        if (invalidSize || invalidMimetype) {
-          return new this.ValidationError(key, {
-            key,
-            type: invalidSize ? 'maxFileSize' : 'fileType',
-            redirect: undefined
-          });
-        }
-      } else {
-        return new this.ValidationError(key, {
-          key,
-          type: 'required',
-          redirect: undefined
-        });
-      }
-    }
-
-    return super.validateField(key, req);
+    return super.locals(req, res, next);
   }
 
   saveValues(req, res, next) {

@@ -4,12 +4,17 @@
 const hof = require('hof');
 let settings = require('./hof.settings');
 const config = require('./config.js');
+<<<<<<< HEAD
 const busboy = require('busboy');
 const bytes = require('bytes');
 const bl = require('bl');
 const mockAPIs = require('./mock-apis');
 const bodyParser = require('busboy-body-parser');
 const _ = require('lodash');
+=======
+const mockAPIs = require('./mock-apis');
+const bodyParser = require('busboy-body-parser');
+>>>>>>> 84527e4 (PAF-11: create attachments)
 
 settings = Object.assign({}, settings, {
   routes: settings.routes.map(require),

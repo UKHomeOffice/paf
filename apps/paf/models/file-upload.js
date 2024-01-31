@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 /* eslint-disable node/no-deprecated-api */
 'use strict';
 /* eslint-disable */
+=======
+'use strict';
+
+>>>>>>> 84527e4 (PAF-11: create attachments)
 const url = require('url');
 const Model = require('hof').model;
 const uuid = require('uuid').v4;
@@ -14,7 +19,10 @@ module.exports = class UploadModel extends Model {
 
   async save() {
     const result = await new Promise((resolve, reject) => {
+<<<<<<< HEAD
       console.log("url: " + config.upload.hostname);
+=======
+>>>>>>> 84527e4 (PAF-11: create attachments)
       const attributes = {
         url: config.upload.hostname
       };
@@ -33,7 +41,7 @@ module.exports = class UploadModel extends Model {
         if (err) {
           return reject(err);
         }
-        return resolve(data);
+        resolve(data);
       });
     });
     this.set({ url: result.url });
@@ -42,6 +50,7 @@ module.exports = class UploadModel extends Model {
 
   auth() {
     if (!config.keycloak.token) {
+      // eslint-disable-next-line no-console
       console.error('keycloak token url is not defined');
       return Promise.resolve({
         bearer: 'abc123'
@@ -60,14 +69,14 @@ module.exports = class UploadModel extends Model {
     };
 
     return new Promise((resolve, reject) => {
-      return this._request(tokenReq, (err, response) => {
+      this._request(tokenReq, (err, response) => {
         const body = JSON.parse(response.body);
 
         if (err || body.error) {
           return reject(err || new Error(`${body.error} - ${body.error_description}`));
         }
 
-        return resolve({
+        resolve({
           bearer: JSON.parse(response.body).access_token
         });
       });

@@ -1,5 +1,4 @@
 'use strict';
-/* eslint-disable max-len */
 const saveImage = require('./behaviours/save-file');
 const removeImage = require('./behaviours/remove-file');
 const CombineAndLoopFields = require('hof').components.combineAndLoopFields;
@@ -701,7 +700,7 @@ module.exports = {
         target: '/add-other-info-file-upload',
         condition: req => {
           if (req.form.values['other-info-file-upload']) {
-            return true;
+            return true
           }
           return false;
         }
