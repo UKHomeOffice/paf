@@ -39,14 +39,14 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:cf0d3271dc2e851583f2d2f15f62af334ddbacf8
+          image: quay.io/ukhomeofficedigital/ims-resolver:91979bf3dd2eabee61f1b01385e07bba8e518abc
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
                 name: {{ .APP_NAME }}-configmap-{{ .DRONE_SOURCE_BRANCH }}
                 {{ else }}
-                name: configmap
+                name: {{ .APP_NAME }}-configmap
                 {{ end }}
           env:
             - name: TZ
@@ -71,6 +71,26 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_endpoint
+            - name: KEYCLOAK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: secret
+            - name: KEYCLOAK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: id
+            - name: KEYCLOAK_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: username
+            - name: KEYCLOAK_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: password
             {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
             - name: NODE_TLS_REJECT_UNAUTHORIZED
               value: "0"
