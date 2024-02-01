@@ -10,11 +10,21 @@ const bl = require('bl');
 const mockAPIs = require('./mock-apis');
 const bodyParser = require('busboy-body-parser');
 const _ = require('lodash');
+<<<<<<< HEAD
+=======
+=======
+const mockAPIs = require('./mock-apis');
+const bodyParser = require('busboy-body-parser');
+const certificate = require('./certs');
+>>>>>>> e33f199 (Added certificate)
 
 settings = Object.assign({}, settings, {
   routes: settings.routes.map(require),
   behaviours: settings.behaviours.map(require)
 });
+
+certificate.getCertificate();
+certificate.options.ca;
 
 const app = hof(settings);
 
@@ -49,7 +59,9 @@ if (config.env === 'development' || config.env === 'test') {
     });
 
     res.send('Session populate complete');
+  
   });
+  
 }
 
 app.use((req, res, next) => {
