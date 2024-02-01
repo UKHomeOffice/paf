@@ -54,9 +54,7 @@ if (config.env === 'development' || config.env === 'test') {
     });
 
     res.send('Session populate complete');
-  
   });
-  
 }
 
 app.use((req, res, next) => {
