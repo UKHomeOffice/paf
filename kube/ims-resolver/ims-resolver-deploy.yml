@@ -62,6 +62,21 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_user
+            - name: IMS_API_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_password
+            - name: WSDL
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_wsdl
+            - name: IMS_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: ims-credentials
+                  key: ims_endpoint
             - name: KEYCLOAK_SECRET
               valueFrom:
                 secretKeyRef:
@@ -82,22 +97,6 @@ spec:
                 secretKeyRef:
                   name: keycloak-user
                   key: password
-            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
-            - name: IMS_API_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: ims-credentials
-                  key: ims_password
-            - name: WSDL
-              valueFrom:
-                secretKeyRef:
-                  name: ims-credentials
-                  key: ims_wsdl
-            - name: IMS_ENDPOINT
-              valueFrom:
-                secretKeyRef:
-                  name: ims-credentials
-                  key: ims_endpoint
             # {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
             # - name: NODE_TLS_REJECT_UNAUTHORIZED
             #   value: "0"
