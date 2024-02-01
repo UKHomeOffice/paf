@@ -130,7 +130,7 @@ spec:
             {{ end }}
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
-              value: https://fv.{{ .APP_NAME }}.homeoffice.gov.uk/file
+              value: https://fv-paf.sas.homeoffice.gov.uk/file
             {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
               value: https://fv-paf.stg.sas.homeoffice.gov.uk/file
             {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
@@ -154,11 +154,11 @@ spec:
           {{ end }}
           resources:
             requests:
-              cpu: "20m"
-              memory: "100Mi"
-            limits:
               cpu: "100m"
-              memory: "200Mi"
+              memory: "256Mi"
+            limits:
+              cpu: "250m"
+              memory: "512Mi"
           volumeMounts:
             - mountPath: /public
               name: public
@@ -168,10 +168,10 @@ spec:
           image: quay.io/ukhomeofficedigital/nginx-proxy-govuk@sha256:4470064d0b1d20ae08c5fd85551576cb687f342a22d6cb456fda9b2c4ce8c8df
           resources:
             requests:
-              memory: 10Mi
-              cpu: 10m
+              memory: 20Mi
+              cpu: 20m
             limits:
-              cpu: 250m
+              cpu: 300m
               memory: 256Mi
           env:
 {{ file .NGINX_SETTINGS | indent 12 }}

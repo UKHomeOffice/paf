@@ -701,8 +701,6 @@
         { "HOF": "Zaire", "IMS": "CountryList.ZAR" },
         { "HOF": "Zambia", "IMS": "CountryList.ZMB" },
         { "HOF": "Zimbabwe", "IMS": "CountryList.ZWE" },
-        { "HOF": "Unknown", "IMS": "CountryList.UKN"
-            }
-
+        { "HOF": "Unknown", "IMS": "CountryList.UKN"}
     ]
 }

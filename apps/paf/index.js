@@ -15,6 +15,9 @@ const addressFormatter = require('./behaviours/address-formatter');
 const additionalPersonFormatter = require('./behaviours/additional-person-formatter');
 const vehicleToggleFormatter = require('./behaviours/vehicle-toggle-formatter');
 const SendToSQS = require('./behaviours/send-to-sqs');
+const UnsetCrimeCountry = require('./behaviours/unset-crime-country');
+const timeFormatter = require('./behaviours/time-formatter');
+
 
 module.exports = {
   name: 'paf',
@@ -60,7 +63,7 @@ module.exports = {
       }]
     },
     '/date-time-crime-will-happen': {
-      fields: ['date-crime-will-happen', 'time-crime-will-happen'],
+      fields: ['date-crime-will-happen', 'time-crime-will-happen-hour', 'time-crime-will-happen-minute'],
       next: '/when-will-crime-happen-more-info'
     },
     '/when-will-crime-happen-more-info': {
@@ -260,7 +263,8 @@ module.exports = {
           field: 'crime-location',
           value: 'yes'
         }
-      }]
+      }],
+      behaviours: [UnsetCrimeCountry]
     },
     '/crime-another-location': {
       fields: ['crime-another-location',
@@ -392,7 +396,7 @@ module.exports = {
         target: '/report-person-occupation-government-employee',
         condition: {
           field: 'report-person-occupation-type',
-          value: 'government-employee'
+          value: 'job-government-employee'
         }
       },
       {
@@ -774,7 +778,7 @@ module.exports = {
       fields: ['are-you-eighteen', 'contact-number', 'when-to-contact']
     },
     '/confirm': {
-      behaviours: [SummaryPageBehaviour, personNumber],
+      behaviours: [SummaryPageBehaviour, personNumber, timeFormatter],
       sections: require('./sections/summary-data-sections'),
       next: '/declaration'
     },

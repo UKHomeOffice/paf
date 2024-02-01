@@ -132,6 +132,18 @@ module.exports = {
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
     mixin: 'input-date'
   }),
+  'time-crime-will-happen-hour': {
+    mixin: 'input-text',
+    className: ['govuk-input', 'govuk-date-input__input', 'govuk-input--width-2'],
+    attributes: [{ attribute: 'maxlength', value: '2' }],
+    validate: ['numeric', { type: 'min', arguments: 0}, { type: 'max', arguments: 23 }]
+  },
+  'time-crime-will-happen-minute': {
+    mixin: 'input-text',
+    className: ['govuk-input', 'govuk-date-input__input', 'govuk-input--width-2'],
+    attributes: [{ attribute: 'maxlength', value: '2' }],
+    validate: ['numeric', { type: 'min', arguments: 0}, { type: 'max', arguments: 59 }]
+  },
   'time-crime-will-happen': {
     mixin: 'input-text'
   },
@@ -243,7 +255,7 @@ module.exports = {
       'hgv-canvas-sided',
       'hgv-flatbed',
       'hgv-hard-sided',
-      'hgv-refridgerated',
+      'hgv-refrigerated',
       'hgv-tanker'
     ],
     dependent: {
@@ -369,6 +381,7 @@ module.exports = {
   'boat-country-departure': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -403,6 +416,7 @@ module.exports = {
   'train-country-departure': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -440,6 +454,7 @@ module.exports = {
   'airline-country-departure': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -532,6 +547,7 @@ module.exports = {
   'crime-location-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -579,7 +595,11 @@ module.exports = {
   },
   'crime-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', { type: 'maxlength', arguments: 20 }],
+    dependent: {
+      field: 'crime-location',
+      value: 'yes'
+    }
   },
   'crime-another-location': {
     isPageHeading: true,
@@ -595,6 +615,7 @@ module.exports = {
   'crime-another-location-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -642,7 +663,11 @@ module.exports = {
   },
   'crime-another-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', { type: 'maxlength', arguments: 20 }],
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'report-person': {
     mixin: 'radio-group',
@@ -744,6 +769,7 @@ module.exports = {
   'report-person-location-outside-uk-address-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -770,6 +796,7 @@ module.exports = {
   'report-person-location-travel-to-uk-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -791,7 +818,7 @@ module.exports = {
   },
   'report-person-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
@@ -875,7 +902,7 @@ module.exports = {
   },
   'report-person-occupation-company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-occupation-company-manager': {
     mixin: 'input-text',
@@ -935,7 +962,7 @@ module.exports = {
   },
   'report-person-study-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-study-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
@@ -1026,7 +1053,7 @@ module.exports = {
       'hgv-canvas-sided',
       'hgv-flatbed',
       'hgv-hard-sided',
-      'hgv-refridgerated',
+      'hgv-refrigerated',
       'hgv-tanker'
     ],
     dependent: {
@@ -1192,7 +1219,7 @@ module.exports = {
   },
   'company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: [{ type: 'maxlength', arguments: 20 }]
+    validate: ['required', { type: 'maxlength', arguments: 20 }]
   },
   'company-email': {
     formatter: ['removespaces'],
@@ -1350,7 +1377,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'gender-unknown'
+      'prefer-not-to-say'
     ]
   },
   'about-you-contact': {

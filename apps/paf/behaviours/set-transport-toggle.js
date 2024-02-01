@@ -13,7 +13,7 @@ module.exports = superclass => class extends superclass {
       locals.hgvFChecked = true;
     } else if (req.form.values['crime-hgv-group'] === 'hgv-hard-sided') {
       locals.hgvHSChecked = true;
-    } else if (req.form.values['crime-hgv-group'] === 'hgv-refridgerated') {
+    } else if (req.form.values['crime-hgv-group'] === 'hgv-refrigerated') {
       locals.hgvRChecked = true;
     } else if (req.form.values['crime-hgv-group'] === 'hgv-tanker') {
       locals.hgvTChecked = true;
@@ -61,7 +61,7 @@ module.exports = superclass => class extends superclass {
       locals.personHgvFChecked = true;
     } else if (req.form.values['report-person-transport-hgv-group'] === 'hgv-hard-sided') {
       locals.personHgvHSChecked = true;
-    } else if (req.form.values['report-person-transport-hgv-group'] === 'hgv-refridgerated') {
+    } else if (req.form.values['report-person-transport-hgv-group'] === 'hgv-refrigerated') {
       locals.personHgvRChecked = true;
     } else if (req.form.values['report-person-transport-hgv-group'] === 'hgv-tanker') {
       locals.personHgvTChecked = true;
