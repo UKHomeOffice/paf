@@ -40,18 +40,23 @@ spec:
       containers:
         - name: ims-resolver
 <<<<<<< HEAD
+<<<<<<< HEAD
           # no official release, this connects to the private link
           image: quay.io/ukhomeofficedigital/ims-resolver:56506c546f92c6e2ba8e0328ee99379aa8b35593
 =======
           image: quay.io/ukhomeofficedigital/ims-resolver:91979bf3dd2eabee61f1b01385e07bba8e518abc
 >>>>>>> 22d1383 (PAF-61 Update ims-resolver deployment to use branch image (#119))
+=======
+          # no official release
+          image: quay.io/ukhomeofficedigital/ims-resolver:3cd104552571073d15995154b5a098f142beae89
+>>>>>>> 4926892 (PAF-50 Deploy ims-resolver)
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-                name: {{ .APP_NAME }}-configmap-{{ .DRONE_SOURCE_BRANCH }}
+                name: configmap-{{ .DRONE_SOURCE_BRANCH }}
                 {{ else }}
-                name: {{ .APP_NAME }}-configmap
+                name: configmap
                 {{ end }}
             - configMapRef:
                 name: cacert-store
@@ -70,73 +75,6 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_password
-            - name: WSDL
-              valueFrom:
-                secretKeyRef:
-                  name: ims-credentials
-                  key: ims_wsdl
-            - name: IMS_ENDPOINT
-              valueFrom:
-                secretKeyRef:
-                  name: ims-credentials
-                  key: ims_endpoint
-            - name: KEYCLOAK_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-client
-                  key: secret
-            - name: KEYCLOAK_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-client
-                  key: id
-            - name: KEYCLOAK_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-user
-                  key: username
-            - name: KEYCLOAK_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-user
-                  key: password
-            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
-            - name: NODE_TLS_REJECT_UNAUTHORIZED
-              value: "0"
-            {{ end }}
-            {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
-            - name: SQS_URL
-              valueFrom:
-                secretKeyRef:
-                  name: sas-paf-branch-sqs-queue
-                  key: sqs_url
-            - name: ACCESS_KEY_ID
-              valueFrom:
-                secretKeyRef:
-                  name: sas-paf-branch-sqs-queue
-                  key: access_key_id
-            - name: SECRET_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: sas-paf-branch-sqs-queue
-                  key: secret_access_key
-            {{ else if (eq .KUBE_NAMESPACE .UAT_ENV) }}
-            - name: SQS_URL
-              valueFrom:
-                secretKeyRef:
-                  name: sas-paf-uat-sqs-queue
-                  key: sqs_url
-            - name: ACCESS_KEY_ID
-              valueFrom:
-                secretKeyRef:
-                  name: sas-paf-uat-sqs-queue
-                  key: access_key_id
-            - name: SECRET_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: sas-paf-uat-sqs-queue
-                  key: secret_access_key
-            {{ end }}
           securityContext:
             runAsNonRoot: true
           resources:
