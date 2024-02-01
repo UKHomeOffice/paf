@@ -39,12 +39,14 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: image: quay.io/ukhomeofficedigital/ims-resolver:56506c546f92c6e2ba8e0328ee99379aa8b35593
+
+          # no official release, this connects to the private link
+          image: quay.io/ukhomeofficedigital/ims-resolver:56506c546f92c6e2ba8e0328ee99379aa8b35593
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-                name: {{ .APP_NAME }}-configmap-{{ .DRONE_SOURCE_BRANCH }}
+                name: configmap-{{ .DRONE_SOURCE_BRANCH }}
                 {{ else }}
                 name: {{ .APP_NAME }}-configmap
                 {{ end }}
@@ -75,30 +77,10 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_endpoint
-            - name: KEYCLOAK_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-client
-                  key: secret
-            - name: KEYCLOAK_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-client
-                  key: id
-            - name: KEYCLOAK_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-user
-                  key: username
-            - name: KEYCLOAK_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: keycloak-user
-                  key: password
-            # {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
-            # - name: NODE_TLS_REJECT_UNAUTHORIZED
-            #   value: "0"
-            # {{ end }}
+            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
+            - name: NODE_TLS_REJECT_UNAUTHORIZED
+              value: "0"
+            {{ end }}
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL
               valueFrom:
@@ -135,12 +117,13 @@ spec:
           securityContext:
             runAsNonRoot: true
           resources:
-            requests:
-              memory: 10Mi
-              cpu: 10m
             limits:
               memory: 256Mi
               cpu: 300m
+            requests:
+              memory: 10Mi
+              cpu: 10m
+              
           volumeMounts:
             - name: cacert-store
               mountPath: /etc/ssl/certs/ims-prp1-ca.crt
