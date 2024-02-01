@@ -5,6 +5,9 @@ const hof = require('hof');
 let settings = require('./hof.settings');
 const config = require('./config.js');
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 89d7d9f (PAF-179-deployment-script-fix (#120))
 const busboy = require('busboy');
 const bytes = require('bytes');
 const bl = require('bl');
