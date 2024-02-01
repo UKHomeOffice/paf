@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:91979bf3dd2eabee61f1b01385e07bba8e518abc
+          image: image: quay.io/ukhomeofficedigital/ims-resolver:56506c546f92c6e2ba8e0328ee99379aa8b35593
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -48,7 +48,11 @@ spec:
                 {{ else }}
                 name: {{ .APP_NAME }}-configmap
                 {{ end }}
+            - configMapRef:
+                name: cacert-store
           env:
+            - name: NODE_OPTIONS
+              value: "--use-openssl-ca"
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
@@ -137,3 +141,12 @@ spec:
             limits:
               memory: 256Mi
               cpu: 300m
+          volumeMounts:
+            - name: cacert-store
+              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+              subPath: ims-prp1-ca.crt
+              readOnly: false
+      volumes:
+        - name: cacert-store
+          configMap:
+            name: cacert-store
