@@ -16,8 +16,6 @@ settings = Object.assign({}, settings, {
   behaviours: settings.behaviours.map(require)
 });
 
-certificate.getCertificate();
-certificate.options.ca;
 const app = hof(settings);
 
 if (config.useMocks) {
