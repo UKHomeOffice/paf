@@ -19,10 +19,6 @@ module.exports = class UploadModel extends Model {
 
   async save() {
     const result = await new Promise((resolve, reject) => {
-<<<<<<< HEAD
-      console.log("url: " + config.upload.hostname);
-=======
->>>>>>> 84527e4 (PAF-11: create attachments)
       const attributes = {
         url: config.upload.hostname
       };

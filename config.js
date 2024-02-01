@@ -3,7 +3,6 @@
 
 const env = process.env.NODE_ENV;
 const useMocks = process.env.USE_MOCKS === 'true' || !env;
-const useMocks = process.env.USE_MOCKS === 'true' || !env;
 
 module.exports = {
   env: env,
