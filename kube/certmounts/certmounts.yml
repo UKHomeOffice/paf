@@ -4,4 +4,4 @@ metadata:
   name: cacert-store
 data:
   ims-prp1-ca.crt: |
-{{ file .CONFIGMAP1_VALUES }}
+{{ file .CONFIGMAP1_VALUES | 2 }}
