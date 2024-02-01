@@ -1,5 +1,6 @@
 
 'use strict';
+
 const nationalities = require('../data/nationalities');
 const _ = require('lodash');
 const countriesList = require('../data/countriesList');
@@ -8,6 +9,7 @@ const airlineCompanies = require('../data/airlineCompanies');
 const occupation = require('../data/occupation');
 const companyTypes = require('../data/companyTypes');
 const dateComponent = require('hof').components.date;
+
 function notBothOptions(vals) {
   const values = _.castArray(vals);
   return !(values.length > 1 && values.indexOf('crime-transport-unknown') > -1);
@@ -18,7 +20,8 @@ function lettersAndSpacesOnly(value) {
 const moment = require('moment');
 const after1900Validator = { type: 'after', arguments: ['1900'] };
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
-
+const todayDate = new Date().toString();
+const afterCurrentYearValidator = { type: 'after', arguments: [todayDate] };
 module.exports = {
   'crime-type': {
     mixin: 'radio-group',
@@ -130,7 +133,8 @@ module.exports = {
     ]
   },
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: [afterCurrentYearValidator]
   }),
   'time-crime-will-happen-hour': {
     mixin: 'input-text',
