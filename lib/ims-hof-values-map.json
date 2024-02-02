@@ -510,7 +510,7 @@
             },
             {
              "HOF": "Chiltern Railways",
-             "IMS": "TrainCompany.ChilternRailways"
+             "IMS": "TrainCompany.Chiltern"
             },
             {
              "HOF": "CrossCountry",
@@ -574,11 +574,11 @@
             },
             {
              "HOF": "London Overground",
-             "IMS": "TrainCompany.LondonOverground"
+             "IMS": "TrainCompany.LondonOvergroun"
             },
             {
              "HOF": "London Underground",
-             "IMS": "TrainCompany.LondonUnderground"
+             "IMS": "TrainCompany.LondonUndergrou"
             },
             {
              "HOF": "Merseyrail",
