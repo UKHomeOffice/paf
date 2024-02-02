@@ -53,8 +53,8 @@ spec:
             - configMapRef:
                 name: cacert-store
           env:
-            - name: NODE_OPTIONS
-              value: "--use-openssl-ca"
+            - name: NODE_EXTRA_CA_CERTS
+              value: "/etc/ssl/certs/ims-prp1-ca.crt"
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
