@@ -66,6 +66,7 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_password
+                  
             - name: WSDL
               valueFrom:
                 secretKeyRef:
