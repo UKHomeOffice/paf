@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: cacert-store
 data:
-  ims-prp1-ca.crt: |-
+  ims-prp1-ca.crt:
 {{ file .CONFIGMAP1_VALUES | indent 2 }}
