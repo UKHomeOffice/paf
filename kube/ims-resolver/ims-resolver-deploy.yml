@@ -41,7 +41,7 @@ spec:
         - name: ims-resolver
 
           # no official release, this connects to the private link
-          image: quay.io/ukhomeofficedigital/ims-resolver:56506c546f92c6e2ba8e0328ee99379aa8b35593
+          image: quay.io/ukhomeofficedigital/ims-resolver:95da6aa257dab74047009e0cefa744ee55c9ce97
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
