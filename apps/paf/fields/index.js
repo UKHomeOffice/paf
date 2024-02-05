@@ -807,6 +807,12 @@ module.exports = {
         label: 'fields.report-person-location-travel-to-uk-country.options.null'
       }].concat(countriesList)
   },
+  'report-person-location-travel-to-uk-how': {
+    mixin: 'input-text'
+  },
+  'report-person-location-travel-to-uk-where': {
+    mixin: 'input-text'
+  },
   'report-person-location-type': {
     isPageHeading: true,
     mixin: 'radio-group',
