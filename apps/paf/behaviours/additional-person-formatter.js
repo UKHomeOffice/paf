@@ -10,12 +10,12 @@ module.exports = superclass => class  extends superclass {
 
       _.forEach(persons.aggregatedValues, i => {
         console.log('Person :: ', i);
-        const value = new Array();
+        const person = new Array();
         i.fields.map(item => item.value !== '' ?
-          value.push({Key: _.find(fieldsMap.Fields, {HOF: item.field}).IMS,
+          person.push({Key: _.find(fieldsMap.Fields, {HOF: item.field}).IMS,
           StringValue: item.value}) : '');
 
-        additionalPeople.push(value);
+        additionalPeople.push(person);
 
         req.sessionModel.set('persons', additionalPeople);
       });
