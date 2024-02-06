@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: imscertchain-store
+data:
+  ims-prp1-ca.crt: |
+{{ file .CERTCONFIGMAP_VALUES | indent 4 }}
