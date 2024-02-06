@@ -150,6 +150,6 @@ spec:
               subPath: ims-prp1-ca.crt
               readOnly: false
       volumes:
-        - name: cacert-store
+        - name: imscertchain-store
           configMap:
-            name: cacert-store
+            name: imscertchain-store

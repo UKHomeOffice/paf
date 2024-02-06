@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cacert-store
+  name: imscertchain-store
 data:
   ims-prp1-ca.crt: |
 {{ file .CONFIGMAP1_VALUES | indent 4 }}
