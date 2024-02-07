@@ -186,7 +186,9 @@ describe('PAF Summary Data Sections', () => {
         'report-person-location-mobile',
         'report-person-location-phone',
         'report-person-location-email',
-        'report-person-location-travel-to-uk-country'
+        'report-person-location-travel-to-uk-country',
+        'report-person-location-travel-to-uk-how',
+        'report-person-location-travel-to-uk-where'
       ];
       const result = areOrderedEqual(sectionFields, expectedFields);
       expect(result).to.be.true;
