@@ -396,7 +396,7 @@ module.exports = {
         target: '/report-person-occupation-government-employee',
         condition: {
           field: 'report-person-occupation-type',
-          value: 'government-employee'
+          value: 'job-government-employee'
         }
       },
       {
