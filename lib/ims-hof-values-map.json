@@ -617,7 +617,7 @@
              "IMS": "JobType.Building"
             },
             {
-             "HOF": "job-care-home",
+             "HOF": "job-care-assistant",
              "IMS": "JobType.Care"
             },
             {
@@ -625,12 +625,24 @@
              "IMS": "JobType.Catering"
             },
             {
-             "HOF": "job-child-care-nursery",
+             "HOF": "job-childcare",
              "IMS": "JobType.Childcare"
             },
             {
-             "HOF": "job-cleaning",
+             "HOF": "job-cleaner",
              "IMS": "JobType.Cleaner"
+            },
+            {
+            "HOF": "job-doctor-nurse-paramedic",
+            "IMS": "JobType.DoctorNurse"
+            },
+            {
+            "HOF": "job-domestic-worker",
+            "IMS": "JobType.Domestic"
+            },
+            {
+            "HOF": "job-driver",
+            "IMS": "JobType.Driver"
             },
             {
              "HOF": "job-engineering",
@@ -641,36 +653,44 @@
              "IMS": "JobType.EnglishLanguageCollege"
             },
             {
-             "HOF": "job-factory",
+             "HOF": "job-factory-worker",
              "IMS": "JobType.Factoryworker"
             },
             {
              "HOF": "job-farming-forestry-and-fishing",
-             "IMS": "JobType.Farming,Forestry&Fishing"
+             "IMS": "JobType.Agriculture"
             },
             {
              "HOF": "job-freight-agent",
              "IMS": "JobType.FreightAgent"
             },
             {
-             "HOF": "job-government",
-             "IMS": "JobType.Governmentemployee"
+             "HOF": "job-government-employee",
+             "IMS": "JobType.GovernmentEmplo"
             },
             {
              "HOF": "job-hairdressing-beauty-therapy",
-             "IMS": "JobType.HairdressingBeau"
+             "IMS": "JobType.HairdressingBea"
             },
             {
              "HOF": "job-haulage",
              "IMS": "JobType.Haulage"
             },
             {
-             "HOF": "job-information-technology",
-             "IMS": "JobType.InformationTechnology(IT)"
+             "HOF": "job-information-technology-IT",
+             "IMS": "JobType.IT"
             },
             {
-             "HOF": "job-sales-retail",
-             "IMS": "JobType.Salesandretail"
+            "HOF": "job-office-work",
+            "IMS": "JobType.OfficeWork"
+            },
+            {
+            "HOF": "job-port-airport-worker",
+            "IMS": "JobType.PortAirport"
+            },
+            {
+             "HOF": "job-sales-and-retail",
+             "IMS": "JobType.Salesretail"
             },
             {
              "HOF": "job-school-college-university",
@@ -679,6 +699,14 @@
             {
              "HOF": "job-security",
              "IMS": "JobType.Security"
+            },
+            {
+            "HOF": "job-self-employed",
+            "IMS": "JobType.SelfEmployed"
+            },
+            {
+            "HOF": "job-teacher-lecturer",
+            "IMS": "JobType.TeacherLecturer"
             },
             {
              "HOF": "job-self-store",
