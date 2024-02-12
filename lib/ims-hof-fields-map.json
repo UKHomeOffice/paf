@@ -365,8 +365,8 @@
         "HOF": "report-person-location-outside-uk-address-country"
         },
         {
-            "IMS": "pernonuklocaddress",
-            "HOF": "report-person-location-outside-uk-address"
+        "IMS": "pernonuklocaddress",
+        "HOF": "report-person-location-outside-uk-address"
         },
         {
         "IMS": "pernonuklocpostcode",
@@ -374,19 +374,19 @@
         },
         {
         "IMS": "pernonuklocmobile",
-        "HOF": "report-person-location-mobile"
+        "HOF": "report-person-location-outside-uk-mobile"
         },
         {
         "IMS": "pernonukloctelephone",
-        "HOF": "report-person-location-phone"
+        "HOF": "report-person-location-outside-uk-phone"
         },
         {
         "IMS": "pernonuklocemail",
-        "HOF": "report-person-location-email"
+        "HOF": "report-person-location-outside-uk-email"
         },
         {
         "IMS": "pernonuklocaddresstype",
-        "HOF": "report-person-location-type"
+        "HOF": "report-person-location-outside-uk-type"
         },
         {
         "IMS": "cbtravelukcountry",
