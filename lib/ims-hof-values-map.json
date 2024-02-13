@@ -806,15 +806,15 @@
             },
             {
              "HOF": "Nationality-Belarus",
-             "IMS": "NatList.BRB"
-            },
-            {
-             "HOF": "Nationality-Belgium",
              "IMS": "NatList.BLR"
             },
             {
-             "HOF": "Nationality-Belize",
+             "HOF": "Nationality-Belgium",
              "IMS": "NatList.BEL"
+            },
+            {
+             "HOF": "Nationality-Belize",
+             "IMS": "NatList.BLZ"
             },
             {
              "HOF": "Nationality-Benin",
