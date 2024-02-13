@@ -84,8 +84,8 @@
     "label": "Belarus"
   },
   {
-    "value": "Belguim",
-    "label": "Belguim"
+    "value": "Belgium",
+    "label": "Belgium"
   },
   {
     "value": "Belize",
@@ -472,10 +472,6 @@
     "label": "Indonesia"
   },
   {
-    "value": "International Waters",
-    "label": "International Waters"
-  },
-  {
     "value": "Iran, Islamic Republic of",
     "label": "Iran, Islamic Republic of"
   },
@@ -734,10 +730,6 @@
   {
     "value": "Norfolk Island",
     "label": "Norfolk Island"
-  },
-  {
-    "value": "North Macedonia",
-    "label": "North Macedonia"
   },
   {
     "value": "Northern Mariana Islands",
@@ -1094,10 +1086,6 @@
   {
     "value": "Venezuela",
     "label": "Venezuela"
-  },
-  {
-    "value": "Vatican City",
-    "label": "Vatican City"
   },
   {
     "value": "Vietnam",
