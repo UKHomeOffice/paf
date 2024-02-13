@@ -245,6 +245,18 @@
         "HOF": "crime-delivery"
         },
         {
+        "IMS": "txPostOther",
+        "HOF": "freight-more-info"
+        },
+        {
+        "IMS": "txPostOther",
+        "HOF": "express-more-info"
+        },
+        {
+        "IMS": "txPostOther",
+        "HOF": "post-more-info"
+        },
+        {
         "IMS": "rdwherecrime",
         "HOF": "crime-location"
         },
