@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const fieldsMap = require('../../../lib/ims-hof-fields-map.json');
+
 const anotherPersonMap = require('../../../lib/ims-hof-anotherperson-map.json');
 const valuesMap = require('../../../lib/ims-hof-values-map.json');
 
@@ -23,6 +24,7 @@ module.exports = superclass => class  extends superclass {
   configure(req, res, next) {
     const persons = req.sessionModel.get('persons');
     if (persons) {
+
       if ( persons.aggregatedValues) {
         const additionalPeople = [];
 

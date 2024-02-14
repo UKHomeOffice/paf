@@ -874,7 +874,8 @@ module.exports = {
     }
   },
   'report-person-occupation-other': {
-    labelClassName: 'visuallyhidden'
+    labelClassName: 'visuallyhidden',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-occupation-hours': {
     mixin: 'input-text',
