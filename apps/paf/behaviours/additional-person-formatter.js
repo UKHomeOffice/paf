@@ -25,6 +25,7 @@ module.exports = superclass => class  extends superclass {
     if (persons) {
       if ( persons.aggregatedValues) {
         const additionalPeople = [];
+
         const anotherPerson = getFirstAdditionalPerson(persons);
 
         additionalPeople.push(anotherPerson);
