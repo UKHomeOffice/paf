@@ -24,7 +24,6 @@ module.exports = superclass => class  extends superclass {
   configure(req, res, next) {
     const persons = req.sessionModel.get('persons');
     if (persons) {
-
       if ( persons.aggregatedValues) {
         const additionalPeople = [];
 
