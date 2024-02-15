@@ -416,7 +416,7 @@ module.exports = {
         target: '/report-person-occupation-other',
         condition: {
           field: 'report-person-occupation-type',
-          value: 'other'
+          value: 'job-other'
         }
       }
       ]
