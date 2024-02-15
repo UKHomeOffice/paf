@@ -63,9 +63,9 @@ module.exports = {
     + 'personAddNickname:test, personAddDob:1985-02-01, personAddAgeRange:35-44, '
     + 'personAddNationality:Nationality-India, personAddGender:male'
   ],
-  'crime-transport': 'unknown',
+  'crime-transport': 'transport-unknown',
   'transport-group': '',
-  'crime-delivery': 'unknown',
+  'crime-delivery': 'delivery-unknown',
   'freight-more-info': '',
   'express-more-info': '',
   'post-more-info': '',
@@ -77,7 +77,7 @@ module.exports = {
   'crime-location-address-county': '',
   'crime-location-address-postcode': '',
   'crime-location-phone': '',
-  'report-organisation': 'unknown',
+  'report-organisation': 'report-org-unknown',
   'other-info-description': '',
   'other-info-another-crime': 'no',
   'other-info-another-crime-description': '',
@@ -104,9 +104,9 @@ module.exports = {
   'report-person-id': '',
   'report-person-ni': '',
   'report-person-location': 'location-unknown',
-  'report-person-occupation': 'unknown',
-  'report-person-study': 'unknown',
-  'report-person-transport': 'unknown',
+  'report-person-occupation': 'occupation-unknown',
+  'report-person-study': 'study-unknown',
+  'report-person-transport': 'transport-unknown',
   'report-person-description': '',
   hasAdditionalPerson: 'yes',
   images: [

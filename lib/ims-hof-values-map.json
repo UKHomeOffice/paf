@@ -75,8 +75,8 @@
         { "HOF": "male", "IMS": "Male" },
         { "HOF": "female", "IMS": "Female" },
         { "HOF": "other", "IMS": "Other" },
-        { "HOF": "gender-unknown", "IMS": "DontKnow" },
-        { "HOF": "prefer-not-to-say", "IMS": "DontKnow" },
+        { "HOF": "gender-unknown", "IMS": "Idontknow" },
+        { "HOF": "prefer-not-to-say", "IMS": "Prefer not to say" },
         { "HOF": "uk", "IMS": "IntheUK" },
         { "HOF": "outside-uk", "IMS": "OutsidetheUK" },
         { "HOF": "travel-to-uk", "IMS": "TravellingtotheUK" },
@@ -709,6 +709,19 @@
         { "HOF": "Zaire", "IMS": "CountryList.ZAR" },
         { "HOF": "Zambia", "IMS": "CountryList.ZMB" },
         { "HOF": "Zimbabwe", "IMS": "CountryList.ZWE" },
-        { "HOF": "Unknown", "IMS": "CountryList.UKN" }
+        { "HOF": "Unknown", "IMS": "CountryList.UKN" },
+        { "HOF": "transport-unknown", "IMS": "Idontknow" },
+        { "HOF": "delivery-unknown", "IMS": "I dont know" },
+        { "HOF": "occupation-unknown", "IMS": "Idontknow" },
+        { "HOF": "govt-employ-unknown", "IMS": "DontKnow" },
+        { "HOF": "occupation-where-unknown", "IMS": "Idontknow" },
+        { "HOF": "occ-manager-know-unknown", "IMS": "DontKnow" },
+        { "HOF": "study-unknown", "IMS": "Idontknow" },
+        { "HOF": "study-location-unknown", "IMS": "Idontknow" },
+        { "HOF": "study-where-unknown", "IMS": "Idontknow" },
+        { "HOF": "study-manager-know-unknown", "IMS": "DontKnow" },
+        { "HOF": "transport-unknown", "IMS": "Idontknow" },
+        { "HOF": "report-org-unknown", "IMS": "Idontknow" },
+        { "HOF": "org-owner-know-unknown", "IMS": "dontknow" }
     ]
 }
