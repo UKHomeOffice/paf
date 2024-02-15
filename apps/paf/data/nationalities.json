@@ -68,8 +68,8 @@
     "label": "Belarus"
   },
   {
-    "value": "Nationality-Belguim",
-    "label": "Belguim"
+    "value": "Nationality-Belgium",
+    "label": "Belgium"
   },
   {
     "value": "Nationality-Belize",
@@ -92,20 +92,12 @@
     "label": "Bolivia"
   },
   {
-    "value": "Nationality-Bonaire, Sint Eustatius and Saba",
-    "label": "Bonaire, Sint Eustatius and Saba"
-  },
-  {
     "value": "Nationality-Bosnia and Herzegovina",
     "label": "Bosnia and Herzegovina"
   },
   {
     "value": "Nationality-Botswana",
     "label": "Botswana"
-  },
-  {
-    "value": "Nationality-Bouvet Island",
-    "label": "Bouvet Island"
   },
   {
     "value": "Nationality-Brazil",
@@ -440,10 +432,6 @@
     "label": "Kiribati"
   },
   {
-    "value": "Nationality-Korea (North)",
-    "label": "North Korea (Democratic People's Republic of Korea)"
-  },
-  {
     "value": "Nationality-South Korea (Republic of Korea)",
     "label": "South Korea (Republic of Korea)"
   },
@@ -500,10 +488,6 @@
     "label": "Luxembourg"
   },
   {
-    "value": "Nationality-Macao",
-    "label": "Macao"
-  },
-  {
     "value": "Nationality-Macedonia, The Former Yugoslav Republic Of",
     "label": "Macedonia, The Former Yugoslav Republic Of"
   },
@@ -536,20 +520,12 @@
     "label": "Marshall Islands"
   },
   {
-    "value": "Nationality-Martinique",
-    "label": "Martinique"
-  },
-  {
     "value": "Nationality-Mauritania",
     "label": "Mauritania"
   },
   {
     "value": "Nationality-Mauritius",
     "label": "Mauritius"
-  },
-  {
-    "value": "Nationality-Mayotte",
-    "label": "Mayotte"
   },
   {
     "value": "Nationality-Mexico",
@@ -588,10 +564,6 @@
     "label": "Mozambique"
   },
   {
-    "value": "Nationality-Myanmar",
-    "label": "Myanmar"
-  },
-  {
     "value": "Nationality-Namibia",
     "label": "Namibia"
   },
@@ -616,10 +588,6 @@
     "label": "Netherlands Antilles"
   },
   {
-    "value": "Nationality-New Caledonia",
-    "label": "New Caledonia"
-  },
-  {
     "value": "Nationality-New Zealand",
     "label": "New Zealand"
   },
@@ -640,18 +608,6 @@
     "label": "Niue"
   },
   {
-    "value": "Nationality-Norfolk Island",
-    "label": "Norfolk Island"
-  },
-  {
-    "value": "Nationality-North Macedonia",
-    "label": "North Macedonia"
-  },
-  {
-    "value": "Nationality-Northern Mariana Islands",
-    "label": "Northern Mariana Islands"
-  },
-  {
     "value": "Nationality-Norway",
     "label": "Norway"
   },
@@ -670,10 +626,6 @@
   {
     "value": "Nationality-Pakistan",
     "label": "Pakistan"
-  },
-  {
-    "value": "Nationality-Palau",
-    "label": "Palau"
   },
   {
     "value": "Nationality-Palestinian Territory Occupied",
@@ -700,20 +652,12 @@
     "label": "Philipines"
   },
   {
-    "value": "Nationality-Pitcairn",
-    "label": "Pitcairn"
-  },
-  {
     "value": "Nationality-Polish",
     "label": "Polish"
   },
   {
     "value": "Nationality-Portugal",
     "label": "Portugal"
-  },
-  {
-    "value": "Nationality-Puerto Rico",
-    "label": "Puerto Rico"
   },
   {
     "value": "Nationality-Qatar",
@@ -862,10 +806,6 @@
   {
     "value": "Nationality-Suriname",
     "label": "Suriname"
-  },
-  {
-    "value": "Nationality-Svalbard and Jan Mayen Islands",
-    "label": "Svalbard and Jan Mayen Islands"
   },
   {
     "value": "Nationality-Swaziland",

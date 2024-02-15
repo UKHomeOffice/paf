@@ -807,6 +807,12 @@ module.exports = {
         label: 'fields.report-person-location-travel-to-uk-country.options.null'
       }].concat(countriesList)
   },
+  'report-person-location-travel-to-uk-how': {
+    mixin: 'input-text'
+  },
+  'report-person-location-travel-to-uk-where': {
+    mixin: 'input-text'
+  },
   'report-person-location-type': {
     isPageHeading: true,
     mixin: 'radio-group',
@@ -825,6 +831,26 @@ module.exports = {
     validate: ['required', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-email': {
+    validate: ['email', { type: 'maxlength', arguments: 100 }]
+  },
+  'report-person-location-outside-uk-type': {
+    isPageHeading: true,
+    mixin: 'radio-group',
+    options: [
+      'home',
+      'relative',
+      'work'
+    ]
+  },
+  'report-person-location-outside-uk-mobile': {
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
+  },
+  'report-person-location-outside-uk-phone': {
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: ['required', { type: 'maxlength', arguments: 20 }]
+  },
+  'report-person-location-outside-uk-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
   },
   'report-person-occupation': {
@@ -868,7 +894,8 @@ module.exports = {
     }
   },
   'report-person-occupation-other': {
-    labelClassName: 'visuallyhidden'
+    labelClassName: 'visuallyhidden',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-occupation-hours': {
     mixin: 'input-text',

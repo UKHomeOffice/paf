@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:91979bf3dd2eabee61f1b01385e07bba8e518abc
+          image: quay.io/ukhomeofficedigital/ims-resolver:1b49a51cdf048eb3c693d23f54587d25074b5019
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -48,7 +48,11 @@ spec:
                 {{ else }}
                 name: {{ .APP_NAME }}-configmap
                 {{ end }}
+            - configMapRef:
+                name: imscertchain-store
           env:
+            - name: NODE_EXTRA_CA_CERTS
+              value: "/etc/ssl/certs/ims-prp1-ca.crt"
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
@@ -61,6 +65,7 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_password
+                  
             - name: WSDL
               valueFrom:
                 secretKeyRef:
@@ -91,10 +96,10 @@ spec:
                 secretKeyRef:
                   name: keycloak-user
                   key: password
-            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
-            - name: NODE_TLS_REJECT_UNAUTHORIZED
-              value: "0"
-            {{ end }}
+            # {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
+            # - name: NODE_TLS_REJECT_UNAUTHORIZED
+            #   value: "0"
+            # {{ end }}
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL
               valueFrom:
@@ -131,9 +136,19 @@ spec:
           securityContext:
             runAsNonRoot: true
           resources:
-            requests:
-              memory: 10Mi
-              cpu: 10m
             limits:
               memory: 256Mi
               cpu: 300m
+            requests:
+              memory: 10Mi
+              cpu: 10m
+              
+          volumeMounts:
+            - name: imscertchain-store
+              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+              subPath: ims-prp1-ca.crt
+              readOnly: false
+      volumes:
+        - name: imscertchain-store
+          configMap:
+            name: imscertchain-store

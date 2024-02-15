@@ -706,7 +706,30 @@
   "report-person-location-email": {
     "label": "Email address"
   },
+  "report-person-location-outside-uk-mobile": {
+    "label": "Mobile number"
+  },
+  "report-person-location-outside-uk-phone": {
+    "label": "Telephone number (including area code)"
+  },
+  "report-person-location-outside-uk-email": {
+    "label": "Email address"
+  },
   "report-person-location-type": {
+    "legend": "What type of address is it?",
+    "options": {
+      "home": {
+        "label": "Home address"
+      },
+      "relative": {
+        "label": "Relative's address"
+      },
+      "work": {
+        "label": "Work address"
+      }
+    }
+  },
+  "report-person-location-outside-uk-type": {
     "legend": "What type of address is it?",
     "options": {
       "home": {

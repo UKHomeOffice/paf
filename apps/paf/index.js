@@ -349,16 +349,6 @@ module.exports = {
       ],
       next: '/report-person-location-type'
     },
-    '/report-person-location-outside-uk-address': {
-      fields: ['report-person-location-outside-uk-address-country',
-        'report-person-location-outside-uk-address-line1',
-        'report-person-location-outside-uk-address-line2',
-        'report-person-location-outside-uk-address-town',
-        'report-person-location-outside-uk-address-county',
-        'report-person-location-outside-uk-address-postcode'
-      ],
-      next: '/report-person-location-type'
-    },
     '/report-person-location-type': {
       fields: ['report-person-location-type'],
       next: '/report-person-location-contact'
@@ -368,6 +358,29 @@ module.exports = {
         'report-person-location-mobile',
         'report-person-location-phone',
         'report-person-location-email'
+      ],
+      next: '/report-person-occupation'
+    },
+    '/report-person-location-outside-uk-address': {
+      fields: ['report-person-location-outside-uk-address-country',
+        'report-person-location-outside-uk-address-line1',
+        'report-person-location-outside-uk-address-line2',
+        'report-person-location-outside-uk-address-town',
+        'report-person-location-outside-uk-address-county',
+        'report-person-location-outside-uk-address-postcode'
+      ],
+      next: '/report-person-location-outside-uk-type'
+    },
+
+    '/report-person-location-outside-uk-type': {
+      fields: ['report-person-location-outside-uk-type'],
+      next: '/report-person-location-outside-uk-contact'
+    },
+    '/report-person-location-outside-uk-contact': {
+      fields: [
+        'report-person-location-outside-uk-mobile',
+        'report-person-location-outside-uk-phone',
+        'report-person-location-outside-uk-email'
       ],
       next: '/report-person-occupation'
     },
@@ -403,7 +416,7 @@ module.exports = {
         target: '/report-person-occupation-other',
         condition: {
           field: 'report-person-occupation-type',
-          value: 'other'
+          value: 'job-other'
         }
       }
       ]
