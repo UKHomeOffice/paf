@@ -146,9 +146,13 @@ module.exports = {
     'report-person-location-outside-uk-address-county',
     'report-person-location-outside-uk-address-postcode',
     'report-person-location-type',
+    'report-person-location-outside-uk-type',
     'report-person-location-mobile',
+    'report-person-location-outside-uk-mobile',
     'report-person-location-phone',
+    'report-person-location-outside-uk-phone',
     'report-person-location-email',
+    'report-person-location-outside-uk-email',
     {
       field: 'report-person-location-travel-to-uk-country',
       parse: v => _.get(_.find(COUNTRIES, group => group.value === v), 'label', '')
