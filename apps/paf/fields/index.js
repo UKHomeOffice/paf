@@ -1230,7 +1230,7 @@ module.exports = {
   },
   'company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', { type: 'maxlength', arguments: 20 }]
+    validate: [{ type: 'maxlength', arguments: 20 }]
   },
   'company-email': {
     formatter: ['removespaces'],
