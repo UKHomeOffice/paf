@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:1b49a51cdf048eb3c693d23f54587d25074b5019
+          image: quay.io/ukhomeofficedigital/ims-resolver:e904ffbb9525ad98df74add7442dc1ebc9381aec
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -65,7 +65,7 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_password
-                  
+
             - name: WSDL
               valueFrom:
                 secretKeyRef:
@@ -142,7 +142,7 @@ spec:
             requests:
               memory: 10Mi
               cpu: 10m
-              
+
           volumeMounts:
             - name: imscertchain-store
               mountPath: /etc/ssl/certs/ims-prp1-ca.crt
