@@ -75,7 +75,7 @@
         { "HOF": "male", "IMS": "Male" },
         { "HOF": "female", "IMS": "Female" },
         { "HOF": "other", "IMS": "Other" },
-        { "HOF": "gender-unknown", "IMS": "Idontknow" },
+        { "HOF": "gender-unknown", "IMS": "DontKnow" },
         { "HOF": "prefer-not-to-say", "IMS": "Prefer not to say" },
         { "HOF": "uk", "IMS": "IntheUK" },
         { "HOF": "outside-uk", "IMS": "OutsidetheUK" },
@@ -722,6 +722,7 @@
         { "HOF": "study-manager-know-unknown", "IMS": "DontKnow" },
         { "HOF": "transport-unknown", "IMS": "Idontknow" },
         { "HOF": "report-org-unknown", "IMS": "Idontknow" },
-        { "HOF": "org-owner-know-unknown", "IMS": "dontknow" }
+        { "HOF": "org-owner-know-unknown", "IMS": "dontknow" },
+        { "HOF": "add-gender-unknown", "IMS": "IDontKnow"}
     ]
 }
