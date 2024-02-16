@@ -42,8 +42,8 @@ describe("apps/lib 'add-allegation-data' behaviour should ", () => {
         .to.have.deep.equal([]);
     });
 
-    /*  it('addAlligationData contain  url in Attachements when user upload a file', () => {
-      JSON.parse(addAllegationDataWithAdditionalPerAndFileRes).should.have.property('Attachements')
+    /*  it('addAlligationData contain  url in Attachments when user upload a file', () => {
+      JSON.parse(addAllegationDataWithAdditionalPerAndFileRes).should.have.property('Attachments')
         .to.have.deep.equal([{url: 'http://s3.com/foo/0.6035454156299347'}]);
     }); */
   });
