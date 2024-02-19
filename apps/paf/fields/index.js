@@ -16,6 +16,7 @@ function lettersAndSpacesOnly(value) {
   return /^[A-Za-z\s]*$/.test(value);
 }
 const moment = require('moment');
+const after1900Validator = { type: 'after', arguments: ['1900'] };
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 
 module.exports = {
@@ -125,12 +126,24 @@ module.exports = {
     options: [
       'next-twenty-four-hours',
       'more-than-twenty-four-hours',
-      'unknown'
+      'when-will-crime-happen-unknown'
     ]
   },
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
     mixin: 'input-date'
   }),
+  'time-crime-will-happen-hour': {
+    mixin: 'input-text',
+    className: ['govuk-input', 'govuk-date-input__input', 'govuk-input--width-2'],
+    attributes: [{ attribute: 'maxlength', value: '2' }],
+    validate: ['numeric', { type: 'min', arguments: 0}, { type: 'max', arguments: 23 }]
+  },
+  'time-crime-will-happen-minute': {
+    mixin: 'input-text',
+    className: ['govuk-input', 'govuk-date-input__input', 'govuk-input--width-2'],
+    attributes: [{ attribute: 'maxlength', value: '2' }],
+    validate: ['numeric', { type: 'min', arguments: 0}, { type: 'max', arguments: 59 }]
+  },
   'time-crime-will-happen': {
     mixin: 'input-text'
   },
@@ -242,7 +255,7 @@ module.exports = {
       'hgv-canvas-sided',
       'hgv-flatbed',
       'hgv-hard-sided',
-      'hgv-refridgerated',
+      'hgv-refrigerated',
       'hgv-tanker'
     ],
     dependent: {
@@ -368,6 +381,7 @@ module.exports = {
   'boat-country-departure': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -402,6 +416,7 @@ module.exports = {
   'train-country-departure': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -439,6 +454,7 @@ module.exports = {
   'airline-country-departure': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -531,6 +547,7 @@ module.exports = {
   'crime-location-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -594,6 +611,7 @@ module.exports = {
   'crime-another-location-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -665,7 +683,8 @@ module.exports = {
   },
   'report-person-dob': dateComponent('report-person-dob', {
     isPageHeading: true,
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: ['before', after1900Validator]
   }),
   'report-person-age-range': {
     mixin: 'radio-group',
@@ -742,6 +761,7 @@ module.exports = {
   'report-person-location-outside-uk-address-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -768,6 +788,7 @@ module.exports = {
   'report-person-location-travel-to-uk-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
+    validate: ['required', 'notUrl'],
     options:
       [{
         value: '',
@@ -873,7 +894,7 @@ module.exports = {
   },
   'report-person-occupation-company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 200 }]
   },
   'report-person-occupation-company-manager': {
     mixin: 'input-text',
@@ -933,7 +954,7 @@ module.exports = {
   },
   'report-person-study-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 200 }]
   },
   'report-person-study-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
@@ -1024,7 +1045,7 @@ module.exports = {
       'hgv-canvas-sided',
       'hgv-flatbed',
       'hgv-hard-sided',
-      'hgv-refridgerated',
+      'hgv-refrigerated',
       'hgv-tanker'
     ],
     dependent: {
@@ -1115,6 +1136,7 @@ module.exports = {
   personAddDob: dateComponent('personAddDob', {
     isPageHeading: true,
     mixin: 'input-date',
+    validate: ['before', after1900Validator],
     parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
   }),
   personAddAgeRange: {
@@ -1327,7 +1349,8 @@ module.exports = {
   },
   'about-you-dob': dateComponent('about-you-dob', {
     isPageHeading: true,
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: ['before', after1900Validator]
   }),
   'about-you-nationality': {
     isPageHeading: true,
@@ -1346,7 +1369,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'gender-unknown'
+      'prefer-not-to-say'
     ]
   },
   'about-you-contact': {
