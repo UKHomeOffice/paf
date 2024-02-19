@@ -21,7 +21,8 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "date-crime-will-happen": {
-    "date": "Please enter a valid date"
+    "date": "Please enter a valid date",
+    "after": "You must give a date in the future"
   },
   "when-crime-will-happen-more-info": {
     "maxlength": "You must enter no more than 1200 characters"

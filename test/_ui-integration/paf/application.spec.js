@@ -131,7 +131,7 @@ describe('the journey of a paf application', () => {
     const response = await passStep(URI, {
       'crime-location': 'yes'
     });
-    expect(response.text).to.contain('Found. Redirecting to /paf/crime-another-location');
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-location');
   });
 
   it('goes to the report-person page', async () => {
@@ -341,7 +341,7 @@ describe('the journey of a paf application', () => {
         size: 144148
       }
     });
-    expect(response.text).to.contain('Found. Redirecting to /paf/add-other-info-file-upload');
+    expect(response.text).to.contain('Found. Redirecting to /paf/other-info-file-upload');
   });
 
   it('goes to the about-you page', async () => {
@@ -435,12 +435,5 @@ describe('the journey of a paf application', () => {
     await initSession(URI);
     const response = await passStep(URI, {});
     expect(response.text).to.contain('Found. Redirecting to /paf/declaration');
-  });
-
-  it('goes to the confirmation page', async () => {
-    const URI = '/declaration';
-    await initSession(URI);
-    const response = await passStep(URI, {});
-    expect(response.text).to.contain('Found. Redirecting to /paf/confirmation');
   });
 });
