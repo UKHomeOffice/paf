@@ -1,3 +1,5 @@
+const anotherPerson = new Array();
+
 module.exports = {
   'csrf-secret': '6erVCDutWgtcGyWPc2da5WGp',
   errors: null,
@@ -55,7 +57,7 @@ module.exports = {
   'ongoing-info': '',
   'already-happened-info': '',
   'report-person': 'yes',
-  persons: { aggregatedValues: [ [Object], [Object], [Object] ] },
+  persons: { anotherPerson, aggregatedValues: [ [Object], [Object], [Object] ] },
   'additional-people-table': [
     'Person Added IS =personAddFirstName:testb, personAddFamilyName:test',
     'Person Added IS =personAddFirstName:testc',

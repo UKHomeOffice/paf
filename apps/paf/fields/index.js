@@ -1,5 +1,6 @@
 
 'use strict';
+
 const nationalities = require('../data/nationalities');
 const _ = require('lodash');
 const countriesList = require('../data/countriesList');
@@ -8,6 +9,7 @@ const airlineCompanies = require('../data/airlineCompanies');
 const occupation = require('../data/occupation');
 const companyTypes = require('../data/companyTypes');
 const dateComponent = require('hof').components.date;
+
 function notBothOptions(vals) {
   const values = _.castArray(vals);
   return !(values.length > 1 && values.indexOf('crime-transport-unknown') > -1);
@@ -18,7 +20,8 @@ function lettersAndSpacesOnly(value) {
 const moment = require('moment');
 const after1900Validator = { type: 'after', arguments: ['1900'] };
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
-
+const todayDate = new Date().toString();
+const afterCurrentYearValidator = { type: 'after', arguments: [todayDate] };
 module.exports = {
   'crime-type': {
     mixin: 'radio-group',
@@ -130,7 +133,8 @@ module.exports = {
     ]
   },
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: [afterCurrentYearValidator]
   }),
   'time-crime-will-happen-hour': {
     mixin: 'input-text',
@@ -795,6 +799,12 @@ module.exports = {
         label: 'fields.report-person-location-travel-to-uk-country.options.null'
       }].concat(countriesList)
   },
+  'report-person-location-travel-to-uk-how': {
+    mixin: 'input-text'
+  },
+  'report-person-location-travel-to-uk-where': {
+    mixin: 'input-text'
+  },
   'report-person-location-type': {
     isPageHeading: true,
     mixin: 'radio-group',
@@ -813,6 +823,26 @@ module.exports = {
     validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-email': {
+    validate: ['email', { type: 'maxlength', arguments: 100 }]
+  },
+  'report-person-location-outside-uk-type': {
+    isPageHeading: true,
+    mixin: 'radio-group',
+    options: [
+      'home',
+      'relative',
+      'work'
+    ]
+  },
+  'report-person-location-outside-uk-mobile': {
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
+  },
+  'report-person-location-outside-uk-phone': {
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: ['required', { type: 'maxlength', arguments: 20 }]
+  },
+  'report-person-location-outside-uk-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
   },
   'report-person-occupation': {
@@ -856,7 +886,8 @@ module.exports = {
     }
   },
   'report-person-occupation-other': {
-    labelClassName: 'visuallyhidden'
+    labelClassName: 'visuallyhidden',
+    validate: [{ type: 'maxlength', arguments: 50 }]
   },
   'report-person-occupation-hours': {
     mixin: 'input-text',
