@@ -168,7 +168,7 @@ module.exports = {
       child: 'checkbox-group'
     },
     'no',
-    'unknown']
+    'transport-unknown']
   },
   'transport-group': {
     mixin: 'checkbox-group',
@@ -501,7 +501,7 @@ module.exports = {
         child: 'textarea'
       },
       'none',
-      'unknown'
+      'delivery-unknown'
     ]
   },
   'freight-more-info': {
@@ -856,7 +856,7 @@ module.exports = {
   'report-person-occupation': {
     mixin: 'radio-group',
     isPageHeading: true,
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'occupation-unknown']
   },
   'report-person-occupation-type': {
     mixin: 'select',
@@ -870,7 +870,7 @@ module.exports = {
   'report-person-occupation-government-employee': {
     mixin: 'radio-group',
     isPageHeading: true,
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'govt-employ-unknown']
   },
   'report-person-occupation-government-dept': {
     mixin: 'radio-group',
@@ -908,7 +908,7 @@ module.exports = {
   'report-person-occupation-where': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'occupation-where-unknown']
   },
   'report-person-occupation-company-name': {
     mixin: 'input-text',
@@ -941,12 +941,12 @@ module.exports = {
   },
   'report-person-occupation-company-manager-know': {
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'occ-manager-know-unknown']
   },
   'report-person-study': {
     mixin: 'radio-group',
     isPageHeading: true,
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'study-unknown']
   },
   'report-person-study-subject': {
     mixin: 'input-text',
@@ -955,12 +955,12 @@ module.exports = {
   'report-person-study-location': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'study-location-unknown']
   },
   'report-person-study-where': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'study-where-unknown']
   },
   'report-person-study-hours': {
     mixin: 'input-text',
@@ -1009,12 +1009,12 @@ module.exports = {
   },
   'report-person-study-manager-know': {
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'study-manager-know-unknown']
   },
   'report-person-transport': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'transport-unknown']
   },
   'report-transport-group': {
     legend: {
@@ -1208,7 +1208,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'gender-unknown'
+      'add-gender-unknown'
     ]
   },
   personAddPassport: {
@@ -1225,7 +1225,7 @@ module.exports = {
   },
   'report-organisation': {
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'report-org-unknown']
   },
   'organisation-company-name': {
     isPageHeading: true,
@@ -1279,7 +1279,7 @@ module.exports = {
     options: [
       'yes',
       'no',
-      'unknown'
+      'org-owner-know-unknown'
     ]
   },
   'company-other-info': {
