@@ -3,7 +3,7 @@
         { "IMS": "txpermorefnameholder", "HOF": "personAddFirstName" },
         { "IMS": "txpermorefamnameholder", "HOF": "personAddFamilyName" },
         { "IMS": "txpermoreothernameholder", "HOF": "personAddNickname" },
-        { "IMS": "dtpermoredobholder", "HOF": "personAddDob" },
+        { "IMS": "dtpermoredob", "HOF": "personAddDob" },
         { "IMS": "txpermoreapproxageholder", "HOF": "personAddAgeRange" },
         { "IMS": "cbpermorenationalityholder", "HOF": "personAddNationality" },
         { "IMS": "rdpermoregenderholder", "HOF": "personAddGender" },
