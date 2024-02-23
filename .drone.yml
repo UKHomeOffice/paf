@@ -5,11 +5,11 @@ type: kubernetes
 
 environment:
   APP_NAME: paf
-  PROD_ENV: paf
+  PROD_ENV: sas-paf-prod
   STG_ENV: paf-stg
   UAT_ENV: sas-paf-uat
   BRANCH_ENV: sas-paf-branch
-  PRODUCTION_URL: www.public-allegion-form.homeoffice.gov.uk
+  PRODUCTION_URL: www.publicallegation.homeoffice.gov.uk
   IMAGE_URL: quay.io/ukhomeofficedigital
   IMAGE_REPO: paf
   GIT_REPO: UKHomeOffice/paf
