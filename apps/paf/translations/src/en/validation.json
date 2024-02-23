@@ -1,12 +1,12 @@
 {
   "crime-type": {
-    "required": "You must tell us what the criminals are planning or doing. This will help us to send the information to the right team immediately."
+    "": "You must tell us what the criminals are planning or doing. This will help us to send the information to the right team immediately."
   },
   "immigration-crime-group": {
-    "required": "You must check at least one of the options related to Immigration Crime"
+    "": "You must check at least one of the options related to Immigration Crime"
   },
   "smuggling-crime-group": {
-    "required": "You must check at least one of the options related to Smuggling"
+    "": "You must check at least one of the options related to Smuggling"
   },
   "crime-children": {
     "required": "We need to know if any children are involved in the crime. They may be committing the crime or victims of it. With this information, we can make sure that we handle the case in the right way."
@@ -119,11 +119,10 @@
     "notUrl": "Enter a valid answer"
   },
   "crime-location-phone": {
-    "required": "Enter a phone number",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "notUrl": "Enter a valid phone number"
+    "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Please enter a valid phone number",
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
-
   "report-person-study-phone": {
     "required": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
@@ -133,9 +132,9 @@
     "notUrl": "Enter a valid phone"
   },
   "crime-another-location-phone": {
-    "required": "Enter a phone number",
-    "maxlength": "You can't use more than {{maxlength}} numbers for your answer",
-    "notUrl": "Enter a valid phone number"
+    "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Please enter a valid phone number",
+    "maxlength": "You can't use more than {{maxlength}} numbers for your answer"
   },
   "report-person-first-name": {
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
@@ -180,8 +179,8 @@
   },
   "report-person-location-phone": {
     "required": "Enter a valid phone number",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "notUrl": "Enter a valid answer"
+    "internationalPhoneNumber": "Please enter a valid phone number",
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-location-email": {
     "email": "There is a problem with the email you have entered. Please ensure it is not longer than 100 characters, it does not include invalid characters and it is in the format of <name>@<domain name> e.g. name@email.co.uk. If you do not know this information, please leave this field blank",
@@ -214,8 +213,8 @@
   },
   "report-person-occupation-company-phone": {
     "required": "Enter a valid phone number",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "notUrl": "Enter a valid answer"
+    "internationalPhoneNumber": "Please enter a valid phone number",
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "company-phone": {
     "required": "Enter a valid phone number",
@@ -393,7 +392,8 @@
   },
   "contact-number": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "notUrl": "Enter a valid answer"
+    "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Please enter a valid phone number"
   },
   "when-to-contact": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
@@ -444,15 +444,15 @@
     "notUrl": "Enter a valid country on the list"
   },
   "train-country-departure": {
-    "required": "Enter a valid country",
+    "": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
   "report-person-location-outside-uk-address-country": {
-    "required": "Enter a valid country",
+    "": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
   "report-person-location-travel-to-uk-country": {
-    "required": "Enter a valid country",
+    "": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
   "other-info-file-upload": {
