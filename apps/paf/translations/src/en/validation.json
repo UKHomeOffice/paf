@@ -12,90 +12,116 @@
     "required": "We need to know if any children are involved in the crime. They may be committing the crime or victims of it. With this information, we can make sure that we handle the case in the right way."
   },
   "happening-now-info": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "ongoing-info": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "already-happened-info": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "date-crime-will-happen": {
     "date": "Please enter a valid date",
     "after": "You must give a date in the future"
   },
   "when-crime-will-happen-more-info": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
   "transport-group": {
     "notBothOptions": "You can't choose both a vehicle type and 'I don't know'. You must deselect the 'I don't know'  option, or the selected vehicle type to continue"
   },
   "vehicle-make": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "vehicle-model": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "vehicle-colour": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "vehicle-registration": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "boat-name": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "port-departure": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "port-arrival": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "port-departure-time": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "port-arrival-time": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "station-departure": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "station-arrival": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "station-departure-time": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "station-arrival-time": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "airport-departure": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "airport-arrival": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "airport-departure-time": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "airport-arrival-time": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "freight-more-info": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
   "express-more-info": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
   "post-more-info": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
   "crime-location-address-postcode": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "crime-location-phone": {
-    "required": "Enter a valid phone number",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "required": "Enter a phone number",
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid phone number"
   },
 
   "report-person-study-phone": {
@@ -103,23 +129,28 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-another-location-address-postcode": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid phone"
   },
   "crime-another-location-phone": {
-    "required": "Enter a valid phone number",
-    "maxlength": "You can't use more than {{maxlength}} numbers for your answer"
+    "required": "Enter a phone number",
+    "maxlength": "You can't use more than {{maxlength}} numbers for your answer",
+    "notUrl": "Enter a valid phone number"
   },
   "report-person-first-name": {
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-family-name": {
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-nickname": {
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-dob": {
     "date": "Please enter a valid date",
@@ -128,23 +159,29 @@
   },
   "report-person-place-of-birth": {
     "maxlength": "You can't use more than {{maxlength}} letters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-passport": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-id": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-ni": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-location-mobile": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-location-phone": {
     "required": "Enter a valid phone number",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-location-email": {
     "email": "There is a problem with the email you have entered. Please ensure it is not longer than 100 characters, it does not include invalid characters and it is in the format of <name>@<domain name> e.g. name@email.co.uk. If you do not know this information, please leave this field blank",
@@ -152,53 +189,68 @@
   },
   "report-person-location-uk-address-postcode": {
     "postcode": "Enter a valid UK postcode",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-location-outside-uk-address-postcode": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-occupation-hours": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-occupation-days": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-occupation-company-name": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-occupation-company-address-postcode": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-occupation-company-phone": {
     "required": "Enter a valid phone number",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "company-phone": {
     "required": "Enter a valid phone number",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-occupation-company-manager": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-study-subject": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-study-hours": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-study-days": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-study-name": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-study-address-postcode": {
     "postcode": "Enter a valid UK postcode",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-study-email": {
     "email": "There is a problem with the email you have entered. Please ensure it is not longer than 100 characters, it does not include invalid characters and it is in the format of <name>@<domain name> e.g. name@email.co.uk. If you do not know this information, please leave this field blank",
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-study-url": {
     "url": "Enter a website address in the correct format, like www.example.com",
@@ -215,10 +267,14 @@
     "max": "Please enter a number from 0 to 59"
   },
   "company-postcode": {
-    "postcode": "Enter a real postcode"
+    "postcode": "Enter a real postcode",
+    "notUrl": "Enter a valid answer"
   },
   "company-email": {
     "email": "There is a problem with the email you have entered. Please ensure it is not longer than 100 characters, it does not include invalid characters and it is in the format of <name>@<domain name> e.g. name@email.co.uk. If you do not know this information, please leave this field blank."
+  },
+  "company-owner": {
+    "notUrl": "Enter a valid answer"
   },
   "company-website": {
     "url": "Enter a website address in the correct format, like www.example.com",
@@ -228,34 +284,43 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-transport-make": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-transport-model": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-transport-colour": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-transport-registration": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-transport-other": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "report-person-description": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
   "personAddFirstName": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer",
+    "notUrl": "Enter a valid answer"
   },
   "personAddFamilyName": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer",
+    "notUrl": "Enter a valid answer"
   },
   "personAddNickname": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer",
+    "notUrl": "Enter a valid answer"
   },
   "personAddDob": {
     "date": "Please enter a valid date",
@@ -263,25 +328,32 @@
     "after": "Enter a date after 01 01 1900"
   },
   "personAddPassport": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "personAddId": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "personAddNi": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "company-other-info": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
   "another-company-yes": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
   "other-info-description": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
   "other-info-another-crime-description": {
-    "maxlength": "You must enter no more than 1200 characters"
+    "maxlength": "You must enter no more than 1200 characters",
+    "notUrl": "Enter a valid answer"
   },
 
   "other-info-file-uploads-add-another": {
@@ -290,23 +362,29 @@
   },
   "about-you-first-name": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank",
+    "notUrl": "Enter a valid answer"
   },
   "about-you-family-name": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank"
+    "lettersAndSpacesOnly": "You can only use letters and spaces in your answer. If you do not know this information, please leave this field blank",
+    "notUrl": "Enter a valid answer"
   },
   "how-did-you-find-out-about-the-crime": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "does-anyone-else-know": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "have-you-reported-before": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "how-do-you-know-the-person": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "about-you-dob": {
     "date": "Please enter a valid date",
@@ -314,10 +392,40 @@
     "after": "Enter a date after 01 01 1900"
   },
   "contact-number": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
   },
   "when-to-contact": {
-    "maxlength": "You can't use more than {{maxlength}} characters for your answer"
+    "maxlength": "You can't use more than {{maxlength}} characters for your answer",
+    "notUrl": "Enter a valid answer"
+  },
+  "boat-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "airline-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "crime-location-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "crime-another-location-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "train-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "report-person-location-outside-uk-address-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "report-person-location-travel-to-uk-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
   },
   "boat-country-departure": {
     "required": "Enter a valid country",
@@ -349,6 +457,118 @@
   },
   "other-info-file-upload": {
     "maxFileSize": "Select a file that is smaller than 100 MB",
-    "fileType": "This file is not a valid file format you can upload to this service."
+    "fileType": "This file is not a valid file format you can upload to this service.",
+    "notUrl": "Enter a valid answer"
+  },
+  "when-will-crime-happen": {
+    "notUrl": "Enter a valid answer"
+  },
+  "time-crime-will-happen": {
+    "notUrl": "Enter a valid answer"
+  },
+  "train-company": {
+    "notUrl": "Enter a valid answer"
+  },
+  "airline-company": {
+    "notUrl": "Enter a valid answer"
+  },
+  "airline-flight-number": {
+    "notUrl": "Enter a valid answer"
+  },
+  "crime-location-address-line1": {
+    "notUrl": "Enter a valid answer"
+  },
+  "crime-location-address-line2": {
+    "notUrl": "Enter a valid answer"
+  },
+  "crime-location-address-town": {
+    "notUrl": "Enter a valid answer"
+  },
+  "crime-location-address-county": {
+    "notUrl": "Enter a valid answer"
+  },
+  "crime-another-location-address-line1": {
+    "notUrl": "Enter a valid answer"
+  },
+  "crime-another-location-address-line2": {
+    "notUrl": "Enter a valid answer"
+  },
+  "crime-another-location-address-town": {
+    "notUrl": "Enter a valid answer"
+  },
+  "crime-another-location-address-county": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-nationality": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-location-uk-address-line1": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-location-uk-address-line2": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-location-uk-address-town": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-location-uk-address-county": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-location-outside-uk-address-line1": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-location-outside-uk-address-line2": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-location-outside-uk-address-town": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-location-outside-uk-address-county": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-occupation-type":  {
+    "notUrl": "Enter a valid answer"
+  },
+  "government-dept-other":  {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-occupation-other":  {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-occupation-company-address-line1": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-occupation-company-address-line2": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-occupation-company-address-town": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-occupation-company-address-county": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-study-address-line1": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-study-address-line2": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-study-address-town": {
+    "notUrl": "Enter a valid answer"
+  },
+  "report-person-study-address-county": {
+    "notUrl": "Enter a valid answer"
+  },
+  "personAddNumber": {
+    "notUrl": "Enter a valid answer"
+  },
+  "other-info-another-crime": {
+    "notUrl": "Enter a valid answer"
+  },
+  "about-you-nationality": {
+    "notUrl": "Enter a valid answer"
+  },
+  "when-will-crime-happen-more-info": {
+    "notUrl": "Enter a valid answer"
   }
 }
