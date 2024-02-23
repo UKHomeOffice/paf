@@ -44,6 +44,9 @@
   "report-person-location-contact": {
     "header": "What is the person's contact details (if known)"
   },
+  "report-person-location-outside-uk-contact": {
+    "header": "What is the person's contact details (if known)"
+  },
   "report-person-occupation-type": {
     "header": "What type of job or occupation does the person have?"
   },

@@ -1,0 +1,14 @@
+{
+    "Fields": [
+        { "IMS": "txpermorefnameholder", "HOF": "personAddFirstName" },
+        { "IMS": "txpermorefamnameholder", "HOF": "personAddFamilyName" },
+        { "IMS": "txpermoreothernameholder", "HOF": "personAddNickname" },
+        { "IMS": "dtpermoredob", "HOF": "personAddDob" },
+        { "IMS": "txpermoreapproxageholder", "HOF": "personAddAgeRange" },
+        { "IMS": "cbpermorenationalityholder", "HOF": "personAddNationality" },
+        { "IMS": "rdpermoregenderholder", "HOF": "personAddGender" },
+        { "IMS": "txpermorepassportholder", "HOF": "personAddPassport" },
+        { "IMS": "txpermoreidcardholder", "HOF": "personAddId" },
+        { "IMS": "txpermoreninumholder", "HOF": "personAddNi" }
+    ]
+}

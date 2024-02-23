@@ -168,7 +168,7 @@ describe('PAF Summary Data Sections', () => {
     });
 
     it('should check expected fields in person-contact section', () => {
-      const sectionFields = mappedSections['person-contact'];
+      const sectionFields = mappedSections['person-contact'].sort();
       const expectedFields = [
         'report-person-location',
         'report-person-location-uk-address-line1',
@@ -183,11 +183,17 @@ describe('PAF Summary Data Sections', () => {
         'report-person-location-outside-uk-address-county',
         'report-person-location-outside-uk-address-postcode',
         'report-person-location-type',
+        'report-person-location-outside-uk-type',
         'report-person-location-mobile',
         'report-person-location-phone',
         'report-person-location-email',
-        'report-person-location-travel-to-uk-country'
-      ];
+        'report-person-location-outside-uk-mobile',
+        'report-person-location-outside-uk-phone',
+        'report-person-location-outside-uk-email',
+        'report-person-location-travel-to-uk-country',
+        'report-person-location-travel-to-uk-how',
+        'report-person-location-travel-to-uk-where'
+      ].sort();
       const result = areOrderedEqual(sectionFields, expectedFields);
       expect(result).to.be.true;
     });

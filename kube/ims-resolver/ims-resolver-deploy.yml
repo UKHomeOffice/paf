@@ -39,16 +39,20 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:cf0d3271dc2e851583f2d2f15f62af334ddbacf8
+          image: quay.io/ukhomeofficedigital/ims-resolver:e904ffbb9525ad98df74add7442dc1ebc9381aec
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
                 name: {{ .APP_NAME }}-configmap-{{ .DRONE_SOURCE_BRANCH }}
                 {{ else }}
-                name: configmap
+                name: {{ .APP_NAME }}-configmap
                 {{ end }}
+            - configMapRef:
+                name: imscertchain-store
           env:
+            - name: NODE_EXTRA_CA_CERTS
+              value: "/etc/ssl/certs/ims-prp1-ca.crt"
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
@@ -61,6 +65,7 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_password
+
             - name: WSDL
               valueFrom:
                 secretKeyRef:
@@ -71,10 +76,30 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_endpoint
-            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
-            - name: NODE_TLS_REJECT_UNAUTHORIZED
-              value: "0"
-            {{ end }}
+            - name: KEYCLOAK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: secret
+            - name: KEYCLOAK_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client
+                  key: id
+            - name: KEYCLOAK_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: username
+            - name: KEYCLOAK_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-user
+                  key: password
+            # {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
+            # - name: NODE_TLS_REJECT_UNAUTHORIZED
+            #   value: "0"
+            # {{ end }}
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL
               valueFrom:
@@ -111,9 +136,19 @@ spec:
           securityContext:
             runAsNonRoot: true
           resources:
-            requests:
-              memory: 10Mi
-              cpu: 10m
             limits:
               memory: 256Mi
               cpu: 300m
+            requests:
+              memory: 10Mi
+              cpu: 10m
+
+          volumeMounts:
+            - name: imscertchain-store
+              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+              subPath: ims-prp1-ca.crt
+              readOnly: false
+      volumes:
+        - name: imscertchain-store
+          configMap:
+            name: imscertchain-store

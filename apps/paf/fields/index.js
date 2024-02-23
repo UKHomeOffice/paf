@@ -1,5 +1,6 @@
 
 'use strict';
+
 const nationalities = require('../data/nationalities');
 const _ = require('lodash');
 const countriesList = require('../data/countriesList');
@@ -8,6 +9,7 @@ const airlineCompanies = require('../data/airlineCompanies');
 const occupation = require('../data/occupation');
 const companyTypes = require('../data/companyTypes');
 const dateComponent = require('hof').components.date;
+
 function notBothOptions(vals) {
   const values = _.castArray(vals);
   return !(values.length > 1 && values.indexOf('crime-transport-unknown') > -1);
@@ -18,7 +20,8 @@ function lettersAndSpacesOnly(value) {
 const moment = require('moment');
 const after1900Validator = { type: 'after', arguments: ['1900'] };
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
-
+const todayDate = new Date().toString();
+const afterCurrentYearValidator = { type: 'after', arguments: [todayDate] };
 module.exports = {
   'crime-type': {
     mixin: 'radio-group',
@@ -131,7 +134,8 @@ module.exports = {
     validate: ['notUrl']
   },
   'date-crime-will-happen': dateComponent('date-crime-will-happen', {
-    mixin: 'input-date'
+    mixin: 'input-date',
+    validate: [afterCurrentYearValidator]
   }),
   'time-crime-will-happen-hour': {
     mixin: 'input-text',
@@ -166,7 +170,7 @@ module.exports = {
       child: 'checkbox-group'
     },
     'no',
-    'unknown']
+    'transport-unknown']
   },
   'transport-group': {
     mixin: 'checkbox-group',
@@ -502,7 +506,7 @@ module.exports = {
         child: 'textarea'
       },
       'none',
-      'unknown'
+      'delivery-unknown'
     ]
   },
   'freight-more-info': {
@@ -827,6 +831,12 @@ module.exports = {
         label: 'fields.report-person-location-travel-to-uk-country.options.null'
       }].concat(countriesList)
   },
+  'report-person-location-travel-to-uk-how': {
+    mixin: 'input-text'
+  },
+  'report-person-location-travel-to-uk-where': {
+    mixin: 'input-text'
+  },
   'report-person-location-type': {
     isPageHeading: true,
     mixin: 'radio-group',
@@ -847,10 +857,30 @@ module.exports = {
   'report-person-location-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
   },
+  'report-person-location-outside-uk-type': {
+    isPageHeading: true,
+    mixin: 'radio-group',
+    options: [
+      'home',
+      'relative',
+      'work'
+    ]
+  },
+  'report-person-location-outside-uk-mobile': {
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: [{ type: 'maxlength', arguments: 20 }]
+  },
+  'report-person-location-outside-uk-phone': {
+    className: ['govuk-input', 'govuk-input--width-20'],
+    validate: ['required', { type: 'maxlength', arguments: 20 }]
+  },
+  'report-person-location-outside-uk-email': {
+    validate: ['email', { type: 'maxlength', arguments: 100 }]
+  },
   'report-person-occupation': {
     mixin: 'radio-group',
     isPageHeading: true,
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'occupation-unknown']
   },
   'report-person-occupation-type': {
     mixin: 'select',
@@ -865,7 +895,7 @@ module.exports = {
   'report-person-occupation-government-employee': {
     mixin: 'radio-group',
     isPageHeading: true,
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'govt-employ-unknown']
   },
   'report-person-occupation-government-dept': {
     mixin: 'radio-group',
@@ -891,7 +921,7 @@ module.exports = {
   },
   'report-person-occupation-other': {
     labelClassName: 'visuallyhidden',
-    validate: ['notUrl']
+    validate: ['notUrl', { type: 'maxlength', arguments: 50 }]
   },
   'report-person-occupation-hours': {
     mixin: 'input-text',
@@ -904,7 +934,7 @@ module.exports = {
   'report-person-occupation-where': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'occupation-where-unknown']
   },
   'report-person-occupation-company-name': {
     mixin: 'input-text',
@@ -941,12 +971,12 @@ module.exports = {
   },
   'report-person-occupation-company-manager-know': {
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'occ-manager-know-unknown']
   },
   'report-person-study': {
     mixin: 'radio-group',
     isPageHeading: true,
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'study-unknown']
   },
   'report-person-study-subject': {
     mixin: 'input-text',
@@ -955,12 +985,12 @@ module.exports = {
   'report-person-study-location': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'study-location-unknown']
   },
   'report-person-study-where': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'study-where-unknown']
   },
   'report-person-study-hours': {
     mixin: 'input-text',
@@ -1013,12 +1043,12 @@ module.exports = {
   },
   'report-person-study-manager-know': {
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'study-manager-know-unknown']
   },
   'report-person-transport': {
     isPageHeading: true,
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'transport-unknown']
   },
   'report-transport-group': {
     legend: {
@@ -1213,7 +1243,7 @@ module.exports = {
       'male',
       'female',
       'other',
-      'gender-unknown'
+      'add-gender-unknown'
     ]
   },
   personAddPassport: {
@@ -1230,7 +1260,7 @@ module.exports = {
   },
   'report-organisation': {
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no', 'report-org-unknown']
   },
   'organisation-company-name': {
     isPageHeading: true,
@@ -1284,7 +1314,7 @@ module.exports = {
     options: [
       'yes',
       'no',
-      'unknown'
+      'org-owner-know-unknown'
     ]
   },
   'company-other-info': {

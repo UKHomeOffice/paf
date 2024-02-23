@@ -1,2817 +1,728 @@
 {
     "Values": [
-        { "HOF": "immigration-crime",
-          "IMS": "Immigration Crime"
-        },
-        {
-            "HOF": "smuggling-crime",
-            "IMS": "Smuggling"
-        },
-        {
-            "HOF": "yes",
-            "IMS": "Yes"
-        },
-        {
-            "HOF": "no",
-            "IMS": "No"
-        },
-
-            {
-             "HOF": "crime-childen-unknown",
-             "IMS": "Idontknow"
-            },
-            {
-             "HOF": "immigration-crime-no-permission",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-illegal-working",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-employing-illegal-workers",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-full-time-student",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-fake-marriage",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-fake-documents",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-enter-stay-illegally",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-lied-on-application",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-enter-human-trafficking-smuggling-slavery",
-             "IMS": 1
-            },
-            {
-             "HOF": "immigration-crime-other",
-             "IMS": 1
-            },
-            {
-             "HOF": "smuggling-crime-drug",
-             "IMS": 1
-            },
-            {
-             "HOF": "smuggling-crime-cash",
-             "IMS": 1
-            },
-            {
-             "HOF": "smuggling-crime-cigarette",
-             "IMS": 1
-            },
-            {
-             "HOF": "smuggling-crime-firearms",
-             "IMS": 1
-            },
-            {
-             "HOF": "smuggling-crime-alcohol",
-             "IMS": 1
-            },
-            {
-             "HOF": "smuggling-crime-other",
-             "IMS": 1
-            },
-            {
-             "HOF": "crime-transport-vehicle",
-             "IMS": 1
-            },
-            {
-             "HOF": "crime-transport-boat",
-             "IMS": 1
-            },
-            {
-             "HOF": "crime-transport-train",
-             "IMS": 1
-            },
-            {
-             "HOF": "crime-transport-aeroplane",
-             "IMS": 1
-            },
-            {
-             "HOF": "crime-transport-unknown",
-             "IMS": 1
-            },
-            {
-             "HOF": "vehicle-bulk-carrier",
-             "IMS": "vehicle_type.BulkCarrier"
-            },
-            {
-             "HOF": "caravan",
-             "IMS": "vehicle_type.Caravan"
-            },
-            {
-             "HOF": "coach",
-             "IMS": "vehicle_type.Coach"
-            },
-            {
-             "HOF": "container",
-             "IMS": "vehicle_type.Container"
-            },
-            {
-             "HOF": "glass-carrier",
-             "IMS": "vehicle_type.GlassCarrier"
-            },
-            {
-             "HOF": "minibus",
-             "IMS": "vehicle_type.Minibus"
-            },
-            {
-             "HOF": "motorbike",
-             "IMS": "vehicle_type.MotorBike"
-            },
-            {
-             "HOF": "motorhome",
-             "IMS": "vehicle_type.Motorhome"
-            },
-            {
-             "HOF": "unaccompanied-trailer",
-             "IMS": "vehicle_type.UnaccTrailsoft"
-            },
-            {
-             "HOF": "car",
-             "IMS": "vehicle_type.Car"
-            },
-            {
-             "HOF": "car-transporter",
-             "IMS": "vehicle_type.CarTransporter"
-            },
-            {
-             "HOF": "hgv-canvas-sided",
-             "IMS": "vehicle_type.HGVCanvas"
-            },
-            {
-             "HOF": "hgv-flatbed",
-             "IMS": "vehicle_type.HGVFlat"
-            },
-            {
-             "HOF": "hgv-hard-sided",
-             "IMS": "vehicle_type.HGVHardsided"
-            },
-            {
-             "HOF": "hgv-refrigerated",
-             "IMS": "vehicle_type.HGVRef"
-            },
-            {
-             "HOF": "hgv-tanker",
-             "IMS": "vehicle_type.HGVTank"
-            },
-            {
-             "HOF": "lorry",
-             "IMS": "vehicle_type.Lorry"
-            },
-            {
-             "HOF": "lorry-and-drag",
-             "IMS": "vehicle_type.LorryDrag"
-            },
-            {
-             "HOF": "van",
-             "IMS": "vehicle_type.Van"
-            },
-            {
-             "HOF": "van-and-trailer",
-             "IMS": "vehicle_type.VanTrail"
-            },
-            {
-             "HOF": "van-other",
-             "IMS": "vehicle_type.VanOther"
-            },
-            {
-             "HOF": "seven-point-five-tonne-van",
-             "IMS": "vehicle_type.75Tvan"
-            },
-            {
-             "HOF": "barge",
-             "IMS": "BoatType.Barge"
-            },
-            {
-             "HOF": "bulk-carrier",
-             "IMS": "BoatType.Bulk_Carrier"
-            },
-            {
-             "HOF": "vehicle-carrier",
-             "IMS": "BoatType.VehicleCarrier"
-            },
-            {
-             "HOF": "vessel-carrier",
-             "IMS": "BoatType.VesselCarrier"
-            },
-            {
-             "HOF": "cabin-cruiser",
-             "IMS": "BoatType.Cabin_Cruiser"
-            },
-            {
-             "HOF": "cable-pipe-layer",
-             "IMS": "BoatType.CablePipelayer"
-            },
-            {
-             "HOF": "catamaran-multihulled",
-             "IMS": "BoatType.Catamaran_multi"
-            },
-            {
-             "HOF": "containership",
-             "IMS": "BoatType.Containership"
-            },
-            {
-             "HOF": "cruise-ship",
-             "IMS": "BoatType.Cruise_ship"
-            },
-            {
-             "HOF": "dayboat",
-             "IMS": "BoatType.Dayboat"
-            },
-            {
-             "HOF": "dinghy",
-             "IMS": "BoatType.Dinghy"
-            },
-            {
-             "HOF": "ferry",
-             "IMS": "BoatType.Ferry"
-            },
-            {
-             "HOF": "fishing-boat",
-             "IMS": "BoatType.Fishing_boat"
-            },
-            {
-             "HOF": "ketch",
-             "IMS": "BoatType.Ketch"
-            },
-            {
-             "HOF": "reefer",
-             "IMS": "BoatType.Reefer"
-            },
-            {
-             "HOF": "rhib",
-             "IMS": "BoatType.Rhib"
-            },
-            {
-             "HOF": "tanker",
-             "IMS": "BoatType.Tanker"
-            },
-            {
-             "HOF": "tug",
-             "IMS": "BoatType.Tug"
-            },
-            {
-             "HOF": "yacht",
-             "IMS": "BoatType.Yacht"
-            },
-            {
-             "HOF": "general-cargo",
-             "IMS": "BoatType.General_Cargo"
-            },
-            {
-             "HOF": "general-cargo-with-container-capacity",
-             "IMS": "BoatType.GeneralCargoCon"
-            },
-            {
-             "HOF": "research-vessel",
-             "IMS": "BoatType.ResearchVessel"
-            },
-            {
-             "HOF": "supply-vessel",
-             "IMS": "BoatType.Supplyvessel"
-            },
-            {
-             "HOF": "support-vessel",
-             "IMS": "BoatType.Support vessel"
-            },
-            {
-             "HOF": "male",
-             "IMS": "Male"
-            },
-            {
-             "HOF": "female",
-             "IMS": "Female"
-            },
-            {
-             "HOF": "other",
-             "IMS": "Other"
-            },
-            {
-             "HOF": "gender-unknown",
-             "IMS": "DontKnow"
-            },
-            {
-            "HOF": "prefer-not-to-say",
-            "IMS": "DontKnow"
-            },
-            {
-             "HOF": "uk",
-             "IMS": "IntheUK"
-            },
-            {
-             "HOF": "outside-uk",
-             "IMS": "OutsidetheUK"
-            },
-            {
-             "HOF": "travel-to-uk",
-             "IMS": "TravellingtotheUK"
-            },
-            {
-             "HOF": "location-unknown",
-             "IMS": "DontKnow"
-            },
-            {
-             "HOF": "home",
-             "IMS": "HomeAddress"
-            },
-            {
-             "HOF": "relative",
-             "IMS": "RelativesAddress"
-            },
-            {
-             "HOF": "work",
-             "IMS": "WorkAddress"
-            },
-            {
-             "HOF": "uk-border-agency",
-             "IMS": "GovtDept.HOMEOFFICE"
-            },
-            {
-             "HOF": "border-force",
-             "IMS": "GovtDept.BorderForce"
-            },
-            {
-             "HOF": "hmrc",
-             "IMS": "GovtDept.HMRC"
-            },
-            {
-             "HOF": "dwp",
-             "IMS": "GovtDept.DWP"
-            },
-            {
-             "HOF": "other",
-             "IMS": "Other"
-            },
-            {
-             "HOF": "74+",
-             "IMS": "75+"
-            },
-            {
-             "HOF": "happening-now",
-             "IMS": "Happening Now"
-            },
-            {
-             "HOF": "ongoing",
-             "IMS": "Ongoing"
-            },
-            {
-             "HOF": "already-happened",
-             "IMS": "Already Happened"
-            },
-            {
-             "HOF": "not-yet-happened",
-             "IMS": "Not yet happened"
-            },
-            {
-             "HOF": "dont-know-when-it-happend",
-             "IMS": "DontKnow"
-            },
-            {
-             "HOF": "next-twenty-four-hours",
-             "IMS": "Inthenext24hours"
-            },
-            {
-             "HOF": "more-than-twenty-four-hours",
-             "IMS": "Datemorethan24hoursinthefuture"
-            },
-            {
-             "HOF": "when-will-crime-happen-unknown",
-             "IMS": "Idontknow"
-            },
-            {
-             "HOF": "freight-cargo",
-             "IMS": "Freight or cargo"
-            },
-            {
-             "HOF": "express-mail-courier",
-             "IMS": "Express mail or courier"
-            },
-            {
-             "HOF": "post",
-             "IMS": "Post"
-            },
-            {
-             "HOF": "company-building-construction",
-             "IMS": "CompanyType.BuildingConstru"
-            },
-            {
-             "HOF": "company-care-home",
-             "IMS": "CompanyType.CareAssistant"
-            },
-            {
-             "HOF": "company-catering-and-hospitality",
-             "IMS": "CompanyType.CateringandHospita"
-            },
-            {
-             "HOF": "company-child-care-nursery",
-             "IMS": "CompanyType.ChildcareNurser"
-            },
-            {
-             "HOF": "company-cleaning",
-             "IMS": "CompanyType.Cleaning"
-            },
-            {
-             "HOF": "company-engineering",
-             "IMS": "CompanyType.Engineering"
-            },
-            {
-             "HOF": "company-english-language-college",
-             "IMS": "CompanyType.EnglishLanguageCollege"
-            },
-            {
-             "HOF": "company-factory",
-             "IMS": "CompanyType.Factory"
-            },
-            {
-             "HOF": "company-farming-forestry-and-fishing",
-             "IMS": "CompanyType.FarmingForestry"
-            },
-            {
-             "HOF": "company-freight-agent",
-             "IMS": "CompanyType.FreightAgent"
-            },
-            {
-             "HOF": "company-government",
-             "IMS": "CompanyType.Governmen"
-            },
-            {
-             "HOF": "company-hairdressing-beauty-therapy",
-             "IMS": "CompanyType.HairdressingBea"
-            },
-            {
-             "HOF": "company-haulage",
-             "IMS": "CompanyType.Haulage"
-            },
-            {
-             "HOF": "company-information-technology",
-             "IMS": "CompanyType.InformationTech"
-            },
-            {
-             "HOF": "company-sales-retail",
-             "IMS": "CompanyType.Salesandretail"
-            },
-            {
-             "HOF": "company-school-college-university",
-             "IMS": "CompanyType.SchoolCollegeUn"
-            },
-            {
-             "HOF": "company-security",
-             "IMS": "CompanyType.Security"
-            },
-            {
-             "HOF": "company-self-store",
-             "IMS": "CompanyType.SelfStore"
-            },
-            {
-             "HOF": "company-taxi-minicab-chauffeur",
-             "IMS": "CompanyType.TaxiMinicabChau"
-            },
-            {
-             "HOF": "company-travel-operator-agent",
-             "IMS": "CompanyType.TravelOperatorAgent"
-            },
-            {
-             "HOF": "company-vehicle-rental",
-             "IMS": "CompanyType.VehicleRental"
-            },
-            {
-             "HOF": "company-warehouse",
-             "IMS": "CompanyType.Warehouse"
-            },
-            {
-             "HOF": "company-other",
-             "IMS": "CompanyType.Other"
-            },
-            {
-             "HOF": "company-unknown",
-             "IMS": "CompanyType.dontknow"
-            },
-            {
-             "HOF": "Arriva Trains Wales",
-             "IMS": "TrainCompany.Arriva"
-            },
-            {
-             "HOF": "c2c",
-             "IMS": "Traincompany.c2c"
-            },
-            {
-             "HOF": "Chiltern Railways",
-             "IMS": "Traincompany.ChilternRailways"
-            },
-            {
-             "HOF": "CrossCountry",
-             "IMS": "Traincompany.CrossCountry"
-            },
-            {
-             "HOF": "East Coast",
-             "IMS": "Traincompany.EastCoast"
-            },
-            {
-             "HOF": "East Midlands Trains",
-             "IMS": "Traincompany.EastMidlands"
-            },
-            {
-             "HOF": "Eurostar",
-             "IMS": "Traincompany.Eurostar"
-            },
-            {
-             "HOF": "First Capital Connect",
-             "IMS": "Traincompany.FirstCapital"
-            },
-            {
-             "HOF": "First Great Western",
-             "IMS": "Traincompany.FirstGreat"
-            },
-            {
-             "HOF": "First Hull Trains",
-             "IMS": "Traincompany.FirstHull"
-            },
-            {
-             "HOF": "First TransPennine Express",
-             "IMS": "Traincompany.FirstTransPenni"
-            },
-            {
-             "HOF": "Gatwick Express",
-             "IMS": "Traincompany.GatwickExpress"
-            },
-            {
-             "HOF": "Grand Central",
-             "IMS": "Traincompany.GrandCentral"
-            },
-            {
-             "HOF": "Greater Anglia",
-             "IMS": "Traincompany.GreaterAnglia"
-            },
-            {
-             "HOF": "Heathrow Connect",
-             "IMS": "Traincompany.HeathrowConnect"
-            },
-            {
-             "HOF": "Heathrow Express",
-             "IMS": "Traincompany.HeathrowExpress"
-            },
-            {
-             "HOF": "Island Line",
-             "IMS": "Traincompany.IslandLine"
-            },
-            {
-             "HOF": "London Midland",
-             "IMS": "Traincompany.LondonMidland"
-            },
-            {
-             "HOF": "London Overground",
-             "IMS": "Traincompany.LondonOverground"
-            },
-            {
-             "HOF": "London Underground",
-             "IMS": "Traincompany.LondonUnderground"
-            },
-            {
-             "HOF": "Merseyrail",
-             "IMS": "Traincompany.Merseyrail"
-            },
-            {
-             "HOF": "Northern Rail",
-             "IMS": "Traincompany.NorthernRail"
-            },
-            {
-             "HOF": "ScotRail",
-             "IMS": "Traincompany.ScotRail"
-            },
-            {
-             "HOF": "South West Trains",
-             "IMS": "Traincompany.SouthWestTrains"
-            },
-            {
-             "HOF": "Southeastern",
-             "IMS": "Traincompany.SouthEastern"
-            },
-            {
-             "HOF": "Southern",
-             "IMS": "Traincompany.Southern"
-            },
-            {
-             "HOF": "Stansted Express",
-             "IMS": "Traincompany.StanstedExpress"
-            },
-            {
-             "HOF": "Virgin Trains",
-             "IMS": "Traincompany.VirginTrains"
-            },
-            {
-             "HOF": "job-building-construction",
-             "IMS": "JobType.Building"
-            },
-            {
-             "HOF": "job-care-home",
-             "IMS": "JobType.Care"
-            },
-            {
-             "HOF": "job-catering-and-hospitality",
-             "IMS": "JobType.Catering"
-            },
-            {
-             "HOF": "job-child-care-nursery",
-             "IMS": "JobType.Childcare"
-            },
-            {
-             "HOF": "job-cleaning",
-             "IMS": "JobType.Cleaner"
-            },
-            {
-             "HOF": "job-engineering",
-             "IMS": "JobType.Engineering"
-            },
-            {
-             "HOF": "job-english-language-college",
-             "IMS": "JobType.EnglishLanguageCollege"
-            },
-            {
-             "HOF": "job-factory",
-             "IMS": "JobType.Factoryworker"
-            },
-            {
-             "HOF": "job-farming-forestry-and-fishing",
-             "IMS": "JobType.Farming,Forestry&Fishing"
-            },
-            {
-             "HOF": "job-freight-agent",
-             "IMS": "JobType.FreightAgent"
-            },
-            {
-             "HOF": "job-government",
-             "IMS": "JobType.Governmentemployee"
-            },
-            {
-             "HOF": "job-hairdressing-beauty-therapy",
-             "IMS": "JobType.HairdressingBeau"
-            },
-            {
-             "HOF": "job-haulage",
-             "IMS": "JobType.Haulage"
-            },
-            {
-             "HOF": "job-information-technology",
-             "IMS": "JobType.InformationTechnology(IT)"
-            },
-            {
-             "HOF": "job-sales-retail",
-             "IMS": "JobType.Salesandretail"
-            },
-            {
-             "HOF": "job-school-college-university",
-             "IMS": "JobType.SchoolCollegeUniversity"
-            },
-            {
-             "HOF": "job-security",
-             "IMS": "JobType.Security"
-            },
-            {
-             "HOF": "job-self-store",
-             "IMS": "JobType.SelfStore"
-            },
-            {
-             "HOF": "job-taxi-minicab-chauffeur",
-             "IMS": "JobType.TaxiMinicabChauffeur"
-            },
-            {
-             "HOF": "job-travel-operator-agent",
-             "IMS": "JobType.TravelOperatorAgent"
-            },
-            {
-             "HOF": "job-vehicle-rental",
-             "IMS": "JobType.VehicleRental"
-            },
-            {
-             "HOF": "job-warehouse",
-             "IMS": "JobType.Warehouse"
-            },
-            {
-             "HOF": "job-other",
-             "IMS": "JobType.Other"
-            },
-            {
-             "HOF": "job-unknown",
-             "IMS": "JobType.DontKnow"
-            },
-            {
-             "HOF": "Nationality-United Kingdom",
-             "IMS": "NatList.GBR"
-            },
-            {
-             "HOF": "Nationality-Afghanistan",
-             "IMS": "NatList.AFG"
-            },
-            {
-             "HOF": "Nationality-Albania",
-             "IMS": "NatList.ALB"
-            },
-            {
-             "HOF": "Nationality-Algeria",
-             "IMS": "NatList.DZA"
-            },
-            {
-             "HOF": "Nationality-Andorra",
-             "IMS": "NatList.AND"
-            },
-            {
-             "HOF": "Nationality-Angola",
-             "IMS": "NatList.AGO"
-            },
-            {
-             "HOF": "Nationality-Anguilla",
-             "IMS": "NatList.AIA"
-            },
-            {
-             "HOF": "Nationality-Antigua and Barbuda",
-             "IMS": "NatList.ATG"
-            },
-            {
-             "HOF": "Nationality-Argentina",
-             "IMS": "NatList.ARG"
-            },
-            {
-             "HOF": "Nationality-Armenia",
-             "IMS": "NatList.ARM"
-            },
-            {
-             "HOF": "Nationality-Australia",
-             "IMS": "NatList.AUS"
-            },
-            {
-             "HOF": "Nationality-Austria",
-             "IMS": "NatList.AUT"
-            },
-            {
-             "HOF": "Nationality-Azerbaijan",
-             "IMS": "NatList.AZE"
-            },
-            {
-             "HOF": "Nationality-Bahamas",
-             "IMS": "NatList.BHS"
-            },
-            {
-             "HOF": "Nationality-Bahrain",
-             "IMS": "NatList.BHR"
-            },
-            {
-             "HOF": "Nationality-Bangladesh",
-             "IMS": "NatList.BGD"
-            },
-            {
-             "HOF": "Nationality-Barbados",
-             "IMS": "NatList.BRB"
-            },
-            {
-             "HOF": "Nationality-Belarus",
-             "IMS": "NatList.BRB"
-            },
-            {
-             "HOF": "Nationality-Belguim",
-             "IMS": "NatList.BLR"
-            },
-            {
-             "HOF": "Nationality-Belize",
-             "IMS": "NatList.BEL"
-            },
-            {
-             "HOF": "Nationality-Benin",
-             "IMS": "NatList.BEN"
-            },
-            {
-             "HOF": "Nationality-Bermuda",
-             "IMS": "NatList.BMU"
-            },
-            {
-             "HOF": "Nationality-Bhutan",
-             "IMS": "NatList.BTN"
-            },
-            {
-             "HOF": "Nationality-Bolivia",
-             "IMS": "NatList.BOL"
-            },
-            {
-             "HOF": "Nationality-Bosnia and Herzegovina",
-             "IMS": "NatList.BIH"
-            },
-            {
-             "HOF": "Nationality-Botswana",
-             "IMS": "NatList.BWA"
-            },
-            {
-             "HOF": "Nationality-Brazil",
-             "IMS": "NatList.BRA"
-            },
-            {
-             "HOF": "Nationality-British Indian Ocean Territory",
-             "IMS": "NatList.IOT"
-            },
-            {
-             "HOF": "Nationality-British National (Overseas)",
-             "IMS": "NatList.GBN"
-            },
-            {
-             "HOF": "Nationality-British Overseas Citizen",
-             "IMS": "NatList.GBO"
-            },
-            {
-             "HOF": "Nationality-British Overseas Territories Citizenship (BOTC)",
-             "IMS": "NatList.GBD"
-            },
-            {
-             "HOF": "Nationality-British Protected Person",
-             "IMS": "NatList.GBP"
-            },
-            {
-             "HOF": "Nationality-British Subject",
-             "IMS": "NatList.GBS"
-            },
-            {
-             "HOF": "Nationality-Brunei Darussalam",
-             "IMS": "NatList.BRN"
-            },
-            {
-             "HOF": "Nationality-Bulgaria",
-             "IMS": "NatList.BGR"
-            },
-            {
-             "HOF": "Nationality-Burkina Faso",
-             "IMS": "NatList.BFA"
-            },
-            {
-             "HOF": "Nationality-Burma",
-             "IMS": "NatList.BUR"
-            },
-            {
-             "HOF": "Nationality-Burundi",
-             "IMS": "NatList.BDI"
-            },
-            {
-             "HOF": "Nationality-Byelorussian SSR",
-             "IMS": "NatList.BYS"
-            },
-            {
-             "HOF": "Nationality-Cambodia",
-             "IMS": "NatList.KHM"
-            },
-            {
-             "HOF": "Nationality-Cameroon",
-             "IMS": "NatList.CMR"
-            },
-            {
-             "HOF": "Nationality-Canada",
-             "IMS": "NatList.CAN"
-            },
-            {
-             "HOF": "Nationality-Cape Verde",
-             "IMS": "NatList.CPV"
-            },
-            {
-             "HOF": "Nationality-Cayman Islands",
-             "IMS": "NatList.CYM"
-            },
-            {
-             "HOF": "Nationality-Central African Republic",
-             "IMS": "NatList.CAF"
-            },
-            {
-             "HOF": "Nationality-Chad",
-             "IMS": "NatList.TCD"
-            },
-            {
-             "HOF": "Nationality-Chile",
-             "IMS": "NatList.CHL"
-            },
-            {
-             "HOF": "Nationality-China",
-             "IMS": "NatList.CHN"
-            },
-            {
-             "HOF": "Nationality-Colombia",
-             "IMS": "NatList.COL"
-            },
-            {
-             "HOF": "Nationality-Comoros",
-             "IMS": "NatList.COM"
-            },
-            {
-             "HOF": "Nationality-Congo",
-             "IMS": "NatList.CON"
-            },
-            {
-             "HOF": "Nationality-Costa Rica",
-             "IMS": "NatList.CRI"
-            },
-            {
-             "HOF": "Nationality-Cote D'Ivoire (Ivory Coast)",
-             "IMS": "NatList.CIV"
-            },
-            {
-             "HOF": "Nationality-Croatia",
-             "IMS": "NatList.HRV"
-            },
-            {
-             "HOF": "Nationality-Cuba",
-             "IMS": "NatList.CUB"
-            },
-            {
-             "HOF": "Nationality-Curacao",
-             "IMS": "NatList.CUW"
-            },
-            {
-             "HOF": "Nationality-Cyprus",
-             "IMS": "NatList.CYP"
-            },
-            {
-             "HOF": "Nationality-Czech Republic",
-             "IMS": "NatList.CZE"
-            },
-            {
-             "HOF": "Nationality-Czechoslavakia",
-             "IMS": "NatList.CSK"
-            },
-            {
-             "HOF": "Nationality-Democratic People's Republic of Korea",
-             "IMS": "NatList.PRK"
-            },
-            {
-             "HOF": "Nationality-Democratic Republic of the Congo",
-             "IMS": "NatList.COD"
-            },
-            {
-             "HOF": "Nationality-Denmark",
-             "IMS": "NatList.DNK"
-            },
-            {
-             "HOF": "Nationality-Djibouti",
-             "IMS": "NatList.DJI"
-            },
-            {
-             "HOF": "Nationality-Dominica",
-             "IMS": "NatList.DMA"
-            },
-            {
-             "HOF": "Nationality-Dominican Republic",
-             "IMS": "NatList.DOM"
-            },
-            {
-             "HOF": "Nationality-East Timor",
-             "IMS": "NatList.TMP"
-            },
-            {
-             "HOF": "Nationality-Ecuador",
-             "IMS": "NatList.ECU"
-            },
-            {
-             "HOF": "Nationality-Egypt",
-             "IMS": "NatList.EGY"
-            },
-            {
-             "HOF": "Nationality-El Salvador",
-             "IMS": "NatList.SLV"
-            },
-            {
-             "HOF": "Nationality-Equatorial Guinea",
-             "IMS": "NatList.GNQ"
-            },
-            {
-             "HOF": "Nationality-Eritrea",
-             "IMS": "NatList.ERI"
-            },
-            {
-             "HOF": "Nationality-Estonia",
-             "IMS": "NatList.EST"
-            },
-            {
-             "HOF": "Nationality-Ethiopia",
-             "IMS": "NatList.ETH"
-            },
-            {
-             "HOF": "Nationality-Fiji",
-             "IMS": "NatList.FJI"
-            },
-            {
-             "HOF": "Nationality-Finland",
-             "IMS": "NatList.FIN"
-            },
-            {
-             "HOF": "Nationality-France",
-             "IMS": "NatList.FRA"
-            },
-            {
-             "HOF": "Nationality-Gabon",
-             "IMS": "NatList.GAB"
-            },
-            {
-             "HOF": "Nationality-Gambia",
-             "IMS": "NatList.GMB"
-            },
-            {
-             "HOF": "Nationality-Georgia",
-             "IMS": "NatList.GEO"
-            },
-            {
-             "HOF": "Nationality-Germany",
-             "IMS": "NatList.DEU"
-            },
-            {
-             "HOF": "Nationality-Ghana",
-             "IMS": "NatList.GHA"
-            },
-            {
-             "HOF": "Nationality-Gibraltar",
-             "IMS": "NatList.GIB"
-            },
-            {
-             "HOF": "Nationality-Greece",
-             "IMS": "NatList.GRC"
-            },
-            {
-             "HOF": "Nationality-Greenland",
-             "IMS": "NatList.GRL"
-            },
-            {
-             "HOF": "Nationality-Grenada",
-             "IMS": "NatList.GRD"
-            },
-            {
-             "HOF": "Nationality-Guadeloupe",
-             "IMS": "NatList.GLP"
-            },
-            {
-             "HOF": "Nationality-Guatemala",
-             "IMS": "NatList.GTM"
-            },
-            {
-             "HOF": "Nationality-Guinea",
-             "IMS": "NatList.GIN"
-            },
-            {
-             "HOF": "Nationality-Guinea-Bissau",
-             "IMS": "NatList.GNB"
-            },
-            {
-             "HOF": "Nationality-Guyana",
-             "IMS": "NatList.GUY"
-            },
-            {
-             "HOF": "Nationality-Haiti",
-             "IMS": "NatList.HTI"
-            },
-            {
-             "HOF": "Nationality-Holy See (Vatican City State)",
-             "IMS": "NatList.VTN"
-            },
-            {
-             "HOF": "Nationality-Honduras",
-             "IMS": "NatList.HND"
-            },
-            {
-             "HOF": "Nationality-Hong Kong Special Administrative Region of China",
-             "IMS": "NatList.HKG"
-            },
-            {
-             "HOF": "Nationality-Hungary",
-             "IMS": "NatList.HUN"
-            },
-            {
-             "HOF": "Nationality-Iceland",
-             "IMS": "NatList.ISL"
-            },
-            {
-             "HOF": "Nationality-India",
-             "IMS": "NatList.IND"
-            },
-            {
-             "HOF": "Nationality-Indonesia",
-             "IMS": "NatList.IDN"
-            },
-            {
-             "HOF": "Nationality-Iran, Islamic Republic of",
-             "IMS": "NatList.IRN"
-            },
-            {
-             "HOF": "Nationality-Iraq",
-             "IMS": "NatList.IRQ"
-            },
-            {
-             "HOF": "Nationality-Ireland",
-             "IMS": "NatList.IRL"
-            },
-            {
-             "HOF": "Nationality-Israel",
-             "IMS": "NatList.ISR"
-            },
-            {
-             "HOF": "Nationality-Italy",
-             "IMS": "NatList.ITA"
-            },
-            {
-             "HOF": "Nationality-Jamaica",
-             "IMS": "NatList.JAM"
-            },
-            {
-             "HOF": "Nationality-Japan",
-             "IMS": "NatList.JPN"
-            },
-            {
-             "HOF": "Nationality-Jordan",
-             "IMS": "NatList.JOR"
-            },
-            {
-             "HOF": "Nationality-Kazakhstan",
-             "IMS": "NatList.KAZ"
-            },
-            {
-             "HOF": "Nationality-Kenya",
-             "IMS": "NatList.KEN"
-            },
-            {
-             "HOF": "Nationality-Kiribati",
-             "IMS": "NatList.KIR"
-            },
-            {
-             "HOF": "Nationality-Kosovo (UN Travel Document)",
-             "IMS": "NatList.UNK"
-            },
-            {
-             "HOF": "Nationality-Kosovo",
-             "IMS": "NatList.XXK"
-            },
-            {
-             "HOF": "Nationality-Kuwait",
-             "IMS": "NatList.KWT"
-            },
-            {
-             "HOF": "Nationality-Kyrgyzstan",
-             "IMS": "NatList.KGZ"
-            },
-            {
-             "HOF": "Nationality-Lao People's Democratic Republic",
-             "IMS": "NatList.LAO"
-            },
-            {
-             "HOF": "Nationality-Latvia",
-             "IMS": "NatList.LVA"
-            },
-            {
-             "HOF": "Nationality-Lebanon",
-             "IMS": "NatList.LBN"
-            },
-            {
-             "HOF": "Nationality-Lesotho",
-             "IMS": "NatList.LSO"
-            },
-            {
-             "HOF": "Nationality-Liberia",
-             "IMS": "NatList.LBR"
-            },
-            {
-             "HOF": "Nationality-Libya",
-             "IMS": "NatList.LBY2"
-            },
-            {
-             "HOF": "Nationality-Liechtenstein",
-             "IMS": "NatList.LIE"
-            },
-            {
-             "HOF": "Nationality-Lithuania",
-             "IMS": "NatList.LTU"
-            },
-            {
-             "HOF": "Nationality-Luxembourg",
-             "IMS": "NatList.LUX"
-            },
-            {
-             "HOF": "Nationality-Macedonia, The Former Yugoslav Republic Of",
-             "IMS": "NatList.MKD"
-            },
-            {
-             "HOF": "Nationality-Madagascar",
-             "IMS": "NatList.MDG"
-            },
-            {
-             "HOF": "Nationality-Malawi",
-             "IMS": "NatList.MWI"
-            },
-            {
-             "HOF": "Nationality-Malaysia",
-             "IMS": "NatList.MYS"
-            },
-            {
-             "HOF": "Nationality-Maldives",
-             "IMS": "NatList.MDV"
-            },
-            {
-             "HOF": "Nationality-Mali",
-             "IMS": "NatList.MLI"
-            },
-            {
-             "HOF": "Nationality-Malta",
-             "IMS": "NatList.MLT"
-            },
-            {
-             "HOF": "Nationality-Marshall Islands",
-             "IMS": "NatList.MHL"
-            },
-            {
-             "HOF": "Nationality-Mauritania",
-             "IMS": "NatList.MRT"
-            },
-            {
-             "HOF": "Nationality-Mauritius",
-             "IMS": "NatList.MUS"
-            },
-            {
-             "HOF": "Nationality-Mexico",
-             "IMS": "NatList.MEX"
-            },
-            {
-             "HOF": "Nationality-Micronesia (Federated States of)",
-             "IMS": "NatList.FSM"
-            },
-            {
-             "HOF": "Nationality-Moldova, Republic of",
-             "IMS": "NatList.MDA"
-            },
-            {
-             "HOF": "Nationality-Monaco",
-             "IMS": "NatList.MCO"
-            },
-            {
-             "HOF": "Nationality-Mongolia",
-             "IMS": "NatList.MNG"
-            },
-            {
-             "HOF": "Nationality-Montenegro",
-             "IMS": "NatList.MNE"
-            },
-            {
-             "HOF": "Nationality-Montserrat",
-             "IMS": "NatList.MSR"
-            },
-            {
-             "HOF": "Nationality-Morocco",
-             "IMS": "NatList.MAR"
-            },
-            {
-             "HOF": "Nationality-Mozambique",
-             "IMS": "NatList.MOZ"
-            },
-            {
-             "HOF": "Nationality-Namibia",
-             "IMS": "NatList.NAM"
-            },
-            {
-             "HOF": "Nationality-Nationality Currently Unknown",
-             "IMS": "NatList.ZZZ"
-            },
-            {
-             "HOF": "Nationality-Nauru",
-             "IMS": "NatList.NRU"
-            },
-            {
-             "HOF": "Nationality-Nepal",
-             "IMS": "NatList.NPL"
-            },
-            {
-             "HOF": "Nationality-Netherlands",
-             "IMS": "NatList.NLD"
-            },
-            {
-             "HOF": "Nationality-Netherlands Antilles",
-             "IMS": "NatList.ANT"
-            },
-            {
-             "HOF": "Nationality-New Zealand",
-             "IMS": "NatList.NZL"
-            },
-            {
-             "HOF": "Nationality-Nicaragua",
-             "IMS": "NatList.NIC"
-            },
-            {
-             "HOF": "Nationality-Niger",
-             "IMS": "NatList.NER"
-            },
-            {
-             "HOF": "Nationality-Nigeria",
-             "IMS": "NatList.NGA"
-            },
-            {
-             "HOF": "Nationality-Niue",
-             "IMS": "NatList.NIU"
-            },
-            {
-             "HOF": "Nationality-Norway",
-             "IMS": "NatList.NOR"
-            },
-            {
-             "HOF": "Nationality-Officially Stateless",
-             "IMS": "NatList.XYZ"
-            },
-            {
-             "HOF": "Nationality-Oman",
-             "IMS": "NatList.OMN"
-            },
-            {
-             "HOF": "Nationality-Pacific Islands, Trust Territory of the",
-             "IMS": "NatList.PCI"
-            },
-            {
-             "HOF": "Nationality-Pakistan",
-             "IMS": "NatList.PAK"
-            },
-            {
-             "HOF": "Nationality-Palestinian Territory Occupied",
-             "IMS": "NatList.PSE"
-            },
-            {
-             "HOF": "Nationality-Panama",
-             "IMS": "NatList.PAN"
-            },
-            {
-             "HOF": "Nationality-Papua New Guinea",
-             "IMS": "NatList.PNG"
-            },
-            {
-             "HOF": "Nationality-Paraguay",
-             "IMS": "NatList.PRY"
-            },
-            {
-             "HOF": "Nationality-Peru",
-             "IMS": "NatList.PER"
-            },
-            {
-             "HOF": "Nationality-Philippines",
-             "IMS": "NatList.PHL"
-            },
-            {
-             "HOF": "Nationality-Polish",
-             "IMS": "NatList.POL"
-            },
-            {
-             "HOF": "Nationality-Portugal",
-             "IMS": "NatList.PRT"
-            },
-            {
-             "HOF": "Nationality-Qatar",
-             "IMS": "NatList.QAT"
-            },
-            {
-             "HOF": "Nationality-Refugee - Article 1 of the 1951 Convention",
-             "IMS": "NatList.XXB"
-            },
-            {
-             "HOF": "Nationality-Refugee - Other",
-             "IMS": "NatList.XXC"
-            },
-            {
-             "HOF": "Nationality-Romania",
-             "IMS": "NatList.ROU"
-            },
-            {
-             "HOF": "Nationality-Russian Federation",
-             "IMS": "NatList.RUS"
-            },
-            {
-             "HOF": "Nationality-Rwanda",
-             "IMS": "NatList.RWA"
-            },
-            {
-             "HOF": "Nationality-Samoa",
-             "IMS": "NatList.WSM"
-            },
-            {
-             "HOF": "Nationality-San Marino",
-             "IMS": "NatList.SMR"
-            },
-            {
-             "HOF": "Nationality-Sao Tome and Principe",
-             "IMS": "NatList.STP"
-            },
-            {
-             "HOF": "Nationality-Saudi Arabia",
-             "IMS": "NatList.SAU"
-            },
-            {
-             "HOF": "Nationality-Senegal",
-             "IMS": "NatList.SEN"
-            },
-            {
-             "HOF": "Nationality-Serbia",
-             "IMS": "NatList.SRB"
-            },
-            {
-             "HOF": "Nationality-Serbia and Montenegro",
-             "IMS": "NatList.SCG"
-            },
-            {
-             "HOF": "Nationality-Seychelles",
-             "IMS": "NatList.SYC"
-            },
-            {
-             "HOF": "Nationality-Sierra Leone",
-             "IMS": "NatList.SLE"
-            },
-            {
-             "HOF": "Nationality-Sikkim",
-             "IMS": "NatList.SKP"
-            },
-            {
-             "HOF": "Nationality-Singapore",
-             "IMS": "NatList.SGP"
-            },
-            {
-             "HOF": "Nationality-Slovakia",
-             "IMS": "NatList.SVK"
-            },
-            {
-             "HOF": "Nationality-Slovenia",
-             "IMS": "NatList.SVN"
-            },
-            {
-             "HOF": "Nationality-Solomon Islands",
-             "IMS": "NatList.SLB"
-            },
-            {
-             "HOF": "Nationality-Somalia",
-             "IMS": "NatList.SOM"
-            },
-            {
-             "HOF": "Nationality-South Africa",
-             "IMS": "NatList.ZAF"
-            },
-            {
-             "HOF": "Nationality-South Georgia and the South Sandwich Islands",
-             "IMS": "NatList.SGS"
-            },
-            {
-             "HOF": "Nationality-South Korea (Republic of Korea)",
-             "IMS": "NatList.KOR"
-            },
-            {
-             "HOF": "Nationality-South Sudan",
-             "IMS": "NatList.SSD"
-            },
-            {
-             "HOF": "Nationality-Spain",
-             "IMS": "NatList.ESP"
-            },
-            {
-             "HOF": "Nationality-Sri Lanka",
-             "IMS": "NatList.LKA"
-            },
-            {
-             "HOF": "Nationality-Stateless Person (Article 1 of 1954 Convention)",
-             "IMS": "NatList.XXA"
-            },
-            {
-             "HOF": "Nationality-Sudan",
-             "IMS": "NatList.SDN"
-            },
-            {
-             "HOF": "Nationality-Suriname",
-             "IMS": "NatList.SUR"
-            },
-            {
-             "HOF": "Nationality-Swaziland",
-             "IMS": "NatList.SWZ"
-            },
-            {
-             "HOF": "Nationality-Sweden",
-             "IMS": "NatList.SWE"
-            },
-            {
-             "HOF": "Nationality-Switzerland",
-             "IMS": "NatList.CHE"
-            },
-            {
-             "HOF": "Nationality-Syria Arab Republic",
-             "IMS": "NatList.SYR"
-            },
-            {
-             "HOF": "Nationality-Taiwan",
-             "IMS": "NatList.TWN"
-            },
-            {
-             "HOF": "Nationality-Tajikistan",
-             "IMS": "NatList.TJK"
-            },
-            {
-             "HOF": "Nationality-Tanzania, United Republic of",
-             "IMS": "NatList.TZA"
-            },
-            {
-             "HOF": "Nationality-Thailand",
-             "IMS": "NatList.THA"
-            },
-            {
-             "HOF": "Nationality-Togo",
-             "IMS": "NatList.TGO"
-            },
-            {
-             "HOF": "Nationality-Tokelau",
-             "IMS": "NatList.TKL"
-            },
-            {
-             "HOF": "Nationality-Tonga",
-             "IMS": "NatList.TON"
-            },
-            {
-             "HOF": "Nationality-Trinidad and Tobago",
-             "IMS": "NatList.TTO"
-            },
-            {
-             "HOF": "Nationality-Tunisia",
-             "IMS": "NatList.TUN"
-            },
-            {
-             "HOF": "Nationality-Turkey",
-             "IMS": "NatList.TUR"
-            },
-            {
-             "HOF": "Nationality-Turkish controlled area of Cyprus",
-             "IMS": "NatList.XXT"
-            },
-            {
-             "HOF": "Nationality-Turkmenistan",
-             "IMS": "NatList.TKM"
-            },
-            {
-             "HOF": "Nationality-Turks and Caicos Islands",
-             "IMS": "NatList.TCA"
-            },
-            {
-             "HOF": "Nationality-Tuvalu",
-             "IMS": "NatList.TUV"
-            },
-            {
-             "HOF": "Nationality-Uganda",
-             "IMS": "NatList.UGA"
-            },
-            {
-             "HOF": "Nationality-Ukraine",
-             "IMS": "NatList.UKR"
-            },
-            {
-             "HOF": "Nationality-United Arab Emirates",
-             "IMS": "NatList.ARE"
-            },
-            {
-             "HOF": "Nationality-United Nations",
-             "IMS": "NatList.UNO"
-            },
-            {
-             "HOF": "Nationality-United Nations Agency",
-             "IMS": "NatList.UNA"
-            },
-            {
-             "HOF": "Nationality-United States of America",
-             "IMS": "NatList.USA"
-            },
-            {
-             "HOF": "Nationality-Unspecified Nationality",
-             "IMS": "NatList.XXX"
-            },
-            {
-             "HOF": "Nationality-Upper Volta",
-             "IMS": "NatList.HVO"
-            },
-            {
-             "HOF": "Nationality-Uruguay",
-             "IMS": "NatList.URY"
-            },
-            {
-             "HOF": "Nationality-Uzbekistan",
-             "IMS": "NatList.UZB"
-            },
-            {
-             "HOF": "Nationality-Vanuatu",
-             "IMS": "NatList.VUT"
-            },
-            {
-             "HOF": "Nationality-Venezuela",
-             "IMS": "NatList.VEN"
-            },
-            {
-             "HOF": "Nationality-Vietnam",
-             "IMS": "NatList.VNM"
-            },
-            {
-             "HOF": "Nationality-Yemen",
-             "IMS": "NatList.YEM"
-            },
-            {
-             "HOF": "Nationality-Yugoslavia",
-             "IMS": "NatList.YUG"
-            },
-            {
-             "HOF": "Nationality-Zaire",
-             "IMS": "NatList.ZAR"
-            },
-            {
-             "HOF": "Nationality-Zambia",
-             "IMS": "NatList.ZMB"
-            },
-            {
-             "HOF": "Nationality-Zimbabwe",
-             "IMS": "NatList.ZWE"
-            },
-            {
-             "HOF": "Nationality-Unknown",
-             "IMS": "NatList.UKN"
-            },
-            {
-             "HOF": "Nationality-I Dont Know",
-             "IMS": "NatList.DontKnow"
-            },
-            {
-             "HOF": "Nationality-Saint Barthelemy",
-             "IMS": "NatList.BLM"
-            },
-            {
-             "HOF": "Nationality-Saint Helena, Ascension and Tristan da Cunha",
-             "IMS": "NatList.SHN"
-            },
-            {
-             "HOF": "Nationality-Saint Kitts and Nevis",
-             "IMS": "NatList.KNA"
-            },
-            {
-             "HOF": "Nationality-Saint Lucia",
-             "IMS": "NatList.LCA"
-            },
-            {
-             "HOF": "Nationality-Saint Martin",
-             "IMS": "NatList.MAK"
-            },
-            {
-             "HOF": "Nationality-Saint Pierre and Miquelon",
-             "IMS": "NatList.SPM"
-            },
-            {
-             "HOF": "Nationality-Saint Vincent and the Grenadines",
-             "IMS": "NatList.VCT"
-            },
-            {
-             "HOF": "Afghanistan",
-             "IMS": "CountryList.AFG"
-            },
-            {
-             "HOF": "Aland Islands",
-             "IMS": "CountryList.ALA"
-            },
-            {
-             "HOF": "Albania",
-             "IMS": "CountryList.ALB"
-            },
-            {
-             "HOF": "Algeria",
-             "IMS": "CountryList.DZA"
-            },
-            {
-             "HOF": "American Samoa",
-             "IMS": "CountryList.ASM"
-            },
-            {
-             "HOF": "Andorra",
-             "IMS": "CountryList.AND"
-            },
-            {
-             "HOF": "Angola",
-             "IMS": "CountryList.AGO"
-            },
-            {
-             "HOF": "Anguilla",
-             "IMS": "CountryList.AIA"
-            },
-            {
-             "HOF": "Antarctica",
-             "IMS": "CountryList.ATA"
-            },
-            {
-             "HOF": "Antigua and Barbuda",
-             "IMS": "CountryList.ATG"
-            },
-            {
-             "HOF": "Argentina",
-             "IMS": "CountryList.ARG"
-            },
-            {
-             "HOF": "Armenia",
-             "IMS": "CountryList.ARM"
-            },
-            {
-             "HOF": "Aruba",
-             "IMS": "CountryList.ABW"
-            },
-            {
-             "HOF": "Australia",
-             "IMS": "CountryList.AUS"
-            },
-            {
-             "HOF": "Austria",
-             "IMS": "CountryList.AUT"
-            },
-            {
-             "HOF": "Azerbaijan",
-             "IMS": "CountryList.AZE"
-            },
-            {
-             "HOF": "Bahamas",
-             "IMS": "CountryList.BHS"
-            },
-            {
-             "HOF": "Bahrain",
-             "IMS": "CountryList.BHR"
-            },
-            {
-             "HOF": "Bangladesh",
-             "IMS": "CountryList.BGD"
-            },
-            {
-             "HOF": "Barbados",
-             "IMS": "CountryList.BRB"
-            },
-            {
-             "HOF": "Belarus",
-             "IMS": "CountryList.BLR"
-            },
-            {
-             "HOF": "Belguim",
-             "IMS": "CountryList.BEL"
-            },
-            {
-             "HOF": "Belize",
-             "IMS": "CountryList.BLZ"
-            },
-            {
-             "HOF": "Benin",
-             "IMS": "CountryList.BEN"
-            },
-            {
-             "HOF": "Bermuda",
-             "IMS": "CountryList.BMU"
-            },
-            {
-             "HOF": "Bhutan",
-             "IMS": "CountryList.BTN"
-            },
-            {
-             "HOF": "Bolivia",
-             "IMS": "CountryList.BOL"
-            },
-            {
-             "HOF": "Bonaire, Sint Eustatius and Saba",
-             "IMS": "CountryList.BES"
-            },
-            {
-             "HOF": "Bosnia and Herzegovina",
-             "IMS": "CountryList.BIH"
-            },
-            {
-             "HOF": "Botswana",
-             "IMS": "CountryList.BWA"
-            },
-            {
-             "HOF": "Bouvet Island",
-             "IMS": "CountryList.BVT"
-            },
-            {
-             "HOF": "Brazil",
-             "IMS": "CountryList.BRA"
-            },
-            {
-             "HOF": "British Antarctic Territory",
-             "IMS": "CountryList.ATB"
-            },
-            {
-             "HOF": "British Indian Ocean Territory",
-             "IMS": "CountryList.IOT"
-            },
-            {
-             "HOF": "Brunei Darussalam",
-             "IMS": "CountryList.BRN"
-            },
-            {
-             "HOF": "Bulgaria",
-             "IMS": "CountryList.BGR"
-            },
-            {
-             "HOF": "Burkina Faso",
-             "IMS": "CountryList.BFA"
-            },
-            {
-             "HOF": "Burma",
-             "IMS": "CountryList.BUR"
-            },
-            {
-             "HOF": "Burundi",
-             "IMS": "CountryList.BDI"
-            },
-            {
-             "HOF": "Byelorussian SSR",
-             "IMS": "CountryList.BYS"
-            },
-            {
-             "HOF": "Cambodia",
-             "IMS": "CountryList.CHM"
-            },
-            {
-             "HOF": "Cameroon",
-             "IMS": "CountryList.CMR"
-            },
-            {
-             "HOF": "Canada",
-             "IMS": "CountryList.CAN"
-            },
-            {
-             "HOF": "Canton and Enderbury Islands",
-             "IMS": "CountryList.CTE"
-            },
-            {
-             "HOF": "Cape Verde",
-             "IMS": "CountryList.CPV"
-            },
-            {
-             "HOF": "Cayman Islands",
-             "IMS": "CountryList.CYM"
-            },
-            {
-             "HOF": "Central African Republic",
-             "IMS": "CountryList.CFA"
-            },
-            {
-             "HOF": "Chad",
-             "IMS": "CountryList.CTD"
-            },
-            {
-             "HOF": "Chile",
-             "IMS": "CountryList.CHL"
-            },
-            {
-             "HOF": "China",
-             "IMS": "CountryList.CHN"
-            },
-            {
-             "HOF": "Christmas Island",
-             "IMS": "CountryList.CXR"
-            },
-            {
-             "HOF": "Cocos (Keeling) Islands",
-             "IMS": "CountryList.CCK"
-            },
-            {
-             "HOF": "Colombia",
-             "IMS": "CountryList.COL"
-            },
-            {
-             "HOF": "Comoros",
-             "IMS": "CountryList.COM"
-            },
-            {
-             "HOF": "Congo",
-             "IMS": "CountryList.COG"
-            },
-            {
-             "HOF": "Cook Islands",
-             "IMS": "CountryList.COK"
-            },
-            {
-             "HOF": "Costa Rica",
-             "IMS": "CountryList.CRI"
-            },
-            {
-             "HOF": "Cote D'Ivoire (Ivory Coast)",
-             "IMS": "CountryList.CIV"
-            },
-            {
-             "HOF": "Croatia",
-             "IMS": "CountryList.HRV"
-            },
-            {
-             "HOF": "Cuba",
-             "IMS": "CountryList.CUB"
-            },
-            {
-             "HOF": "Curacao",
-             "IMS": "CountryList.CUW"
-            },
-            {
-             "HOF": "Cyprus",
-             "IMS": "CountryList.CYP"
-            },
-            {
-             "HOF": "Czech Republic",
-             "IMS": "CountryList.CZE"
-            },
-            {
-             "HOF": "Czechoslavakia",
-             "IMS": "CountryList.CSK"
-            },
-            {
-             "HOF": "Dahomey",
-             "IMS": "CountryList.DHY"
-            },
-            {
-             "HOF": "Democratic People's Republic of Korea",
-             "IMS": "CountryList.PRK"
-            },
-            {
-             "HOF": "Democratic Republic of the Congo",
-             "IMS": "CountryList.COD"
-            },
-            {
-             "HOF": "Denmark",
-             "IMS": "CountryList.DNK"
-            },
-            {
-             "HOF": "Djibouti",
-             "IMS": "CountryList.DJI"
-            },
-            {
-             "HOF": "Dominica",
-             "IMS": "CountryList.DMA"
-            },
-            {
-             "HOF": "Dominican Republic",
-             "IMS": "CountryList.DOM"
-            },
-            {
-             "HOF": "Dronning Maud Land",
-             "IMS": "CountryList.ATN"
-            },
-            {
-             "HOF": "East Timor",
-             "IMS": "CountryList.TMP"
-            },
-            {
-             "HOF": "Ecuador",
-             "IMS": "CountryList.ECU"
-            },
-            {
-             "HOF": "Egypt",
-             "IMS": "CountryList.EGY"
-            },
-            {
-             "HOF": "El Salvador",
-             "IMS": "CountryList.SLV"
-            },
-            {
-             "HOF": "Equatorial Guinea",
-             "IMS": "CountryList.GNQ"
-            },
-            {
-             "HOF": "Eritrea",
-             "IMS": "CountryList.ERI"
-            },
-            {
-             "HOF": "Estonia",
-             "IMS": "CountryList.EST"
-            },
-            {
-             "HOF": "Ethiopia",
-             "IMS": "CountryList.ETH"
-            },
-            {
-             "HOF": "Falkland Islands",
-             "IMS": "CountryList.FLK"
-            },
-            {
-             "HOF": "Faroe Islands",
-             "IMS": "CountryList.FRO"
-            },
-            {
-             "HOF": "Fiji",
-             "IMS": "CountryList.FJI"
-            },
-            {
-             "HOF": "Finland",
-             "IMS": "CountryList.FIN"
-            },
-            {
-             "HOF": "France",
-             "IMS": "CountryList.FRA"
-            },
-            {
-             "HOF": "France, Metropolitan",
-             "IMS": "CountryList.FXX"
-            },
-            {
-             "HOF": "French Afar and Issas",
-             "IMS": "CountryList.AFI"
-            },
-            {
-             "HOF": "French Guiana",
-             "IMS": "CountryList.GUF"
-            },
-            {
-             "HOF": "French Polynesia",
-             "IMS": "CountryList.PYF"
-            },
-            {
-             "HOF": "French Southern and Antarctic Lands",
-             "IMS": "CountryList.ATF"
-            },
-            {
-             "HOF": "French Southern Territories",
-             "IMS": "CountryList.ATF2"
-            },
-            {
-             "HOF": "Gabon",
-             "IMS": "CountryList.GAB"
-            },
-            {
-             "HOF": "Gambia",
-             "IMS": "CountryList.GMB"
-            },
-            {
-             "HOF": "Georgia",
-             "IMS": "CountryList.GEO"
-            },
-            {
-             "HOF": "German Democratic Republic",
-             "IMS": "CountryList.DDR"
-            },
-            {
-             "HOF": "Germany",
-             "IMS": "CountryList.DEU"
-            },
-            {
-             "HOF": "Ghana",
-             "IMS": "CountryList.GHA"
-            },
-            {
-             "HOF": "Gibraltar",
-             "IMS": "CountryList.GIB"
-            },
-            {
-             "HOF": "Gilbert and Ellice Islands",
-             "IMS": "CountryList.GEL"
-            },
-            {
-             "HOF": "Greece",
-             "IMS": "CountryList.GRC"
-            },
-            {
-             "HOF": "Greenland",
-             "IMS": "CountryList.GRL"
-            },
-            {
-             "HOF": "Grenada",
-             "IMS": "CountryList.GRD"
-            },
-            {
-             "HOF": "Guadeloupe",
-             "IMS": "CountryList.GULP"
-            },
-            {
-             "HOF": "Guam",
-             "IMS": "CountryList.GUM"
-            },
-            {
-             "HOF": "Guatemala",
-             "IMS": "CountryList.GTM"
-            },
-            {
-             "HOF": "Guernsey",
-             "IMS": "CountryList.GGY"
-            },
-            {
-             "HOF": "Guinea",
-             "IMS": "CountryList.GIN"
-            },
-            {
-             "HOF": "Guinea-Bissau",
-             "IMS": "CountryList.GNB"
-            },
-            {
-             "HOF": "Guyana",
-             "IMS": "CountryList.GUY"
-            },
-            {
-             "HOF": "Haiti",
-             "IMS": "CountryList.HTi"
-            },
-            {
-             "HOF": "Heard and McDonald Islands",
-             "IMS": "CountryList.HMD"
-            },
-            {
-             "HOF": "Holy See (Vatican City State)",
-             "IMS": "CountryList.VAT"
-            },
-            {
-             "HOF": "Honduras",
-             "IMS": "CountryList.HND"
-            },
-            {
-             "HOF": "Hong Kong Special Administrative Region of China",
-             "IMS": "CountryList.HKG"
-            },
-            {
-             "HOF": "Hungary",
-             "IMS": "CountryList.HUN"
-            },
-            {
-             "HOF": "Iceland",
-             "IMS": "CountryList.ISL"
-            },
-            {
-             "HOF": "India",
-             "IMS": "CountryList.IND"
-            },
-            {
-             "HOF": "Indonesia",
-             "IMS": "CountryList.IDN"
-            },
-            {
-             "HOF": "Iran, Islamic Republic of",
-             "IMS": "CountryList.IRN"
-            },
-            {
-             "HOF": "Iraq",
-             "IMS": "CountryList.IRQ"
-            },
-            {
-             "HOF": "Ireland",
-             "IMS": "CountryList.IRL"
-            },
-            {
-             "HOF": "Isle of Man",
-             "IMS": "CountryList.IMN"
-            },
-            {
-             "HOF": "Israel",
-             "IMS": "CountryList.ISR"
-            },
-            {
-             "HOF": "Italy",
-             "IMS": "CountryList.ITA"
-            },
-            {
-             "HOF": "Jamaica",
-             "IMS": "CountryList.JAM"
-            },
-            {
-             "HOF": "Japan",
-             "IMS": "CountryList.JPN"
-            },
-            {
-             "HOF": "Jersey",
-             "IMS": "CountryList.JEY"
-            },
-            {
-             "HOF": "Johnston Island",
-             "IMS": "CountryList.JTN"
-            },
-            {
-             "HOF": "Jordan",
-             "IMS": "CountryList.JOR"
-            },
-            {
-             "HOF": "Kazakhstan",
-             "IMS": "CountryList.KAZ"
-            },
-            {
-             "HOF": "Kenya",
-             "IMS": "CountryList.KEN"
-            },
-            {
-             "HOF": "Kiribati",
-             "IMS": "CountryList.KIR"
-            },
-            {
-             "HOF": "Kosovo",
-             "IMS": "CountryList.XXK"
-            },
-            {
-             "HOF": "Kuwait",
-             "IMS": "CountryList.KWT"
-            },
-            {
-             "HOF": "Kyrgyzstan",
-             "IMS": "CountryList.KGZ"
-            },
-            {
-             "HOF": "Lao People's Democratic Republic",
-             "IMS": "CountryList.LAO"
-            },
-            {
-             "HOF": "Latvia",
-             "IMS": "CountryList.LVA"
-            },
-            {
-             "HOF": "Lebanon",
-             "IMS": "CountryList.LBN"
-            },
-            {
-             "HOF": "Lesotho",
-             "IMS": "CountryList.LSO"
-            },
-            {
-             "HOF": "Liberia",
-             "IMS": "CountryList.LBR"
-            },
-            {
-             "HOF": "Libya Arab Jamahiriya",
-             "IMS": "CountryList.LBY"
-            },
-            {
-             "HOF": "Libya",
-             "IMS": "CountryList.LBY2"
-            },
-            {
-             "HOF": "Liechtenstein",
-             "IMS": "CountryList.LIE"
-            },
-            {
-             "HOF": "Lithuania",
-             "IMS": "CountryList.LTU"
-            },
-            {
-             "HOF": "Luxembourg",
-             "IMS": "CountryList.LUX"
-            },
-            {
-             "HOF": "Macao",
-             "IMS": "CountryList.MAC"
-            },
-            {
-             "HOF": "Macedonia, The Former Yugoslav Republic Of",
-             "IMS": "CountryList.MKD"
-            },
-            {
-             "HOF": "Madagascar",
-             "IMS": "CountryList.MDG"
-            },
-            {
-             "HOF": "Malawi",
-             "IMS": "CountryList.MWI"
-            },
-            {
-             "HOF": "Malaysia",
-             "IMS": "CountryList.MYS"
-            },
-            {
-             "HOF": "Maldives",
-             "IMS": "CountryList.MDV"
-            },
-            {
-             "HOF": "Mali",
-             "IMS": "CountryList.MLI"
-            },
-            {
-             "HOF": "Malta",
-             "IMS": "CountryList.MLT"
-            },
-            {
-             "HOF": "Marshall Islands",
-             "IMS": "CountryList.MHL"
-            },
-            {
-             "HOF": "Martinique",
-             "IMS": "CountryList.MTQ"
-            },
-            {
-             "HOF": "Mauritania",
-             "IMS": "CountryList.MRT"
-            },
-            {
-             "HOF": "Mauritius",
-             "IMS": "CountryList.MUS"
-            },
-            {
-             "HOF": "Mayotte",
-             "IMS": "CountryList.MYT"
-            },
-            {
-             "HOF": "Mexico",
-             "IMS": "CountryList.MEX"
-            },
-            {
-             "HOF": "Micronesia (Federated States of)",
-             "IMS": "CountryList.FSM"
-            },
-            {
-             "HOF": "Midway Islands",
-             "IMS": "CountryList.MID"
-            },
-            {
-             "HOF": "Moldova, Republic of",
-             "IMS": "CountryList.MDA"
-            },
-            {
-             "HOF": "Monaco",
-             "IMS": "CountryList.MCO"
-            },
-            {
-             "HOF": "Mongolia",
-             "IMS": "CountryList.MNG"
-            },
-            {
-             "HOF": "Montenegro",
-             "IMS": "CountryList.MNE"
-            },
-            {
-             "HOF": "Montserrat",
-             "IMS": "CountryList.MSR"
-            },
-            {
-             "HOF": "Morocco",
-             "IMS": "CountryList.MAR"
-            },
-            {
-             "HOF": "Mozambique",
-             "IMS": "CountryList.MOZ"
-            },
-            {
-             "HOF": "Myanmar",
-             "IMS": "CountryList.MMR"
-            },
-            {
-             "HOF": "Namibia",
-             "IMS": "CountryList.NAM"
-            },
-            {
-             "HOF": "Nauru",
-             "IMS": "CountryList.NRU"
-            },
-            {
-             "HOF": "Nepal",
-             "IMS": "CountryList.NPL"
-            },
-            {
-             "HOF": "Netherlands",
-             "IMS": "CountryList.NLD"
-            },
-            {
-             "HOF": "Netherlands Antilles",
-             "IMS": "CountryList.ANT"
-            },
-            {
-             "HOF": "Neutral Zone",
-             "IMS": "CountryList.NTZ"
-            },
-            {
-             "HOF": "New Caledonia",
-             "IMS": "CountryList.NCL"
-            },
-            {
-             "HOF": "New Hebrides",
-             "IMS": "CountryList.NHB"
-            },
-            {
-             "HOF": "New Zealand",
-             "IMS": "CountryList.NZL"
-            },
-            {
-             "HOF": "Nicaragua",
-             "IMS": "CountryList.NIC"
-            },
-            {
-             "HOF": "Niger",
-             "IMS": "CountryList.NER"
-            },
-            {
-             "HOF": "Nigeria",
-             "IMS": "CountryList.NGA"
-            },
-            {
-             "HOF": "Niue",
-             "IMS": "CountryList.NIU"
-            },
-            {
-             "HOF": "Norfolk Island",
-             "IMS": "CountryList.NFK"
-            },
-            {
-             "HOF": "Northern Mariana Islands",
-             "IMS": "CountryList.MNP"
-            },
-            {
-             "HOF": "Norway",
-             "IMS": "CountryList.NOR"
-            },
-            {
-             "HOF": "Oman",
-             "IMS": "CountryList.OMN"
-            },
-            {
-             "HOF": "Pacific Islands, Trust Territory of the",
-             "IMS": "CountryList.PCI"
-            },
-            {
-             "HOF": "Pakistan",
-             "IMS": "CountryList.PAK"
-            },
-            {
-             "HOF": "Palau",
-             "IMS": "CountryList.PLW"
-            },
-            {
-             "HOF": "Palestinian Territory Occupied",
-             "IMS": "CountryList.PSE"
-            },
-            {
-             "HOF": "Panama",
-             "IMS": "CountryList.PAN"
-            },
-            {
-             "HOF": "Panama Canal Zone",
-             "IMS": "CountryList.PCZ"
-            },
-            {
-             "HOF": "Papua New Guinea",
-             "IMS": "CountryList.PNG"
-            },
-            {
-             "HOF": "Paraguay",
-             "IMS": "CountryList.PRY"
-            },
-            {
-             "HOF": "Peru",
-             "IMS": "CountryList.PER"
-            },
-            {
-             "HOF": "Philippines",
-             "IMS": "CountryList.PHL"
-            },
-            {
-             "HOF": "Pitcairn",
-             "IMS": "CountryList.PCN"
-            },
-            {
-             "HOF": "Poland",
-             "IMS": "CountryList.POL"
-            },
-            {
-             "HOF": "Portugal",
-             "IMS": "CountryList.PRT"
-            },
-            {
-             "HOF": "Puerto Rico",
-             "IMS": "CountryList.PRI"
-            },
-            {
-             "HOF": "Qatar",
-             "IMS": "CountryList.QAT"
-            },
-            {
-             "HOF": "Reunion",
-             "IMS": "CountryList.REU"
-            },
-            {
-             "HOF": "Romania",
-             "IMS": "CountryList.ROU"
-            },
-            {
-             "HOF": "Russian Federation",
-             "IMS": "CountryList.RUS"
-            },
-            {
-             "HOF": "Rwanda",
-             "IMS": "CountryList.RWA"
-            },
-            {
-             "HOF": "Saint Barthelemy",
-             "IMS": "CountryList.BLM"
-            },
-            {
-             "HOF": "Saint Helena, Ascension and Tristan da Cunha",
-             "IMS": "CountryList.SHN"
-            },
-            {
-             "HOF": "Saint Kitts and Nevis",
-             "IMS": "CountryList.KNA"
-            },
-            {
-             "HOF": "Saint Lucia",
-             "IMS": "CountryList.LCA"
-            },
-            {
-             "HOF": "Saint Martin",
-             "IMS": "CountryList.MAF"
-            },
-            {
-             "HOF": "Saint Pierre and Miquelon",
-             "IMS": "CountryList.SPM"
-            },
-            {
-             "HOF": "Saint Vincent and the Grenadines",
-             "IMS": "CountryList.VCT"
-            },
-            {
-             "HOF": "Samoa",
-             "IMS": "CountryList.WSM"
-            },
-            {
-             "HOF": "San Marino",
-             "IMS": "CountryList.SMR"
-            },
-            {
-             "HOF": "Sao Tome and Principe",
-             "IMS": "CountryList.STP"
-            },
-            {
-             "HOF": "Saudi Arabia",
-             "IMS": "CountryList.SAU"
-            },
-            {
-             "HOF": "Senegal",
-             "IMS": "CountryList.SEN"
-            },
-            {
-             "HOF": "Serbia",
-             "IMS": "CountryList.SRG"
-            },
-            {
-             "HOF": "Serbia and Montenegro",
-             "IMS": "CountryList.SCG"
-            },
-            {
-             "HOF": "Seychelles",
-             "IMS": "CountryList.SYC"
-            },
-            {
-             "HOF": "Sierra Leone",
-             "IMS": "CountryList.SLE"
-            },
-            {
-             "HOF": "Sikkim",
-             "IMS": "CountryList.SKM"
-            },
-            {
-             "HOF": "Singapore",
-             "IMS": "CountryList.SGP"
-            },
-            {
-             "HOF": "Sint Maarten (Dutch part)",
-             "IMS": "CountryList.SXM"
-            },
-            {
-             "HOF": "Slovakia",
-             "IMS": "CountryList.SVK"
-            },
-            {
-             "HOF": "Slovenia",
-             "IMS": "CountryList.SVN"
-            },
-            {
-             "HOF": "Solomon Islands",
-             "IMS": "CountryList.SOL"
-            },
-            {
-             "HOF": "Somalia",
-             "IMS": "CountryList.SOM"
-            },
-            {
-             "HOF": "South Africa",
-             "IMS": "CountryList.ZAF"
-            },
-            {
-             "HOF": "South Georgia and the South Sandwich Islands",
-             "IMS": "CountryList.SGS"
-            },
-            {
-             "HOF": "South Korea (Republic of Korea)",
-             "IMS": "CountryList.KOR"
-            },
-            {
-             "HOF": "South Sudan",
-             "IMS": "CountryList.SSD"
-            },
-            {
-             "HOF": "Southern Rhodesia",
-             "IMS": "CountryList.RHO"
-            },
-            {
-             "HOF": "Spain",
-             "IMS": "CountryList.ESP"
-            },
-            {
-             "HOF": "Sri Lanka",
-             "IMS": "CountryList.SKA"
-            },
-            {
-             "HOF": "Sudan",
-             "IMS": "CountryList.SDN"
-            },
-            {
-             "HOF": "Suriname",
-             "IMS": "CountryList.SUR"
-            },
-            {
-             "HOF": "Svalbard and Jan Mayen Islands",
-             "IMS": "CountryList.SJM"
-            },
-            {
-             "HOF": "Swaziland",
-             "IMS": "CountryList.SWZ"
-            },
-            {
-             "HOF": "Sweden",
-             "IMS": "CountryList.SWE"
-            },
-            {
-             "HOF": "Switzerland",
-             "IMS": "CountryList.CHE"
-            },
-            {
-             "HOF": "Syria Arab Republic",
-             "IMS": "CountryList.SYR"
-            },
-            {
-             "HOF": "Taiwan",
-             "IMS": "CountryList.TWN"
-            },
-            {
-             "HOF": "Tajikistan",
-             "IMS": "CountryList.TJK"
-            },
-            {
-             "HOF": "Tanzania, United Republic of",
-             "IMS": "CountryList.TZA"
-            },
-            {
-             "HOF": "Thailand",
-             "IMS": "CountryList.THA"
-            },
-            {
-             "HOF": "Timor-Leste",
-             "IMS": "CountryList.TLS"
-            },
-            {
-             "HOF": "Togo",
-             "IMS": "CountryList.TGO"
-            },
-            {
-             "HOF": "Tokelau",
-             "IMS": "CountryList.TKL"
-            },
-            {
-             "HOF": "Tonga",
-             "IMS": "CountryList.TON"
-            },
-            {
-             "HOF": "Trinidad and Tobago",
-             "IMS": "CountryList.TTO"
-            },
-            {
-             "HOF": "Tunisia",
-             "IMS": "CountryList.TUN"
-            },
-            {
-             "HOF": "Turkey",
-             "IMS": "CountryList.TUR"
-            },
-            {
-             "HOF": "Turkish controlled area of Cyprus",
-             "IMS": "CountryList.XXT"
-            },
-            {
-             "HOF": "Turkmenistan",
-             "IMS": "CountryList.TKM"
-            },
-            {
-             "HOF": "Turks and Caicos Islands",
-             "IMS": "CountryList.TCA"
-            },
-            {
-             "HOF": "Tuvalu",
-             "IMS": "CountryList.TUV"
-            },
-            {
-             "HOF": "U.S Miscellaneous Pacific Islands",
-             "IMS": "CountryList.PUS"
-            },
-            {
-             "HOF": "Uganda",
-             "IMS": "CountryList.UGA"
-            },
-            {
-             "HOF": "Ukraine",
-             "IMS": "CountryList.UKR"
-            },
-            {
-             "HOF": "United Arab Emirates",
-             "IMS": "CountryList.ARE"
-            },
-            {
-             "HOF": "United Kingdom of Great Britain and Northern Irela",
-             "IMS": "CountryList.GBR"
-            },
-            {
-             "HOF": "United Nations",
-             "IMS": "CountryList.UNO"
-            },
-            {
-             "HOF": "United Nations Agency",
-             "IMS": "CountryList.UNA"
-            },
-            {
-             "HOF": "United States Minor Outlying Islands",
-             "IMS": "CountryList.UMI"
-            },
-            {
-             "HOF": "United States of America",
-             "IMS": "CountryList.USA"
-            },
-            {
-             "HOF": "Upper Volta",
-             "IMS": "CountryList.HVO"
-            },
-            {
-             "HOF": "Uruguay",
-             "IMS": "CountryList.URU"
-            },
-            {
-             "HOF": "USSR",
-             "IMS": "CountryList.SUN"
-            },
-            {
-             "HOF": "Uzbekistan",
-             "IMS": "CountryList.UZB"
-            },
-            {
-             "HOF": "Vanuatu",
-             "IMS": "CountryList.VUT"
-            },
-            {
-             "HOF": "Venezuela",
-             "IMS": "CountryList.VEN"
-            },
-            {
-             "HOF": "Vietnam",
-             "IMS": "CountryList.VNM"
-            },
-            {
-             "HOF": "Viet-Nam, Democratic Republic of",
-             "IMS": "CountryList.VDR"
-            },
-            {
-             "HOF": "Wake Island",
-             "IMS": "CountryList.WAK"
-            },
-            {
-             "HOF": "Virgin Islands, British",
-             "IMS": "CountryList.VGB"
-            },
-            {
-             "HOF": "Virgin islands, U.S.",
-             "IMS": "CountryList.VIR"
-            },
-            {
-             "HOF": "Wallis and Futuna Islands",
-             "IMS": "CountryList.WLF"
-            },
-            {
-             "HOF": "Western Sahara",
-             "IMS": "CountryList.ESH"
-            },
-            {
-             "HOF": "Yemen",
-             "IMS": "CountryList.YEM"
-            },
-            {
-             "HOF": "Yemen, Democratic",
-             "IMS": "CountryList.YMD"
-            },
-            {
-             "HOF": "Yugoslavia",
-             "IMS": "CountryList.YUG"
-            },
-            {
-             "HOF": "Zaire",
-             "IMS": "CountryList.ZAR"
-            },
-            {
-             "HOF": "Zambia",
-             "IMS": "CountryList.ZMB"
-            },
-            {
-             "HOF": "Zimbabwe",
-             "IMS": "CountryList.ZWE"
-            },
-            {
-             "HOF": "Unknown",
-             "IMS": "CountryList.UKN"
-            }
-
+        { "HOF": "immigration-crime", "IMS": "Immigration Crime" },
+        { "HOF": "smuggling-crime", "IMS": "Smuggling" },
+        { "HOF": "yes", "IMS": "Yes" },
+        { "HOF": "no", "IMS": "No" },
+        { "HOF": "crime-childen-unknown", "IMS": "Idontknow" },
+        { "HOF": "immigration-crime-no-permission", "IMS": 1 },
+        { "HOF": "immigration-crime-illegal-working", "IMS": 1 },
+        { "HOF": "immigration-crime-employing-illegal-workers", "IMS": 1 },
+        { "HOF": "immigration-crime-full-time-student", "IMS": 1 },
+        { "HOF": "immigration-crime-fake-marriage", "IMS": 1 },
+        { "HOF": "immigration-crime-fake-documents", "IMS": 1 },
+        { "HOF": "immigration-crime-enter-stay-illegally", "IMS": 1 },
+        { "HOF": "immigration-crime-lied-on-application", "IMS": 1 },
+        { "HOF": "immigration-crime-enter-human-trafficking-smuggling-slavery", "IMS": 1 },
+        { "HOF": "immigration-crime-other", "IMS": 1 },
+        { "HOF": "smuggling-crime-drug", "IMS": 1 },
+        { "HOF": "smuggling-crime-cash", "IMS": 1 },
+        { "HOF": "smuggling-crime-cigarette", "IMS": 1 },
+        { "HOF": "smuggling-crime-firearms", "IMS": 1 },
+        { "HOF": "smuggling-crime-alcohol", "IMS": 1 },
+        { "HOF": "smuggling-crime-other", "IMS": 1 },
+        { "HOF": "crime-transport-vehicle", "IMS": 1 },
+        { "HOF": "crime-transport-boat", "IMS": 1 },
+        { "HOF": "crime-transport-train", "IMS": 1 },
+        { "HOF": "crime-transport-aeroplane", "IMS": 1 },
+        { "HOF": "crime-transport-unknown", "IMS": 1 },
+        { "HOF": "vehicle-bulk-carrier", "IMS": "vehicle_type.BulkCarrier" },
+        { "HOF": "caravan", "IMS": "vehicle_type.Caravan" },
+        { "HOF": "coach", "IMS": "vehicle_type.Coach" },
+        { "HOF": "container", "IMS": "vehicle_type.Container" },
+        { "HOF": "glass-carrier", "IMS": "vehicle_type.GlassCarrier" },
+        { "HOF": "minibus", "IMS": "vehicle_type.Minibus" },
+        { "HOF": "motorbike", "IMS": "vehicle_type.MotorBike" },
+        { "HOF": "motorhome", "IMS": "vehicle_type.Motorhome" },
+        { "HOF": "unaccompanied-trailer", "IMS": "vehicle_type.UnaccTrailsoft" },
+        { "HOF": "car", "IMS": "vehicle_type.Car" },
+        { "HOF": "car-transporter", "IMS": "vehicle_type.CarTransporter" },
+        { "HOF": "hgv-canvas-sided", "IMS": "vehicle_type.HGVCanvas" },
+        { "HOF": "hgv-flatbed", "IMS": "vehicle_type.HGVFlat" },
+        { "HOF": "hgv-hard-sided", "IMS": "vehicle_type.HGVHardsided" },
+        { "HOF": "hgv-refridgerated", "IMS": "vehicle_type.HGVRef" },
+        { "HOF": "hgv-tanker", "IMS": "vehicle_type.HGVTank" },
+        { "HOF": "lorry", "IMS": "vehicle_type.Lorry" },
+        { "HOF": "lorry-and-drag", "IMS": "vehicle_type.LorryDrag" },
+        { "HOF": "van", "IMS": "vehicle_type.Van" },
+        { "HOF": "van-and-trailer", "IMS": "vehicle_type.VanTrail" },
+        { "HOF": "van-other", "IMS": "vehicle_type.VanOther" },
+        { "HOF": "seven-point-five-tonne-van", "IMS": "vehicle_type.75Tvan" },
+        { "HOF": "barge", "IMS": "BoatType.Barge" },
+        { "HOF": "bulk-carrier", "IMS": "BoatType.Bulk_Carrier" },
+        { "HOF": "vehicle-carrier", "IMS": "BoatType.VehicleCarrier" },
+        { "HOF": "vessel-carrier", "IMS": "BoatType.VesselCarrier" },
+        { "HOF": "cabin-cruiser", "IMS": "BoatType.Cabin_Cruiser" },
+        { "HOF": "cable-pipe-layer", "IMS": "BoatType.CablePipelayer" },
+        { "HOF": "catamaran-multihulled", "IMS": "BoatType.Catamaran_multi" },
+        { "HOF": "containership", "IMS": "BoatType.Containership" },
+        { "HOF": "cruise-ship", "IMS": "BoatType.Cruise_ship" },
+        { "HOF": "dayboat", "IMS": "BoatType.Dayboat" },
+        { "HOF": "dinghy", "IMS": "BoatType.Dinghy" },
+        { "HOF": "ferry", "IMS": "BoatType.Ferry" },
+        { "HOF": "fishing-boat", "IMS": "BoatType.Fishing_boat" },
+        { "HOF": "ketch", "IMS": "BoatType.Ketch" },
+        { "HOF": "reefer", "IMS": "BoatType.Reefer" },
+        { "HOF": "rhib", "IMS": "BoatType.Rhib" },
+        { "HOF": "tanker", "IMS": "BoatType.Tanker" },
+        { "HOF": "tug", "IMS": "BoatType.Tug" },
+        { "HOF": "yacht", "IMS": "BoatType.Yacht" },
+        { "HOF": "general-cargo", "IMS": "BoatType.General_Cargo" },
+        { "HOF": "general-cargo-with-container-capacity", "IMS": "BoatType.GeneralCargoCon" },
+        { "HOF": "research-vessel", "IMS": "BoatType.ResearchVessel" },
+        { "HOF": "supply-vessel", "IMS": "BoatType.Supplyvessel" },
+        { "HOF": "support-vessel", "IMS": "BoatType.Support vessel" },
+        { "HOF": "male", "IMS": "Male" },
+        { "HOF": "female", "IMS": "Female" },
+        { "HOF": "other", "IMS": "Other" },
+        { "HOF": "gender-unknown", "IMS": "DontKnow" },
+        { "HOF": "prefer-not-to-say", "IMS": "Prefer not to say" },
+        { "HOF": "uk", "IMS": "IntheUK" },
+        { "HOF": "outside-uk", "IMS": "OutsidetheUK" },
+        { "HOF": "travel-to-uk", "IMS": "TravellingtotheUK" },
+        { "HOF": "location-unknown", "IMS": "DontKnow" },
+        { "HOF": "home", "IMS": "HomeAddress" },
+        { "HOF": "relative", "IMS": "RelativesAddress" },
+        { "HOF": "work", "IMS": "WorkAddress" },
+        { "HOF": "uk-border-agency", "IMS": "GovtDept.HOMEOFFICE" },
+        { "HOF": "border-force", "IMS": "GovtDept.BorderForce" },
+        { "HOF": "hmrc", "IMS": "GovtDept.HMRC" },
+        { "HOF": "dwp", "IMS": "GovtDept.DWP" },
+        { "HOF": "other", "IMS": "Other" },
+        { "HOF": "74+", "IMS": "75+" },
+        { "HOF": "happening-now", "IMS": "Happening Now" },
+        { "HOF": "ongoing", "IMS": "Ongoing" },
+        { "HOF": "already-happened", "IMS": "Already Happened" },
+        { "HOF": "not-yet-happened", "IMS": "Not yet happened" },
+        { "HOF": "dont-know-when-it-happend", "IMS": "DontKnow" },
+        { "HOF": "next-twenty-four-hours", "IMS": "Inthenext24hours" },
+        { "HOF": "more-than-twenty-four-hours", "IMS": "Datemorethan24hoursinthefuture" },
+        { "HOF": "when-will-crime-happen-unknown", "IMS": "Idontknow" },
+        { "HOF": "freight-cargo", "IMS": "Freight or cargo" },
+        { "HOF": "express-mail-courier", "IMS": "Express mail or courier" },
+        { "HOF": "post", "IMS": "Post" },
+        { "HOF": "company-building-construction", "IMS": "CompanyType.BuildingConstru" },
+        { "HOF": "company-care-home", "IMS": "CompanyType.CareAssistant" },
+        { "HOF": "company-catering-and-hospitality", "IMS": "CompanyType.CateringandHospita" },
+        { "HOF": "company-child-care-nursery", "IMS": "CompanyType.ChildcareNurser" },
+        { "HOF": "company-cleaning", "IMS": "CompanyType.Cleaning" },
+        { "HOF": "company-engineering", "IMS": "CompanyType.Engineering" },
+        { "HOF": "company-english-language-college", "IMS": "CompanyType.EnglishLanguageCollege" },
+        { "HOF": "company-factory", "IMS": "CompanyType.Factory" },
+        { "HOF": "company-farming-forestry-and-fishing", "IMS": "CompanyType.FarmingForestry" },
+        { "HOF": "company-freight-agent", "IMS": "CompanyType.FreightAgent" },
+        { "HOF": "company-government", "IMS": "CompanyType.Governmen" },
+        { "HOF": "company-hairdressing-beauty-therapy", "IMS": "CompanyType.HairdressingBea" },
+        { "HOF": "company-haulage", "IMS": "CompanyType.Haulage" },
+        { "HOF": "company-information-technology", "IMS": "CompanyType.InformationTech" },
+        { "HOF": "company-sales-retail", "IMS": "CompanyType.Salesandretail" },
+        { "HOF": "company-school-college-university", "IMS": "CompanyType.SchoolCollegeUn" },
+        { "HOF": "company-security", "IMS": "CompanyType.Security" },
+        { "HOF": "company-self-store", "IMS": "CompanyType.SelfStore" },
+        { "HOF": "company-taxi-minicab-chauffeur", "IMS": "CompanyType.TaxiMinicabChau" },
+        { "HOF": "company-travel-operator-agent", "IMS": "CompanyType.TravelOperatorAgent" },
+        { "HOF": "company-vehicle-rental", "IMS": "CompanyType.VehicleRental" },
+        { "HOF": "company-warehouse", "IMS": "CompanyType.Warehouse" },
+        { "HOF": "company-other", "IMS": "CompanyType.Other" },
+        { "HOF": "company-unknown", "IMS": "CompanyType.dontknow" },
+        { "HOF": "Arriva Trains Wales", "IMS": "TrainCompany.Arriva" },
+        { "HOF": "c2c", "IMS": "TrainCompany.c2c" },
+        { "HOF": "Chiltern Railways", "IMS": "TrainCompany.Chiltern" },
+        { "HOF": "CrossCountry", "IMS": "TrainCompany.CrossCountry" },
+        { "HOF": "East Coast", "IMS": "TrainCompany.EastCoast" },
+        { "HOF": "East Midlands Trains", "IMS": "TrainCompany.EastMidlands" },
+        { "HOF": "Eurostar", "IMS": "TrainCompany.Eurostar" },
+        { "HOF": "First Capital Connect", "IMS": "TrainCompany.FirstCapital" },
+        { "HOF": "First Great Western", "IMS": "TrainCompany.FirstGreat" },
+        { "HOF": "First Hull Trains", "IMS": "TrainCompany.FirstHull" },
+        { "HOF": "First TransPennine Express", "IMS": "TrainCompany.FirstTransPenni" },
+        { "HOF": "Gatwick Express", "IMS": "TrainCompany.GatwickExpress" },
+        { "HOF": "Grand Central", "IMS": "TrainCompany.GrandCentral" },
+        { "HOF": "Greater Anglia", "IMS": "TrainCompany.GreaterAnglia" },
+        { "HOF": "Heathrow Connect", "IMS": "TrainCompany.HeathrowConnect" },
+        { "HOF": "Heathrow Express", "IMS": "TrainCompany.HeathrowExpress" },
+        { "HOF": "Island Line", "IMS": "TrainCompany.IslandLine" },
+        { "HOF": "London Midland", "IMS": "TrainCompany.LondonMidland" },
+        { "HOF": "London Overground", "IMS": "TrainCompany.LondonOvergroun" },
+        { "HOF": "London Underground", "IMS": "TrainCompany.LondonUndergrou" },
+        { "HOF": "Merseyrail", "IMS": "TrainCompany.Merseyrail" },
+        { "HOF": "Northern Rail", "IMS": "TrainCompany.NorthernRail" },
+        { "HOF": "ScotRail", "IMS": "TrainCompany.ScotRail" },
+        { "HOF": "South West Trains", "IMS": "TrainCompany.SouthWestTrains" },
+        { "HOF": "Southeastern", "IMS": "TrainCompany.SouthEastern" },
+        { "HOF": "Southern", "IMS": "TrainCompany.Southern" },
+        { "HOF": "Stansted Express", "IMS": "TrainCompany.StanstedExpress" },
+        { "HOF": "Virgin Trains", "IMS": "TrainCompany.VirginTrains" },
+        { "HOF": "job-building-construction", "IMS": "JobType.Building" },
+        { "HOF": "job-care-assistant", "IMS": "JobType.Care" },
+        { "HOF": "job-catering-and-hospitality", "IMS": "JobType.Catering" },
+        { "HOF": "job-childcare", "IMS": "JobType.Childcare" },
+        { "HOF": "job-cleaner", "IMS": "JobType.Cleaner" },
+        { "HOF": "job-doctor-nurse-paramedic", "IMS": "JobType.DoctorNurse" },
+        { "HOF": "job-domestic-worker", "IMS": "JobType.Domestic" },
+        { "HOF": "job-driver", "IMS": "JobType.Driver" },
+        { "HOF": "job-engineering", "IMS": "JobType.Engineering" },
+        { "HOF": "job-english-language-college", "IMS": "JobType.EnglishLanguageCollege" },
+        { "HOF": "job-factory-worker", "IMS": "JobType.Factoryworker" },
+        { "HOF": "job-farming-forestry-and-fishing", "IMS": "JobType.Agriculture" },
+        { "HOF": "job-freight-agent", "IMS": "JobType.FreightAgent" },
+        { "HOF": "job-government-employee", "IMS": "JobType.GovernmentEmplo" },
+        { "HOF": "job-hairdressing-beauty-therapy", "IMS": "JobType.HairdressingBea" },
+        { "HOF": "job-haulage", "IMS": "JobType.Haulage" },
+        { "HOF": "job-information-technology-IT", "IMS": "JobType.IT" },
+        { "HOF": "job-office-work", "IMS": "JobType.OfficeWork" },
+        { "HOF": "job-port-airport-worker", "IMS": "JobType.PortAirport" },
+        { "HOF": "job-sales-and-retail", "IMS": "JobType.Salesretail" },
+        { "HOF": "job-school-college-university", "IMS": "JobType.SchoolCollegeUniversity" },
+        { "HOF": "job-security", "IMS": "JobType.Security" },
+        { "HOF": "job-self-employed", "IMS": "JobType.SelfEmployed" },
+        { "HOF": "job-teacher-lecturer", "IMS": "JobType.TeacherLecturer" },
+        { "HOF": "job-self-store", "IMS": "JobType.SelfStore" },
+        { "HOF": "job-taxi-minicab-chauffeur", "IMS": "JobType.TaxiMinicabChauffeur" },
+        { "HOF": "job-travel-operator-agent", "IMS": "JobType.TravelOperatorAgent" },
+        { "HOF": "job-vehicle-rental", "IMS": "JobType.VehicleRental" },
+        { "HOF": "job-warehouse", "IMS": "JobType.Warehouse" },
+        { "HOF": "job-other", "IMS": "JobType.Other" },
+        { "HOF": "job-unknown", "IMS": "JobType.DontKnow" },
+        { "HOF": "Nationality-United Kingdom", "IMS": "NatList.GBR" },
+        { "HOF": "Nationality-Afghanistan", "IMS": "NatList.AFG" },
+        { "HOF": "Nationality-Albania", "IMS": "NatList.ALB" },
+        { "HOF": "Nationality-Algeria", "IMS": "NatList.DZA" },
+        { "HOF": "Nationality-Andorra", "IMS": "NatList.AND" },
+        { "HOF": "Nationality-Angola", "IMS": "NatList.AGO" },
+        { "HOF": "Nationality-Anguilla", "IMS": "NatList.AIA" },
+        { "HOF": "Nationality-Antigua and Barbuda", "IMS": "NatList.ATG" },
+        { "HOF": "Nationality-Argentina", "IMS": "NatList.ARG" },
+        { "HOF": "Nationality-Armenia", "IMS": "NatList.ARM" },
+        { "HOF": "Nationality-Australia", "IMS": "NatList.AUS" },
+        { "HOF": "Nationality-Austria", "IMS": "NatList.AUT" },
+        { "HOF": "Nationality-Azerbaijan", "IMS": "NatList.AZE" },
+        { "HOF": "Nationality-Bahamas", "IMS": "NatList.BHS" },
+        { "HOF": "Nationality-Bahrain", "IMS": "NatList.BHR" },
+        { "HOF": "Nationality-Bangladesh", "IMS": "NatList.BGD" },
+        { "HOF": "Nationality-Barbados", "IMS": "NatList.BRB" },
+        { "HOF": "Nationality-Belarus", "IMS": "NatList.BLR" },
+        { "HOF": "Nationality-Belgium", "IMS": "NatList.BEL" },
+        { "HOF": "Nationality-Belize", "IMS": "NatList.BLZ" },
+        { "HOF": "Nationality-Benin", "IMS": "NatList.BEN" },
+        { "HOF": "Nationality-Bermuda", "IMS": "NatList.BMU" },
+        { "HOF": "Nationality-Bhutan", "IMS": "NatList.BTN" },
+        { "HOF": "Nationality-Bolivia", "IMS": "NatList.BOL" },
+        { "HOF": "Nationality-Bosnia and Herzegovina", "IMS": "NatList.BIH" },
+        { "HOF": "Nationality-Botswana", "IMS": "NatList.BWA" },
+        { "HOF": "Nationality-Brazil", "IMS": "NatList.BRA" },
+        { "HOF": "Nationality-British Indian Ocean Territory", "IMS": "NatList.IOT" },
+        { "HOF": "Nationality-British National (Overseas)", "IMS": "NatList.GBN" },
+        { "HOF": "Nationality-British Overseas Citizen", "IMS": "NatList.GBO" },
+        { "HOF": "Nationality-British Overseas Territories Citizenship (BOTC)", "IMS": "NatList.GBD" },
+        { "HOF": "Nationality-British Protected Person", "IMS": "NatList.GBP" },
+        { "HOF": "Nationality-British Subject", "IMS": "NatList.GBS" },
+        { "HOF": "Nationality-Brunei Darussalam", "IMS": "NatList.BRN" },
+        { "HOF": "Nationality-Bulgaria", "IMS": "NatList.BGR" },
+        { "HOF": "Nationality-Burkina Faso", "IMS": "NatList.BFA" },
+        { "HOF": "Nationality-Burma", "IMS": "NatList.BUR" },
+        { "HOF": "Nationality-Burundi", "IMS": "NatList.BDI" },
+        { "HOF": "Nationality-Byelorussian SSR", "IMS": "NatList.BYS" },
+        { "HOF": "Nationality-Cambodia", "IMS": "NatList.KHM" },
+        { "HOF": "Nationality-Cameroon", "IMS": "NatList.CMR" },
+        { "HOF": "Nationality-Canada", "IMS": "NatList.CAN" },
+        { "HOF": "Nationality-Cape Verde", "IMS": "NatList.CPV" },
+        { "HOF": "Nationality-Cayman Islands", "IMS": "NatList.CYM" },
+        { "HOF": "Nationality-Central African Republic", "IMS": "NatList.CAF" },
+        { "HOF": "Nationality-Chad", "IMS": "NatList.TCD" },
+        { "HOF": "Nationality-Chile", "IMS": "NatList.CHL" },
+        { "HOF": "Nationality-China", "IMS": "NatList.CHN" },
+        { "HOF": "Nationality-Colombia", "IMS": "NatList.COL" },
+        { "HOF": "Nationality-Comoros", "IMS": "NatList.COM" },
+        { "HOF": "Nationality-Congo", "IMS": "NatList.CON" },
+        { "HOF": "Nationality-Costa Rica", "IMS": "NatList.CRI" },
+        { "HOF": "Nationality-Cote D'Ivoire (Ivory Coast)", "IMS": "NatList.CIV" },
+        { "HOF": "Nationality-Croatia", "IMS": "NatList.HRV" },
+        { "HOF": "Nationality-Cuba", "IMS": "NatList.CUB" },
+        { "HOF": "Nationality-Curacao", "IMS": "NatList.CUW" },
+        { "HOF": "Nationality-Cyprus", "IMS": "NatList.CYP" },
+        { "HOF": "Nationality-Czech Republic", "IMS": "NatList.CZE" },
+        { "HOF": "Nationality-Czechoslavakia", "IMS": "NatList.CSK" },
+        { "HOF": "Nationality-Democratic People's Republic of Korea", "IMS": "NatList.PRK" },
+        { "HOF": "Nationality-Democratic Republic of the Congo", "IMS": "NatList.COD" },
+        { "HOF": "Nationality-Denmark", "IMS": "NatList.DNK" },
+        { "HOF": "Nationality-Djibouti", "IMS": "NatList.DJI" },
+        { "HOF": "Nationality-Dominica", "IMS": "NatList.DMA" },
+        { "HOF": "Nationality-Dominican Republic", "IMS": "NatList.DOM" },
+        { "HOF": "Nationality-East Timor", "IMS": "NatList.TMP" },
+        { "HOF": "Nationality-Ecuador", "IMS": "NatList.ECU" },
+        { "HOF": "Nationality-Egypt", "IMS": "NatList.EGY" },
+        { "HOF": "Nationality-El Salvador", "IMS": "NatList.SLV" },
+        { "HOF": "Nationality-Equatorial Guinea", "IMS": "NatList.GNQ" },
+        { "HOF": "Nationality-Eritrea", "IMS": "NatList.ERI" },
+        { "HOF": "Nationality-Estonia", "IMS": "NatList.EST" },
+        { "HOF": "Nationality-Ethiopia", "IMS": "NatList.ETH" },
+        { "HOF": "Nationality-Fiji", "IMS": "NatList.FJI" },
+        { "HOF": "Nationality-Finland", "IMS": "NatList.FIN" },
+        { "HOF": "Nationality-France", "IMS": "NatList.FRA" },
+        { "HOF": "Nationality-Gabon", "IMS": "NatList.GAB" },
+        { "HOF": "Nationality-Gambia", "IMS": "NatList.GMB" },
+        { "HOF": "Nationality-Georgia", "IMS": "NatList.GEO" },
+        { "HOF": "Nationality-Germany", "IMS": "NatList.DEU" },
+        { "HOF": "Nationality-Ghana", "IMS": "NatList.GHA" },
+        { "HOF": "Nationality-Gibraltar", "IMS": "NatList.GIB" },
+        { "HOF": "Nationality-Greece", "IMS": "NatList.GRC" },
+        { "HOF": "Nationality-Greenland", "IMS": "NatList.GRL" },
+        { "HOF": "Nationality-Grenada", "IMS": "NatList.GRD" },
+        { "HOF": "Nationality-Guadeloupe", "IMS": "NatList.GLP" },
+        { "HOF": "Nationality-Guatemala", "IMS": "NatList.GTM" },
+        { "HOF": "Nationality-Guinea", "IMS": "NatList.GIN" },
+        { "HOF": "Nationality-Guinea-Bissau", "IMS": "NatList.GNB" },
+        { "HOF": "Nationality-Guyana", "IMS": "NatList.GUY" },
+        { "HOF": "Nationality-Haiti", "IMS": "NatList.HTI" },
+        { "HOF": "Nationality-Holy See (Vatican City State)", "IMS": "NatList.VTN" },
+        { "HOF": "Nationality-Honduras", "IMS": "NatList.HND" },
+        { "HOF": "Nationality-Hong Kong Special Administrative Region of China", "IMS": "NatList.HKG" },
+        { "HOF": "Nationality-Hungary", "IMS": "NatList.HUN" },
+        { "HOF": "Nationality-Iceland", "IMS": "NatList.ISL" },
+        { "HOF": "Nationality-India", "IMS": "NatList.IND" },
+        { "HOF": "Nationality-Indonesia", "IMS": "NatList.IDN" },
+        { "HOF": "Nationality-Iran, Islamic Republic of", "IMS": "NatList.IRN" },
+        { "HOF": "Nationality-Iraq", "IMS": "NatList.IRQ" },
+        { "HOF": "Nationality-Ireland", "IMS": "NatList.IRL" },
+        { "HOF": "Nationality-Israel", "IMS": "NatList.ISR" },
+        { "HOF": "Nationality-Italy", "IMS": "NatList.ITA" },
+        { "HOF": "Nationality-Jamaica", "IMS": "NatList.JAM" },
+        { "HOF": "Nationality-Japan", "IMS": "NatList.JPN" },
+        { "HOF": "Nationality-Jordan", "IMS": "NatList.JOR" },
+        { "HOF": "Nationality-Kazakhstan", "IMS": "NatList.KAZ" },
+        { "HOF": "Nationality-Kenya", "IMS": "NatList.KEN" },
+        { "HOF": "Nationality-Kiribati", "IMS": "NatList.KIR" },
+        { "HOF": "Nationality-Kosovo (UN Travel Document)", "IMS": "NatList.UNK" },
+        { "HOF": "Nationality-Kosovo", "IMS": "NatList.XXK" },
+        { "HOF": "Nationality-Kuwait", "IMS": "NatList.KWT" },
+        { "HOF": "Nationality-Kyrgyzstan", "IMS": "NatList.KGZ" },
+        { "HOF": "Nationality-Lao People's Democratic Republic", "IMS": "NatList.LAO" },
+        { "HOF": "Nationality-Latvia", "IMS": "NatList.LVA" },
+        { "HOF": "Nationality-Lebanon", "IMS": "NatList.LBN" },
+        { "HOF": "Nationality-Lesotho", "IMS": "NatList.LSO" },
+        { "HOF": "Nationality-Liberia", "IMS": "NatList.LBR" },
+        { "HOF": "Nationality-Libya", "IMS": "NatList.LBY2" },
+        { "HOF": "Nationality-Liechtenstein", "IMS": "NatList.LIE" },
+        { "HOF": "Nationality-Lithuania", "IMS": "NatList.LTU" },
+        { "HOF": "Nationality-Luxembourg", "IMS": "NatList.LUX" },
+        { "HOF": "Nationality-Macedonia, The Former Yugoslav Republic Of", "IMS": "NatList.MKD" },
+        { "HOF": "Nationality-Madagascar", "IMS": "NatList.MDG" },
+        { "HOF": "Nationality-Malawi", "IMS": "NatList.MWI" },
+        { "HOF": "Nationality-Malaysia", "IMS": "NatList.MYS" },
+        { "HOF": "Nationality-Maldives", "IMS": "NatList.MDV" },
+        { "HOF": "Nationality-Mali", "IMS": "NatList.MLI" },
+        { "HOF": "Nationality-Malta", "IMS": "NatList.MLT" },
+        { "HOF": "Nationality-Marshall Islands", "IMS": "NatList.MHL" },
+        { "HOF": "Nationality-Mauritania", "IMS": "NatList.MRT" },
+        { "HOF": "Nationality-Mauritius", "IMS": "NatList.MUS" },
+        { "HOF": "Nationality-Mexico", "IMS": "NatList.MEX" },
+        { "HOF": "Nationality-Micronesia (Federated States of)", "IMS": "NatList.FSM" },
+        { "HOF": "Nationality-Moldova, Republic of", "IMS": "NatList.MDA" },
+        { "HOF": "Nationality-Monaco", "IMS": "NatList.MCO" },
+        { "HOF": "Nationality-Mongolia", "IMS": "NatList.MNG" },
+        { "HOF": "Nationality-Montenegro", "IMS": "NatList.MNE" },
+        { "HOF": "Nationality-Montserrat", "IMS": "NatList.MSR" },
+        { "HOF": "Nationality-Morocco", "IMS": "NatList.MAR" },
+        { "HOF": "Nationality-Mozambique", "IMS": "NatList.MOZ" },
+        { "HOF": "Nationality-Namibia", "IMS": "NatList.NAM" },
+        { "HOF": "Nationality-Nationality Currently Unknown", "IMS": "NatList.ZZZ" },
+        { "HOF": "Nationality-Nauru", "IMS": "NatList.NRU" },
+        { "HOF": "Nationality-Nepal", "IMS": "NatList.NPL" },
+        { "HOF": "Nationality-Netherlands", "IMS": "NatList.NLD" },
+        { "HOF": "Nationality-Netherlands Antilles", "IMS": "NatList.ANT" },
+        { "HOF": "Nationality-New Zealand", "IMS": "NatList.NZL" },
+        { "HOF": "Nationality-Nicaragua", "IMS": "NatList.NIC" },
+        { "HOF": "Nationality-Niger", "IMS": "NatList.NER" },
+        { "HOF": "Nationality-Nigeria", "IMS": "NatList.NGA" },
+        { "HOF": "Nationality-Niue", "IMS": "NatList.NIU" },
+        { "HOF": "Nationality-Norway", "IMS": "NatList.NOR" },
+        { "HOF": "Nationality-Officially Stateless", "IMS": "NatList.XYZ" },
+        { "HOF": "Nationality-Oman", "IMS": "NatList.OMN" },
+        { "HOF": "Nationality-Pacific Islands, Trust Territory of the", "IMS": "NatList.PCI" },
+        { "HOF": "Nationality-Pakistan", "IMS": "NatList.PAK" },
+        { "HOF": "Nationality-Palestinian Territory Occupied", "IMS": "NatList.PSE" },
+        { "HOF": "Nationality-Panama", "IMS": "NatList.PAN" },
+        { "HOF": "Nationality-Papua New Guinea", "IMS": "NatList.PNG" },
+        { "HOF": "Nationality-Paraguay", "IMS": "NatList.PRY" },
+        { "HOF": "Nationality-Peru", "IMS": "NatList.PER" },
+        { "HOF": "Nationality-Philippines", "IMS": "NatList.PHL" },
+        { "HOF": "Nationality-Polish", "IMS": "NatList.POL" },
+        { "HOF": "Nationality-Portugal", "IMS": "NatList.PRT" },
+        { "HOF": "Nationality-Qatar", "IMS": "NatList.QAT" },
+        { "HOF": "Nationality-Refugee - Article 1 of the 1951 Convention", "IMS": "NatList.XXB" },
+        { "HOF": "Nationality-Refugee - Other", "IMS": "NatList.XXC" },
+        { "HOF": "Nationality-Romania", "IMS": "NatList.ROU" },
+        { "HOF": "Nationality-Russian Federation", "IMS": "NatList.RUS" },
+        { "HOF": "Nationality-Rwanda", "IMS": "NatList.RWA" },
+        { "HOF": "Nationality-Samoa", "IMS": "NatList.WSM" },
+        { "HOF": "Nationality-San Marino", "IMS": "NatList.SMR" },
+        { "HOF": "Nationality-Sao Tome and Principe", "IMS": "NatList.STP" },
+        { "HOF": "Nationality-Saudi Arabia", "IMS": "NatList.SAU" },
+        { "HOF": "Nationality-Senegal", "IMS": "NatList.SEN" },
+        { "HOF": "Nationality-Serbia", "IMS": "NatList.SRB" },
+        { "HOF": "Nationality-Serbia and Montenegro", "IMS": "NatList.SCG" },
+        { "HOF": "Nationality-Seychelles", "IMS": "NatList.SYC" },
+        { "HOF": "Nationality-Sierra Leone", "IMS": "NatList.SLE" },
+        { "HOF": "Nationality-Sikkim", "IMS": "NatList.SKP" },
+        { "HOF": "Nationality-Singapore", "IMS": "NatList.SGP" },
+        { "HOF": "Nationality-Slovakia", "IMS": "NatList.SVK" },
+        { "HOF": "Nationality-Slovenia", "IMS": "NatList.SVN" },
+        { "HOF": "Nationality-Solomon Islands", "IMS": "NatList.SLB" },
+        { "HOF": "Nationality-Somalia", "IMS": "NatList.SOM" },
+        { "HOF": "Nationality-South Africa", "IMS": "NatList.ZAF" },
+        { "HOF": "Nationality-South Georgia and the South Sandwich Islands", "IMS": "NatList.SGS" },
+        { "HOF": "Nationality-South Korea (Republic of Korea)", "IMS": "NatList.KOR" },
+        { "HOF": "Nationality-South Sudan", "IMS": "NatList.SSD" },
+        { "HOF": "Nationality-Spain", "IMS": "NatList.ESP" },
+        { "HOF": "Nationality-Sri Lanka", "IMS": "NatList.LKA" },
+        { "HOF": "Nationality-Stateless Person (Article 1 of 1954 Convention)", "IMS": "NatList.XXA" },
+        { "HOF": "Nationality-Sudan", "IMS": "NatList.SDN" },
+        { "HOF": "Nationality-Suriname", "IMS": "NatList.SUR" },
+        { "HOF": "Nationality-Swaziland", "IMS": "NatList.SWZ" },
+        { "HOF": "Nationality-Sweden", "IMS": "NatList.SWE" },
+        { "HOF": "Nationality-Switzerland", "IMS": "NatList.CHE" },
+        { "HOF": "Nationality-Syria Arab Republic", "IMS": "NatList.SYR" },
+        { "HOF": "Nationality-Taiwan", "IMS": "NatList.TWN" },
+        { "HOF": "Nationality-Tajikistan", "IMS": "NatList.TJK" },
+        { "HOF": "Nationality-Tanzania, United Republic of", "IMS": "NatList.TZA" },
+        { "HOF": "Nationality-Thailand", "IMS": "NatList.THA" },
+        { "HOF": "Nationality-Togo", "IMS": "NatList.TGO" },
+        { "HOF": "Nationality-Tokelau", "IMS": "NatList.TKL" },
+        { "HOF": "Nationality-Tonga", "IMS": "NatList.TON" },
+        { "HOF": "Nationality-Trinidad and Tobago", "IMS": "NatList.TTO" },
+        { "HOF": "Nationality-Tunisia", "IMS": "NatList.TUN" },
+        { "HOF": "Nationality-Turkey", "IMS": "NatList.TUR" },
+        { "HOF": "Nationality-Turkish controlled area of Cyprus", "IMS": "NatList.XXT" },
+        { "HOF": "Nationality-Turkmenistan", "IMS": "NatList.TKM" },
+        { "HOF": "Nationality-Turks and Caicos Islands", "IMS": "NatList.TCA" },
+        { "HOF": "Nationality-Tuvalu", "IMS": "NatList.TUV" },
+        { "HOF": "Nationality-Uganda", "IMS": "NatList.UGA" },
+        { "HOF": "Nationality-Ukraine", "IMS": "NatList.UKR" },
+        { "HOF": "Nationality-United Arab Emirates", "IMS": "NatList.ARE" },
+        { "HOF": "Nationality-United Nations", "IMS": "NatList.UNO" },
+        { "HOF": "Nationality-United Nations Agency", "IMS": "NatList.UNA" },
+        { "HOF": "Nationality-United States of America", "IMS": "NatList.USA" },
+        { "HOF": "Nationality-Unspecified Nationality", "IMS": "NatList.XXX" },
+        { "HOF": "Nationality-Upper Volta", "IMS": "NatList.HVO" },
+        { "HOF": "Nationality-Uruguay", "IMS": "NatList.URY" },
+        { "HOF": "Nationality-Uzbekistan", "IMS": "NatList.UZB" },
+        { "HOF": "Nationality-Vanuatu", "IMS": "NatList.VUT" },
+        { "HOF": "Nationality-Venezuela", "IMS": "NatList.VEN" },
+        { "HOF": "Nationality-Vietnam", "IMS": "NatList.VNM" },
+        { "HOF": "Nationality-Yemen", "IMS": "NatList.YEM" },
+        { "HOF": "Nationality-Yugoslavia", "IMS": "NatList.YUG" },
+        { "HOF": "Nationality-Zaire", "IMS": "NatList.ZAR" },
+        { "HOF": "Nationality-Zambia", "IMS": "NatList.ZMB" },
+        { "HOF": "Nationality-Zimbabwe", "IMS": "NatList.ZWE" },
+        { "HOF": "Nationality-Unknown", "IMS": "NatList.UKN" },
+        { "HOF": "Nationality-I Dont Know", "IMS": "NatList.DontKnow" },
+        { "HOF": "Nationality-Saint Barthelemy", "IMS": "NatList.BLM" },
+        { "HOF": "Nationality-Saint Helena, Ascension and Tristan da Cunha", "IMS": "NatList.SHN" },
+        { "HOF": "Nationality-Saint Kitts and Nevis", "IMS": "NatList.KNA" },
+        { "HOF": "Nationality-Saint Lucia", "IMS": "NatList.LCA" },
+        { "HOF": "Nationality-Saint Martin", "IMS": "NatList.MAK" },
+        { "HOF": "Nationality-Saint Pierre and Miquelon", "IMS": "NatList.SPM" },
+        { "HOF": "Nationality-Saint Vincent and the Grenadines", "IMS": "NatList.VCT" },
+        { "HOF": "Afghanistan", "IMS": "CountryList.AFG" },
+        { "HOF": "Aland Islands", "IMS": "CountryList.ALA" },
+        { "HOF": "Albania", "IMS": "CountryList.ALB" },
+        { "HOF": "Algeria", "IMS": "CountryList.DZA" },
+        { "HOF": "American Samoa", "IMS": "CountryList.ASM" },
+        { "HOF": "Andorra", "IMS": "CountryList.AND" },
+        { "HOF": "Angola", "IMS": "CountryList.AGO" },
+        { "HOF": "Anguilla", "IMS": "CountryList.AIA" },
+        { "HOF": "Antarctica", "IMS": "CountryList.ATA" },
+        { "HOF": "Antigua and Barbuda", "IMS": "CountryList.ATG" },
+        { "HOF": "Argentina", "IMS": "CountryList.ARG" },
+        { "HOF": "Armenia", "IMS": "CountryList.ARM" },
+        { "HOF": "Aruba", "IMS": "CountryList.ABW" },
+        { "HOF": "Australia", "IMS": "CountryList.AUS" },
+        { "HOF": "Austria", "IMS": "CountryList.AUT" },
+        { "HOF": "Azerbaijan", "IMS": "CountryList.AZE" },
+        { "HOF": "Bahamas", "IMS": "CountryList.BHS" },
+        { "HOF": "Bahrain", "IMS": "CountryList.BHR" },
+        { "HOF": "Bangladesh", "IMS": "CountryList.BGD" },
+        { "HOF": "Barbados", "IMS": "CountryList.BRB" },
+        { "HOF": "Belarus", "IMS": "CountryList.BLR" },
+        { "HOF": "Belgium", "IMS": "CountryList.BEL" },
+        { "HOF": "Belize", "IMS": "CountryList.BLZ" },
+        { "HOF": "Benin", "IMS": "CountryList.BEN" },
+        { "HOF": "Bermuda", "IMS": "CountryList.BMU" },
+        { "HOF": "Bhutan", "IMS": "CountryList.BTN" },
+        { "HOF": "Bolivia", "IMS": "CountryList.BOL" },
+        { "HOF": "Bonaire, Sint Eustatius and Saba", "IMS": "CountryList.BES" },
+        { "HOF": "Bosnia and Herzegovina", "IMS": "CountryList.BIH" },
+        { "HOF": "Botswana", "IMS": "CountryList.BWA" },
+        { "HOF": "Bouvet Island", "IMS": "CountryList.BVT" },
+        { "HOF": "Brazil", "IMS": "CountryList.BRA" },
+        { "HOF": "British Antarctic Territory", "IMS": "CountryList.ATB" },
+        { "HOF": "British Indian Ocean Territory", "IMS": "CountryList.IOT" },
+        { "HOF": "Brunei Darussalam", "IMS": "CountryList.BRN" },
+        { "HOF": "Bulgaria", "IMS": "CountryList.BGR" },
+        { "HOF": "Burkina Faso", "IMS": "CountryList.BFA" },
+        { "HOF": "Burma", "IMS": "CountryList.BUR" },
+        { "HOF": "Burundi", "IMS": "CountryList.BDI" },
+        { "HOF": "Byelorussian SSR", "IMS": "CountryList.BYS" },
+        { "HOF": "Cambodia", "IMS": "CountryList.CHM" },
+        { "HOF": "Cameroon", "IMS": "CountryList.CMR" },
+        { "HOF": "Canada", "IMS": "CountryList.CAN" },
+        { "HOF": "Canton and Enderbury Islands", "IMS": "CountryList.CTE" },
+        { "HOF": "Cape Verde", "IMS": "CountryList.CPV" },
+        { "HOF": "Cayman Islands", "IMS": "CountryList.CYM" },
+        { "HOF": "Central African Republic", "IMS": "CountryList.CFA" },
+        { "HOF": "Chad", "IMS": "CountryList.CTD" },
+        { "HOF": "Chile", "IMS": "CountryList.CHL" },
+        { "HOF": "China", "IMS": "CountryList.CHN" },
+        { "HOF": "Christmas Island", "IMS": "CountryList.CXR" },
+        { "HOF": "Cocos (Keeling) Islands", "IMS": "CountryList.CCK" },
+        { "HOF": "Colombia", "IMS": "CountryList.COL" },
+        { "HOF": "Comoros", "IMS": "CountryList.COM" },
+        { "HOF": "Congo", "IMS": "CountryList.COG" },
+        { "HOF": "Cook Islands", "IMS": "CountryList.COK" },
+        { "HOF": "Costa Rica", "IMS": "CountryList.CRI" },
+        { "HOF": "Cote D'Ivoire (Ivory Coast)", "IMS": "CountryList.CIV" },
+        { "HOF": "Croatia", "IMS": "CountryList.HRV" },
+        { "HOF": "Cuba", "IMS": "CountryList.CUB" },
+        { "HOF": "Curacao", "IMS": "CountryList.CUW" },
+        { "HOF": "Cyprus", "IMS": "CountryList.CYP" },
+        { "HOF": "Czech Republic", "IMS": "CountryList.CZE" },
+        { "HOF": "Czechoslavakia", "IMS": "CountryList.CSK" },
+        { "HOF": "Dahomey", "IMS": "CountryList.DHY" },
+        { "HOF": "Democratic People's Republic of Korea", "IMS": "CountryList.PRK" },
+        { "HOF": "Democratic Republic of the Congo", "IMS": "CountryList.COD" },
+        { "HOF": "Denmark", "IMS": "CountryList.DNK" },
+        { "HOF": "Djibouti", "IMS": "CountryList.DJI" },
+        { "HOF": "Dominica", "IMS": "CountryList.DMA" },
+        { "HOF": "Dominican Republic", "IMS": "CountryList.DOM" },
+        { "HOF": "Dronning Maud Land", "IMS": "CountryList.ATN" },
+        { "HOF": "East Timor", "IMS": "CountryList.TMP" },
+        { "HOF": "Ecuador", "IMS": "CountryList.ECU" },
+        { "HOF": "Egypt", "IMS": "CountryList.EGY" },
+        { "HOF": "El Salvador", "IMS": "CountryList.SLV" },
+        { "HOF": "Equatorial Guinea", "IMS": "CountryList.GNQ" },
+        { "HOF": "Eritrea", "IMS": "CountryList.ERI" },
+        { "HOF": "Estonia", "IMS": "CountryList.EST" },
+        { "HOF": "Ethiopia", "IMS": "CountryList.ETH" },
+        { "HOF": "Falkland Islands", "IMS": "CountryList.FLK" },
+        { "HOF": "Faroe Islands", "IMS": "CountryList.FRO" },
+        { "HOF": "Fiji", "IMS": "CountryList.FJI" },
+        { "HOF": "Finland", "IMS": "CountryList.FIN" },
+        { "HOF": "France", "IMS": "CountryList.FRA" },
+        { "HOF": "France, Metropolitan", "IMS": "CountryList.FXX" },
+        { "HOF": "French Afar and Issas", "IMS": "CountryList.AFI" },
+        { "HOF": "French Guiana", "IMS": "CountryList.GUF" },
+        { "HOF": "French Polynesia", "IMS": "CountryList.PYF" },
+        { "HOF": "French Southern and Antarctic Lands", "IMS": "CountryList.ATF" },
+        { "HOF": "French Southern Territories", "IMS": "CountryList.ATF2" },
+        { "HOF": "Gabon", "IMS": "CountryList.GAB" },
+        { "HOF": "Gambia", "IMS": "CountryList.GMB" },
+        { "HOF": "Georgia", "IMS": "CountryList.GEO" },
+        { "HOF": "German Democratic Republic", "IMS": "CountryList.DDR" },
+        { "HOF": "Germany", "IMS": "CountryList.DEU" },
+        { "HOF": "Ghana", "IMS": "CountryList.GHA" },
+        { "HOF": "Gibraltar", "IMS": "CountryList.GIB" },
+        { "HOF": "Gilbert and Ellice Islands", "IMS": "CountryList.GEL" },
+        { "HOF": "Greece", "IMS": "CountryList.GRC" },
+        { "HOF": "Greenland", "IMS": "CountryList.GRL" },
+        { "HOF": "Grenada", "IMS": "CountryList.GRD" },
+        { "HOF": "Guadeloupe", "IMS": "CountryList.GULP" },
+        { "HOF": "Guam", "IMS": "CountryList.GUM" },
+        { "HOF": "Guatemala", "IMS": "CountryList.GTM" },
+        { "HOF": "Guernsey", "IMS": "CountryList.GGY" },
+        { "HOF": "Guinea", "IMS": "CountryList.GIN" },
+        { "HOF": "Guinea-Bissau", "IMS": "CountryList.GNB" },
+        { "HOF": "Guyana", "IMS": "CountryList.GUY" },
+        { "HOF": "Haiti", "IMS": "CountryList.HTi" },
+        { "HOF": "Heard and McDonald Islands", "IMS": "CountryList.HMD" },
+        { "HOF": "Holy See (Vatican City State)", "IMS": "CountryList.VAT" },
+        { "HOF": "Honduras", "IMS": "CountryList.HND" },
+        { "HOF": "Hong Kong Special Administrative Region of China", "IMS": "CountryList.HKG" },
+        { "HOF": "Hungary", "IMS": "CountryList.HUN" },
+        { "HOF": "Iceland", "IMS": "CountryList.ISL" },
+        { "HOF": "India", "IMS": "CountryList.IND" },
+        { "HOF": "Indonesia", "IMS": "CountryList.IDN" },
+        { "HOF": "Iran, Islamic Republic of", "IMS": "CountryList.IRN" },
+        { "HOF": "Iraq", "IMS": "CountryList.IRQ" },
+        { "HOF": "Ireland", "IMS": "CountryList.IRL" },
+        { "HOF": "Isle of Man", "IMS": "CountryList.IMN" },
+        { "HOF": "Israel", "IMS": "CountryList.ISR" },
+        { "HOF": "Italy", "IMS": "CountryList.ITA" },
+        { "HOF": "Jamaica", "IMS": "CountryList.JAM" },
+        { "HOF": "Japan", "IMS": "CountryList.JPN" },
+        { "HOF": "Jersey", "IMS": "CountryList.JEY" },
+        { "HOF": "Johnston Island", "IMS": "CountryList.JTN" },
+        { "HOF": "Jordan", "IMS": "CountryList.JOR" },
+        { "HOF": "Kazakhstan", "IMS": "CountryList.KAZ" },
+        { "HOF": "Kenya", "IMS": "CountryList.KEN" },
+        { "HOF": "Kiribati", "IMS": "CountryList.KIR" },
+        { "HOF": "Kosovo", "IMS": "CountryList.XXK" },
+        { "HOF": "Kuwait", "IMS": "CountryList.KWT" },
+        { "HOF": "Kyrgyzstan", "IMS": "CountryList.KGZ" },
+        { "HOF": "Lao People's Democratic Republic", "IMS": "CountryList.LAO" },
+        { "HOF": "Latvia", "IMS": "CountryList.LVA" },
+        { "HOF": "Lebanon", "IMS": "CountryList.LBN" },
+        { "HOF": "Lesotho", "IMS": "CountryList.LSO" },
+        { "HOF": "Liberia", "IMS": "CountryList.LBR" },
+        { "HOF": "Libya Arab Jamahiriya", "IMS": "CountryList.LBY" },
+        { "HOF": "Libya", "IMS": "CountryList.LBY2" },
+        { "HOF": "Liechtenstein", "IMS": "CountryList.LIE" },
+        { "HOF": "Lithuania", "IMS": "CountryList.LTU" },
+        { "HOF": "Luxembourg", "IMS": "CountryList.LUX" },
+        { "HOF": "Macao", "IMS": "CountryList.MAC" },
+        { "HOF": "Macedonia, The Former Yugoslav Republic Of", "IMS": "CountryList.MKD" },
+        { "HOF": "Madagascar", "IMS": "CountryList.MDG" },
+        { "HOF": "Malawi", "IMS": "CountryList.MWI" },
+        { "HOF": "Malaysia", "IMS": "CountryList.MYS" },
+        { "HOF": "Maldives", "IMS": "CountryList.MDV" },
+        { "HOF": "Mali", "IMS": "CountryList.MLI" },
+        { "HOF": "Malta", "IMS": "CountryList.MLT" },
+        { "HOF": "Marshall Islands", "IMS": "CountryList.MHL" },
+        { "HOF": "Martinique", "IMS": "CountryList.MTQ" },
+        { "HOF": "Mauritania", "IMS": "CountryList.MRT" },
+        { "HOF": "Mauritius", "IMS": "CountryList.MUS" },
+        { "HOF": "Mayotte", "IMS": "CountryList.MYT" },
+        { "HOF": "Mexico", "IMS": "CountryList.MEX" },
+        { "HOF": "Micronesia (Federated States of)", "IMS": "CountryList.FSM" },
+        { "HOF": "Midway Islands", "IMS": "CountryList.MID" },
+        { "HOF": "Moldova, Republic of", "IMS": "CountryList.MDA" },
+        { "HOF": "Monaco", "IMS": "CountryList.MCO" },
+        { "HOF": "Mongolia", "IMS": "CountryList.MNG" },
+        { "HOF": "Montenegro", "IMS": "CountryList.MNE" },
+        { "HOF": "Montserrat", "IMS": "CountryList.MSR" },
+        { "HOF": "Morocco", "IMS": "CountryList.MAR" },
+        { "HOF": "Mozambique", "IMS": "CountryList.MOZ" },
+        { "HOF": "Myanmar", "IMS": "CountryList.MMR" },
+        { "HOF": "Namibia", "IMS": "CountryList.NAM" },
+        { "HOF": "Nauru", "IMS": "CountryList.NRU" },
+        { "HOF": "Nepal", "IMS": "CountryList.NPL" },
+        { "HOF": "Netherlands", "IMS": "CountryList.NLD" },
+        { "HOF": "Netherlands Antilles", "IMS": "CountryList.ANT" },
+        { "HOF": "Neutral Zone", "IMS": "CountryList.NTZ" },
+        { "HOF": "New Caledonia", "IMS": "CountryList.NCL" },
+        { "HOF": "New Hebrides", "IMS": "CountryList.NHB" },
+        { "HOF": "New Zealand", "IMS": "CountryList.NZL" },
+        { "HOF": "Nicaragua", "IMS": "CountryList.NIC" },
+        { "HOF": "Niger", "IMS": "CountryList.NER" },
+        { "HOF": "Nigeria", "IMS": "CountryList.NGA" },
+        { "HOF": "Niue", "IMS": "CountryList.NIU" },
+        { "HOF": "Norfolk Island", "IMS": "CountryList.NFK" },
+        { "HOF": "Northern Mariana Islands", "IMS": "CountryList.MNP" },
+        { "HOF": "Norway", "IMS": "CountryList.NOR" },
+        { "HOF": "Oman", "IMS": "CountryList.OMN" },
+        { "HOF": "Pacific Islands, Trust Territory of the", "IMS": "CountryList.PCI" },
+        { "HOF": "Pakistan", "IMS": "CountryList.PAK" },
+        { "HOF": "Palau", "IMS": "CountryList.PLW" },
+        { "HOF": "Palestinian Territory Occupied", "IMS": "CountryList.PSE" },
+        { "HOF": "Panama", "IMS": "CountryList.PAN" },
+        { "HOF": "Panama Canal Zone", "IMS": "CountryList.PCZ" },
+        { "HOF": "Papua New Guinea", "IMS": "CountryList.PNG" },
+        { "HOF": "Paraguay", "IMS": "CountryList.PRY" },
+        { "HOF": "Peru", "IMS": "CountryList.PER" },
+        { "HOF": "Philippines", "IMS": "CountryList.PHL" },
+        { "HOF": "Pitcairn", "IMS": "CountryList.PCN" },
+        { "HOF": "Poland", "IMS": "CountryList.POL" },
+        { "HOF": "Portugal", "IMS": "CountryList.PRT" },
+        { "HOF": "Puerto Rico", "IMS": "CountryList.PRI" },
+        { "HOF": "Qatar", "IMS": "CountryList.QAT" },
+        { "HOF": "Reunion", "IMS": "CountryList.REU" },
+        { "HOF": "Romania", "IMS": "CountryList.ROU" },
+        { "HOF": "Russian Federation", "IMS": "CountryList.RUS" },
+        { "HOF": "Rwanda", "IMS": "CountryList.RWA" },
+        { "HOF": "Saint Barthelemy", "IMS": "CountryList.BLM" },
+        { "HOF": "Saint Helena, Ascension and Tristan da Cunha", "IMS": "CountryList.SHN" },
+        { "HOF": "Saint Kitts and Nevis", "IMS": "CountryList.KNA" },
+        { "HOF": "Saint Lucia", "IMS": "CountryList.LCA" },
+        { "HOF": "Saint Martin", "IMS": "CountryList.MAF" },
+        { "HOF": "Saint Pierre and Miquelon", "IMS": "CountryList.SPM" },
+        { "HOF": "Saint Vincent and the Grenadines", "IMS": "CountryList.VCT" },
+        { "HOF": "Samoa", "IMS": "CountryList.WSM" },
+        { "HOF": "San Marino", "IMS": "CountryList.SMR" },
+        { "HOF": "Sao Tome and Principe", "IMS": "CountryList.STP" },
+        { "HOF": "Saudi Arabia", "IMS": "CountryList.SAU" },
+        { "HOF": "Senegal", "IMS": "CountryList.SEN" },
+        { "HOF": "Serbia", "IMS": "CountryList.SRG" },
+        { "HOF": "Serbia and Montenegro", "IMS": "CountryList.SCG" },
+        { "HOF": "Seychelles", "IMS": "CountryList.SYC" },
+        { "HOF": "Sierra Leone", "IMS": "CountryList.SLE" },
+        { "HOF": "Sikkim", "IMS": "CountryList.SKM" },
+        { "HOF": "Singapore", "IMS": "CountryList.SGP" },
+        { "HOF": "Sint Maarten (Dutch part)", "IMS": "CountryList.SXM" },
+        { "HOF": "Slovakia", "IMS": "CountryList.SVK" },
+        { "HOF": "Slovenia", "IMS": "CountryList.SVN" },
+        { "HOF": "Solomon Islands", "IMS": "CountryList.SOL" },
+        { "HOF": "Somalia", "IMS": "CountryList.SOM" },
+        { "HOF": "South Africa", "IMS": "CountryList.ZAF" },
+        { "HOF": "South Georgia and the South Sandwich Islands", "IMS": "CountryList.SGS" },
+        { "HOF": "South Korea (Republic of Korea)", "IMS": "CountryList.KOR" },
+        { "HOF": "South Sudan", "IMS": "CountryList.SSD" },
+        { "HOF": "Southern Rhodesia", "IMS": "CountryList.RHO" },
+        { "HOF": "Spain", "IMS": "CountryList.ESP" },
+        { "HOF": "Sri Lanka", "IMS": "CountryList.SKA" },
+        { "HOF": "Sudan", "IMS": "CountryList.SDN" },
+        { "HOF": "Suriname", "IMS": "CountryList.SUR" },
+        { "HOF": "Svalbard and Jan Mayen Islands", "IMS": "CountryList.SJM" },
+        { "HOF": "Swaziland", "IMS": "CountryList.SWZ" },
+        { "HOF": "Sweden", "IMS": "CountryList.SWE" },
+        { "HOF": "Switzerland", "IMS": "CountryList.CHE" },
+        { "HOF": "Syria Arab Republic", "IMS": "CountryList.SYR" },
+        { "HOF": "Taiwan", "IMS": "CountryList.TWN" },
+        { "HOF": "Tajikistan", "IMS": "CountryList.TJK" },
+        { "HOF": "Tanzania, United Republic of", "IMS": "CountryList.TZA" },
+        { "HOF": "Thailand", "IMS": "CountryList.THA" },
+        { "HOF": "Timor-Leste", "IMS": "CountryList.TLS" },
+        { "HOF": "Togo", "IMS": "CountryList.TGO" },
+        { "HOF": "Tokelau", "IMS": "CountryList.TKL" },
+        { "HOF": "Tonga", "IMS": "CountryList.TON" },
+        { "HOF": "Trinidad and Tobago", "IMS": "CountryList.TTO" },
+        { "HOF": "Tunisia", "IMS": "CountryList.TUN" },
+        { "HOF": "Turkey", "IMS": "CountryList.TUR" },
+        { "HOF": "Turkish controlled area of Cyprus", "IMS": "CountryList.XXT" },
+        { "HOF": "Turkmenistan", "IMS": "CountryList.TKM" },
+        { "HOF": "Turks and Caicos Islands", "IMS": "CountryList.TCA" },
+        { "HOF": "Tuvalu", "IMS": "CountryList.TUV" },
+        { "HOF": "U.S Miscellaneous Pacific Islands", "IMS": "CountryList.PUS" },
+        { "HOF": "Uganda", "IMS": "CountryList.UGA" },
+        { "HOF": "Ukraine", "IMS": "CountryList.UKR" },
+        { "HOF": "United Arab Emirates", "IMS": "CountryList.ARE" },
+        { "HOF": "United Kingdom of Great Britain and Northern Irela", "IMS": "CountryList.GBR" },
+        { "HOF": "United Nations", "IMS": "CountryList.UNO" },
+        { "HOF": "United Nations Agency", "IMS": "CountryList.UNA" },
+        { "HOF": "United States Minor Outlying Islands", "IMS": "CountryList.UMI" },
+        { "HOF": "United States of America", "IMS": "CountryList.USA" },
+        { "HOF": "Upper Volta", "IMS": "CountryList.HVO" },
+        { "HOF": "Uruguay", "IMS": "CountryList.URU" },
+        { "HOF": "USSR", "IMS": "CountryList.SUN" },
+        { "HOF": "Uzbekistan", "IMS": "CountryList.UZB" },
+        { "HOF": "Vanuatu", "IMS": "CountryList.VUT" },
+        { "HOF": "Venezuela", "IMS": "CountryList.VEN" },
+        { "HOF": "Vietnam", "IMS": "CountryList.VNM" },
+        { "HOF": "Viet-Nam, Democratic Republic of", "IMS": "CountryList.VDR" },
+        { "HOF": "Wake Island", "IMS": "CountryList.WAK" },
+        { "HOF": "Virgin Islands, British", "IMS": "CountryList.VGB" },
+        { "HOF": "Virgin islands, U.S.", "IMS": "CountryList.VIR" },
+        { "HOF": "Wallis and Futuna Islands", "IMS": "CountryList.WLF" },
+        { "HOF": "Western Sahara", "IMS": "CountryList.ESH" },
+        { "HOF": "Yemen", "IMS": "CountryList.YEM" },
+        { "HOF": "Yemen, Democratic", "IMS": "CountryList.YMD" },
+        { "HOF": "Yugoslavia", "IMS": "CountryList.YUG" },
+        { "HOF": "Zaire", "IMS": "CountryList.ZAR" },
+        { "HOF": "Zambia", "IMS": "CountryList.ZMB" },
+        { "HOF": "Zimbabwe", "IMS": "CountryList.ZWE" },
+        { "HOF": "Unknown", "IMS": "CountryList.UKN" },
+        { "HOF": "transport-unknown", "IMS": "Idontknow" },
+        { "HOF": "delivery-unknown", "IMS": "I dont know" },
+        { "HOF": "occupation-unknown", "IMS": "Idontknow" },
+        { "HOF": "govt-employ-unknown", "IMS": "DontKnow" },
+        { "HOF": "occupation-where-unknown", "IMS": "Idontknow" },
+        { "HOF": "occ-manager-know-unknown", "IMS": "DontKnow" },
+        { "HOF": "study-unknown", "IMS": "Idontknow" },
+        { "HOF": "study-location-unknown", "IMS": "Idontknow" },
+        { "HOF": "study-where-unknown", "IMS": "Idontknow" },
+        { "HOF": "study-manager-know-unknown", "IMS": "DontKnow" },
+        { "HOF": "transport-unknown", "IMS": "Idontknow" },
+        { "HOF": "report-org-unknown", "IMS": "Idontknow" },
+        { "HOF": "org-owner-know-unknown", "IMS": "dontknow" },
+        { "HOF": "add-gender-unknown", "IMS": "IDontKnow"}
     ]
 }

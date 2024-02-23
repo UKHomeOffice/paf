@@ -24,7 +24,8 @@
     "notUrl": "Enter a valid answer"
   },
   "date-crime-will-happen": {
-    "date": "Please enter a valid date"
+    "date": "Please enter a valid date",
+    "after": "You must give a date in the future"
   },
   "when-crime-will-happen-more-info": {
     "maxlength": "You must enter no more than 1200 characters",
@@ -397,6 +398,34 @@
   "when-to-contact": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
     "notUrl": "Enter a valid answer"
+  },
+  "boat-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "airline-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "crime-location-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "crime-another-location-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "train-country-departure": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "report-person-location-outside-uk-address-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
+  },
+  "report-person-location-travel-to-uk-country": {
+    "required": "Enter a valid country",
+    "notUrl": "Enter a valid country on the list"
   },
   "boat-country-departure": {
     "required": "Enter a valid country",
