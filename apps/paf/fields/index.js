@@ -663,7 +663,11 @@ module.exports = {
   },
   'crime-another-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }],
+    dependent: {
+      field: 'crime-another-location',
+      value: 'yes'
+    }
   },
   'report-person': {
     mixin: 'radio-group',
