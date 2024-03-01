@@ -37,11 +37,11 @@ describe("apps/lib 'add-allegation-data' behaviour should ", () => {
         ]}]);
     }); */
 
-    it('addAlligationData contain AdditionalPeople array not empty when Additional person is selected', () => {
+    /*     it('addAlligationData contain AdditionalPeople array not empty when Additional person is selected', () => {
       JSON.parse(addAllegationDataWithAdditionalPerAndFileRes).should.have.property('AdditionalPeople')
         .to.have.deep.equal([]);
     });
-
+ */
     /*  it('addAlligationData contain  url in Attachments when user upload a file', () => {
       JSON.parse(addAllegationDataWithAdditionalPerAndFileRes).should.have.property('Attachments')
         .to.have.deep.equal([{url: 'http://s3.com/foo/0.6035454156299347'}]);

@@ -9,6 +9,7 @@ const airlineCompanies = require('../data/airlineCompanies');
 const occupation = require('../data/occupation');
 const companyTypes = require('../data/companyTypes');
 const dateComponent = require('hof').components.date;
+const personaddnationalities = require('../data/addPersonNationalities');
 
 function notBothOptions(vals) {
   const values = _.castArray(vals);
@@ -1234,15 +1235,15 @@ module.exports = {
       [{
         value: '',
         label: 'fields.report-person-nationality.options.null'
-      }].concat(nationalities)
+      }].concat(personaddnationalities)
   },
   personAddGender: {
     mixin: 'radio-group',
     isPageHeading: true,
     options: [
-      'male',
-      'female',
-      'other',
+      'Male',
+      'Female',
+      'Other',
       'add-gender-unknown'
     ]
   },
