@@ -9,7 +9,7 @@ environment:
   STG_ENV: paf-stg
   UAT_ENV: sas-paf-uat
   BRANCH_ENV: sas-paf-branch
-  PRODUCTION_URL: https://www.publicallegationform.service.gov.uk
+  PRODUCTION_URL: www.publicallegationform.service.gov.uk
   IMAGE_URL: quay.io/ukhomeofficedigital
   IMAGE_REPO: paf
   GIT_REPO: UKHomeOffice/paf

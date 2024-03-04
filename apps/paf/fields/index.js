@@ -1241,9 +1241,9 @@ module.exports = {
     mixin: 'radio-group',
     isPageHeading: true,
     options: [
-      'Male',
-      'Female',
-      'Other',
+      'male',
+      'female',
+      'other',
       'add-gender-unknown'
     ]
   },

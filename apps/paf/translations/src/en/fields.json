@@ -1187,13 +1187,13 @@
   "personAddGender": {
     "legend": "What is the person's gender?",
     "options": {
-      "Male": {
+      "male": {
         "label": "Male"
       },
-      "Female": {
+      "female": {
         "label": "Female"
       },
-      "Other": {
+      "other": {
         "label": "Other"
       },
       "add-gender-unknown": {
