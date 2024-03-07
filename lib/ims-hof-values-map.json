@@ -722,7 +722,6 @@
         { "HOF": "study-manager-know-unknown", "IMS": "DontKnow" },
         { "HOF": "transport-unknown", "IMS": "Idontknow" },
         { "HOF": "report-org-unknown", "IMS": "Idontknow" },
-        { "HOF": "org-owner-know-unknown", "IMS": "dontknow" },
-        { "HOF": "add-gender-unknown", "IMS": "IDontKnow"}
+        { "HOF": "org-owner-know-unknown", "IMS": "dontknow" }
     ]
 }

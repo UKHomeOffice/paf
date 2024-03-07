@@ -1,0 +1,8 @@
+{
+    "Values": [
+        { "HOF": "male", "IMS": "Male" },
+        { "HOF": "female", "IMS": "Female" },
+        { "HOF": "other", "IMS": "Other" },
+        { "HOF": "add-gender-unknown", "IMS": "IDontKnow"}
+    ]
+}
