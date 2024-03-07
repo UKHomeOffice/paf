@@ -1240,6 +1240,7 @@ module.exports = {
   personAddGender: {
     mixin: 'radio-group',
     isPageHeading: true,
+    parse:  (value, field, req) => req.translate(`fields[${field}].options.[${value}]`),
     options: [
       'male',
       'female',
