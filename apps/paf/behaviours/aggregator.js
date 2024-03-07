@@ -193,7 +193,7 @@ module.exports = superclass => class extends superclass {
   parseField(field, value, req) {
     const fieldName = field.field || field;
     const parser = req.form.options.fieldsConfig[fieldName].parse;
-    return parser ? parser(value) : value;
+    return parser ? parser(value, fieldName, req) : value;
   }
 
   locals(req, res) {
