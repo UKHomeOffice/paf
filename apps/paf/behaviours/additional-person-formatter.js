@@ -3,11 +3,11 @@ const fieldsMap = require('../../../lib/ims-hof-fields-map.json');
 const valuesMap = require('../../../lib/ims-hof-person-add-values.json');
 
 
-const transform = (item) => {
+const transform = item => {
   const value = _.find(valuesMap.Values, {HOF: item.value});
-  const imsValue = value == undefined ? item.value : value.IMS;
+  const imsValue = value === undefined ? item.value : value.IMS;
   return {Key: _.find(fieldsMap.Fields, {HOF: item.field}).IMS, StringValue: imsValue};
-}
+};
 
 module.exports = superclass => class  extends superclass {
   configure(req, res, next) {
