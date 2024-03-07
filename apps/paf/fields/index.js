@@ -1242,9 +1242,9 @@ module.exports = {
     isPageHeading: true,
     parse:  (value, field, req) => req.translate(`fields[${field}].options.[${value}]`),
     options: [
-      'male',
-      'female',
-      'other',
+      'Male',
+      'Female',
+      'Other',
       'add-gender-unknown'
     ]
   },
