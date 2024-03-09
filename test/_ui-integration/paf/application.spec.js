@@ -276,7 +276,9 @@ describe('the journey of a paf application', () => {
   it('goes to the company-types page', async () => {
     const URI = '/company-contact';
     await initSession(URI);
-    const response = await passStep(URI, {});
+    const response = await passStep(URI, {
+      'company-phone': '02081234567'
+    });
     expect(response.text).to.contain('Found. Redirecting to /paf/company-types');
   });
 

@@ -3,6 +3,7 @@
 
 const Model = require('../../../apps/paf/models/file-upload');
 const config = require('../../../config');
+const FormData = require('form-data');
 
 describe('File Upload Model', () => {
   let sandbox;
@@ -28,28 +29,40 @@ describe('File Upload Model', () => {
       expect(response).to.be.an.instanceOf(Promise);
     });
 
-    // it('makes a call to file upload api', () => {
-    //   const model = new Model();
-    //   const response = model.save();
-    //   return response.then(() => {
-    //     expect(model.request).to.have.been.calledOnce;
-    //     expect(model.request).to.have.been.calledWith(sinon.match({
-    //       method: 'POST',
-    //       host: 'file-upload.example.com',
-    //       path: '/file/upload',
-    //       protocol: 'http:'
-    //     }));
-    //   });
-    // });
+    it('makes a call to file upload api', () => {
+      const model = new Model({
+        data: 'foo',
+        name: 'myfile.png',
+        mimetype: 'image/png'
+      });
+      const response = model.save();
+      return response.then(() => {
+        expect(model.request).to.have.been.calledOnce;
+        expect(model.request).to.have.been.calledWith(sinon.match({
+          method: 'POST',
+          host: 'file-upload.example.com',
+          path: '/file/upload',
+          protocol: 'http:'
+        }));
+      });
+    });
 
     it('resolves with response from api endpoint', async () => {
-      const model = new Model();
+      const model = new Model({
+        data: 'foo',
+        name: 'myfile.png',
+        mimetype: 'image/png'
+      });
       const response = await model.save();
       return expect(response.attributes.url).to.equal('/file/12341212132123?foo=bar');
     });
 
     it('rejects if api call fails', () => {
-      const model = new Model();
+      const model = new Model({
+        data: 'foo',
+        name: 'myfile.png',
+        mimetype: 'image/png'
+      });
       const err = new Error('test error');
       model.request.yieldsAsync(err);
       const response = model.save();
@@ -65,15 +78,7 @@ describe('File Upload Model', () => {
       const response = uploadedFile.save();
       return response.then(() => {
         expect(uploadedFile.request).to.have.been.calledWith(sinon.match({
-          formData: {
-            document: {
-              value: 'foo',
-              options: {
-                filename: 'myfile.png',
-                contentType: 'image/png'
-              }
-            }
-          }
+          data: sinon.match.instanceOf(FormData)
         }));
       });
     });

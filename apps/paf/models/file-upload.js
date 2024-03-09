@@ -5,6 +5,8 @@ const url = require('url');
 const Model = require('hof').model;
 const uuid = require('uuid').v4;
 const config = require('../../../config');
+const FormData = require('form-data');
+const axios = require('axios');
 
 module.exports = class UploadModel extends Model {
   constructor(...args) {
@@ -14,22 +16,21 @@ module.exports = class UploadModel extends Model {
 
   async save() {
     const result = await new Promise((resolve, reject) => {
-      console.log("url: " + config.upload.hostname);
       const attributes = {
         url: config.upload.hostname
       };
       const reqConf = url.parse(this.url(attributes));
-      reqConf.formData = {
-        document: {
-          value: this.get('data'),
-          options: {
-            filename: this.get('name'),
-            contentType: this.get('mimetype')
-          }
-        }
-      };
+      const formData = new FormData();
+      formData.append('document', this.get('data'), {
+        filename: this.get('name'),
+        contentType: this.get('mimetype')
+      });
+      reqConf.data = formData;
       reqConf.method = 'POST';
-      this.request(reqConf, (err, data) => {
+      reqConf.headers = {
+        ...formData.getHeaders()
+      };
+      return this.request(reqConf, (err, data) => {
         if (err) {
           return reject(err);
         }
@@ -49,7 +50,8 @@ module.exports = class UploadModel extends Model {
     }
     const tokenReq = {
       url: config.keycloak.token,
-      form: {
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
+      data: {
         username: config.keycloak.username,
         password: config.keycloak.password,
         grant_type: 'password',
@@ -59,18 +61,13 @@ module.exports = class UploadModel extends Model {
       method: 'POST'
     };
 
-    return new Promise((resolve, reject) => {
-      return this._request(tokenReq, (err, response) => {
-        const body = JSON.parse(response.body);
-
-        if (err || body.error) {
-          return reject(err || new Error(`${body.error} - ${body.error_description}`));
-        }
-
-        return resolve({
-          bearer: JSON.parse(response.body).access_token
-        });
+    return axios(tokenReq).then(response => {
+      return { bearer: response.data.access_token };
+    })
+      .catch(err => {
+        const body = err.response.data
+        console.log(`Error: ${body.error} - ${body.error_description}`);
+        throw err || new Error(`${body.error} - ${body.error_description}`);
       });
-    });
   }
 };
