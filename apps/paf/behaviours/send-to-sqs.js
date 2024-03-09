@@ -3,6 +3,8 @@
 const { v4: uuidv4 } = require('uuid');
 const { sendToQueue } = require('../../../lib/utils');
 const { addAllegationData } = require('../../../lib/add-allegation-data');
+const config = require('../../../config');
+const logger = require('hof/lib/logger')({ env: config.env });
 
 module.exports = superclass => class SendToSQS extends superclass {
   saveValues(req, res, next) {
@@ -32,7 +34,7 @@ module.exports = superclass => class SendToSQS extends superclass {
     };
     err.formNotSubmitted = true;
     err.allegationDetails = allegationDetails;
-    console.error('Failed to send to SQS queue: ', err);
+    logger.error('Failed to send to SQS queue: ', err);
     return next(err);
   }
 };
