@@ -102,7 +102,7 @@
         { "HOF": "express-mail-courier", "IMS": "Express mail or courier" },
         { "HOF": "post", "IMS": "Post" },
         { "HOF": "company-building-construction", "IMS": "CompanyType.BuildingConstru" },
-        { "HOF": "company-care-home", "IMS": "CompanyType.CareAssistant" },
+        { "HOF": "company-care-home", "IMS": "CompanyType.CareHome" },
         { "HOF": "company-catering-and-hospitality", "IMS": "CompanyType.CateringandHospita" },
         { "HOF": "company-child-care-nursery", "IMS": "CompanyType.ChildcareNurser" },
         { "HOF": "company-cleaning", "IMS": "CompanyType.Cleaning" },
