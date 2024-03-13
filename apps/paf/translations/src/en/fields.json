@@ -559,9 +559,6 @@
       },
       "no": {
         "label": "No"
-      },
-      "unknown": {
-        "label": "I don't know"
       }
     }
   },
