@@ -19,7 +19,6 @@ module.exports = superclass => class  extends superclass {
         i.fields.map(item => item.value !== '' ?
           person.push(transform(item)) : '');
         additionalPeople.push(person);
-
         req.sessionModel.set('persons', additionalPeople);
       });
     } else {
