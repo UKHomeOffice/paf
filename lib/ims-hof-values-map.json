@@ -415,7 +415,6 @@
         { "HOF": "Nationality-Zaire", "IMS": "NatList.ZAR" },
         { "HOF": "Nationality-Zambia", "IMS": "NatList.ZMB" },
         { "HOF": "Nationality-Zimbabwe", "IMS": "NatList.ZWE" },
-        { "HOF": "Nationality-Unknown", "IMS": "NatList.UKN" },
         { "HOF": "Nationality-I Dont Know", "IMS": "NatList.DontKnow" },
         { "HOF": "Nationality-Saint Barthelemy", "IMS": "NatList.BLM" },
         { "HOF": "Nationality-Saint Helena, Ascension and Tristan da Cunha", "IMS": "NatList.SHN" },
