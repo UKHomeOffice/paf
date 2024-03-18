@@ -691,7 +691,7 @@ module.exports = {
   },
   'report-person': {
     mixin: 'radio-group',
-    options: ['yes', 'no', 'unknown']
+    options: ['yes', 'no']
   },
   'report-person-first-name': {
     mixin: 'input-text',
