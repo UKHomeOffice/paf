@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:e904ffbb9525ad98df74add7442dc1ebc9381aec
+          image: quay.io/ukhomeofficedigital/ims-resolver:60d9930fdd2d6a26e23981eceb8e721f76f30f0b
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -131,6 +131,22 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: sas-paf-uat-sqs-queue
+                  key: secret_access_key
+            {{ else if (eq .KUBE_NAMESPACE .PROD_ENV) }}
+            - name: SQS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-sqs-queue
+                  key: sqs_url
+            - name: ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-sqs-queue
+                  key: access_key_id
+            - name: SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-sqs-queue
                   key: secret_access_key
             {{ end }}
           securityContext:

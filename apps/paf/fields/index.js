@@ -1383,8 +1383,7 @@ module.exports = {
   'other-info-file-upload': {
     mixin: 'input-file',
     className: 'govuk-file-upload',
-    attributes: [],
-    validate: ['notUrl']
+    attributes: []
   },
   'add-other-info-file-upload': {
     isPageHeading: true,

@@ -73,22 +73,38 @@ spec:
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
+                {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+                  name: sas-paf-s3
+                {{else}}
                   name: paf-notprod-s3
+                {{end}}
                   key: access_key_id
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
+                {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+                  name: sas-paf-s3
+                {{else}}
                   name: paf-notprod-s3
+                {{end}}
                   key: secret_access_key
             - name: AWS_KMS_KEY_ID
               valueFrom:
                 secretKeyRef:
+                {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+                  name: sas-paf-s3
+                {{else}}
                   name: paf-notprod-s3
+                {{end}}
                   key: kms_key_id
             - name: AWS_BUCKET
               valueFrom:
                 secretKeyRef:
+                {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+                  name: sas-paf-s3
+                {{else}}
                   name: paf-notprod-s3
+                {{end}}
                   key: name
             - name: AWS_PASSWORD
               valueFrom:
