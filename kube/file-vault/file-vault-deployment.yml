@@ -104,10 +104,11 @@ spec:
                 secretKeyRef:
                 {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
                   name: sas-paf-s3
+                  key: s3_bucket_name
                 {{else}}
                   name: paf-notprod-s3
-                {{end}}
                   key: name
+                {{end}}                  
             - name: AWS_PASSWORD
               valueFrom:
                 secretKeyRef:
