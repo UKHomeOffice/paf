@@ -9,7 +9,7 @@ metadata:
   {{ end }}
 spec:
   {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
-  replicas: 3
+  replicas: 2
   {{ else }}
   replicas: 1
   {{ end }}
@@ -75,19 +75,21 @@ spec:
                 secretKeyRef:
                 {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
                   name: sas-paf-s3
+                  key: iam_access_key
                 {{else}}
                   name: paf-notprod-s3
-                {{end}}
                   key: access_key_id
+                {{end}}
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
                 {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
                   name: sas-paf-s3
+                  key: iam_access_secret
                 {{else}}
                   name: paf-notprod-s3
-                {{end}}
                   key: secret_access_key
+                {{end}}
             - name: AWS_KMS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -102,10 +104,11 @@ spec:
                 secretKeyRef:
                 {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
                   name: sas-paf-s3
+                  key: s3_bucket_name
                 {{else}}
                   name: paf-notprod-s3
-                {{end}}
                   key: name
+                {{end}}                  
             - name: AWS_PASSWORD
               valueFrom:
                 secretKeyRef:
