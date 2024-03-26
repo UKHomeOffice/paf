@@ -108,6 +108,7 @@ spec:
                   name: paf-notprod-s3
                 {{end}}
                   key: name
+                {{end}}                  
             - name: AWS_PASSWORD
               valueFrom:
                 secretKeyRef:
