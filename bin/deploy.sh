@@ -26,7 +26,7 @@ export DRONE_SOURCE_BRANCH=$(echo $DRONE_SOURCE_BRANCH | tr '[:upper:]' '[:lower
 
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
   $kd -f kube/file-vault/file-vault-ingress.yml
-  $kd -f kube/configmaps/configmap.yml 
+  $kd -f kube/configmaps/configmap.yml
   $kd -f kube/certmounts
   $kd -f kube/certs
   $kd -f kube/redis
@@ -48,13 +48,11 @@ elif [[ ${KUBE_NAMESPACE} == ${STG_ENV} ]]; then
   $kd -f kube/redis -f kube/app/deployment.yml
   $kd -f kube/ims-resolver
 elif [[ ${KUBE_NAMESPACE} == ${PROD_ENV} ]]; then
+  $kd -f kube/configmaps/configmap.yml  -f kube/app/service.yml
   $kd -f kube/file-vault/file-vault-ingress.yml
-  $kd -f kube/configmaps/configmap.yml -f kube/app/service.yml
-  $kd -f kube/certmounts
-  $kd -f kube/certs
-  $kd -f kube/app/networkpolicy-external.yml -f kube/app/ingress-external.yml
-  $kd -f kube/redis -f kube/file-vault -f kube/app/deployment.yml
-  $kd -f kube/ims-resolver
+  $kd -f kube/app/ingress-external.yml -f kube/app/networkpolicy-external.yml
+  $kd -f kube/redis -f kube/file-vault
+  $kd -f kube/app/deployment.yml
 fi
 
 sleep $READY_FOR_TEST_DELAY

@@ -316,19 +316,19 @@ steps:
   #     event: push
 
   # Checks a build being promoted has passed, is on main which effectively means a healthy build on UAT.
-  # # - name: sanity_check_build_prod
-  # #   pull: if-not-exists
-  # #   image: drone/cli:alpine@sha256:14409f7f7247befb9dd2effdb2f61ac40d1f5fbfb1a80566cf6f2f8d21f3be11
-  # #   environment:
-  # #     DRONE_SERVER:
-  # #       from_secret: drone_server
-  # #     DRONE_TOKEN:
-  # #       from_secret: drone_token
-  # #   commands:
-  # #     - bin/sanity_check_build.sh
-  # #   when:
-  # #     target: PROD
-  # #     event: promote
+  - name: sanity_check_build_prod
+    pull: if-not-exists
+    image: drone/cli:alpine@sha256:14409f7f7247befb9dd2effdb2f61ac40d1f5fbfb1a80566cf6f2f8d21f3be11
+    environment:
+      DRONE_SERVER:
+        from_secret: drone_server
+      DRONE_TOKEN:
+        from_secret: drone_token
+    commands:
+      - bin/sanity_check_build.sh
+    when:
+      target: PROD
+      event: promote
 
   - name: clone_repos_prod
     image: alpine/git
