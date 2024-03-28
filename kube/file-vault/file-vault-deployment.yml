@@ -104,10 +104,11 @@ spec:
                 secretKeyRef:
                 {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
                   name: sas-paf-s3
+                  key: s3_bucket_name
                 {{else}}
                   name: paf-notprod-s3
+                  key: name
                 {{end}}
-                  key: name                  
             - name: AWS_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -122,8 +123,6 @@ spec:
             limits:
               memory: "1024Mi"
               cpu: 200m
-            requests:
-              memory: 512Mi
           env:
             - name: PROXY_CLIENT_SECRET
               valueFrom:
