@@ -1,7 +1,7 @@
 'use strict';
 /* eslint no-process-env: 0 */
 
-const env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV || 'production';
 const useMocks = process.env.USE_MOCKS === 'true' || !env;
 
 module.exports = {
