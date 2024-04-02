@@ -849,11 +849,11 @@ module.exports = {
   },
   'report-person-location-mobile': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
