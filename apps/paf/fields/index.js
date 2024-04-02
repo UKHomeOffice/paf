@@ -610,7 +610,7 @@ module.exports = {
   },
   'crime-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['notUrl', 'required', { type: 'maxlength', arguments: 20 }],
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }],
     dependent: {
       field: 'crime-location',
       value: 'yes'
