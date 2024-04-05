@@ -873,7 +873,7 @@ module.exports = {
   },
   'report-person-location-outside-uk-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-outside-uk-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
