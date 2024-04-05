@@ -964,7 +964,7 @@ module.exports = {
   },
   'report-person-occupation-company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-occupation-company-manager': {
     mixin: 'input-text',
@@ -1028,7 +1028,7 @@ module.exports = {
   },
   'report-person-study-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-study-email': {
     validate: ['notUrl', 'email', { type: 'maxlength', arguments: 100 }]
