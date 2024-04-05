@@ -825,7 +825,7 @@ module.exports = {
   'report-person-location-travel-to-uk-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     options:
       [{
         value: '',
