@@ -794,7 +794,7 @@ module.exports = {
   'report-person-location-outside-uk-address-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     options:
       [{
         value: '',
