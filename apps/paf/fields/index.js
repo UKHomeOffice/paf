@@ -1482,7 +1482,7 @@ module.exports = {
       field: 'are-you-eighteen',
       value: 'yes'
     },
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'when-to-contact': {
     dependent: {
