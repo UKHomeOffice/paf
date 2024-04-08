@@ -630,7 +630,7 @@ module.exports = {
   'crime-another-location-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     options:
       [{
         value: '',
