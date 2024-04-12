@@ -557,7 +557,7 @@ module.exports = {
   'crime-location-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     options:
       [{
         value: '',
@@ -610,7 +610,7 @@ module.exports = {
   },
   'crime-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['notUrl', 'required', { type: 'maxlength', arguments: 20 }],
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }],
     dependent: {
       field: 'crime-location',
       value: 'yes'
@@ -630,7 +630,7 @@ module.exports = {
   'crime-another-location-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     options:
       [{
         value: '',
@@ -683,7 +683,7 @@ module.exports = {
   },
   'crime-another-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }],
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }],
     dependent: {
       field: 'crime-another-location',
       value: 'yes'
@@ -794,7 +794,7 @@ module.exports = {
   'report-person-location-outside-uk-address-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     options:
       [{
         value: '',
@@ -825,7 +825,7 @@ module.exports = {
   'report-person-location-travel-to-uk-country': {
     mixin: 'select',
     className: ['typeahead', 'js-hidden'],
-    validate: ['required', 'notUrl'],
+    validate: ['notUrl'],
     options:
       [{
         value: '',
@@ -849,11 +849,11 @@ module.exports = {
   },
   'report-person-location-mobile': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
@@ -873,7 +873,7 @@ module.exports = {
   },
   'report-person-location-outside-uk-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-location-outside-uk-email': {
     validate: ['email', { type: 'maxlength', arguments: 100 }]
@@ -964,7 +964,7 @@ module.exports = {
   },
   'report-person-occupation-company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-occupation-company-manager': {
     mixin: 'input-text',
@@ -1028,7 +1028,7 @@ module.exports = {
   },
   'report-person-study-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-study-email': {
     validate: ['notUrl', 'email', { type: 'maxlength', arguments: 100 }]
@@ -1287,7 +1287,7 @@ module.exports = {
   },
   'company-phone': {
     className: ['govuk-input', 'govuk-input--width-20'],
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'company-email': {
     formatter: ['removespaces'],
@@ -1482,7 +1482,7 @@ module.exports = {
       field: 'are-you-eighteen',
       value: 'yes'
     },
-    validate: ['required', 'internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
+    validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'when-to-contact': {
     dependent: {
