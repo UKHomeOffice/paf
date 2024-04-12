@@ -1242,7 +1242,7 @@ module.exports = {
     isPageHeading: true,
     parse: (value, field, req) => {
       if (!value) return '';
-      return req.translate(`fields[${field}].options.[${value}]`)
+      return req.translate(`fields[${field}].options.[${value}]`);
     },
     options: [
       'male',
