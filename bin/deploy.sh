@@ -53,7 +53,6 @@ elif [[ ${KUBE_NAMESPACE} == ${PROD_ENV} ]]; then
   $kd -f kube/file-vault/file-vault-ingress.yml
   $kd -f kube/certmounts/certmounts-prod.yml
   $kd -f kube/app/ingress-external.yml -f kube/app/networkpolicy-external.yml
-  $kd -f kube/certmounts
   $kd -f kube/redis -f kube/file-vault
   $kd -f kube/app/deployment.yml
   $kd -f kube/ims-resolver
