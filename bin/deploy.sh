@@ -5,6 +5,7 @@ export INGRESS_INTERNAL_ANNOTATIONS=$HOF_CONFIG/ingress-internal-annotations.yam
 export INGRESS_EXTERNAL_ANNOTATIONS=$HOF_CONFIG/ingress-external-annotations.yaml
 export CONFIGMAP_VALUES=$HOF_CONFIG/configmap-values.yaml
 export CERTCONFIGMAP_VALUES=$HOF_CONFIG/imscertchain-store.yaml
+export CERTCONFIGMAP_PROD_VALUES=$HOF_CONFIG/ims-ebsa-prod-ca-prod.yaml
 export NGINX_SETTINGS=$HOF_CONFIG/nginx-settings.yaml
 export FILEVAULT_NGINX_SETTINGS=$HOF_CONFIG/filevault-nginx-settings.yaml
 export FILEVAULT_INGRESS_EXTERNAL_ANNOTATIONS=$HOF_CONFIG/filevault-ingress-external-annotations.yaml
@@ -27,7 +28,7 @@ export DRONE_SOURCE_BRANCH=$(echo $DRONE_SOURCE_BRANCH | tr '[:upper:]' '[:lower
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
   $kd -f kube/file-vault/file-vault-ingress.yml
   $kd -f kube/configmaps/configmap.yml
-  $kd -f kube/certmounts
+  $kd -f kube/certmounts/certmounts.yml
   $kd -f kube/certs
   $kd -f kube/redis
   $kd -f kube/app
@@ -36,7 +37,7 @@ if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
 elif [[ ${KUBE_NAMESPACE} == ${UAT_ENV} ]]; then
   $kd -f kube/file-vault/file-vault-ingress.yml
   $kd -f kube/configmaps/configmap.yml -f kube/app/service.yml
-  $kd -f kube/certmounts
+  $kd -f kube/certmounts/certmounts.yml
   $kd -f kube/certs
   $kd -f kube/app/networkpolicy-internal.yml -f kube/app/ingress-internal.yml
   $kd -f kube/app/networkpolicy-external.yml -f kube/app/ingress-external.yml
@@ -50,6 +51,7 @@ elif [[ ${KUBE_NAMESPACE} == ${STG_ENV} ]]; then
 elif [[ ${KUBE_NAMESPACE} == ${PROD_ENV} ]]; then
   $kd -f kube/configmaps/configmap.yml  -f kube/app/service.yml
   $kd -f kube/file-vault/file-vault-ingress.yml
+  $kd -f kube/certmounts/certmounts-prod.yml
   $kd -f kube/app/ingress-external.yml -f kube/app/networkpolicy-external.yml
   $kd -f kube/certmounts
   $kd -f kube/redis -f kube/file-vault

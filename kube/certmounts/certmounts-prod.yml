@@ -4,4 +4,4 @@ metadata:
   name: imscertchain-store
 data:
   ims-prp1-ca.crt: |
-{{ file .CERTCONFIGMAP_VALUES | indent 4 }}
+{{ file .CERTCONFIGMAP_PROD_VALUES | indent 4 }}
