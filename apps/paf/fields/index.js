@@ -1031,7 +1031,7 @@ module.exports = {
     validate: ['internationalPhoneNumber', { type: 'maxlength', arguments: 20 }]
   },
   'report-person-study-email': {
-    validate: ['notUrl', 'email', { type: 'maxlength', arguments: 100 }]
+    validate: ['email', { type: 'maxlength', arguments: 100 }]
   },
   'report-person-study-url': {
     mixin: 'input-text',
