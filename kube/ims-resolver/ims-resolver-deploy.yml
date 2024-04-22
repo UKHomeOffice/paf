@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:9631d65f9e08f82a7aeb9d879fb154fabdb7e005
+          image: quay.io/ukhomeofficedigital/ims-resolver:314411e785d7767869c40cbac80a8ca68bfab433
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -51,12 +51,10 @@ spec:
             - configMapRef:
                 name: imscertchain-store
           env:
-            # PAF-264 Temp turn off certs to test the integration
-            - name: NODE_TLS_REJECT_UNAUTHORIZED
-              value: "0"
-            # PAF-264 Temp comment out to see if the app can send data without certs
-            # - name: NODE_EXTRA_CA_CERTS
-            #   value: "/etc/ssl/certs/ims-prp1-ca.crt"
+            #- name: NODE_TLS_REJECT_UNAUTHORIZED
+            #  value: "0"
+            - name: NODE_EXTRA_CA_CERTS
+              value: "/etc/ssl/certs/ims-prp1-ca.crt"
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
