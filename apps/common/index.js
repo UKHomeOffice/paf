@@ -6,6 +6,9 @@ module.exports = {
     '/start': {
       template: 'start',
       next: 'paf/crime-type'
+    },
+    '/accessibility': {
+      template: 'accessibility'
     }
   }
 };
