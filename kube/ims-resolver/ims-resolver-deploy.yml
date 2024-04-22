@@ -51,8 +51,12 @@ spec:
             - configMapRef:
                 name: imscertchain-store
           env:
-            - name: NODE_EXTRA_CA_CERTS
-              value: "/etc/ssl/certs/ims-prp1-ca.crt"
+            # PAF-264 Temp turn off certs to test the integration
+            - name: NODE_TLS_REJECT_UNAUTHORIZED
+              value: "0"
+            # PAF-264 Temp comment out to see if the app can send data without certs
+            # - name: NODE_EXTRA_CA_CERTS
+            #   value: "/etc/ssl/certs/ims-prp1-ca.crt"
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
