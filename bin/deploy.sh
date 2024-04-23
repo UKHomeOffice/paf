@@ -5,7 +5,7 @@ export INGRESS_INTERNAL_ANNOTATIONS=$HOF_CONFIG/ingress-internal-annotations.yam
 export INGRESS_EXTERNAL_ANNOTATIONS=$HOF_CONFIG/ingress-external-annotations.yaml
 export CONFIGMAP_VALUES=$HOF_CONFIG/configmap-values.yaml
 export CERTCONFIGMAP_VALUES=$HOF_CONFIG/imscertchain-store.yaml
-export CERTCONFIGMAP_PROD_VALUES=$HOF_CONFIG/ims-ebsa-prod-ca-prod.yaml
+# export CERTCONFIGMAP_PROD_VALUES=$HOF_CONFIG/ims-ebsa-prod-ca-prod.yaml
 export NGINX_SETTINGS=$HOF_CONFIG/nginx-settings.yaml
 export FILEVAULT_NGINX_SETTINGS=$HOF_CONFIG/filevault-nginx-settings.yaml
 export FILEVAULT_INGRESS_EXTERNAL_ANNOTATIONS=$HOF_CONFIG/filevault-ingress-external-annotations.yaml
@@ -50,7 +50,7 @@ elif [[ ${KUBE_NAMESPACE} == ${STG_ENV} ]]; then
   $kd -f kube/ims-resolver
 elif [[ ${KUBE_NAMESPACE} == ${PROD_ENV} ]]; then
   $kd -f kube/configmaps/configmap.yml  -f kube/app/service.yml
-  $kd -f kube/certmounts/certmounts-prod.yml
+  # $kd -f kube/certmounts/certmounts-prod.yml
   $kd -f kube/file-vault/file-vault-ingress.yml
   $kd -f kube/app/ingress-external.yml -f kube/app/networkpolicy-external.yml
   $kd -f kube/redis -f kube/file-vault
