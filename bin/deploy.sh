@@ -28,7 +28,8 @@ export DRONE_SOURCE_BRANCH=$(echo $DRONE_SOURCE_BRANCH | tr '[:upper:]' '[:lower
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
   $kd -f kube/file-vault/file-vault-ingress.yml
   $kd -f kube/configmaps/configmap.yml
-  $kd -f kube/certmounts/certmounts.yml
+  # temp disable mounting to test integration without TLS
+  # $kd -f kube/certmounts/certmounts.yml
   $kd -f kube/certs
   $kd -f kube/redis
   $kd -f kube/app
