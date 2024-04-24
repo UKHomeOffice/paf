@@ -39,7 +39,8 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:7d615c24059b4dd8c691ab0b70f81503016ae760
+        # Branch image PAF-264 add libcurl
+          image: quay.io/ukhomeofficedigital/ims-resolver:ec3822959e7279cd05b9238d76a1710814011922
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
