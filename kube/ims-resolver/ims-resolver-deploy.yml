@@ -49,12 +49,17 @@ spec:
                 name: {{ .APP_NAME }}-configmap
                 {{ end }}
             - configMapRef:
+                {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
                 name: imscertchain-store
+                {{ end }}
           env:
-            # - name: NODE_TLS_REJECT_UNAUTHORIZED
-            #   value: "0"
+            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
             - name: NODE_EXTRA_CA_CERTS
               value: "/etc/ssl/certs/ims-prp1-ca.crt"
+            {{ else }}
+            - name: NODE_TLS_REJECT_UNAUTHORIZED
+              value: "0"
+            {{ end }}
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
@@ -98,10 +103,6 @@ spec:
                 secretKeyRef:
                   name: keycloak-user
                   key: password
-            # {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
-            #- name: NODE_TLS_REJECT_UNAUTHORIZED
-            #  value: "0"
-            # {{ end }}
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL
               valueFrom:
@@ -162,11 +163,15 @@ spec:
               cpu: 10m
 
           volumeMounts:
+            {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
             - name: imscertchain-store
               mountPath: /etc/ssl/certs/ims-prp1-ca.crt
               subPath: ims-prp1-ca.crt
               readOnly: false
+            {{ end }}
       volumes:
+        {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
         - name: imscertchain-store
           configMap:
             name: imscertchain-store
+        {{ end }}
