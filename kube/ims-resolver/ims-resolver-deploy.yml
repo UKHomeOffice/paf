@@ -40,7 +40,7 @@ spec:
       containers:
         - name: ims-resolver
         # Branch image PAF-264 add node-libcurl
-          image: quay.io/ukhomeofficedigital/ims-resolver:0abdbbc95ba766f4207818bb5e8fe7f74b6eb26e
+          image: quay.io/ukhomeofficedigital/ims-resolver:54734fb82f18a2d3fce3238bba144b8a44e0f992
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
