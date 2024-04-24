@@ -106,7 +106,7 @@ spec:
                 secretKeyRef:
                   name: sas-paf-branch-sqs-queue
                   key: secret_access_key
-            - name: GA_4_TAG    # Google Analytics v4 tracking code
+            - name: GA_4_TAGXX    # Google Analytics v4 tracking code
               valueFrom:
                 secretKeyRef:
                   name: sas-paf-branch-analytics
