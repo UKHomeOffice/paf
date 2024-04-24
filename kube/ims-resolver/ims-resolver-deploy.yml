@@ -48,7 +48,6 @@ spec:
                 {{ else }}
                 name: {{ .APP_NAME }}-configmap
                 {{ end }}
-            - configMapRef:
                 {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
                 name: imscertchain-store
                 {{ end }}
