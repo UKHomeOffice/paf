@@ -55,7 +55,7 @@ spec:
               value: "/etc/ssl/certs/ims-prp1-ca.crt"
             #- name: NODE_TLS_REJECT_UNAUTHORIZED
             #  value: "0"
-            {{ end }}
+            #{{ end }}
             - name: TZ
               value: Europe/London
             - name: IMS_API_USER
