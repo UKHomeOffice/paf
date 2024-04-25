@@ -4,5 +4,8 @@
   },
   "declaration": {
     "header": "Declaration"
+  },
+  "accessibility": {
+    "header": "Accessibility statement for this Home Office Forms Application"
   }
 }

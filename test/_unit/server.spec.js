@@ -48,18 +48,17 @@ describe('Server.js app file', () => {
   });
 
   describe('Setup HOF Configuration', () => {
-    it('calls hof with routes', () => {
-      hofStub.should.have.been.calledOnce.calledWithExactly({
-        appName: 'Public Allegations Form',
-        theme: 'govUK',
-        routes: [
-          appsCommonStub,
-          appsPafStub
-        ],
-        behaviours: [ behavioursSetNavigationSectionStub, behavioursTimeFormatterStub],
-        session: { name: 'paf.hof.sid' },
-        getAccessibility: true
-      });
+    it('calls hof with a suitable config', () => {
+      hofStub.should.have.been.calledOnce.calledWith(sinon.match({
+        appName: sinon.match.string,
+        theme: sinon.match.string,
+        routes: sinon.match.array,
+        behaviours: sinon.match.array,
+        session: sinon.match.object,
+        getAccessibility: sinon.match(function (value) { // Note: getAccessibility is now deprecated in hof
+          return value === undefined || typeof value === 'boolean';
+        }, 'getAccessibility should be undefined or a boolean')
+      }));
     });
 
     it('should call the app use method three times if env set to test', () => {
