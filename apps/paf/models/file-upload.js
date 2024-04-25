@@ -14,7 +14,7 @@ module.exports = class UploadModel extends Model {
 
   async save() {
     const result = await new Promise((resolve, reject) => {
-      console.log("url: " + config.upload.hostname);
+     // console.log("url: " + config.upload.hostname);
       const attributes = {
         url: config.upload.hostname
       };
