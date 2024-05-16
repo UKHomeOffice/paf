@@ -66,4 +66,8 @@ ignore:
     - '*':
       reason: To be updated to a newer version in hof
       expires: '2024-11-01T17:02:21.865Z'
+  SNYK-JS-BRACES-6838727:
+    - '*':
+      reason: To be updated to a newer version in hof
+      expires: '2024-08-16T17:02:21.865Z'
 patch: {}
