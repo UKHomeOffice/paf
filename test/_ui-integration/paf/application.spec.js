@@ -131,7 +131,7 @@ describe('the journey of a paf application', () => {
     const response = await passStep(URI, {
       'crime-location': 'yes'
     });
-    expect(response.text).to.contain('Found. Redirecting to /paf/crime-location');
+    expect(response.text).to.contain('Found. Redirecting to /paf/crime-another-location');
   });
 
   it('goes to the report-person page', async () => {
