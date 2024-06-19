@@ -14,7 +14,6 @@ module.exports = class UploadModel extends Model {
 
   async save() {
     const result = await new Promise((resolve, reject) => {
-     // console.log("url: " + config.upload.hostname);
       const attributes = {
         url: config.upload.hostname
       };
@@ -36,7 +35,7 @@ module.exports = class UploadModel extends Model {
         return resolve(data);
       });
     });
-    this.set({ url: result.url });
+    this.set({ url: result.url.replace('/file/', '/file/generate-link/').split('?')[0] });
     return this.unset('data');
   }
 
