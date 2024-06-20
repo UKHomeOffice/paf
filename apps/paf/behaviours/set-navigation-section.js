@@ -94,6 +94,10 @@ module.exports = superclass => class extends superclass {
           req.form.options.steps['/about-you'].backLink = 'other-info-file-upload';
           res.locals.backLink = 'other-info-file-upload';
         }
+        if (req.sessionModel.get('images') && req.sessionModel.get('images').length > 0) {
+          req.form.options.steps['/about-you'].backLink = 'add-other-info-file-upload';
+          res.locals.backLink = 'add-other-info-file-upload';
+        }
       }
 
 
