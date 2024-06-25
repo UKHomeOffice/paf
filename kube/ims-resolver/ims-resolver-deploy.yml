@@ -14,7 +14,9 @@ metadata:
   name: ims-resolver
   {{ end }}
 spec:
-  {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) (eq .KUBE_NAMESPACE .STG_ENV) }}
+  {{ if or (eq .KUBE_NAMESPACE .UAT_ENV) (eq .KUBE_NAMESPACE .STG_ENV) }}
+  replicas: 1
+  {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
   replicas: 0
   {{ else }}
   replicas: 2
