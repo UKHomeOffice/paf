@@ -17,6 +17,7 @@ spec:
   {{ if or (eq .KUBE_NAMESPACE .UAT_ENV) (eq .KUBE_NAMESPACE .STG_ENV) }}
   replicas: 1
   {{ else if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+  # This is a temporary measure to test a feature https://collaboration.homeoffice.gov.uk/jira/browse/PAF-284
   replicas: 0
   {{ else }}
   replicas: 2
