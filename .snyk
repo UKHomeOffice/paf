@@ -70,4 +70,8 @@ ignore:
     - '*':
       reason: To be updated to a newer version in hof
       expires: '2024-08-16T17:02:21.865Z'
+  SNYK-JS-FASTXMLPARSER-7573289:
+    - '*':
+      reason: This issue was fixed in versions 4.4.1
+      expires: '2024-11-01T17:02:21.865Z'
 patch: {}
