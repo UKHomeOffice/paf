@@ -1,12 +1,12 @@
 {
   "crime-type": {
-    "": "You must tell us what the criminals are planning or doing. This will help us to send the information to the right team immediately."
+    "required": "You must tell us what the criminals are planning or doing. This will help us to send the information to the right team immediately."
   },
   "immigration-crime-group": {
-    "": "You must check at least one of the options related to Immigration Crime"
+    "required": "You must check at least one of the options related to Immigration Crime"
   },
   "smuggling-crime-group": {
-    "": "You must check at least one of the options related to Smuggling"
+    "required": "You must check at least one of the options related to Smuggling"
   },
   "crime-children": {
     "required": "We need to know if any children are involved in the crime. They may be committing the crime or victims of it. With this information, we can make sure that we handle the case in the right way."
@@ -24,7 +24,7 @@
     "notUrl": "Enter a valid answer"
   },
   "date-crime-will-happen": {
-    "date": "Please enter a valid date",
+    "date": "Enter a valid date",
     "after": "You must give a date in the future"
   },
   "when-crime-will-happen-more-info": {
@@ -120,11 +120,12 @@
   },
   "crime-location-phone": {
     "required": "Enter a valid phone number",
-    "internationalPhoneNumber": "Please enter a valid phone number",
+    "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-study-phone": {
     "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-another-location-address-postcode": {
@@ -133,7 +134,7 @@
   },
   "crime-another-location-phone": {
     "required": "Enter a valid phone number",
-    "internationalPhoneNumber": "Please enter a valid phone number",
+    "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} numbers for your answer"
   },
   "report-person-first-name": {
@@ -152,7 +153,7 @@
     "notUrl": "Enter a valid answer"
   },
   "report-person-dob": {
-    "date": "Please enter a valid date",
+    "date": "Enter a valid date",
     "before": "Enter a date in the past",
     "after": "Enter a date after 01 01 1900"
   },
@@ -175,11 +176,12 @@
   },
   "report-person-location-mobile": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
-    "notUrl": "Enter a valid answer"
+    "notUrl": "Enter a valid answer",
+    "internationalPhoneNumber": "Enter a valid phone number"
   },
   "report-person-location-phone": {
     "required": "Enter a valid phone number",
-    "internationalPhoneNumber": "Please enter a valid phone number",
+    "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "report-person-location-email": {
@@ -212,12 +214,13 @@
     "notUrl": "Enter a valid answer"
   },
   "report-person-occupation-company-phone": {
-    "required": "Enter a valid phone number",
-    "internationalPhoneNumber": "Please enter a valid phone number",
+    "required": "Enter a phone number",
+    "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "company-phone": {
-    "required": "Enter a valid phone number",
+    "required": "Enter a phone number",
+    "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
     "notUrl": "Enter a valid answer"
   },
@@ -255,14 +258,14 @@
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "time-crime-will-happen-hour": {
-    "numeric": "Please enter a valid time in digits",
-    "min": "Please enter a number from 0 to 23",
-    "max": "Please enter a number from 0 to 23"
+    "numeric": "Enter a valid time in digits",
+    "min": "Enter a number from 0 to 23",
+    "max": "Enter a number from 0 to 23"
   },
   "time-crime-will-happen-minute": {
-    "numeric": "Please enter a valid time in digits",
-    "min": "Please enter a number from 0 to 59",
-    "max": "Please enter a number from 0 to 59"
+    "numeric": "Enter a valid time in digits",
+    "min": "Enter a number from 0 to 59",
+    "max": "Enter a number from 0 to 59"
   },
   "company-postcode": {
     "postcode": "Enter a real postcode",
@@ -321,7 +324,7 @@
     "notUrl": "Enter a valid answer"
   },
   "personAddDob": {
-    "date": "Please enter a valid date",
+    "date": "Enter a valid date",
     "before": "Enter a date in the past",
     "after": "Enter a date after 01 01 1900"
   },
@@ -385,14 +388,14 @@
     "notUrl": "Enter a valid answer"
   },
   "about-you-dob": {
-    "date": "Please enter a valid date",
+    "date": "Enter a valid date",
     "before": "Enter a date in the past",
     "after": "Enter a date after 01 01 1900"
   },
   "contact-number": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
     "required": "Enter a valid phone number",
-    "internationalPhoneNumber": "Please enter a valid phone number"
+    "internationalPhoneNumber": "Enter a valid phone number"
   },
   "when-to-contact": {
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
@@ -406,10 +409,6 @@
     "required": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
-  "crime-location-country": {
-    "required": "Enter a valid country",
-    "notUrl": "Enter a valid country on the list"
-  },
   "crime-another-location-country": {
     "required": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
@@ -426,32 +425,8 @@
     "required": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
-  "boat-country-departure": {
-    "required": "Enter a valid country",
-    "notUrl": "Enter a valid country on the list"
-  },
-  "airline-country-departure": {
-    "required": "Enter a valid country",
-    "notUrl": "Enter a valid country on the list"
-  },
   "crime-location-country": {
     "required": "Enter a valid country",
-    "notUrl": "Enter a valid country on the list"
-  },
-  "crime-another-location-country": {
-    "required": "Enter a valid country",
-    "notUrl": "Enter a valid country on the list"
-  },
-  "train-country-departure": {
-    "": "Enter a valid country",
-    "notUrl": "Enter a valid country on the list"
-  },
-  "report-person-location-outside-uk-address-country": {
-    "": "Enter a valid country",
-    "notUrl": "Enter a valid country on the list"
-  },
-  "report-person-location-travel-to-uk-country": {
-    "": "Enter a valid country",
     "notUrl": "Enter a valid country on the list"
   },
   "other-info-file-upload": {
