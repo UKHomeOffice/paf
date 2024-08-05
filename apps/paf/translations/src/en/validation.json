@@ -125,6 +125,7 @@
   },
   "report-person-study-phone": {
     "required": "Enter a valid phone number",
+    "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "crime-another-location-address-postcode": {
@@ -213,11 +214,12 @@
     "notUrl": "Enter a valid answer"
   },
   "report-person-occupation-company-phone": {
-    "required": "Enter a valid phone number",
+    "required": "Enter a phone number",
     "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer"
   },
   "company-phone": {
+    "required": "Enter a phone number",
     "internationalPhoneNumber": "Enter a valid phone number",
     "maxlength": "You can't use more than {{maxlength}} characters for your answer",
     "notUrl": "Enter a valid answer"
