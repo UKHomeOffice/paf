@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:1ce7ba09ab5c8dbea704ede2f5663c80028b70f1
+          image: quay.io/ukhomeofficedigital/ims-resolver:0b2fbad812132ef2f3d8840538481c9338e8df28
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -51,8 +51,8 @@ spec:
             - configMapRef:
                 name: imscertchain-store
           env:
-            # - name: NODE_TLS_REJECT_UNAUTHORIZED
-            #   value: "0"
+            - name: NODE_TLS_REJECT_UNAUTHORIZED
+              value: "0"
             - name: NODE_EXTRA_CA_CERTS
               value: "/etc/ssl/certs/ims-prp1-ca.crt"
             - name: TZ
@@ -99,7 +99,7 @@ spec:
                   name: keycloak-user
                   key: password
             # {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) }}
-            #- name: NODE_TLS_REJECT_UNAUTHORIZED
+            # - name: NODE_TLS_REJECT_UNAUTHORIZED
             #  value: "0"
             # {{ end }}
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
