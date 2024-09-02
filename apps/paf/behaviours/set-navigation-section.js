@@ -74,8 +74,7 @@ module.exports = superclass => class extends superclass {
           res.locals.backLink = 'report-organisation';
         }
       }
-
-
+      
       // About You section - set next property for preceeding pages and set backlink
       if (req.query.section === 'about-you') {
         req.form.options.steps['/other-info-file-upload'].next = '/about-you';
@@ -95,7 +94,10 @@ module.exports = superclass => class extends superclass {
           res.locals.backLink = 'other-info-file-upload';
         }
       }
-
+      if (req.sessionModel.get('images') && req.sessionModel.get('images').length > 0) {
+        req.form.options.steps['/about-you'].backLink = 'add-other-info-file-upload';
+        res.locals.backLink = 'add-other-info-file-upload';
+      }
 
       // Check Answers section - set next property for preceeding pages and set backlink
       if (req.query.section === 'check-answers') {

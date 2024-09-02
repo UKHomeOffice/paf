@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 const Controller = require('hof').controller;
 const Behaviour = require('../../../apps/paf/behaviours/set-navigation-section');
+const Model = require('hof').model;
 
 describe('apps/paf/behaviours/set-navigation-section', () => {
   describe('getValues', () => {
@@ -13,6 +14,7 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
     beforeEach(done => {
       req = reqres.req();
       res = reqres.res();
+      req.sessionModel = new Model({});
       req.sessionModel.attributes.steps = [];
 
       const GetSectionController = Behaviour(Controller);
@@ -238,12 +240,40 @@ describe('apps/paf/behaviours/set-navigation-section', () => {
         });
       });
 
-      it('has the other-info-file-upload backlink for the about-you page', () => {
+      it('has the other-info-file-upload backlink for the about-you page if no files have been uploaded', () => {
         req.form.options.route = '/about-you';
+        req.sessionModel.set('images', []);
         req.sessionModel.attributes.steps.push('/other-info-file-upload');
         controller.getValues(req, res, () => {
           req.form.options.steps['/about-you'].backLink.should.deep.equal('other-info-file-upload');
           res.locals.backLink.should.deep.equal('other-info-file-upload');
+        });
+      });
+
+      it('has the add-other-info-file-upload backlink for the about-you page if files have been uploaded', () => {
+        const images = [{
+          name: 'violin.png',
+          mimetype: 'image/png',
+          id: 'a1',
+          url: 'http://s3.com/foo/0.4283270873546463'
+        },
+        {
+          name: 'piano.png',
+          mimetype: 'image/png',
+          id: 'b2',
+          url: 'http://s3.com/foo/0.4283270873546464'
+        },
+        {
+          name: 'piano.png',
+          mimetype: 'image/png',
+          id: 'b2',
+          url: 'http://s3.com/foo/0.4283270873546465'
+        }];
+        req.form.options.route = '/about-you';
+        req.sessionModel.set('images', images);
+        controller.getValues(req, res, () => {
+          req.form.options.steps['/about-you'].backLink.should.deep.equal('add-other-info-file-upload');
+          res.locals.backLink.should.deep.equal('add-other-info-file-upload');
         });
       });
 
