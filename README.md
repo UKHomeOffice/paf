@@ -9,7 +9,7 @@ The PAF app will send data to an AWS SQS (Simple Queue Service), the [ims-resolv
 ## IMS API integration
 
 There is some sensitive information about IMS integration.  The documentation of this can be found in an internal repo
-https://github.com/UKHomeOffice/ims-integration-documentation
+https://github.com/UKHomeOffice/ims-integration-documentation 
 
 ## Getting Started
 
