@@ -70,6 +70,18 @@ ignore:
     - '*':
       reason: To be updated to a newer version in hof
       expires: '2024-08-16T17:02:21.865Z'
+  SNYK-JS-ELLIPTIC-7577916:
+    - '*':
+      reason: To be updated to a newer version in hof
+      expires: '2024-11-16T17:02:21.865Z'
+  SNYK-JS-ELLIPTIC-7577917:
+    - '*':
+      reason: To be updated to a newer version in hof
+      expires: '2024-11-16T17:02:21.865Z'
+  SNYK-JS-ELLIPTIC-7577918:
+    - '*':
+      reason: To be updated to a newer version in hof
+      expires: '2024-11-16T17:02:21.865Z'
   SNYK-JS-FASTXMLPARSER-7573289:
     - '*':
       reason: This issue was fixed in versions 4.4.1
