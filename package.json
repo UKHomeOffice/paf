@@ -27,7 +27,7 @@
     "busboy-body-parser": "^0.3.2",
     "device": "^0.3.12",
     "form-data": "^4.0.0",
-    "hof": "~21.1.0",
+    "hof": "~20.5.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
