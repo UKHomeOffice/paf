@@ -5,7 +5,7 @@ const Model = require('../../../apps/paf/models/file-upload');
 const config = require('../../../config');
 const FormData = require('form-data');
 
-describe.only('File Upload Model', () => {
+describe('File Upload Model', () => {
   let sandbox;
 
   beforeEach(function () {
