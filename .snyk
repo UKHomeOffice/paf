@@ -2,10 +2,6 @@
 version: v1.19.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
-  SNYK-JS-REQUEST-3361831:
-  - '*':
-      reason: No upgrade or patch available
-      expires: '2024-11-01T17:02:21.865Z'
   SNYK-JS-XML2JS-5414874:
   - '*':
       reason: No direct upgrade or patch available
@@ -26,39 +22,11 @@ ignore:
     - '*':
       reason: No upgrade or patch available
       expires: '2024-11-01T17:02:21.865Z'
-  SNYK-JS-AXIOS-6032459:
-    - '*':
-      reason: To be updated to a newer version in hof
-      expires: '2024-11-01T17:02:21.865Z'
-  SNYK-JS-AXIOS-6124857:
-    - '*':
-      reason: To be updated to a newer version in hof
-      expires: '2024-11-01T17:02:21.865Z'
-  SNYK-JS-AXIOS-6144788:
-    - '*':
-      reason: To be updated to a newer version in hof
-      expires: '2024-11-01T17:02:21.865Z'
-  SNYK-JS-FOLLOWREDIRECTS-6141137:
-    - '*':
-      reason: To be updated to a newer version in hof
-      expires: '2024-11-01T17:02:21.865Z'
   SNYK-JS-INFLIGHT-6095116:
     - '*':
-      reason: To be updated to a newer version in hof
-      expires: '2024-11-01T17:02:21.865Z'
-  SNYK-JS-NODEMAILER-6219989:
-    - '*':
-      reason: To be updated to a newer version in hof
-      expires: '2024-11-01T17:02:21.865Z'
-  SNYK-JS-TOUGHCOOKIE-5672873:
-    - '*':
-      reason: To be updated to a newer version in hof
+      reason: No upgrade or patch available
       expires: '2024-11-01T17:02:21.865Z'
   SNYK-JS-MARKDOWNIT-6483324:
-    - '*':
-      reason: To be updated to a newer version in hof
-      expires: '2024-11-01T17:02:21.865Z'
-  SNYK-JS-EXPRESS-6474509:
     - '*':
       reason: To be updated to a newer version in hof
       expires: '2024-11-01T17:02:21.865Z'
@@ -66,10 +34,6 @@ ignore:
     - '*':
       reason: To be updated to a newer version in hof
       expires: '2024-11-01T17:02:21.865Z'
-  SNYK-JS-BRACES-6838727:
-    - '*':
-      reason: To be updated to a newer version in hof
-      expires: '2024-08-16T17:02:21.865Z'
   SNYK-JS-ELLIPTIC-7577916:
     - '*':
       reason: To be updated to a newer version in hof
@@ -86,4 +50,13 @@ ignore:
     - '*':
       reason: This issue was fixed in versions 4.4.1
       expires: '2024-11-01T17:02:21.865Z'
+  SNYK-JS-COOKIE-8163060:
+    - '*':
+      reason: No upgrade or patch available
+      expires: '2025-01-24T17:02:21.865Z'
+  SNYK-JS-ELLIPTIC-8187303:
+    - '*':
+      reason: No upgrade or patch available
+      expires: '2025-01-24T17:02:21.865Z'
+
 patch: {}
