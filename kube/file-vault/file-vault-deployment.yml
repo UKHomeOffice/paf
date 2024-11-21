@@ -121,6 +121,15 @@ spec:
               value: "yes"
           securityContext:
             runAsNonRoot: true
+          volumeMounts:
+            - name: imscertchain-store
+              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+              subPath: ims-prp1-ca.crt
+              readOnly: false
+      volumes:
+        - name: imscertchain-store
+          configMap:
+            name: imscertchain-store
 
         - name: keycloak-proxy
           image: quay.io/ukhomeofficedigital/keycloak-gatekeeper:8.0.2
