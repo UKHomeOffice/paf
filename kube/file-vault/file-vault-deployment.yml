@@ -207,13 +207,13 @@ spec:
               mountPath: /etc/ssl/certs/ims-prp1-ca.crt
               subPath: ims-prp1-ca.crt
               readOnly: false
-          volumeMounts:
-            - mountPath: /certs
-              name: certs
-              readOnly: true
-            - name: bundle
-              mountPath: /etc/ssl/certs
-              readOnly: true
+          # volumeMounts:
+          #   - mountPath: /certs
+          #     name: certs
+          #     readOnly: true
+          #   - name: bundle
+          #     mountPath: /etc/ssl/certs
+          #     readOnly: true
       volumes:
         - name: imscertchain-store
           configMap:
