@@ -183,11 +183,16 @@ spec:
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
-            - mountPath: /certs
-              name: certs
-            - mountPath: /etc/ssl/certs
-              name: bundle
-              readOnly: true
+            - name: imscertchain-store
+              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+              subPath: ims-prp1-ca.crt
+              readOnly: false
+          # volumeMounts:
+          #   - mountPath: /certs
+          #     name: certs
+          #   - mountPath: /etc/ssl/certs
+          #     name: bundle
+          #     readOnly: true
 
         - name: nginx-proxy
           # nginx-proxy-govuk:v4
