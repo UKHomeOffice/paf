@@ -33,6 +33,10 @@ spec:
         service: file-vault
         {{ end }}
     spec:
+      # volumes:
+      #   - name: imscertchain-store
+      #     configMap:
+      #       name: imscertchain-store
       containers:
         - name: file-vault
           image: quay.io/ukhomeofficedigital/file-vault:f4cd1ece1caddc3bfbc8f5db761c593fda79ef12
@@ -121,15 +125,11 @@ spec:
               value: "yes"
           securityContext:
             runAsNonRoot: true
-          volumeMounts:
-            - name: imscertchain-store
-              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
-              subPath: ims-prp1-ca.crt
-              readOnly: false
-      volumes:
-        - name: imscertchain-store
-          configMap:
-            name: imscertchain-store
+          # volumeMounts:
+          #   - name: imscertchain-store
+          #     mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+          #     subPath: ims-prp1-ca.crt
+          #     readOnly: false
 
         - name: keycloak-proxy
           image: quay.io/ukhomeofficedigital/keycloak-gatekeeper:8.0.2
@@ -203,6 +203,11 @@ spec:
           securityContext:
             runAsNonRoot: true
           volumeMounts:
+            - name: imscertchain-store
+              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+              subPath: ims-prp1-ca.crt
+              readOnly: false
+          volumeMounts:
             - mountPath: /certs
               name: certs
               readOnly: true
@@ -210,13 +215,21 @@ spec:
               mountPath: /etc/ssl/certs
               readOnly: true
       volumes:
-        - name: certs
-          secret:
-            {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-            secretName: branch-tls-external
-            {{ else }}
-            secretName: file-vault-cert
-            {{ end }}
+        - name: imscertchain-store
+          configMap:
+          {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+            name: imscertchain-store
+          {{ else }}
+            name: file-vault-cert
+          {{ end }}                    
+      # volumes:
+      #   - name: certs
+      #     secret:
+      #       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+      #       secretName: branch-tls-external
+      #       {{ else }}
+      #       secretName: file-vault-cert
+      #       {{ end }}
         - name: bundle
           configMap:
             name: bundle
