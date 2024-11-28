@@ -57,10 +57,10 @@ spec:
             - configMapRef:
                 name: imscertchain-store
           env:
-            # - name: NODE_TLS_REJECT_UNAUTHORIZED
-            #   value: "0"
-            - name: NODE_EXTRA_CA_CERTS
-              value: "/etc/ssl/certs/ims-prp1-ca.crt"
+            - name: NODE_TLS_REJECT_UNAUTHORIZED
+              value: "0"
+            # - name: NODE_EXTRA_CA_CERTS
+            #   value: "/etc/ssl/certs/ims-prp1-ca.crt"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
@@ -125,11 +125,11 @@ spec:
               value: "yes"
           securityContext:
             runAsNonRoot: true
-          volumeMounts:
-            - name: imscertchain-store
-              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
-              subPath: ims-prp1-ca.crt
-              readOnly: false
+          # volumeMounts:
+          #   - name: imscertchain-store
+          #     mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+          #     subPath: ims-prp1-ca.crt
+          #     readOnly: false
 
         - name: keycloak-proxy
           image: quay.io/ukhomeofficedigital/keycloak-gatekeeper:8.0.2
@@ -138,6 +138,8 @@ spec:
               memory: "1024Mi"
               cpu: 200m
           env:
+            # - name: NODE_EXTRA_CA_CERTS
+            #   value: "/etc/ssl/certs/ims-prp1-ca.crt"
             - name: PROXY_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
@@ -170,8 +172,8 @@ spec:
             - --upstream-url=https://127.0.0.1:10444
             # URls that you wish to protect.
             - --resources=uri=/*
-            # - --tls-cert=/certs/tls.crt
-            # - --tls-private-key=/certs/tls.key
+            - --tls-cert=/certs/tls.crt
+            - --tls-private-key=/certs/tls.key
             {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
             - --verbose=true
             {{ end }}
@@ -182,17 +184,17 @@ spec:
             runAsNonRoot: true
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
-          volumeMounts:
-            - name: imscertchain-store
-              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
-              subPath: ims-prp1-ca.crt
-              readOnly: false
           # volumeMounts:
-          #   - mountPath: /certs
-          #     name: certs
-          #   - mountPath: /etc/ssl/certs
-          #     name: bundle
-          #     readOnly: true
+          #   - name: imscertchain-store
+          #     mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+          #     subPath: ims-prp1-ca.crt
+              readOnly: false
+          volumeMounts:
+            - mountPath: /certs
+              name: certs
+            - mountPath: /etc/ssl/certs
+              name: bundle
+              readOnly: true
 
         - name: nginx-proxy
           # nginx-proxy-govuk:v4
@@ -207,34 +209,34 @@ spec:
 {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
           securityContext:
             runAsNonRoot: true
-          volumeMounts:
-            - name: imscertchain-store
-              mountPath: /etc/ssl/certs/ims-prp1-ca.crt
-              subPath: ims-prp1-ca.crt
-              readOnly: false
           # volumeMounts:
-          #   - mountPath: /certs
-          #     name: certs
-          #     readOnly: true
-          #   - name: bundle
-          #     mountPath: /etc/ssl/certs
-          #     readOnly: true
-      volumes:
-        - name: imscertchain-store
-          configMap:
-          {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-            name: imscertchain-store
-          {{ else }}
-            name: file-vault-cert
-          {{ end }}                    
+          #   - name: imscertchain-store
+          #     mountPath: /etc/ssl/certs/ims-prp1-ca.crt
+          #     subPath: ims-prp1-ca.crt
+          #     readOnly: false
+          volumeMounts:
+            - mountPath: /certs
+              name: certs
+              readOnly: true
+            - name: bundle
+              mountPath: /etc/ssl/certs
+              readOnly: true
       # volumes:
-      #   - name: certs
-      #     secret:
-      #       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-      #       secretName: branch-tls-external
-      #       {{ else }}
-      #       secretName: file-vault-cert
-      #       {{ end }}
+      #   - name: imscertchain-store
+      #     configMap:
+      #     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+      #       name: imscertchain-store
+      #     {{ else }}
+      #       name: file-vault-cert
+      #     {{ end }}                    
+      volumes:
+        - name: certs
+          secret:
+            {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+            secretName: branch-tls-external
+            {{ else }}
+            secretName: file-vault-cert
+            {{ end }}
         - name: bundle
           configMap:
             name: bundle
