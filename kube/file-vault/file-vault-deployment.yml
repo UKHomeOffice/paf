@@ -119,22 +119,22 @@ spec:
               value: "yes"
           securityContext:
             runAsNonRoot: true
-          volumeMounts:
-            - mountPath: /certs
-              name: certs
-          #     mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
-          #     subPath: tls.crt
-              readOnly: true
-            - name: bundle
-              mountPath: /etc/ssl/certs
-          #     mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
-          #     subPath: tls.crt
-              readOnly: true
           # volumeMounts:
-          #   - name: certs
-          #     mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
-          #     subPath: tls.crt
-          #     readOnly: false
+          #   - mountPath: /certs
+          #     name: certs
+          # #     mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
+          # #     subPath: tls.crt
+          #     readOnly: true
+          #   - name: bundle
+          #     mountPath: /etc/ssl/certs
+          # #     mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
+          # #     subPath: tls.crt
+          #     readOnly: true
+          volumeMounts:
+            - name: certs
+              mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
+              subPath: tls.crt
+              readOnly: false
 
 
         - name: keycloak-proxy
@@ -206,6 +206,8 @@ spec:
               memory: 512Mi
           env:
 {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
+            - name: NODE_EXTRA_CA_CERTS
+              value: "/etc/ssl/certs/branch-tls-external/tls.crt"
           securityContext:
             runAsNonRoot: true
           volumeMounts:
