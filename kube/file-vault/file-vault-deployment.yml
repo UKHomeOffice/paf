@@ -201,10 +201,10 @@ spec:
               memory: 512Mi
           env:
 {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
-            - name: SERVER_CERT
-              value: "/etc/ssl/certs/branch-tls-external/tls.crt"
-            - name: SERVER_KEY
-              value: "/etc/ssl/certs/branch-tls-external/tls.crt"
+            # - name: SERVER_CERT
+            #   value: "/etc/ssl/certs/branch-tls-external/tls.crt"
+            # - name: SERVER_KEY
+            #   value: "/etc/ssl/certs/branch-tls-external/tls.crt"
           securityContext:
             runAsNonRoot: true
           volumeMounts:
