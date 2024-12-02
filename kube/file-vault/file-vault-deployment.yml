@@ -55,6 +55,7 @@ spec:
             #   value: "0"
             - name: NODE_EXTRA_CA_CERTS
               value: "/certs/tls.crt"
+              # value: "certs/branch-tls-external/tls.crt"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
@@ -120,6 +121,10 @@ spec:
           securityContext:
             runAsNonRoot: true
           volumeMounts:
+            # - name: certs
+            #   mountPath: /certs/certificate-external
+            #   subPath: branch-tls-external/tls.crt
+            #   readOnly: false
             - name: certs
               mountPath: /certs/tls.crt
               subPath: tls.crt
@@ -223,12 +228,18 @@ spec:
             #   value: "/etc/ssl/certs/branch-tls-external/tls.crt"
             # - name: SERVER_KEY
             #   value: "/etc/ssl/certs/branch-tls-external/tls.crt"
+            - name: NODE_EXTRA_CA_CERTS
+              value: "/certs/tls.crt"
           securityContext:
             runAsNonRoot: true
           volumeMounts:
-            - mountPath: /certs
-              name: certs
-              readOnly: true
+            # - mountPath: /certs
+            #   name: certs
+            #   readOnly: true
+            - name: certs
+              mountPath: /certs/tls.crt
+              subPath: tls.crt
+              readOnly: false
             - name: bundle
               mountPath: /etc/ssl/certs
               readOnly: true
