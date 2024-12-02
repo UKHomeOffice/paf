@@ -33,10 +33,10 @@ spec:
         service: file-vault
         {{ end }}
     spec:
-      volumes:
-        - name: imscertchain-store
-          configMap:
-            name: imscertchain-store
+      # volumes:
+      #   - name: imscertchain-store
+      #     configMap:
+      #       name: imscertchain-store
       containers:
         - name: file-vault
           image: quay.io/ukhomeofficedigital/file-vault:f4cd1ece1caddc3bfbc8f5db761c593fda79ef12
