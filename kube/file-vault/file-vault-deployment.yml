@@ -53,9 +53,6 @@ spec:
           env:
             # - name: NODE_TLS_REJECT_UNAUTHORIZED
             #   value: "0"
-            # - name: NODE_EXTRA_CA_CERTS
-            #   # value: "/certs/tls.crt"
-            #   value: "certs/branch-tls-external/tls.crt"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
@@ -197,8 +194,6 @@ spec:
               memory: 512Mi
           env:
 {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
-            - name: NODE_EXTRA_CA_CERTS
-              value: "/certs/tls.crt"
           securityContext:
             runAsNonRoot: true
           volumeMounts:
