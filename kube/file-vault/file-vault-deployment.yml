@@ -128,7 +128,7 @@ spec:
             - name: certs
               mountPath: /certs/tls.crt
               subPath: tls.crt
-              readOnly: false
+              readOnly: true
             # - mountPath: /certs
             #   name: certs
             #   readOnly: true
@@ -239,7 +239,7 @@ spec:
             - name: certs
               mountPath: /certs/tls.crt
               subPath: tls.crt
-              readOnly: false
+              readOnly: true
             - name: bundle
               mountPath: /etc/ssl/certs
               readOnly: true
