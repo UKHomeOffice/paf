@@ -211,9 +211,13 @@ spec:
           securityContext:
             runAsNonRoot: true
           volumeMounts:
-            - mountPath: /certs
-              name: certs
-              readOnly: true
+            # - mountPath: /certs
+            #   name: certs
+            #   readOnly: true
+            - name: certs
+              mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
+              subPath: tls.crt
+              readOnly: false
             - name: bundle
               mountPath: /etc/ssl/certs
               readOnly: true
