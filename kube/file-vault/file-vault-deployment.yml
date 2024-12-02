@@ -201,7 +201,9 @@ spec:
               memory: 512Mi
           env:
 {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
-            - name: NODE_EXTRA_CA_CERTS
+            - name: SERVER_CERT
+              value: "/etc/ssl/certs/branch-tls-external/tls.crt"
+            - name: SERVER_KEY
               value: "/etc/ssl/certs/branch-tls-external/tls.crt"
           securityContext:
             runAsNonRoot: true
