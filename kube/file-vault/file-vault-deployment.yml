@@ -211,7 +211,7 @@ spec:
             #   name: certs
             #   readOnly: true
             - name: certs
-              mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
+              mountPath: /certs/branch-tls-external/tls.crt
               subPath: tls.crt
               readOnly: false
             - name: bundle
