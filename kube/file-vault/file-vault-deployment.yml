@@ -119,22 +119,19 @@ spec:
               value: "yes"
           securityContext:
             runAsNonRoot: true
-          # volumeMounts:
-          #   - mountPath: /certs
-          #     name: certs
-          # #     mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
-          # #     subPath: tls.crt
-          #     readOnly: true
-          #   - name: bundle
-          #     mountPath: /etc/ssl/certs
-          # #     mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
-          # #     subPath: tls.crt
-          #     readOnly: true
           volumeMounts:
-            - name: certs
-              mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
-              subPath: tls.crt
-              readOnly: false
+            - mountPath: /certs
+              name: /etc/ssl/certs
+              subPath: /branch-tls-external/tls.crt
+              readOnly: true
+            - name: bundle
+              mountPath: /etc/ssl/certs
+              readOnly: true
+          # volumeMounts:
+          #   - name: certs
+          #     mountPath: /etc/ssl/certs/branch-tls-external/tls.crt
+          #     subPath: tls.crt
+          #     readOnly: false
 
 
         - name: keycloak-proxy
