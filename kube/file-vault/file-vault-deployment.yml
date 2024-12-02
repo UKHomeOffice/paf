@@ -218,7 +218,7 @@ spec:
               value: /certs/branch-tls-external/tls.crt
             - name: SERVER_KEY
               value: /certs/branch-tls-external/tls.key
-# {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
+{{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
             # - name: SERVER_CERT
             #   value: "/etc/ssl/certs/branch-tls-external/tls.crt"
             # - name: SERVER_KEY
