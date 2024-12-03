@@ -181,9 +181,8 @@ spec:
           volumeMounts:
             - mountPath: /certs
               name: certs
-              readOnly: true
-            - name: bundle
-              mountPath: /etc/ssl/certs
+            - mountPath: /etc/ssl/certs
+              name: bundle
               readOnly: true
 
         - name: nginx-proxy
@@ -202,8 +201,9 @@ spec:
           volumeMounts:
             - mountPath: /certs
               name: certs
-            - mountPath: /etc/ssl/certs
-              name: bundle
+              readOnly: true
+            - name: bundle
+              mountPath: /etc/ssl/certs
               readOnly: true
       volumes:
         - name: certs
