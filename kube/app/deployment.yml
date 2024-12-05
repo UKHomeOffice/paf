@@ -191,8 +191,24 @@ spec:
           volumeMounts:
             - mountPath: /public
               name: public
+            - mountPath: /certs
+              name: certs
+              readOnly: true
+            - name: bundle
+              mountPath: /etc/ssl/certs
+              readOnly: true
           securityContext:
             runAsNonRoot: true
       volumes:
         - name: public
           emptyDir: {}
+        - name: certs
+          secret:
+            {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+            secretName: branch-tls-external
+            {{ else }}
+            secretName: file-vault-cert
+            {{ end }}
+        - name: bundle
+          configMap:
+            name: bundle
