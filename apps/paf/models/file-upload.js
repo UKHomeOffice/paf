@@ -32,7 +32,7 @@ module.exports = class UploadModel extends Model {
       };
       reqConf.method = 'POST';
       const result = await this.request(reqConf);
-      console.log('****************************RESULT, ', result);
+      console.log('****************************reqConf, ', reqConf);
 
       this.set({ url: result.url.replace('/file/', '/file/generate-link/').split('?')[0] });
       logger.info(`Successfully saved data`);
