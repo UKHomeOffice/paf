@@ -119,12 +119,12 @@ spec:
               value: "yes"
           securityContext:
             runAsNonRoot: true
-          # volumeMounts:
-          #   - mountPath: /certs
-          #     name: certs
-          #   - mountPath: /etc/ssl/certs
-          #     name: bundle
-          #     readOnly: true
+          volumeMounts:
+            - mountPath: /certs
+              name: certs
+            - mountPath: /etc/ssl/certs
+              name: bundle
+              readOnly: true
 
 
         - name: keycloak-proxy
