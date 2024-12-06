@@ -204,6 +204,11 @@ spec:
                 BasicRule wl:1500 "mz:FILE_EXT";
             - name: ADD_NGINX_SERVER_CFG
               value: |-
+                ssl_stapling on;
+                ssl_stapling_verify on;
+                ssl_certificate /certs/tls.crt;
+                ssl_certificate_key /certs/tls.key;
+                ssl_trusted_certificate /certs/tls.crt;
                 add_header Cache-Control private;
                 add_header X-Frame-Options "SAMEORIGIN" always;
                 add_header X-Content-Type-Options "nosniff" always;
