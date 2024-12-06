@@ -195,25 +195,31 @@ spec:
             requests:
               memory: 512Mi
           env:
-            - name: CLIENT_MAX_BODY_SIZE
-              value: "200"
-            - name: HTTPS_LISTEN_PORT
-              value: "10444"
-            - name: VERBOSE_ERROR_PAGES
-              value: "TRUE"
-            - name: NAXSI_USE_DEFAULT_RULES
-              value: "FALSE"
-            - name: PORT_IN_HOST_HEADER
-              value: "FALSE"
-            - name: PROXY_SERVICE_HOST
-              value: 127.0.0.1
-            - name: PROXY_SERVICE_PORT
-              value: "3000"
-            - name: SERVER_CERT
-              value: /certs/tls.crt
-            - name: SERVER_KEY
-              value: /certs/tls.key
-# {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
+            # - name: CLIENT_MAX_BODY_SIZE
+            #   value: "200"
+            # - name: HTTPS_LISTEN_PORT
+            #   value: "10444"
+            # - name: VERBOSE_ERROR_PAGES
+            #   value: "TRUE"
+            # - name: NAXSI_USE_DEFAULT_RULES
+            #   value: "FALSE"
+            # - name: PORT_IN_HOST_HEADER
+            #   value: "FALSE"
+            # - name: PROXY_SERVICE_HOST
+            #   value: 127.0.0.1
+            # - name: PROXY_SERVICE_PORT
+            #   value: "3000"
+            # - name: SERVER_CERT
+            #   value: /certs/tls.crt
+            # - name: SERVER_KEY
+            #   value: /certs/tls.key
+            # - name: ADD_NGINX_SERVER_CFG
+            #   value: |-
+            #     ssl_stapling_verify off;
+            #     ssl_certificate /certs/tls.crt;
+            #     ssl_certificate_key /certs/tls.key;
+            #     ssl_trusted_certificate /certs/tls.crt;
+{{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
           securityContext:
             runAsNonRoot: true
           volumeMounts:
