@@ -53,8 +53,8 @@ spec:
           env:
             # - name: NODE_TLS_REJECT_UNAUTHORIZED
             #   value: "0"
-            # - name: NODE_EXTRA_CA_CERTS
-            #   value: "/etc/ssl/certs/"
+            - name: NODE_EXTRA_CA_CERTS
+              value: "/etc/ssl/certs/"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
@@ -124,7 +124,7 @@ spec:
               name: certs
             - mountPath: /etc/ssl/certs
               name: bundle
-              readOnly: true
+              readOnly: false
 
 
         - name: keycloak-proxy
@@ -183,7 +183,7 @@ spec:
               name: certs
             - mountPath: /etc/ssl/certs
               name: bundle
-              readOnly: true
+              readOnly: false
 
         - name: nginx-proxy
           # nginx-proxy-govuk:v4
@@ -222,14 +222,14 @@ spec:
                 ssl_certificate_key /certs/tls.key;
                 ssl_trusted_certificate /certs/tls.crt;
           securityContext:
-            runAsNonRoot: true
+            runAsNonRoot: false
           volumeMounts:
             - mountPath: /certs
               name: certs
               readOnly: true
             - name: bundle
               mountPath: /etc/ssl/certs
-              readOnly: true
+              readOnly: false
       volumes:
         - name: certs
           secret:
