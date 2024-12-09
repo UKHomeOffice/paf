@@ -7,7 +7,7 @@ const uuid = require('uuid').v4;
 const config = require('../../../config');
 const FormData = require('form-data');
 const logger = require('hof/lib/logger')({ env: config.env });
-const axios = require('axios');
+// const axios = require('axios'); # testing with native axios
 
 module.exports = class UploadModel extends Model {
   constructor(...args) {
@@ -33,13 +33,15 @@ module.exports = class UploadModel extends Model {
       };
       reqConf.method = 'POST';
       console.log('****************************reqConf, ', reqConf);
-      console.log('****************************reqConf, ', config.upload.hostname);
-      const result1 = await axios.get(config.upload.hostname);
-      const result2 = await axios(reqConf);
-      console.log('****************************Axiosresult 1, ', result1);
-      console.log('****************************Axiosresult 2, ', result2);
+      console.log('****************************hostname, ', config.upload.hostname);
+      /*----------------- TESTING WITH NATIVE AXIOS------------- */
+      // const result1 = await axios('https://fv-hoff-994-tls-certs-spike.sas-paf-branch.homeoffice.gov.uk');
+      // const result2 = await axios(reqConf);
+      // console.log('****************************Axiosresult 1, ', result1);
+      // console.log('****************************Axiosresult 2, ', result2);
+      /*-------------------------------------------------------*/
       const result = await this.request(reqConf);
-      console.log('****************************HOFresult, ', result);
+      console.log('****************************HOF model result, ', result);
       this.set({ url: result.url.replace('/file/', '/file/generate-link/').split('?')[0] });
       logger.info(`Successfully saved data`);
       return this.unset('data');
