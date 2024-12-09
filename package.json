@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "accessible-autocomplete": "^2.0.2",
-    "axios": "^1.7.9",
+    "axios": "1.7.3",
     "busboy-body-parser": "^0.3.2",
     "device": "^0.3.12",
     "form-data": "^4.0.0",
