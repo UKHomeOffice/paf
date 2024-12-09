@@ -53,8 +53,8 @@ spec:
           env:
             # - name: NODE_TLS_REJECT_UNAUTHORIZED
             #   value: "0"
-            - name: NODE_EXTRA_CA_CERTS
-              value: "/etc/ssl/certs/"
+            # - name: NODE_EXTRA_CA_CERTS
+            #   value: "/etc/ssl/certs/"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
@@ -183,7 +183,7 @@ spec:
               name: certs
             - mountPath: /etc/ssl/certs
               name: bundle
-              readOnly: false
+              readOnly: true
 
         - name: nginx-proxy
           # nginx-proxy-govuk:v4
@@ -217,19 +217,18 @@ spec:
               value: |-
                 resolver 8.8.8.8 8.8.4.4;
                 ssl_stapling_verify on;
-                ssl_stapling_responder http://x1.i.lencr.org;
                 ssl_certificate /certs/tls.crt;
                 ssl_certificate_key /certs/tls.key;
                 ssl_trusted_certificate /certs/tls.crt;
           securityContext:
-            runAsNonRoot: false
+            runAsNonRoot: true
           volumeMounts:
             - mountPath: /certs
               name: certs
               readOnly: true
             - name: bundle
               mountPath: /etc/ssl/certs
-              readOnly: false
+              readOnly: true
       volumes:
         - name: certs
           secret:

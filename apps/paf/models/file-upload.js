@@ -7,6 +7,7 @@ const uuid = require('uuid').v4;
 const config = require('../../../config');
 const FormData = require('form-data');
 const logger = require('hof/lib/logger')({ env: config.env });
+const axios = require('axios');
 
 module.exports = class UploadModel extends Model {
   constructor(...args) {
@@ -31,9 +32,14 @@ module.exports = class UploadModel extends Model {
         ...formData.getHeaders()
       };
       reqConf.method = 'POST';
-      const result = await this.request(reqConf);
       console.log('****************************reqConf, ', reqConf);
-
+      console.log('****************************reqConf, ', config.upload.hostname);
+      const result1 = await axios.get(config.upload.hostname);
+      const result2 = await axios(reqConf);
+      console.log('****************************Axiosresult 1, ', result1);
+      console.log('****************************Axiosresult 2, ', result2);
+      const result = await this.request(reqConf);
+      console.log('****************************HOFresult, ', result);
       this.set({ url: result.url.replace('/file/', '/file/generate-link/').split('?')[0] });
       logger.info(`Successfully saved data`);
       return this.unset('data');
