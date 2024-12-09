@@ -33,8 +33,8 @@ module.exports = class UploadModel extends Model {
       };
       reqConf.method = 'POST';
       console.log('****************************reqConf, ', reqConf);
-      console.log('****************************reqConf, ', config.upload.hostname);
-      const result1 = await axios.get(config.upload.hostname);
+      console.log('****************************hostname, ', config.upload.hostname);
+      const result1 = await axios.get(config.upload.hostname.replace('/file/', ''));
       const result2 = await axios(reqConf);
       console.log('****************************Axiosresult 1, ', result1);
       console.log('****************************Axiosresult 2, ', result2);
