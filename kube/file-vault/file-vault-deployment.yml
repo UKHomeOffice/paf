@@ -117,6 +117,10 @@ spec:
               value: "yes"
           securityContext:
             runAsNonRoot: true
+          volumeMounts:
+            - mountPath: /certs
+              name: certs
+              readOnly: true
 
         - name: keycloak-proxy
           image: quay.io/ukhomeofficedigital/keycloak-gatekeeper:8.0.2
