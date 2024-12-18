@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: file-vault
-          image: quay.io/ukhomeofficedigital/file-vault:f4cd1ece1caddc3bfbc8f5db761c593fda79ef12
+          image: quay.io/ukhomeofficedigital/file-vault:034d51179cfbf18e47b1ba66eafc52f15cb736e5
           imagePullPolicy: Always
           resources:
             limits:
@@ -51,8 +51,8 @@ spec:
                 name: {{ .APP_NAME }}-configmap
                 {{ end }}
           env:
-            - name: NODE_TLS_REJECT_UNAUTHORIZED
-              value: "0"
+            # - name: NODE_TLS_REJECT_UNAUTHORIZED
+            #   value: "0"
             - name: FILE_VAULT_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
@@ -117,6 +117,10 @@ spec:
               value: "yes"
           securityContext:
             runAsNonRoot: true
+          volumeMounts:
+             - mountPath: /certs
+               name: certs
+               readOnly: true
 
         - name: keycloak-proxy
           image: quay.io/ukhomeofficedigital/keycloak-gatekeeper:8.0.2
