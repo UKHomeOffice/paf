@@ -182,6 +182,27 @@ spec:
             - mountPath: /etc/ssl/certs
               name: bundle
               readOnly: true
+
+        - name: nginx-proxy
+          # nginx-proxy-govuk:v4
+          image: quay.io/ukhomeofficedigital/nginx-proxy-govuk@sha256:4470064d0b1d20ae08c5fd85551576cb687f342a22d6cb456fda9b2c4ce8c8df
+          resources:
+            limits:
+              memory: "1024Mi"
+              cpu: 200m
+            requests:
+              memory: 512Mi
+          env:
+{{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
+          securityContext:
+            runAsNonRoot: true
+          volumeMounts:
+            - mountPath: /certs
+              name: certs
+              readOnly: true
+            - name: bundle
+              mountPath: /etc/ssl/certs
+              readOnly: true
       volumes:
         - name: certs
           secret:
