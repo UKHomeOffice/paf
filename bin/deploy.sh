@@ -7,7 +7,7 @@ export CONFIGMAP_VALUES=$HOF_CONFIG/configmap-values.yaml
 export CERTCONFIGMAP_VALUES=$HOF_CONFIG/imscertchain-store.yaml
 export CERTCONFIGMAP_PROD_VALUES=$HOF_CONFIG/ims-ebsa-prod-ca-prod.yaml
 export NGINX_SETTINGS=$HOF_CONFIG/nginx-settings.yaml
-export FILEVAULT_NGINX_SETTINGS=$HOF_CONFIG/filevault-nginx-settings.yaml
+# export FILEVAULT_NGINX_SETTINGS=$HOF_CONFIG/filevault-nginx-settings.yaml
 export FILEVAULT_INGRESS_EXTERNAL_ANNOTATIONS=$HOF_CONFIG/filevault-ingress-external-annotations.yaml
 
 kd='kd --insecure-skip-tls-verify --timeout 10m --check-interval 10s'
