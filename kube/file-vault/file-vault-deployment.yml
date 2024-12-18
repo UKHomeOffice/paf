@@ -65,6 +65,8 @@ spec:
             - name: DEBUG
               value: "true"
             {{ end }}
+            - name: REQUEST_TIMEOUT
+              value: "10000"
             - name: PORT
               value: "3000"
             - name: CLAMAV_REST_URL
