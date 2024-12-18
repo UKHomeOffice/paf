@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
         - name: file-vault
-          image: quay.io/ukhomeofficedigital/file-vault:034d51179cfbf18e47b1ba66eafc52f15cb736e5
+          image: quay.io/ukhomeofficedigital/file-vault:76be4cbe886238d4005e4f38cc658e2eba591fb6
           imagePullPolicy: Always
           resources:
             limits:
@@ -67,6 +67,8 @@ spec:
             {{ end }}
             - name: REQUEST_TIMEOUT
               value: "10000"
+            - name: HTTPS_PORT
+              value: "3443"
             - name: PORT
               value: "3000"
             - name: CLAMAV_REST_URL
@@ -180,6 +182,27 @@ spec:
               name: certs
             - mountPath: /etc/ssl/certs
               name: bundle
+              readOnly: true
+
+        - name: nginx-proxy
+          # nginx-proxy-govuk:v4
+          image: quay.io/ukhomeofficedigital/nginx-proxy-govuk@sha256:4470064d0b1d20ae08c5fd85551576cb687f342a22d6cb456fda9b2c4ce8c8df
+          resources:
+            limits:
+              memory: "1024Mi"
+              cpu: 200m
+            requests:
+              memory: 512Mi
+          env:
+{{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
+          securityContext:
+            runAsNonRoot: true
+          volumeMounts:
+            - mountPath: /certs
+              name: certs
+              readOnly: true
+            - name: bundle
+              mountPath: /etc/ssl/certs
               readOnly: true
       volumes:
         - name: certs
