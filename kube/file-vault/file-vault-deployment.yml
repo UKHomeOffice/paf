@@ -123,9 +123,6 @@ spec:
              - mountPath: /certs
                name: certs
                readOnly: true
-            - name: bundle
-              mountPath: /etc/ssl/certs
-              readOnly: true
 
         - name: keycloak-proxy
           image: quay.io/ukhomeofficedigital/keycloak-gatekeeper:8.0.2
