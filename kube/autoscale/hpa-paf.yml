@@ -1,0 +1,58 @@
+---
+#==============================================================================
+# HorizontalPodAutoscaler for paf deployment resource.
+#==============================================================================
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+  name: {{ .APP_NAME }}-{{ .DRONE_SOURCE_BRANCH }}
+  {{ else }}
+  name: {{ .APP_NAME }}
+  {{ end }}
+spec:
+  {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
+  minReplicas: 3
+  maxReplicas: 7
+  {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
+  minReplicas: 1
+  maxReplicas: 3
+  {{ else }}
+  # The branch environment takes up a lot of resources so the number of pods has been kept low
+  minReplicas: 1
+  maxReplicas: 1
+  {{ end }}
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+    name: {{ .APP_NAME }}-{{ .DRONE_SOURCE_BRANCH }}
+    {{ else }}
+    name: {{ .APP_NAME }}
+    {{ end }}
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: AverageValue
+        averageValue: 256Mi
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Pods
+        value: 1
+        periodSeconds: 100
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Pods
+        value: 2
+        periodSeconds: 35
