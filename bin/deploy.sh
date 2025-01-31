@@ -32,6 +32,7 @@ if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
   $kd -f kube/certs
   $kd -f kube/redis
   $kd -f kube/app
+  $kd -f kube/autoscale/hpa-paf.yml
   $kd -f kube/ims-resolver
   $kd -f kube/file-vault
 elif [[ ${KUBE_NAMESPACE} == ${UAT_ENV} ]]; then
@@ -42,11 +43,13 @@ elif [[ ${KUBE_NAMESPACE} == ${UAT_ENV} ]]; then
   $kd -f kube/app/networkpolicy-internal.yml -f kube/app/ingress-internal.yml
   $kd -f kube/app/networkpolicy-external.yml -f kube/app/ingress-external.yml
   $kd -f kube/redis -f kube/file-vault -f kube/app/deployment.yml
+  $kd -f kube/autoscale/hpa-paf.yml
   $kd -f kube/ims-resolver
 elif [[ ${KUBE_NAMESPACE} == ${STG_ENV} ]]; then
   $kd -f kube/configmaps/configmap.yml -f kube/app/service.yml
   $kd -f kube/app/networkpolicy-internal.yml -f kube/app/ingress-internal.yml
   $kd -f kube/redis -f kube/app/deployment.yml
+  $kd -f kube/autoscale/hpa-paf.yml
   $kd -f kube/ims-resolver
 elif [[ ${KUBE_NAMESPACE} == ${PROD_ENV} ]]; then
   $kd -f kube/configmaps/configmap.yml  -f kube/app/service.yml
@@ -55,6 +58,7 @@ elif [[ ${KUBE_NAMESPACE} == ${PROD_ENV} ]]; then
   $kd -f kube/app/ingress-external.yml -f kube/app/networkpolicy-external.yml
   $kd -f kube/redis -f kube/file-vault
   $kd -f kube/app/deployment.yml
+  $kd -f kube/autoscale/hpa-paf.yml
   $kd -f kube/ims-resolver
 fi
 
