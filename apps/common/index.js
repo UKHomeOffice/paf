@@ -2,13 +2,15 @@
 
 module.exports = {
   name: 'common',
+  pages: {
+    '/accessibility': 'accessibility'
+  },
   steps: {
     '/start': {
       template: 'start',
       next: 'paf/crime-type'
     },
-    '/accessibility': {
-      template: 'accessibility'
-    }
+    '/session-timeout': {},
+    '/exit': {}
   }
 };

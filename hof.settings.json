@@ -2,6 +2,7 @@
   "appName":"Public Allegations Form",
   "theme": "govUK",
   "behaviours": [
+    "hof/components/session-timeout-warning",
     "./apps/paf/behaviours/set-navigation-section",
     "./apps/paf/behaviours/time-formatter"
   ],
@@ -12,5 +13,6 @@
   "session": {
     "name": "paf.hof.sid"
   },
-  "getAccessibility": false
+  "views": ["./apps/common/views"],
+  "getAccessibility": true
 }

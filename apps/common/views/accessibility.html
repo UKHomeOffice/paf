@@ -1,5 +1,9 @@
-{{<partials-page}}
-  {{$page-content}}
+{{<layout}}
+  {{$header}}
+    {{header}}
+  {{/header}}
+  
+  {{$content}}
     {{#markdown}}accessibility{{/markdown}}
-  {{/page-content}}
-{{/partials-page}}
+  {{/content}}
+{{/layout}}

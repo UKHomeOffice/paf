@@ -802,6 +802,7 @@ module.exports = {
     },
     '/confirmation': {
       backLink: false
-    }
+    },
+    '/exit': {}
   }
 };
