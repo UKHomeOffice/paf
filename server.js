@@ -5,10 +5,8 @@ const hof = require('hof');
 let settings = require('./hof.settings');
 const config = require('./config.js');
 const busboy = require('busboy');
-const bytes = require('bytes');
 const bl = require('bl');
 const mockAPIs = require('./mock-apis');
-const bodyParser = require('busboy-body-parser');
 const _ = require('lodash');
 
 settings = Object.assign({}, settings, {
@@ -27,10 +25,6 @@ app.use((req, res, next) => {
   res.locals.htmlLang = 'en';
   next();
 });
-
-if (config.env !== 'test') {
-  app.use(bodyParser({limit: config.upload.maxFileSize}));
-}
 
 if (config.env === 'development' || config.env === 'test') {
   app.use('/test/bootstrap-session', (req, res) => {
@@ -59,7 +53,7 @@ app.use((req, res, next) => {
       bb = busboy({
         headers: req.headers,
         limits: {
-          fileSize: bytes('10mb')
+          fileSize: config.upload.maxFileSizeInBytes
         }
       });
     } catch (err) {

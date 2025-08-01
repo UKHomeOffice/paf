@@ -12,6 +12,7 @@ module.exports = {
   },
   useMocks: useMocks,
   upload: {
+    maxFileSizeInBytes: 100 * 1024 * 1024, // 100MiB in bytes
     maxFileSize: '100mb',
     allowedMimeTypes: [
       'application/pdf',

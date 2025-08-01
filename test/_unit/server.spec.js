@@ -77,7 +77,7 @@ describe('Server.js app file', () => {
       useStub.callCount.should.equal(3);
     });
 
-    it('should call the app use method three times if env set to anything else', () => {
+    it('should call the app use method two times if env set to anything else', () => {
       const use = sinon.stub();
       const hof = () => ({ use });
 
@@ -86,7 +86,7 @@ describe('Server.js app file', () => {
         './config': { env: 'production' }
       });
 
-      use.should.have.been.calledThrice;
+      use.should.have.been.calledTwice;
     });
   });
 
