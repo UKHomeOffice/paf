@@ -51,6 +51,8 @@ spec:
                 name: {{ .APP_NAME }}-configmap
                 {{ end }}
           env:
+            - name: AWS_EXPIRY_TIME
+              value: "60"
             - name: NODE_TLS_REJECT_UNAUTHORIZED
               value: "0"
             - name: FILE_VAULT_URL
