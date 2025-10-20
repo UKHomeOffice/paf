@@ -6,7 +6,7 @@ type: kubernetes
 environment:
   APP_NAME: paf
   PROD_ENV: sas-paf-prod
-  STG_ENV: paf-stg
+  STG_ENV: sas-paf-stg
   UAT_ENV: sas-paf-uat
   BRANCH_ENV: sas-paf-branch
   PRODUCTION_URL: www.imsallegations.homeoffice.gov.uk
