@@ -12,7 +12,6 @@ environment:
   PRODUCTION_URL: www.imsallegations.homeoffice.gov.uk
   IMAGE_REPO: sas/paf
   IMAGE_URL : 340268328991.dkr.ecr.eu-west-2.amazonaws.com
-
   GIT_REPO: UKHomeOffice/paf
   HOF_CONFIG: hof-services-config/Public_Allegation_Form
   NON_PROD_AVAILABILITY: Mon-Fri 08:00-23:00 Europe/London
@@ -289,7 +288,8 @@ steps:
     when:
       branch:
         <<: *include_default_branch
-      event: push
+      # temporrily use pull request for testing stage setup
+      event: pull_request
     depends_on:
       - clone_repos
       - build_image_and_push_to_ecr
