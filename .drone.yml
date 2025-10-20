@@ -124,7 +124,7 @@ steps:
           - feature/*
       event: [push, pull_request]
 
-  - name: image_to_quay
+  - name: build_image_for_trivy
     pull: if-not-exists
     image: 340268328991.dkr.ecr.eu-west-2.amazonaws.com/acp/dind
     environment:
@@ -140,6 +140,26 @@ steps:
           - master
           - feature/*
       event: [push, pull_request]
+
+  - name: build_image_and_push_to_ecr
+    pull: if-not-exists
+    image: plugins/ecr
+    settings:
+      access_key:
+        from_secret: AWS_ACCESS_KEY_ID
+      secret_key:
+        from_secret: AWS_SECRET_ACCESS_KEY
+      region: eu-west-2
+      repo: sas/firearms-licensing
+      registry: 340268328991.dkr.ecr.eu-west-2.amazonaws.com
+      tags:
+        - ${DRONE_COMMIT_SHA}
+    when:
+      branch:
+        <<: *include_default_and_feature_branches
+      event: [push, pull_request]
+    depends_on:
+      - build_image_for_trivy
 
   # Deploy to pull request UAT environment.
   - name: deploy_to_branch
