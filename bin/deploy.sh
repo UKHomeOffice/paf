@@ -51,7 +51,7 @@ elif [[ ${KUBE_NAMESPACE} == ${STG_ENV} ]]; then
 # $kd -f kube/file-vault/file-vault-ingress.yml
 # $kd -f kube/app/ingress-external.yml -f kube/app/networkpolicy-external.yml
   $kd -f kube/app/networkpolicy-internal.yml -f kube/app/ingress-internal.yml
-  $kd -f kube/redis -f kube/file-vault 
+  $kd -f kube/redis -f kube/file-vault/file-vault-deployment.yml
   $kd -f kube/app/deployment.yml
   $kd -f kube/autoscale/hpa-paf.yml
   $kd -f kube/ims-resolver
