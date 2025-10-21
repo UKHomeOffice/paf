@@ -18,7 +18,7 @@ spec:
       {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
         - paf.uat.sas-notprod.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-        - paf.stg.sas-notprod.homeoffice.gov.uk
+        - paf.stg.sas.homeoffice.gov.uk
       {{ else }}
         - {{ .PRODUCTION_URL }}
       {{ end }}
@@ -33,7 +33,7 @@ spec:
     {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
     - host: paf.uat.sas-notprod.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-    - host: paf.stg.sas-notprod.homeoffice.gov.uk
+    - host: paf.stg.sas.homeoffice.gov.uk
     {{ else }}
     - host: {{ .PRODUCTION_URL }}
     {{ end }}
