@@ -112,7 +112,7 @@ spec:
                 secretKeyRef:
                   name: sas-paf-branch-sqs-queue
                   key: secret_access_key
-            {{ else if (or (eq .KUBE_NAMESPACE .UAT_ENV) (eq .KUBE_NAMESPACE .STG_ENV)) }}
+            {{ else if (eq .KUBE_NAMESPACE .UAT_ENV) }}
             - name: SQS_URL
               valueFrom:
                 secretKeyRef:
@@ -127,6 +127,22 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: sas-paf-uat-sqs-queue
+                  key: secret_access_key
+            {{ else if (eq .KUBE_NAMESPACE .STG_ENV) }}
+            - name: SQS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-stg-sqs-queue
+                  key: sqs_url
+            - name: ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-stg-sqs-queue
+                  key: access_key_id
+            - name: SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-stg-sqs-queue
                   key: secret_access_key
             {{ else if (eq .KUBE_NAMESPACE .PROD_ENV) }}
             - name: SQS_URL
