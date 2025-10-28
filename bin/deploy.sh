@@ -64,7 +64,17 @@ fi
 
 sleep $READY_FOR_TEST_DELAY
 
+
+# Print all external and internal ingress URLs in Drone builds
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
-  # echo "UAT Branch - paf-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
-    echo "Branch - paf-${DRONE_SOURCE_BRANCH}.internal.${BRANCH_ENV}.homeoffice.gov.uk"
+  echo "External Branch url - $APP_NAME-$DRONE_SOURCE_BRANCH.$BRANCH_ENV.homeoffice.gov.uk"
+  echo "Internal Branch url - $APP_NAME-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
+elif [[ ${KUBE_NAMESPACE} == ${UAT_ENV} ]]; then
+  echo "External UAT url - $APP_NAME.uat.sas-notprod.homeoffice.gov.uk"
+  echo "Internal UAT url - sas-$APP_NAME.uat.internal.sas-notprod.homeoffice.gov.uk"
+elif [[ ${KUBE_NAMESPACE} == ${STG_ENV} ]]; then
+  echo "External STG url - $APP_NAME.stg.sas.homeoffice.gov.uk"
+  echo "Internal STG url - $APP_NAME.internal.stg.sas.homeoffice.gov.uk"
+elif [[ ${KUBE_NAMESPACE} == ${PROD_ENV} ]]; then
+  echo "External PROD url - $PRODUCTION_URL"
 fi
