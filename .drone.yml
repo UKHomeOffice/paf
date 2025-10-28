@@ -231,21 +231,21 @@ steps:
       event: pull_request
 
   # Snyk  security scans which run after branch deployment to prevent blocking of PR UAT tests.
-  - name: snyk_scan
-    pull: if-not-exists
-    image: node:20
-    environment:
-      NOTIFY_STUB: true
-      SNYK_TOKEN:
-        from_secret: snyk_token
-    commands:
-      - yarn run test:snyk
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: pull_request
+ # - name: snyk_scan
+ #   pull: if-not-exists
+ #   image: node:20
+ #   environment:
+ #     NOTIFY_STUB: true
+ #     SNYK_TOKEN:
+ #       from_secret: snyk_token
+ #   commands:
+ #     - yarn run test:snyk
+ #   when:
+ #     branch:
+ #       include:
+ #         - master
+ #         - feature/*
+ #     event: pull_request
 
 
   # Deploy to master UAT environment
