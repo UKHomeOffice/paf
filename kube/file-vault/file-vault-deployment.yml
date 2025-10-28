@@ -136,6 +136,10 @@ spec:
                 secretKeyRef:
                   name: keycloak-client
                   key: id
+            - name: PROXY_LISTEN
+              value: 127.0.0.1:10443
+            - name: PROXY_UPSTREAM_URL
+              value: "http://127.0.0.1:10444"
             - name: PROXY_REDIRECTION_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
