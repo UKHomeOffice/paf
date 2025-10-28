@@ -35,7 +35,8 @@ spec:
     spec:
       containers:
         - name: file-vault
-          image: quay.io/ukhomeofficedigital/file-vault:f4cd1ece1caddc3bfbc8f5db761c593fda79ef12
+          # v3.0.1 28th August 2025
+          image: quay.io/ukhomeofficedigital/file-vault:3.0.1@sha256:44f35820701981eeb3371d332e6fd53f697e1bcd60f75731a57e8da6edb7bed5
           imagePullPolicy: Always
           resources:
             limits:
@@ -119,7 +120,7 @@ spec:
             runAsNonRoot: true
 
         - name: keycloak-proxy
-          image: quay.io/ukhomeofficedigital/keycloak-gatekeeper:8.0.2
+          image: quay.io/ukhomeofficedigital/gogatekeeper:3.5.0
           resources:
             limits:
               memory: "1024Mi"
@@ -148,10 +149,10 @@ spec:
           args:
             - --listen=:10443
             # the url which is used to retrieve the OpenID configuration
-            {{ if not (eq .KUBE_NAMESPACE .PROD_ENV) }}
-            - --discovery-url=https://sso-dev.notprod.homeoffice.gov.uk/auth/realms/paf-notprod
+            {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
+            - --discovery-url=https://acp-sso.notprod.acp.homeoffice.gov.uk/realms/paf-notprod
             {{ else }}
-            - --discovery-url=https://sso.digital.homeoffice.gov.uk/auth/realms/paf
+            - --discovery-url=https://acp-sso.prod.acp.homeoffice.gov.uk/realms/paf
             {{ end }}
             # the endpoint where requests are proxied to
             - --upstream-url=https://127.0.0.1:10444
