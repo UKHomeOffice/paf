@@ -156,6 +156,7 @@ spec:
             - --discovery-url=https://acp-sso.notprod.acp.homeoffice.gov.uk/realms/paf-notprod
             {{ else }}
             - --discovery-url=https://acp-sso.prod.acp.homeoffice.gov.uk/realms/paf
+            {{ end }}
             # URls that you wish to protect.
             - --resources=uri=/*
             - --enable-default-deny=false
