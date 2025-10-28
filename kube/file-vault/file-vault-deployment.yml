@@ -137,9 +137,9 @@ spec:
                   name: keycloak-client
                   key: id
             - name: PROXY_LISTEN
-              value: 127.0.0.1:10443
+              value: 127.0.0.1:3001
             - name: PROXY_UPSTREAM_URL
-              value: "http://127.0.0.1:10444"
+              value: "http://127.0.0.1:3000"
             - name: PROXY_REDIRECTION_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
@@ -151,15 +151,11 @@ spec:
               value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
             {{ end }}
           args:
-            - --listen=:10443
             # the url which is used to retrieve the OpenID configuration
             {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
             - --discovery-url=https://acp-sso.notprod.acp.homeoffice.gov.uk/realms/paf-notprod
             {{ else }}
             - --discovery-url=https://acp-sso.prod.acp.homeoffice.gov.uk/realms/paf
-            {{ end }}
-            # the endpoint where requests are proxied to
-            - --upstream-url=https://127.0.0.1:10444
             # URls that you wish to protect.
             - --resources=uri=/*
             - --enable-default-deny=false
@@ -172,8 +168,7 @@ spec:
             - --verbose=true
             {{ end }}
           ports:
-            - containerPort: 10080
-            - containerPort: 10443
+            - containerPort: 3001
           securityContext:
             runAsNonRoot: true
           terminationMessagePath: /dev/termination-log
@@ -198,6 +193,9 @@ spec:
 {{ file .FILEVAULT_NGINX_SETTINGS | indent 12 }}
           securityContext:
             runAsNonRoot: true
+          ports:
+            - containerPort: 10080
+            - containerPort: 10443
           volumeMounts:
             - mountPath: /certs
               name: certs
