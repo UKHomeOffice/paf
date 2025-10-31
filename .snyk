@@ -26,13 +26,10 @@ ignore:
     - '*':
       reason: No upgrade or patch available
       expires: '2025-05-19T17:02:21.865Z'
-  SNYK-JS-AXIOS-9292519:
+  SNYK-JS-NODEMAILER-13378253:
     - '*':
-      reason: Upgrade to HOF 22.2.2 to fix
-      expires: '2025-06-19T17:02:21.865Z'
-  SNYK-JS-AXIOS-9403194:
-    - '*':
-      reason: No direct upgrade or patch.  fixed in Axios v.1.8.3
-      expires: '2025-06-19T17:02:21.865Z'
+      reason: HOF framework needs updating to use nodemailer@7.0.7
+      expires: '2025-12-31T00:00:00.000Z'
+  
 
 patch: {}
