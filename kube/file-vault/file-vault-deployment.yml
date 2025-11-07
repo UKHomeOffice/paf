@@ -159,8 +159,8 @@ spec:
             - --upstream-url=https://127.0.0.1:10444
             # URls that you wish to protect.
             - --resources=uri=/*
-            - --tls-cert=/certs/tls.crt
-            - --tls-private-key=/certs/tls.key
+            # - --tls-cert=/certs/tls.crt
+            # - --tls-private-key=/certs/tls.key
             - --enable-default-deny=false
             - --enable-security-filter=true
             - --enable-request-id=true
