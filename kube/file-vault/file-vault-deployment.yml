@@ -136,6 +136,10 @@ spec:
                 secretKeyRef:
                   name: keycloak-client
                   key: id
+            - name: PROXY_LISTEN
+              value: 127.0.0.1:3001
+            - name: PROXY_UPSTREAM_URL
+              value: http://127.0.0.1:3000
             - name: PROXY_REDIRECTION_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
               value: https://fv-paf.sas.homeoffice.gov.uk
@@ -147,7 +151,6 @@ spec:
               value: https://fv-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
             {{ end }}
           args:
-            - --listen=:10443
             # the url which is used to retrieve the OpenID configuration
             # the url which is used to retrieve the OpenID configuration
             {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
@@ -155,12 +158,8 @@ spec:
             {{ else }}
             - --discovery-url=https://acp-sso.prod.acp.homeoffice.gov.uk/realms/paf
             {{ end }}
-            # the endpoint where requests are proxied to
-            - --upstream-url=https://127.0.0.1:10444
             # URls that you wish to protect.
             - --resources=uri=/*
-            # - --tls-cert=/certs/tls.crt
-            # - --tls-private-key=/certs/tls.key
             - --enable-default-deny=false
             - --enable-security-filter=true
             - --enable-request-id=true
@@ -171,8 +170,7 @@ spec:
             - --verbose=true
             {{ end }}
           ports:
-            - containerPort: 10080
-            - containerPort: 10443
+            - containerPort: 3001
           securityContext:
             runAsNonRoot: true
           terminationMessagePath: /dev/termination-log
@@ -187,6 +185,9 @@ spec:
         - name: nginx-proxy
           # nginx-proxy-govuk:v4
           image: quay.io/ukhomeofficedigital/nginx-proxy-govuk@sha256:4470064d0b1d20ae08c5fd85551576cb687f342a22d6cb456fda9b2c4ce8c8df
+          ports:
+            - containerPort: 10080
+            - containerPort: 10443
           resources:
             limits:
               memory: "1024Mi"
