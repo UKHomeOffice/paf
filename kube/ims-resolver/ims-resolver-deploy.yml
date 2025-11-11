@@ -65,7 +65,6 @@ spec:
                 secretKeyRef:
                   name: ims-credentials
                   key: ims_password
-
             - name: WSDL
               valueFrom:
                 secretKeyRef:
@@ -150,10 +149,10 @@ spec:
           resources:
             {{ if or (eq .KUBE_NAMESPACE .BRANCH_ENV) (eq .KUBE_NAMESPACE .UAT_ENV) (eq .KUBE_NAMESPACE .STG_ENV) }}
             limits:
-              memory: 256Mi
+              memory: 512Mi
               cpu: 300m
             requests:
-              memory: 10Mi
+              memory: 256Mi
               cpu: 10m
             {{ else }}
             limits:
