@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
         - name: ims-resolver
-          image: quay.io/ukhomeofficedigital/ims-resolver:a12778b49fa70f36b733768909ff7ddea62e9efb
+          image: quay.io/ukhomeofficedigital/ims-resolver:90d637a896ac5a64057ed49b1072e0d12d546abc
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
@@ -79,22 +79,22 @@ spec:
             - name: KEYCLOAK_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-client
+                  name: keycloak-client-v15
                   key: secret
             - name: KEYCLOAK_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-client
+                  name: keycloak-client-v15
                   key: id
             - name: KEYCLOAK_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-user
+                  name: keycloak-user-v15
                   key: username
             - name: KEYCLOAK_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-user
+                  name: keycloak-user-v15
                   key: password
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL
