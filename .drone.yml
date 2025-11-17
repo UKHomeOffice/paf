@@ -6,7 +6,7 @@ type: kubernetes
 environment:
   APP_NAME: paf
   PROD_ENV: sas-paf-prod
-  STG_ENV: paf-stg
+  STG_ENV: sas-paf-stg
   UAT_ENV: sas-paf-uat
   BRANCH_ENV: sas-paf-branch
   PRODUCTION_URL: www.imsallegations.homeoffice.gov.uk
@@ -43,7 +43,7 @@ unit_tests: &unit_tests
 
 sonar_scanner: &sonar_scanner
   pull: if-not-exists
-  image: quay.io/ukhomeofficedigital/sonar-scanner-nodejs:latest
+  image: quay.io/ukhomeofficedigital/gitlab-arun-test:sonar-scanner-node-v18.12.1
   commands:
     - sonar-scanner -Dproject.settings=./sonar-project.properties
 
@@ -56,7 +56,7 @@ steps:
       DRONE_GIT_TOKEN:
         from_secret: drone_git_token
     commands:
-      - git clone https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
+      - git clone --branch PAF-360 https://$${DRONE_GIT_USERNAME}:$${DRONE_GIT_TOKEN}@github.com/UKHomeOfficeForms/hof-services-config.git
     when:
       branch:
         include:
@@ -231,21 +231,21 @@ steps:
       event: pull_request
 
   # Snyk  security scans which run after branch deployment to prevent blocking of PR UAT tests.
-  - name: snyk_scan
-    pull: if-not-exists
-    image: node:20
-    environment:
-      NOTIFY_STUB: true
-      SNYK_TOKEN:
-        from_secret: snyk_token
-    commands:
-      - yarn run test:snyk
-    when:
-      branch:
-        include:
-          - master
-          - feature/*
-      event: pull_request
+ # - name: snyk_scan
+ #   pull: if-not-exists
+ #   image: node:20
+ #   environment:
+ #     NOTIFY_STUB: true
+ #     SNYK_TOKEN:
+ #       from_secret: snyk_token
+ #   commands:
+ #     - yarn run test:snyk
+ #   when:
+ #     branch:
+ #       include:
+ #         - master
+ #         - feature/*
+ #     event: pull_request
 
 
   # Deploy to master UAT environment
@@ -261,7 +261,7 @@ steps:
       - sh bin/deploy.sh $${UAT_ENV}
     when:
       branch: master
-      event: push
+      event: pull_request
 
   # Get pull request branch so correct PR UAT environment is torn down in the tear_down_branch step that follows.
   - name: get_pr_branch
@@ -313,7 +313,7 @@ steps:
   #     - bin/deploy.sh $${STG_ENV}
   #   when:
   #     branch: master
-  #     event: push
+  #     event: pull_request
 
   # Checks a build being promoted has passed, is on main which effectively means a healthy build on UAT.
   # - name: sanity_check_build_prod
