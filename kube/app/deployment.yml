@@ -73,22 +73,22 @@ spec:
             - name: KEYCLOAK_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-client-v22
+                  name: keycloak-client-v15
                   key: secret
             - name: KEYCLOAK_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-client-v22
+                  name: keycloak-client-v15
                   key: id
             - name: KEYCLOAK_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-user-v22
+                  name: keycloak-user-v15
                   key: username
             - name: KEYCLOAK_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-user-v22
+                  name: keycloak-user-v15
                   key: password
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL

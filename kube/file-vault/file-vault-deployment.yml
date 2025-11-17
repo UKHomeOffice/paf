@@ -128,12 +128,12 @@ spec:
             - name: PROXY_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-client-v22
+                  name: keycloak-client-v15
                   key: secret
             - name: PROXY_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-client-v22
+                  name: keycloak-client-v15
                   key: id
             - name: PROXY_REDIRECTION_URL
             {{ if eq .KUBE_NAMESPACE .PROD_ENV }}
