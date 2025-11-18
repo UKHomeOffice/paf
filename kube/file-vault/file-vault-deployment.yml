@@ -129,12 +129,12 @@ spec:
             - name: PROXY_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-client-v15
+                  name: keycloak-client
                   key: secret
             - name: PROXY_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: keycloak-client-v15
+                  name: keycloak-client
                   key: id
             - name: PROXY_LISTEN
               value: 127.0.0.1:3001
