@@ -1,8 +1,6 @@
-public
 node_modules
+public
 apps/**/translations/**/default.json
-apps/**/acceptance/**/*.js
-LICENSE
+LICENSE.md
 README.md
 CONTRIBUTING.md
-coverage

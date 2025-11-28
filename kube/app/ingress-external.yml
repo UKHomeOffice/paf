@@ -14,11 +14,11 @@ spec:
     - hosts:
       {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
         - {{ .DRONE_BUILD_NUMBER }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
-        - paf-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
+        - {{ .APP_NAME }}-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-        - paf.uat.sas-notprod.homeoffice.gov.uk
+        - {{ .APP_NAME }}.uat.sas-notprod.homeoffice.gov.uk
       {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-        - preprod.notprod.{{ .APP_NAME }}.homeoffice.gov.uk
+        - {{ .APP_NAME }}.stg.sas.homeoffice.gov.uk
       {{ else }}
         - {{ .PRODUCTION_URL }}
       {{ end }}
@@ -29,11 +29,11 @@ spec:
       {{ end }}
   rules:
     {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
-    - host: paf-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
+    - host: {{ .APP_NAME }}-{{ .DRONE_SOURCE_BRANCH }}.{{ .BRANCH_ENV }}.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
-    - host: paf.uat.sas-notprod.homeoffice.gov.uk
+    - host: {{ .APP_NAME }}.uat.sas-notprod.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-    - host: preprod.notprod.{{ .APP_NAME }}.homeoffice.gov.uk
+    - host: {{ .APP_NAME }}.stg.sas.homeoffice.gov.uk
     {{ else }}
     - host: {{ .PRODUCTION_URL }}
     {{ end }}
