@@ -329,21 +329,21 @@ steps:
       event: promote
 
   # Deploy to Production environment
-  # - name: deploy_to_prod
-  #   pull: if-not-exists
-  #   image: quay.io/ukhomeofficedigital/kd:v1.14.0
-  #   environment:
-  #     KUBE_SERVER:
-  #       from_secret: kube_server_prod
-  #     KUBE_TOKEN:
-  #       from_secret: kube_token_prod
-  #   commands:
-  #     - bin/deploy.sh $${PROD_ENV}
-  #   when:
-  #     target: PROD
-  #     event: promote
-  #   depends_on:
-  #     - clone_repos_prod
+  - name: deploy_to_prod
+    pull: if-not-exists
+    image: quay.io/ukhomeofficedigital/kd:v1.14.0
+    environment:
+      KUBE_SERVER:
+        from_secret: kube_server_prod
+      KUBE_TOKEN:
+        from_secret: kube_token_prod
+    commands:
+      - bin/deploy.sh $${PROD_ENV}
+    when:
+      target: PROD
+      event: promote
+    depends_on:
+      - clone_repos_prod
 
 # CRON job step that tears down our pull request UAT environments
   - name: cron_tear_down
