@@ -1,10 +1,10 @@
 #!/bin/sh
 set -e
 
-export STATUS=$(drone build info $GIT_REPO $DRONE_BUILD_PARENT --format {{.Status}})
-export BRANCH=$(drone build info $GIT_REPO $DRONE_BUILD_PARENT --format {{.Target}})
-export EVENT=$(drone build info $GIT_REPO $DRONE_BUILD_PARENT --format {{.Event}})
-export REFS=$(drone build info $GIT_REPO $DRONE_BUILD_PARENT --format {{.Ref}})
+export STATUS=$(drone build info --server "$DRONE_SERVER" --token "$DRONE_TOKEN" $GIT_REPO $DRONE_BUILD_PARENT --format {{.Status}})
+export BRANCH=$(drone build info --server "$DRONE_SERVER" --token "$DRONE_TOKEN" $GIT_REPO $DRONE_BUILD_PARENT --format {{.Target}})
+export EVENT=$(drone build info --server "$DRONE_SERVER" --token "$DRONE_TOKEN" $GIT_REPO $DRONE_BUILD_PARENT --format {{.Event}})
+export REFS=$(drone build info --server "$DRONE_SERVER" --token "$DRONE_TOKEN" $GIT_REPO $DRONE_BUILD_PARENT --format {{.Ref}})
 
 if [[ "$STATUS" != "success" ]]; then
   echo "Build number $DRONE_BUILD_PARENT failed due to unsuccessful status."
