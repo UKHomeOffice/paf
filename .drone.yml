@@ -253,7 +253,7 @@ steps:
       - name: dockersock
         path: /root/.dockersock
     commands:
-      - drone build info --server "$DRONE_SERVER" --token "$DRONE_TOKEN" $GIT_REPO $DRONE_BUILD_NUMBER --format {{.Message}} | grep -o '[^ ]\+$' -m1 | sed 's|UKHomeOffice/||g' | tr '[:upper:]' '[:lower:]' | tr '/' '-' > /root/.dockersock/branch_name.txt
+      - drone build info $GIT_REPO $DRONE_BUILD_NUMBER --format {{.Message}} | grep -o '[^ ]\+$' -m1 | sed 's|UKHomeOffice/||g' | tr '[:upper:]' '[:lower:]' | tr '/' '-' > /root/.dockersock/branch_name.txt
     when:
       branch:
         <<: *include_default_branch
@@ -329,21 +329,21 @@ steps:
       event: promote
 
   # Deploy to Production environment
-  - name: deploy_to_prod
-    pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd:v1.14.0
-    environment:
-      KUBE_SERVER:
-        from_secret: kube_server_prod
-      KUBE_TOKEN:
-        from_secret: kube_token_prod
-    commands:
-      - bin/deploy.sh $${PROD_ENV}
-    when:
-      target: PROD
-      event: promote
-    depends_on:
-      - clone_repos_prod
+  # - name: deploy_to_prod
+  #   pull: if-not-exists
+  #   image: quay.io/ukhomeofficedigital/kd:v1.14.0
+  #   environment:
+  #     KUBE_SERVER:
+  #       from_secret: kube_server_prod
+  #     KUBE_TOKEN:
+  #       from_secret: kube_token_prod
+  #   commands:
+  #     - bin/deploy.sh $${PROD_ENV}
+  #   when:
+  #     target: PROD
+  #     event: promote
+  #   depends_on:
+  #     - clone_repos_prod
 
 # CRON job step that tears down our pull request UAT environments
   - name: cron_tear_down
