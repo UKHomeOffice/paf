@@ -312,8 +312,9 @@ steps:
     commands:
       - bin/sanity_check_build.sh
     when:
-      target: PROD
-      event: promote
+      branch:
+        <<: *include_default_and_feature_branches
+      event: [push, pull_request]
 
   - name: clone_repos_prod
     image: alpine/git
