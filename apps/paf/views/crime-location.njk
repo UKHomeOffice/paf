@@ -1,0 +1,5 @@
+{% extends "partials/page.njk" %}
+  {% block pageContent %}
+    {{ radioGroup("crime-location") }}
+    {{ inputSubmit("continue") }}
+  {% endblock %}

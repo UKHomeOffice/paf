@@ -1,26 +1,25 @@
-{{<partials-page}} 
-  {{$page-content}}
+{% extends "partials/page.njk" %}
+  {% block pageContent %}
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset" role="group" aria-describedby="time-crime-will-happen-hint">
-        <legend><strong>Time</strong></legend>
+        <legend class="govuk-fieldset__legend"><strong>Time</strong></legend>
         <div id="time-crime-will-happen-hint" class="govuk-hint">
           Please enter as a 24-hour clock. For example, midnight would be 00 00.
         </div>
         <div class="time-input__item">
-          {{#input-text}}time-crime-will-happen-hour{{/input-text}}
+          {{ inputText("time-crime-will-happen-hour") }}
         </div>
         <div class="time-input__item">
-          {{#input-text}}time-crime-will-happen-minute{{/input-text}}
+          {{ inputText("time-crime-will-happen-minute") }}
         </div>
       </fieldset>
     </div>
     
     <div>
-      <legend><strong>Date</strong></legend>
-      
-      {{#renderField}}date-crime-will-happen{{/renderField}}
+      <legend class="govuk-fieldset__legend"><strong>Date</strong></legend>
+      {{ renderField("date-crime-will-happen") }}
     </div>
     
-    {{#input-submit}}continue{{/input-submit}}
-  {{/page-content}}
-{{/partials-page}}
+    {{ inputSubmit("continue") }}
+  {% endblock %}
+

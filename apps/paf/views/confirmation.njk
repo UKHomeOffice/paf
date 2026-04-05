@@ -1,0 +1,11 @@
+{% extends "layout.njk" %}
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block mainContent %}
+  {{ govukPanel({
+    titleText: t('journey.confirmation.message'),
+    text: ""
+  }) }}
+{% endblock %}

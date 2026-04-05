@@ -1,0 +1,22 @@
+{% for field in fields %}
+  {{ renderField(field) }}
+{% endfor %}
+{{ inputSubmit("continue") }}
+
+  <div id="{{ section }}-summary">
+    {% if not values.images %}
+    <h2 class="govuk-heading-m">No files added</h2>
+    {% elseif values.images.length %}
+    <h2>{{ t("pages." + field + ".header") }}</h2>
+    {% endif %}
+    <table class="table-{{ section }}-loop">
+      <tbody>
+        {% for value in values.images %}
+        <tr class="{{ section }}-records">
+          <td><pre class="looped-records">{{ value.name }}</pre></td>
+          <td><a href="?delete={{ value.id }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>

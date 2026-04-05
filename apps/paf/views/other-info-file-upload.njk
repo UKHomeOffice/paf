@@ -1,0 +1,10 @@
+{% extends "partials/page.njk" %}
+  {% set encoding = "enctype=multipart/form-data" %}
+  {% block pageContent %}
+    {% for field in fields %}
+      {{ renderField(field) }}
+    {% endfor %}
+
+    {{ inputSubmit("continue") }}
+  {% endblock %}
+

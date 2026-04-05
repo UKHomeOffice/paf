@@ -1,0 +1,8 @@
+{% extends "partials/page.njk" %}
+  {% block pageContent %}
+   <p class="govuk-hint">{{ t("pages.add-" + section + ".hint") }}</p>
+
+    {% include "partials/looped-files.njk" %}
+
+  {% endblock %}
+

@@ -1,0 +1,11 @@
+{% extends "partials/page.njk" %}
+   {% block pageContent %}
+     {% include "partials/items-table.njk" %}
+     {% if noMorePersons %}
+     <p><a role="link" class="govuk-link add-another-hidden" >Add another {{ addAnotherLinkText }}</a></p>
+     {% else %}
+     <p><a href="{{ baseUrl }}/{{ addStep }}" class="govuk-link add-another">Add another {{ addAnotherLinkText }}</a></p>
+     {% endif %}
+     {{ inputSubmit("continue") }}
+   {% endblock %}
+ 

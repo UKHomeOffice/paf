@@ -9,7 +9,7 @@
         <a class="govuk-link govuk-link--no-visited-state govuk-link--no-underline"
           href="{{baseUrl}}/crime-type?section=crime" data-topnav="The Crime">The Crime</a>
       </li>
-      {{#enableSection}}
+      {% if enableSection %}
       <li id="person-nav" class="app-navigation__list-item">
         <a class="govuk-link govuk-link--no-visited-state govuk-link--no-underline"
           href="{{baseUrl}}/report-person?section=person" data-topnav="The Person">The Person</a>
@@ -32,8 +32,7 @@
           href="{{baseUrl}}/confirm?section=check-answers" data-topnav="Check Your Answers">Check
           Your Answers</a>
       </li>
-      {{/enableSection}}
-      {{^enableSection}}
+      {% else %}
       <li class="app-navigation__list-item">
         <a role="link" class="govuk-link--no-visited-state govuk-link--no-underline" aria-disabled="true">The Person</a>
       </li>
@@ -52,6 +51,6 @@
           Answers</a>
       </li>
     </ul>
-    {{/enableSection}}
+    {% endif %}
   </nav>
 </div>
