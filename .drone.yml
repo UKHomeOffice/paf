@@ -92,7 +92,6 @@ steps:
       event: [push, pull_request]
     depends_on:
       - setup
-      - clone_repos
 
   - name: unit_tests
     <<: *unit_tests
