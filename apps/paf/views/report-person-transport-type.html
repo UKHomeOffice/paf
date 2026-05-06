@@ -1,6 +1,6 @@
-{{<partials-page}} 
-  {{$page-content}} 
-    {{#radio-group}}report-person-transport-type{{/radio-group}}
-    {{#input-submit}}continue{{/input-submit}}
-  {{/page-content}}
-{{/partials-page}}
+{% extends "partials/page.html" %}
+
+{% block pageContent %}
+  {{ renderField("report-person-transport-type") | safe }}
+  {{ inputSubmit("continue") }}
+{% endblock %}

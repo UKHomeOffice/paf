@@ -1,6 +1,6 @@
-{{<partials-page}} 
-  {{$page-content}} 
-    {{#radio-group}}crime-another-location{{/radio-group}}
-    {{#input-submit}}continue{{/input-submit}}
-  {{/page-content}}
-{{/partials-page}}
+{% extends "partials/page.html" %}
+
+{% block pageContent %}
+  {{ renderField("crime-another-location") | safe }}
+  {{ inputSubmit("continue") }}
+{% endblock %}
