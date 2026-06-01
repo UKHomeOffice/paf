@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}
+  name: redis-data-{{ .DRONE_SOURCE_BRANCH }}
+  {{ else }}
+  name: redis-data
+  {{ end }}
+  {{ if .REDIS_PERSISTENCE_ANNOTATIONS_FILE }}
+  annotations:
+{{ file .REDIS_PERSISTENCE_ANNOTATIONS_FILE | indent 4 }}
+  {{ end }}
+spec:
+  accessModes:
+    - {{ .REDIS_PERSISTENCE_ACCESS_MODES }}
+  resources:
+    requests:
+      storage: {{ .REDIS_PERSISTENCE_SIZE }}
+  {{ if .REDIS_PERSISTENCE_STORAGE_CLASS }}
+  storageClassName: {{ .REDIS_PERSISTENCE_STORAGE_CLASS }}
+  {{ end }}
