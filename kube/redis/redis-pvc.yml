@@ -7,10 +7,6 @@ metadata:
   {{ else }}
   name: redis-data
   {{ end }}
-  {{ if .REDIS_PERSISTENCE_ANNOTATIONS_FILE }}
-  annotations:
-{{ file .REDIS_PERSISTENCE_ANNOTATIONS_FILE | indent 4 }}
-  {{ end }}
 spec:
   accessModes:
     - {{ .REDIS_PERSISTENCE_ACCESS_MODES }}

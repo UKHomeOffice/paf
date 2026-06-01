@@ -53,7 +53,11 @@ spec:
         - name: data
           {{ if eq .REDIS_PERSISTENCE_ENABLED "true" }}
           persistentVolumeClaim:
-            claimName: {{ if .REDIS_PERSISTENCE_EXISTING_CLAIM }}{{ .REDIS_PERSISTENCE_EXISTING_CLAIM }}{{ else }}{{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}redis-data-{{ .DRONE_SOURCE_BRANCH }}{{ else }}redis-data{{ end }}{{ end }}
+            {{ if .REDIS_PERSISTENCE_EXISTING_CLAIM }}
+            claimName: {{ .REDIS_PERSISTENCE_EXISTING_CLAIM }}
+            {{ else }}
+            claimName: {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}redis-data-{{ .DRONE_SOURCE_BRANCH }}{{ else }}redis-data{{ end }}
+            {{ end }}
           {{ else }}
           emptyDir: {}
           {{ end }}
