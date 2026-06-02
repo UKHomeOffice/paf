@@ -126,7 +126,7 @@ elif [[ ${KUBE_NAMESPACE} == ${UAT_ENV} ]]; then
   echo "Internal UAT url - sas-$APP_NAME.uat.internal.sas-notprod.homeoffice.gov.uk"
 elif [[ ${KUBE_NAMESPACE} == ${STG_ENV} ]]; then
   echo "External STG url - $APP_NAME.stg.sas.homeoffice.gov.uk"
-  echo "Internal STG url - "stg.internal.paf.sas.homeoffice.gov.uk"
+  echo "Internal STG url - stg.internal.paf.sas.homeoffice.gov.uk"
 elif [[ ${KUBE_NAMESPACE} == ${PROD_ENV} ]]; then
   echo "External PROD url - $PRODUCTION_URL"
 fi
