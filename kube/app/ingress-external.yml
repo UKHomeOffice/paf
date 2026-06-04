@@ -33,7 +33,7 @@ spec:
     {{ else if eq .KUBE_NAMESPACE .UAT_ENV }}
     - host: {{ .APP_NAME }}.uat.sas-notprod.homeoffice.gov.uk
     {{ else if eq .KUBE_NAMESPACE .STG_ENV }}
-    - host: {{ .APP_NAME }}.stg.sas.homeoffice.gov.uk
+    - host: stg.internal.paf.sas.homeoffice.gov.uk
     {{ else }}
     - host: {{ .PRODUCTION_URL }}
     {{ end }}
