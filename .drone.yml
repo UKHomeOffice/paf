@@ -290,6 +290,8 @@ steps:
         from_secret: kube_server_stg
       KUBE_TOKEN:
         from_secret: kube_token_stg
+      REDIS_PERSISTENCE_STORAGE_CLASS:
+        from_secret: redis_persistence_storage_class_stg
     commands:
       - bin/deploy.sh $${STG_ENV}
     when:
@@ -338,6 +340,8 @@ steps:
       KUBE_TOKEN:
         from_secret: kube_token_prod
       REDIS_PERSISTENCE_ENABLED: "true"
+      REDIS_PERSISTENCE_STORAGE_CLASS:
+        from_secret: redis_persistence_storage_class_prod
       REDIS_PERSISTENCE_SIZE: "10Gi"
     commands:
       - bin/deploy.sh $${PROD_ENV}

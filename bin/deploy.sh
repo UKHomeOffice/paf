@@ -40,6 +40,11 @@ configure_redis_persistence() {
 
 deploy_redis() {
   if [[ "${REDIS_PERSISTENCE_ENABLED}" == "true" && -z "${REDIS_PERSISTENCE_EXISTING_CLAIM}" ]]; then
+    if [[ -z "${REDIS_PERSISTENCE_STORAGE_CLASS}" ]]; then
+      echo "Error: Redis persistence is enabled but REDIS_PERSISTENCE_STORAGE_CLASS is not set (and no REDIS_PERSISTENCE_EXISTING_CLAIM provided)." >&2
+      echo "This cluster has multiple default StorageClasses, so the PVC must set spec.storageClassName explicitly." >&2
+      exit 1
+    fi
     $kd -f kube/redis/redis-pvc.yml
   fi
 
