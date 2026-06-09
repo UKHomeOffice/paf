@@ -209,7 +209,6 @@ steps:
         from_secret: kube_server_dev
       KUBE_TOKEN:
         from_secret: kube_token_dev
-      REDIS_PERSISTENCE_STORAGE_CLASS: gp2-encrypted
     commands:
       - bin/deploy.sh $${BRANCH_ENV}
     when:
@@ -230,7 +229,6 @@ steps:
         from_secret: kube_server_dev
       KUBE_TOKEN:
         from_secret: kube_token_dev
-      REDIS_PERSISTENCE_STORAGE_CLASS: gp2-encrypted
     commands:
       - sh bin/deploy.sh $${UAT_ENV}
     when:
