@@ -33,10 +33,6 @@ module.exports = class UploadModel extends Model {
       reqConf.method = 'POST';
       const result = await this.request(reqConf);
 
-      if (!result || !result.url) {
-        throw new Error('File upload failed: missing file URL in response');
-      }
-
       this.set({ url: result.url.replace('/file/', '/file/generate-link/').split('?')[0] });
       logger.info(`Successfully saved data`);
       return this.unset('data');
@@ -70,11 +66,9 @@ module.exports = class UploadModel extends Model {
       const response = await this._request(tokenReq);
       return { bearer: response.data.access_token };
     } catch (err) {
-      const body = err && err.response ? err.response.data : null;
-      const error = body && body.error ? body.error : 'unknown_error';
-      const description = body && body.error_description ? body.error_description : err.message;
-      logger.error(`Error in auth method: ${error} - ${description}`);
-      throw err || new Error(`${error} - ${description}`);
+      const body = err.response.data
+      logger.error(`Error in auth method: ${body.error} - ${body.error_description}`);
+      throw err || new Error(`${body.error} - ${body.error_description}`);
     };
   }
 };
