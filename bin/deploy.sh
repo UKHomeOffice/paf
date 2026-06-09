@@ -24,7 +24,7 @@ configure_redis_persistence() {
   if [[ "${KUBE_NAMESPACE}" == "${PROD_ENV}" ]]; then
     REDIS_PERSISTENCE_ENABLED="true"
     REDIS_PERSISTENCE_SIZE="10Gi"
-  elif [[ "${KUBE_NAMESPACE}" == "${STG_ENV}" || "${KUBE_NAMESPACE}" == "${UAT_ENV}" ]]; then
+  elif [[ "${KUBE_NAMESPACE}" == "${STG_ENV}" || "${KUBE_NAMESPACE}" == "${UAT_ENV}" || "${KUBE_NAMESPACE}" == "${BRANCH_ENV}" ]]; then
     REDIS_PERSISTENCE_ENABLED="true"
     REDIS_PERSISTENCE_SIZE="1Gi"
   else
