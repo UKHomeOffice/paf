@@ -90,12 +90,7 @@ spec:
                 secretKeyRef:
                   name: keycloak-user
                   key: password
-            - name: KEYCLOAK_TOKEN_URL
-              {{ if or (eq .KUBE_NAMESPACE .PROD_ENV) (eq .KUBE_NAMESPACE .STG_ENV) }}
-              value: https://acp-sso.prod.acp.homeoffice.gov.uk/realms/paf/protocol/openid-connect/token
-              {{ else }}
-              value: https://acp-sso.notprod.acp.homeoffice.gov.uk/realms/paf-notprod/protocol/openid-connect/token
-              {{ end }}
+
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL
               valueFrom:
