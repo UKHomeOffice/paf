@@ -59,7 +59,7 @@ spec:
             {{ if .REDIS_PERSISTENCE_EXISTING_CLAIM }}
             claimName: {{ .REDIS_PERSISTENCE_EXISTING_CLAIM }}
             {{ else }}
-            claimName: {{ if eq .KUBE_NAMESPACE .BRANCH_ENV }}redis-data-{{ .DRONE_SOURCE_BRANCH }}{{ else }}redis-data{{ end }}
+            claimName: redis-data
             {{ end }}
           {{ else }}
           emptyDir: {}

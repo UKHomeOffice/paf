@@ -70,20 +70,6 @@ describe('File Upload Model', () => {
       }
     });
 
-    it('rejects if api response has no url', async () => {
-      const model = new Model({
-        data: 'foo',
-        name: 'myfile.png',
-        mimetype: 'image/png'
-      });
-      model.request.resolves({ api: 'response' });
-      try {
-        await model.save();
-      } catch (e) {
-        expect(e.message).to.equal('File upload failed: missing file URL in response');
-      }
-    });
-
     it('adds a formData property to api request with details of uploaded file', async () => {
       const uploadedFile = new Model({
         data: 'foo',

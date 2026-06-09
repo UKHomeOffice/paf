@@ -282,24 +282,24 @@ steps:
 
   # We have a ticket to setup Staging Environment in future 
   # Deploy to Staging environment
-  - name: deploy_to_stg
-    pull: if-not-exists
-    image: quay.io/ukhomeofficedigital/kd:v1.14.0
-    environment:
-      KUBE_SERVER:
-        from_secret: kube_server_stg
-      KUBE_TOKEN:
-        from_secret: kube_token_stg
-      REDIS_PERSISTENCE_STORAGE_CLASS: gp2-encrypted
-    commands:
-      - bin/deploy.sh $${STG_ENV}
-    when:
-      branch:
-        <<: *include_default_branch
-      event: push
-    depends_on:
-      - clone_repos
-      - image_to_quay
+  # - name: deploy_to_stg
+  #   pull: if-not-exists
+  #   image: quay.io/ukhomeofficedigital/kd:v1.14.0
+  #   environment:
+  #     KUBE_SERVER:
+  #       from_secret: kube_server_stg
+  #     KUBE_TOKEN:
+  #       from_secret: kube_token_stg
+  #     REDIS_PERSISTENCE_STORAGE_CLASS: gp2-encrypted
+  #   commands:
+  #     - bin/deploy.sh $${STG_ENV}
+  #   when:
+  #     branch:
+  #       <<: *include_default_branch
+  #     event: push
+  #   depends_on:
+  #     - clone_repos
+  #     - image_to_quay
 
 #  Checks a build being promoted has passed, is on master which effectively means a healthy build on UAT.
   - name: sanity_check_build_prod
