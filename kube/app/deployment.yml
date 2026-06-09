@@ -90,6 +90,12 @@ spec:
                 secretKeyRef:
                   name: keycloak-user
                   key: password
+            - name: KEYCLOAK_TOKEN_URL
+              {{ if or (eq .KUBE_NAMESPACE .PROD_ENV) (eq .KUBE_NAMESPACE .STG_ENV) }}
+              value: https://acp-sso.prod.acp.homeoffice.gov.uk/realms/paf/protocol/openid-connect/token
+              {{ else }}
+              value: https://acp-sso.notprod.acp.homeoffice.gov.uk/realms/paf-notprod/protocol/openid-connect/token
+              {{ end }}
             {{ if (eq .KUBE_NAMESPACE .BRANCH_ENV) }}
             - name: SQS_URL
               valueFrom:
@@ -121,6 +127,22 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: sas-paf-uat-sqs-queue
+                  key: secret_access_key
+            {{ else if (eq .KUBE_NAMESPACE .STG_ENV) }}
+            - name: SQS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-stg-sqs-queue
+                  key: sqs_url
+            - name: ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-stg-sqs-queue
+                  key: access_key_id
+            - name: SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: sas-paf-stg-sqs-queue
                   key: secret_access_key
             {{ else if (eq .KUBE_NAMESPACE .PROD_ENV) }}
             - name: SQS_URL

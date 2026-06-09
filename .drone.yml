@@ -290,14 +290,16 @@ steps:
   #       from_secret: kube_server_stg
   #     KUBE_TOKEN:
   #       from_secret: kube_token_stg
+  #     REDIS_PERSISTENCE_STORAGE_CLASS: gp2-encrypted
   #   commands:
   #     - bin/deploy.sh $${STG_ENV}
   #   when:
-  #     branch: master
+  #     branch:
+  #       <<: *include_default_branch
   #     event: push
-  #    depends_on:
-  #    - clone_repos
-  #    - image_to_quay
+  #   depends_on:
+  #     - clone_repos
+  #     - image_to_quay
 
 #  Checks a build being promoted has passed, is on master which effectively means a healthy build on UAT.
   - name: sanity_check_build_prod
@@ -336,6 +338,9 @@ steps:
         from_secret: kube_server_prod
       KUBE_TOKEN:
         from_secret: kube_token_prod
+      REDIS_PERSISTENCE_ENABLED: "true"
+      REDIS_PERSISTENCE_STORAGE_CLASS: gp2-encrypted
+      REDIS_PERSISTENCE_SIZE: "10Gi"
     commands:
       - bin/deploy.sh $${PROD_ENV}
     when:
