@@ -1,12 +1,13 @@
-{{<partials-page}}
-   {{$page-content}}
-     {{> partials-items-table}}
-     {{#noMorePersons}}
-     <p><a role="link" class="govuk-link add-another-hidden" >Add another {{addAnotherLinkText}}</a></p>
-     {{/noMorePersons}}
-     {{^noMorePersons}}
-     <p><a href="{{baseUrl}}/{{addStep}}" class="govuk-link add-another">Add another {{addAnotherLinkText}}</a></p>
-     {{/noMorePersons}}
-     {{#input-submit}}continue{{/input-submit}}
-   {{/page-content}}
- {{/partials-page}}
+{% extends "partials/page.html" %}
+
+{% block pageContent %}
+  {% include "partials/items-table.html" %}
+
+  {% if noMorePersons %}
+    <p><a role="link" class="govuk-link add-another-hidden">Add another {{ addAnotherLinkText }}</a></p>
+  {% else %}
+    <p><a href="{{ baseUrl }}/{{ addStep }}" class="govuk-link add-another">Add another {{ addAnotherLinkText }}</a></p>
+  {% endif %}
+
+  {{ inputSubmit("continue") }}
+{% endblock %}

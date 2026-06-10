@@ -1,17 +1,18 @@
 @import "hof/frontend/themes/gov-uk/styles/govuk";
 
-.phase-banner {
-  @include phase-banner(beta);
-}
+// Custom styles for the app no more relevant
+// .phase-banner {
+//   @include phase-banner(beta);
+// }
 
 ul {
-  @extend .text;
-  @extend .list;
-  @extend .list-bullet;
+  @extend .text !optional;
+  @extend .list !optional;
+  @extend .list-bullet !optional;
 }
 
 a:link {
-  @extend .govuk-link;
+  @extend .govuk-link !optional;
 }
 
 // Accessible autocomplete
