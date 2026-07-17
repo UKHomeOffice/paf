@@ -1,17 +1,34 @@
 /* eslint no-process-env: 0 */
 
+const fs = require('fs');
+const path = require('path');
+
+const envFiles = ['.env.test', '.env'];
+const envFile = envFiles
+  .map(file => path.resolve(__dirname, '..', file))
+  .find(filePath => fs.existsSync(filePath));
+
+if (envFile) {
+  process.loadEnvFile(envFile);
+}
+
+function getPlugin(moduleName) {
+  const plugin = require(moduleName);
+  return plugin.default || plugin;
+}
+
 global.reqres = require('hof').utils.reqres;
 
 global.chai = require('chai')
-  .use(require('sinon-chai'))
-  .use(require('chai-as-promised'))
-  .use(require('chai-subset'));
+  .use(getPlugin('sinon-chai'))
+  .use(getPlugin('chai-as-promised'))
+  .use(getPlugin('chai-subset'));
 global.should = chai.should();
 global.expect = chai.expect;
 global.assert = require('assert');
 global.sinon = require('sinon');
 global.proxyquire = require('proxyquire');
-global.path = require('path');
+global.path = path;
 global.config = require('../config');
 global._ = require('lodash');
 global.request = reqres.req;

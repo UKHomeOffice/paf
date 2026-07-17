@@ -1,8 +1,6 @@
 const supertestSession = require('supertest-session');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
-const jquery = require('jquery');
-let $;
 
 function getUrl(app, url, expectedStatus) {
   return new Promise((resolve, reject) => {
@@ -25,21 +23,14 @@ function postUrl(app, url, data, expectedStatus, token) {
   });
 }
 
-function parseHtml(response) {
-  const dom = new JSDOM(response.text);
-  $ = jquery(dom.window);
-  return Promise.resolve($(dom.window.document));
-}
-
-
 function getDom(response) {
   const dom = new JSDOM(response.text);
   return Promise.resolve(dom.window.document);
 }
 
 function getToken(response) {
-  return parseHtml(response)
-    .then(win => win.find('[name=x-csrf-token]').val());
+  return getDom(response)
+    .then(doc => doc.querySelector('[name="x-csrf-token"]')?.value);
 }
 
 function passStep(app, url, data) {
@@ -123,7 +114,6 @@ function getSupertestApp(subAppName, subAppPath, pages) {
   return {
     passStep: (uri, data) => passStep(testApp, `${newSubAppPath}${uri}`, data),
     getUrl: uri => getUrl(testApp, `${newSubAppPath}${uri}`, 200),
-    parseHtml: res => parseHtml(res),
     initSession: (uri, options) => initSession(testApp, subAppName, uri, options, newSubAppPath, pages),
     getDom
   };
@@ -134,7 +124,6 @@ module.exports = {
   postUrl,
   passStep,
   passRedirectionStep,
-  parseHtml,
   getDom,
   getToken,
   resShouldMatch,
