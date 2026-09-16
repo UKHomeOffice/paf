@@ -58,7 +58,7 @@ At this time, this service does not contain any content that is exempt from the 
 
 # Preparation of this accessibility statement
 
-This statement was prepared on 18 March 2024. It was last reviewed on 05 March 2025.
+This statement was prepared on 18 March 2024. It was last reviewed on 02 September 2026.
 
 This website was last tested on 18 March 2024 against the WCAG [2.1 or 2.2] AA standard.  
 
