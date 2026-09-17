@@ -429,17 +429,6 @@ steps:
       target: PROD
       event: promote
 
-  - name: clone_repos_prod
-    <<: *clone_repos_step
-    environment:
-      CLONE_TOKEN_FILE: /root/.dockersock/github_app_token_for_clone_prod.txt
-      CLONE_TOKEN_MISSING_MESSAGE: Missing GitHub App token file for PROD clone step.
-    when:
-      target: PROD
-      event: promote
-    depends_on:
-      - generate_github_app_token_for_clone_prod
-
   - name: generate_github_app_token_for_clone_prod
     <<: *github_app_token_step
     environment:
@@ -450,6 +439,17 @@ steps:
       event: promote
     depends_on:
       - sanity_check_build_prod
+
+  - name: clone_repos_prod
+    <<: *clone_repos_step
+    environment:
+      CLONE_TOKEN_FILE: /root/.dockersock/github_app_token_for_clone_prod.txt
+      CLONE_TOKEN_MISSING_MESSAGE: Missing GitHub App token file for PROD clone step.
+    when:
+      target: PROD
+      event: promote
+    depends_on:
+      - generate_github_app_token_for_clone_prod
 
   # Deploy to Production environment
   - name: deploy_to_prod
