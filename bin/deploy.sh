@@ -125,7 +125,11 @@ sleep $READY_FOR_TEST_DELAY
 # Print all external and internal ingress URLs in Drone builds
 if [[ ${KUBE_NAMESPACE} == ${BRANCH_ENV} ]]; then
   echo "External Branch url - $APP_NAME-$DRONE_SOURCE_BRANCH.$BRANCH_ENV.homeoffice.gov.uk"
-  echo "Internal Branch url - $APP_NAME-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
+  branch_host="$APP_NAME-$DRONE_SOURCE_BRANCH.internal.$BRANCH_ENV.homeoffice.gov.uk"
+  echo "Internal Branch url - $branch_host"
+  if [[ -d /root/.dockersock ]]; then
+    printf '%s' "$branch_host" > /root/.dockersock/branch_url.txt
+  fi
 elif [[ ${KUBE_NAMESPACE} == ${UAT_ENV} ]]; then
   echo "External UAT url - $APP_NAME.uat.sas-notprod.homeoffice.gov.uk"
   echo "Internal UAT url - sas-$APP_NAME.uat.internal.sas-notprod.homeoffice.gov.uk"
