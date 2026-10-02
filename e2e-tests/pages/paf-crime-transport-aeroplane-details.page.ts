@@ -1,8 +1,22 @@
 import { basePage } from './base-page';
+import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
 export class pafCrimeTransportAeroplaneDetailsPage extends basePage {
   readonly expectedPageTitle = 'What are the aeroplane details?';
   readonly pageHeading = this.headerText;
+
+  async answerAeroplaneDetails() {
+    await this.assertPageTitle(this.expectedPageTitle);
+    await this.crimeAirlineCompanyAnswer(c);
+    await this.crimeAirlineFlightNumberAnswer(c);
+    await this.crimeAirlineCountryDepartureAnswer(c);
+    await this.crimeAirportDepartureAnswer(c);
+    await this.crimeAirportArrivalAnswer(c);
+    await this.crimeAirportDepartureTimeAnswer(c);
+    await this.crimeAirportArrivalTimeAnswer(c);
+    await this.clickContinueButton();
+  }
+
   async crimeAirlineCompanyAnswer(data: Record<string, string>) {
     await this.autocompleteById('airline-company', data.AIRLINE);
   }

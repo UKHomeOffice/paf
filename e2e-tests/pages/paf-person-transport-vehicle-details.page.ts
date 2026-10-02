@@ -1,8 +1,16 @@
 import { basePage } from './base-page';
+import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
 export class pafPersonTransportVehicleDetailsPage extends basePage {
   readonly expectedPageTitle = "What are the vehicle's details?";
   readonly pageHeading = this.headerText;
+
+  async answerPersonVehicleDetails() {
+    await this.assertPageTitle(this.expectedPageTitle);
+    await this.personVehicleDetailsAnswer(c);
+  }
+
+
   async personVehicleDetailsAnswer(data: Record<string, string>) {
     await this.completeTextPage(
       [

@@ -1,17 +1,12 @@
 import { createBdd } from 'playwright-bdd';
 import { Pages, test } from '../fixture/fixtures';
 import { getPafApplicant, PafApplicant } from '../test-data/paf-applicant-data';
-import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
-export const { Given, Then } = createBdd(test);
+export const { Given, Then, When } = createBdd(test);
 
 let applicant: PafApplicant;
 
 Given('Test data has been created for {string} scenarios', async ({ }, _serviceName: string) => {
-});
-
-Given('I selected the data for scenario {string} - {string}', async ({ }, scenarioId: string, description: string) => {
-    applicant = getPafApplicant(scenarioId, description);
 });
 
 Given('I visit the Public Allegations Form page', async ({ pages }) => {
@@ -19,23 +14,28 @@ Given('I visit the Public Allegations Form page', async ({ pages }) => {
     await pages.pafHomePage.start();
 });
 
-Given('I fill out my answers for the Public Allegations Form', async ({ pages }) => {
+When('I fill out my answers for the Public Allegations Form journey 1 pertaining to {string}', async ({ pages }, description: string) => {
+    applicant = getPafApplicant('1', description);
     await new pafStepLib(pages, applicant).completeScenario('1');
 });
 
-Given('I fill out my answers for the Public Allegations Form 2', async ({ pages }) => {
+When('I fill out my answers for the Public Allegations Form journey 2 pertaining to {string}', async ({ pages }, description: string) => {
+    applicant = getPafApplicant('2', description);
     await new pafStepLib(pages, applicant).completeScenario('2');
 });
 
-Given('I fill out my answers for the Public Allegations Form 3', async ({ pages }) => {
+When('I fill out my answers for the Public Allegations Form journey 3 pertaining to {string}', async ({ pages }, description: string) => {
+    applicant = getPafApplicant('3', description);
     await new pafStepLib(pages, applicant).completeScenario('3');
 });
 
-Given('I fill out my answers for the Public Allegations Form 4', async ({ pages }) => {
+When('I fill out my answers for the Public Allegations Form journey 4 pertaining to {string}', async ({ pages }, description: string) => {
+    applicant = getPafApplicant('4', description);
     await new pafStepLib(pages, applicant).completeScenario('4');
 });
 
-Given('I fill out my answers for the Public Allegations Form 5', async ({ pages }) => {
+When('I fill out my answers for the Public Allegations Form journey 5 pertaining to {string}', async ({ pages }, description: string) => {
+    applicant = getPafApplicant('5', description);
     await new pafStepLib(pages, applicant).completeScenario('5');
 });
 
@@ -48,12 +48,8 @@ type CrimeTransport = 'vehicle' | 'boat' | 'train' | 'aeroplane';
 export class pafStepLib {
     constructor(private readonly pages: Pages, private readonly applicant: PafApplicant) { }
 
-    async completeScenario(expectedId: string) {
-        if (this.applicant.scenarioId !== expectedId) {
-            throw new Error(`PAF scenario ${this.applicant.scenarioId} does not match step ${expectedId}`);
-        }
-
-        switch (expectedId) {
+    async completeScenario(journeyId: string) {
+        switch (journeyId) {
             case '1':
                 await this.completeCrimeSection(['vehicle', 'boat', 'train', 'aeroplane']);
                 await this.completeFullPersonInUkSection();
@@ -65,52 +61,52 @@ export class pafStepLib {
                 await this.completeFullOrganisationSection();
                 break;
             case '3':
-                await this.answerWhatIsTheCrimeYouAreReporting();
-                await this.answerAreThereChildrenInvolved();
-                await this.answerWhenIsTheCrimeHappening();
-                await this.answerDoesTheCrimeInvolveAnyVehiclesTransportOrTravel();
-                await this.answerWhatAreTheAeroplaneDetails();
-                await this.answerTellUsWhichOfTheFollowingTheCrimeInvolves();
-                await this.answerDoYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace();
-                await this.answerDoYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace();
-                await this.answerDoYouWantToReportAnIndividual();
-                await this.answerDoYouWishToReportACompanyBusinessOrEducationProvider();
+                await this.pages.pafCrimeTypePage.answerCrimeType(this.applicant.whatIsTheCrimeYouAreReporting);
+                await this.pages.pafCrimeChildrenPage.answerChildrenInvolved(this.applicant.areThereChildrenInvolved);
+                await this.pages.pafCrimeWhenCrimeHappenedPage.answerWhenCrimeHappens(this.applicant.whenIsTheCrimeHappening);
+                await this.pages.pafCrimeTransportPage.answerTransportInvolvement(this.applicant.doesTheCrimeInvolveAnyVehiclesTransportOrTravel);
+                await this.pages.pafCrimeTransportAeroplaneDetailsPage.answerAeroplaneDetails();
+                await this.pages.pafCrimeDeliveryPage.answerDeliveryInvolvement(this.applicant.tellUsWhichOfTheFollowingTheCrimeInvolves);
+                await this.pages.pafCrimeLocationPage.answerCrimeLocation(this.applicant.doYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace);
+                await this.pages.pafCrimeAnotherLocationPage.answerAnotherCrimeLocation(this.applicant.doYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace);
+                await this.pages.pafPersonReportPage.answerReportIndividual(this.applicant.doYouWantToReportAnIndividual);
+                await this.pages.pafOrganisationPage.answerReportOrganisation(this.applicant.doYouWishToReportACompanyBusinessOrEducationProvider);
                 break;
             case '4':
-                await this.answerWhatIsTheCrimeYouAreReporting();
-                await this.answerAreThereChildrenInvolved();
-                await this.answerWhenIsTheCrimeHappening();
-                await this.answerWhenWillTheCrimeHappen();
-                await this.answerDoesTheCrimeInvolveAnyVehiclesTransportOrTravel();
-                await this.answerWhatIsTheVehicleType();
-                await this.answerWhatAreTheVehicleDetails();
-                await this.answerWhatIsTheBoatType();
-                await this.answerWhatAreTheBoatDetails();
-                await this.answerWhatAreTheTrainDetails();
-                await this.answerTellUsWhichOfTheFollowingTheCrimeInvolves();
-                await this.answerDoYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace();
-                await this.answerDoYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace();
-                await this.answerDoYouWantToReportAnIndividual();
-                await this.answerDoYouWishToReportACompanyBusinessOrEducationProvider();
+                await this.pages.pafCrimeTypePage.answerCrimeType(this.applicant.whatIsTheCrimeYouAreReporting);
+                await this.pages.pafCrimeChildrenPage.answerChildrenInvolved(this.applicant.areThereChildrenInvolved);
+                await this.pages.pafCrimeWhenCrimeHappenedPage.answerWhenCrimeHappens(this.applicant.whenIsTheCrimeHappening);
+                await this.pages.pafCrimeWhenWillCrimeHappenPage.answerWhenCrimeWillHappen(this.applicant.whenWillTheCrimeHappen);
+                await this.pages.pafCrimeTransportPage.answerTransportInvolvement(this.applicant.doesTheCrimeInvolveAnyVehiclesTransportOrTravel);
+                await this.pages.pafCrimeTransportVehicleTypePage.answerVehicleType(this.applicant.whatIsTheVehicleType);
+                await this.pages.pafCrimeTransportVehicleDetailsPage.answerVehicleDetails();
+                await this.pages.pafCrimeTransportBoatTypePage.answerBoatType(this.applicant.whatIsTheBoatType);
+                await this.pages.pafCrimeTransportBoatDetailsPage.answerBoatDetails();
+                await this.pages.pafCrimeTransportTrainDetailsPage.answerTrainDetails();
+                await this.pages.pafCrimeDeliveryPage.answerDeliveryInvolvement(this.applicant.tellUsWhichOfTheFollowingTheCrimeInvolves);
+                await this.pages.pafCrimeLocationPage.answerCrimeLocation(this.applicant.doYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace);
+                await this.pages.pafCrimeAnotherLocationPage.answerAnotherCrimeLocation(this.applicant.doYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace);
+                await this.pages.pafPersonReportPage.answerReportIndividual(this.applicant.doYouWantToReportAnIndividual);
+                await this.pages.pafOrganisationPage.answerReportOrganisation(this.applicant.doYouWishToReportACompanyBusinessOrEducationProvider);
                 break;
             case '5':
-                await this.answerWhatIsTheCrimeYouAreReporting();
-                await this.answerAreThereChildrenInvolved();
-                await this.answerWhenIsTheCrimeHappening();
-                await this.answerWhenWillTheCrimeHappen();
-                await this.answerTellUsTheTimeAndDateTheCrimeWillHappenIfYouKnowThem();
-                await this.answerIfYouHaveAnyMoreInformationAboutWhenTheCrimeIsHappeningPleaseTellUsHere();
-                await this.answerDoesTheCrimeInvolveAnyVehiclesTransportOrTravel();
-                await this.answerWhatIsTheVehicleType();
-                await this.answerWhatAreTheVehicleDetails();
-                await this.answerTellUsWhichOfTheFollowingTheCrimeInvolves();
-                await this.answerDoYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace();
-                await this.answerDoYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace();
+                await this.pages.pafCrimeTypePage.answerCrimeType(this.applicant.whatIsTheCrimeYouAreReporting);
+                await this.pages.pafCrimeChildrenPage.answerChildrenInvolved(this.applicant.areThereChildrenInvolved);
+                await this.pages.pafCrimeWhenCrimeHappenedPage.answerWhenCrimeHappens(this.applicant.whenIsTheCrimeHappening);
+                await this.pages.pafCrimeWhenWillCrimeHappenPage.answerWhenCrimeWillHappen(this.applicant.whenWillTheCrimeHappen);
+                await this.pages.pafCrimeDateTimeCrimeWillHappenPage.answerCrimeDateTime();
+                await this.pages.pafCrimeMoreInformationPage.answerAdditionalCrimeTimeInformation();
+                await this.pages.pafCrimeTransportPage.answerTransportInvolvement(this.applicant.doesTheCrimeInvolveAnyVehiclesTransportOrTravel);
+                await this.pages.pafCrimeTransportVehicleTypePage.answerVehicleType(this.applicant.whatIsTheVehicleType);
+                await this.pages.pafCrimeTransportVehicleDetailsPage.answerVehicleDetails();
+                await this.pages.pafCrimeDeliveryPage.answerDeliveryInvolvement(this.applicant.tellUsWhichOfTheFollowingTheCrimeInvolves);
+                await this.pages.pafCrimeLocationPage.answerCrimeLocation(this.applicant.doYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace);
+                await this.pages.pafCrimeAnotherLocationPage.answerAnotherCrimeLocation(this.applicant.doYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace);
                 await this.completeFullPersonOutsideUkSection();
                 await this.completeFullOrganisationSection();
                 break;
             default:
-                throw new Error(`Unknown PAF scenario: ${expectedId}`);
+                throw new Error(`Unknown PAF journey: ${journeyId}`);
         }
         await this.completeOtherInformationSection();
         await this.completeAboutYouSection();
@@ -122,783 +118,131 @@ export class pafStepLib {
         await this.pages.pafDeclarationPage.assertApplicationSuccessful();
     }
 
-    async answerWhatIsTheCrimeYouAreReporting() {
-        await this.pages.pafCrimeTypePage.assertPageTitle(this.pages.pafCrimeTypePage.expectedPageTitle);
-
-        switch (this.applicant.whatIsTheCrimeYouAreReporting) {
-            case 'Immigration all':
-                await this.pages.pafCrimeTypePage.answerImmigrationCrime();
-                await this.pages.pafCrimeTypePage.answerNoPermissionToStayInTheUk();
-                await this.pages.pafCrimeTypePage.answerIllegalWorking();
-                await this.pages.pafCrimeTypePage.answerEmployerEmployingIllegalWorkers();
-                await this.pages.pafCrimeTypePage.answerStudentWorkingFullTime();
-                await this.pages.pafCrimeTypePage.answerFakeMarriage();
-                await this.pages.pafCrimeTypePage.answerFakeOrFalseDocuments();
-                await this.pages.pafCrimeTypePage.answerHelpingPeopleToEnterOrStayInTheUkIllegally();
-                await this.pages.pafCrimeTypePage.answerLiedOnApplication();
-                await this.pages.pafCrimeTypePage.answerHumanTraffickingSmugglingSlavery();
-                await this.pages.pafCrimeTypePage.answerOtherImmigrationCrimes();
-                break;
-            case 'Smuggling all':
-                await this.pages.pafCrimeTypePage.answerSmuggling();
-                await this.pages.pafCrimeTypePage.answerDrugSmuggling();
-                await this.pages.pafCrimeTypePage.answerCashSmuggling();
-                await this.pages.pafCrimeTypePage.answerCigaretteAndTobaccoSmuggling();
-                await this.pages.pafCrimeTypePage.answerFirearmsSmuggling();
-                await this.pages.pafCrimeTypePage.answerAlcoholSmuggling();
-                await this.pages.pafCrimeTypePage.answerOtherSmuggling();
-                break;
-            case 'Immigration Crime - Illegal workers, Lied on application, Other immigration crimes':
-                await this.pages.pafCrimeTypePage.answerImmigrationCrime();
-                await this.pages.pafCrimeTypePage.answerEmployerEmployingIllegalWorkers();
-                await this.pages.pafCrimeTypePage.answerLiedOnApplication();
-                await this.pages.pafCrimeTypePage.answerOtherImmigrationCrimes();
-                break;
-            default:
-                throw new Error(`Crime type not understood: ${this.applicant.whatIsTheCrimeYouAreReporting}`);
-        }
-
-        await this.pages.basePage.clickContinueButton();
-    }
-
-    async answerAreThereChildrenInvolved() {
-        await this.assertThenAnswer(this.pages.pafCrimeChildrenPage, () =>
-            this.pages.pafCrimeChildrenPage.answerYesNoUnknown(this.applicant.areThereChildrenInvolved));
-    }
-
-    async answerWhenIsTheCrimeHappening() {
-        await this.pages.pafCrimeWhenCrimeHappenedPage.assertPageTitle(
-            this.pages.pafCrimeWhenCrimeHappenedPage.expectedPageTitle
-        );
-
-        switch (this.applicant.whenIsTheCrimeHappening) {
-            case 'Happening now':
-                return this.pages.pafCrimeWhenCrimeHappenedPage.crimeHappeningNowAnswer(c);
-            case 'Ongoing':
-                return this.pages.pafCrimeWhenCrimeHappenedPage.crimeOngoingAnswer(c);
-            case 'Already happened':
-                return this.pages.pafCrimeWhenCrimeHappenedPage.crimeAlreadyHappenedAnswer(c);
-            case 'Not yet happened':
-                return this.pages.pafCrimeWhenCrimeHappenedPage.crimeNotYetHappenedAnswer();
-            case "I don't know":
-                return this.pages.pafCrimeWhenCrimeHappenedPage.crimeIdontKnowAnswer();
-            default:
-                throw new Error(`Invalid when crime happened: ${this.applicant.whenIsTheCrimeHappening}`);
-        }
-    }
-
-    async answerWhenWillTheCrimeHappen() {
-        await this.pages.pafCrimeWhenWillCrimeHappenPage.assertPageTitle(
-            this.pages.pafCrimeWhenWillCrimeHappenPage.expectedPageTitle
-        );
-
-        switch (this.applicant.whenWillTheCrimeHappen) {
-            case 'In the next 24 hours':
-                return this.pages.pafCrimeWhenWillCrimeHappenPage.answerCrimeHappenNext24Hours();
-            case 'Date more than 24 hours in the future':
-                return this.pages.pafCrimeWhenWillCrimeHappenPage.answerCrimeHappenDateMoreThan24Hours();
-            case "I don't know":
-                return this.pages.pafCrimeWhenWillCrimeHappenPage.answerCrimeHappenIdontKnow();
-            default:
-                throw new Error(`Invalid when will crime happen: ${this.applicant.whenWillTheCrimeHappen}`);
-        }
-    }
-
-    async answerTellUsTheTimeAndDateTheCrimeWillHappenIfYouKnowThem() {
-        await this.assertThenAnswer(this.pages.pafCrimeDateTimeCrimeWillHappenPage, () =>
-            this.pages.pafCrimeDateTimeCrimeWillHappenPage.crimeDateTimeAnswer(c));
-    }
-
-    async answerIfYouHaveAnyMoreInformationAboutWhenTheCrimeIsHappeningPleaseTellUsHere() {
-        await this.assertThenAnswer(this.pages.pafCrimeMoreInformationPage, () =>
-            this.pages.pafCrimeMoreInformationPage.crimeMoreInformationAnswer(c));
-    }
-
-    async answerDoesTheCrimeInvolveAnyVehiclesTransportOrTravel() {
-        await this.pages.pafCrimeTransportPage.assertPageTitle(this.pages.pafCrimeTransportPage.expectedPageTitle);
-
-        switch (this.applicant.doesTheCrimeInvolveAnyVehiclesTransportOrTravel) {
-            case "I don't know":
-                return this.pages.pafCrimeTransportPage.crimeTransportIdontKnowAnswer();
-            case 'No':
-                return this.pages.pafCrimeTransportPage.crimeTransportNoAnswer();
-            case 'Vehicle':
-                await this.pages.pafCrimeTransportPage.selectByLabel('Yes');
-                await this.pages.pafCrimeTransportPage.crimeTransportVehicleAnswer();
-                break;
-            case 'Boat':
-                await this.pages.pafCrimeTransportPage.selectByLabel('Yes');
-                await this.pages.pafCrimeTransportPage.crimeTransportBoatAnswer();
-                break;
-            case 'Train':
-                await this.pages.pafCrimeTransportPage.selectByLabel('Yes');
-                await this.pages.pafCrimeTransportPage.crimeTransportTrainAnswer();
-                break;
-            case 'Aeroplane':
-                await this.pages.pafCrimeTransportPage.selectByLabel('Yes');
-                await this.pages.pafCrimeTransportPage.crimeTransportAeroplaneAnswer();
-                break;
-            case 'All':
-                await this.pages.pafCrimeTransportPage.selectByLabel('Yes');
-                await this.pages.pafCrimeTransportPage.crimeTransportVehicleAnswer();
-                await this.pages.pafCrimeTransportPage.crimeTransportBoatAnswer();
-                await this.pages.pafCrimeTransportPage.crimeTransportTrainAnswer();
-                await this.pages.pafCrimeTransportPage.crimeTransportAeroplaneAnswer();
-                break;
-            case 'Vehicle, Train':
-                await this.pages.pafCrimeTransportPage.selectByLabel('Yes');
-                await this.pages.pafCrimeTransportPage.crimeTransportVehicleAnswer();
-                await this.pages.pafCrimeTransportPage.crimeTransportTrainAnswer();
-                break;
-            case 'Boat, Train, Vehicle':
-                await this.pages.pafCrimeTransportPage.selectByLabel('Yes');
-                await this.pages.pafCrimeTransportPage.crimeTransportBoatAnswer();
-                await this.pages.pafCrimeTransportPage.crimeTransportTrainAnswer();
-                await this.pages.pafCrimeTransportPage.crimeTransportVehicleAnswer();
-                break;
-            default:
-                throw new Error(`Invalid transport type: ${this.applicant.doesTheCrimeInvolveAnyVehiclesTransportOrTravel}`);
-        }
-
-        await this.pages.basePage.clickContinueButton();
-    }
-
-    async answerWhatIsTheVehicleType() {
-        await this.selectVehicleType(this.applicant.whatIsTheVehicleType, false);
-    }
-
-    async answerWhatAreTheVehicleDetails() {
-        await this.assertThenAnswer(this.pages.pafCrimeTransportVehicleDetailsPage, () =>
-            this.pages.pafCrimeTransportVehicleDetailsPage.crimeVehicleDetailsAnswer(c));
-    }
-
-    async answerWhatIsTheBoatType() {
-        await this.selectBoatType(this.applicant.whatIsTheBoatType);
-    }
-
-    async answerWhatAreTheBoatDetails() {
-        await this.assertThenAnswer(this.pages.pafCrimeTransportBoatDetailsPage, async () => {
-            await this.pages.pafCrimeTransportBoatDetailsPage.crimeBoatNameAnswer(c);
-            await this.pages.pafCrimeTransportBoatDetailsPage.crimeBoatCountryDepartureAnswer(c);
-            await this.pages.pafCrimeTransportBoatDetailsPage.crimePortDepartureAnswer(c);
-            await this.pages.pafCrimeTransportBoatDetailsPage.crimePortArrivalAnswer(c);
-            await this.pages.pafCrimeTransportBoatDetailsPage.crimePortDepartureTimeAnswer(c);
-            await this.pages.pafCrimeTransportBoatDetailsPage.crimePortArrivalTimeAnswer(c);
-            await this.pages.basePage.clickContinueButton();
-        });
-    }
-
-    async answerWhatAreTheTrainDetails() {
-        await this.assertThenAnswer(this.pages.pafCrimeTransportTrainDetailsPage, async () => {
-            await this.pages.pafCrimeTransportTrainDetailsPage.crimeTrainCompanyAnswer(c);
-            await this.pages.pafCrimeTransportTrainDetailsPage.crimeTrainCountryDepartureAnswer(c);
-            await this.pages.pafCrimeTransportTrainDetailsPage.crimeStationDepartureAnswer(c);
-            await this.pages.pafCrimeTransportTrainDetailsPage.crimeStationArrivalAnswer(c);
-            await this.pages.pafCrimeTransportTrainDetailsPage.crimeStationDepartureTimeAnswer(c);
-            await this.pages.pafCrimeTransportTrainDetailsPage.crimeStationArrivalTimeAnswer(c);
-            await this.pages.basePage.clickContinueButton();
-        });
-    }
-
-    async answerWhatAreTheAeroplaneDetails() {
-        await this.assertThenAnswer(this.pages.pafCrimeTransportAeroplaneDetailsPage, async () => {
-            await this.pages.pafCrimeTransportAeroplaneDetailsPage.crimeAirlineCompanyAnswer(c);
-            await this.pages.pafCrimeTransportAeroplaneDetailsPage.crimeAirlineFlightNumberAnswer(c);
-            await this.pages.pafCrimeTransportAeroplaneDetailsPage.crimeAirlineCountryDepartureAnswer(c);
-            await this.pages.pafCrimeTransportAeroplaneDetailsPage.crimeAirportDepartureAnswer(c);
-            await this.pages.pafCrimeTransportAeroplaneDetailsPage.crimeAirportArrivalAnswer(c);
-            await this.pages.pafCrimeTransportAeroplaneDetailsPage.crimeAirportDepartureTimeAnswer(c);
-            await this.pages.pafCrimeTransportAeroplaneDetailsPage.crimeAirportArrivalTimeAnswer(c);
-            await this.pages.basePage.clickContinueButton();
-        });
-    }
-
-    async answerTellUsWhichOfTheFollowingTheCrimeInvolves() {
-        await this.assertThenAnswer(this.pages.pafCrimeDeliveryPage, () =>
-            this.pages.pafCrimeDeliveryPage.selectAndContinue(this.applicant.tellUsWhichOfTheFollowingTheCrimeInvolves));
-    }
-
-    async answerDoYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace() {
-        await this.assertThenAnswer(this.pages.pafCrimeLocationPage, () =>
-            this.yes(this.applicant.doYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace)
-                ? this.pages.pafCrimeLocationPage.crimeLocationYesAnswer(c)
-                : this.pages.pafCrimeLocationPage.crimeLocationNoAnswer());
-    }
-
-    async answerDoYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace() {
-        if (this.na(this.applicant.doYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace)) return;
-
-        await this.assertThenAnswer(this.pages.pafCrimeAnotherLocationPage, () =>
-            this.yes(this.applicant.doYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace)
-                ? this.pages.pafCrimeAnotherLocationPage.crimeAnotherLocationYesAnswer(c)
-                : this.pages.pafCrimeAnotherLocationPage.crimeAnotherLocationNoAnswer());
-    }
-
-    async answerDoYouWantToReportAnIndividual() {
-        await this.assertThenAnswer(this.pages.pafPersonReportPage, () =>
-            this.pages.pafPersonReportPage.answerYesNoUnknown(this.applicant.doYouWantToReportAnIndividual));
-    }
-
-    async answerWhatIsThePersonsName() {
-        await this.assertThenAnswer(this.pages.pafPersonNamePage, () =>
-            this.pages.pafPersonNamePage.personReportNameAnswer(c));
-    }
-
-    async answerWhatIsThePersonsDateOfBirth() {
-        await this.assertThenAnswer(this.pages.pafPersonDobPage, () =>
-            this.pages.pafPersonDobPage.personReportDobAnswer(c));
-    }
-
-    async answerWhatIsThePersonsApproximateAge() {
-        await this.selectAge(this.applicant.whatIsThePersonsApproximateAge, false);
-    }
-
-    async answerWhatIsThePersonsNationality() {
-        await this.assertThenAnswer(this.pages.pafPersonNationalityPage, () =>
-            this.pages.pafPersonNationalityPage.personReportNationalityAnswer(c));
-    }
-
-    async answerWhatIsThePersonsPlaceOfBirth() {
-        await this.assertThenAnswer(this.pages.pafPersonPlaceOfBirthPage, () =>
-            this.pages.pafPersonPlaceOfBirthPage.personReportPlaceOfBirthAnswer(c));
-    }
-
-    async answerWhatIsThePersonsGender() {
-        await this.selectGender(this.applicant.whatIsThePersonsGender, false);
-    }
-
-    async answerWhatAreThePersonsFormOfIdentification() {
-        await this.assertThenAnswer(this.pages.pafPersonIdPage, () =>
-            this.pages.pafPersonIdPage.personReportIdAnswer(c));
-    }
-
-    async answerWhereIsThePersonNow() {
-        await this.assertThenAnswer(this.pages.pafPersonWhereIsThePersonNowPage, () =>
-            this.pages.pafPersonWhereIsThePersonNowPage.selectAndContinue(this.applicant.whereIsThePersonNow));
-    }
-
-    async answerWhatIsThePersonsAddressUk() {
-        await this.assertThenAnswer(this.pages.pafPersonAddressUkPage, () =>
-            this.pages.pafPersonAddressUkPage.personAddressUkAnswer(c));
-    }
-
-    async answerWhatCountryIsThePersonTravellingFrom() {
-        await this.assertThenAnswer(this.pages.pafPersonTravellingToTheUkPage, () =>
-            this.pages.pafPersonTravellingToTheUkPage.personTravellingToUkAnswer(c));
-    }
-
-    async answerWhatIsThePersonsAddressOutsideUk() {
-        await this.assertThenAnswer(this.pages.pafPersonAddressOutsideUkPage, () =>
-            this.pages.pafPersonAddressOutsideUkPage.personAddressOutsideUkAnswer(c));
-    }
-
-    async answerWhatTypeOfAddressIsIt() {
-        await this.assertThenAnswer(this.pages.pafPersonWhatTypeOfAddressIsItPage, () =>
-            this.pages.pafPersonWhatTypeOfAddressIsItPage.selectAndContinue(
-                this.addressLabel(this.applicant.whatTypeOfAddressIsIt)
-            ));
-    }
-
-    async answerWhatTypeOfAddressIsItOutsideUk() {
-        await this.assertThenAnswer(this.pages.pafPersonWhatTypeOfAddressIsItOutsideUkPage, () =>
-            this.pages.pafPersonWhatTypeOfAddressIsItOutsideUkPage.selectAndContinue(
-                this.addressLabel(this.applicant.whatTypeOfAddressIsIt)
-            ));
-    }
-
-    async answerWhatIsThePersonsContactDetails() {
-        await this.assertThenAnswer(this.pages.pafPersonContactDetailsPage, () =>
-            this.pages.pafPersonContactDetailsPage.personContactDetailsAnswer(c));
-    }
-
-    async answerWhatIsThePersonsContactDetailsOutsideUk() {
-        await this.assertThenAnswer(this.pages.pafPersonContactDetailsOutsideUkPage, () =>
-            this.pages.pafPersonContactDetailsOutsideUkPage.personContactDetailsOutsideUkAnswer(c));
-    }
-
-    async answerDoYouKnowIfThePersonHasAJob() {
-        await this.assertThenAnswer(this.pages.pafPersonOccupationPage, () =>
-            this.pages.pafPersonOccupationPage.answerYesNoUnknown(this.applicant.doYouKnowIfThePersonHasAJob));
-    }
-
-    async answerWhatTypeOfJobOrOccupationDoesThePersonHave() {
-        await this.assertThenAnswer(this.pages.pafPersonOccupationTypePage, () =>
-            this.pages.pafPersonOccupationTypePage.personOccupationTypeAnswer(c));
-    }
-
-    async answerWhatHoursOfTheDayDoesThePersonWork() {
-        await this.assertThenAnswer(this.pages.pafPersonOccupationHoursPage, () =>
-            this.pages.pafPersonOccupationHoursPage.personOccupationHoursAnswer(c));
-    }
-
-    async answerWhatDaysDoesThePersonWork() {
-        await this.assertThenAnswer(this.pages.pafPersonOccupationDaysPage, () =>
-            this.pages.pafPersonOccupationDaysPage.personOccupationDaysAnswer(c));
-    }
-
-    async answerDoYouKnowWhereThePersonWorks() {
-        await this.assertThenAnswer(this.pages.pafPersonOccupationWherePage, () =>
-            this.pages.pafPersonOccupationWherePage.answerYesNoUnknown(this.applicant.doYouKnowWhereThePersonWorks));
-    }
-
-    async answerWhatIsTheNameOfTheCompanyThePersonWorksAt() {
-        await this.assertThenAnswer(this.pages.pafPersonOccupationCompanyNamePage, () =>
-            this.pages.pafPersonOccupationCompanyNamePage.personOccupationCompanyNameAnswer(c));
-    }
-
-    async answerWhatIsTheCompanysContactDetails() {
-        await this.assertThenAnswer(this.pages.pafPersonOccupationCompanyAddressPage, () =>
-            this.pages.pafPersonOccupationCompanyAddressPage.personOccupationCompanyAddressUkAnswer(c));
-    }
-
-    async answerWhoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime() {
-        await this.assertThenAnswer(this.pages.pafPersonOccupationCompanyOwnerPage, () =>
-            this.yes(this.applicant.whoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime)
-                ? this.pages.pafPersonOccupationCompanyOwnerPage.personOccupationCompanyOwnerYesAnswer(c)
-                : this.pages.pafPersonOccupationCompanyOwnerPage.answerYesNoUnknown(
-                    this.applicant.whoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime
-                ));
-    }
-
-    async answerDoesThePersonStudy() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyPage, () =>
-            this.pages.pafPersonStudyPage.answerYesNoUnknown(this.applicant.doesThePersonStudy));
-    }
-
-    async answerDoYouKnowTheCourseOrTheSubjectOfStudy() {
-        await this.assertThenAnswer(this.pages.pafPersonStudySubjectPage, () =>
-            this.pages.pafPersonStudySubjectPage.personStudySubjectAnswer(c));
-    }
-
-    async answerDoesThePersonStudyInTheUk() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyInTheUkPage, () =>
-            this.pages.pafPersonStudyInTheUkPage.answerYesNoUnknown(this.applicant.doesThePersonStudyInTheUk));
-    }
-
-    async answerWhatHoursOfTheDayDoesThePersonStudy() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyHoursPage, () =>
-            this.pages.pafPersonStudyHoursPage.personOccupationHoursAnswer(c));
-    }
-
-    async answerWhatDaysDoesThePersonStudy() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyDaysPage, () =>
-            this.pages.pafPersonStudyDaysPage.personOccupationDaysAnswer(c));
-    }
-
-    async answerDoYouKnowWhereInTheUkThePersonStudies() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyWherePage, () =>
-            this.pages.pafPersonStudyWherePage.answerYesNoUnknown(this.applicant.doYouKnowWhereInTheUkThePersonStudies));
-    }
-
-    async answerWhatIsTheNameOfTheCollegeOrUniversity() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyNamePage, () =>
-            this.pages.pafPersonStudyNamePage.personStudyNameAnswer(c));
-    }
-
-    async answerWhatIsTheInstitutionsAddress() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyAddressPage, () =>
-            this.pages.pafPersonStudyAddressPage.personStudyAddressAnswer(c));
-    }
-
-    async answerWhatIsTheInstitutionsContactDetails() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyContactPage, () =>
-            this.pages.pafPersonStudyContactPage.personStudyContactDetailsAnswer(c));
-    }
-
-    async answerWhoOwnsOrManagesTheInsitutionDoesTheOwnerOrManagerKnowAboutTheCrime() {
-        await this.assertThenAnswer(this.pages.pafPersonStudyInstitutionOwnerPage, () =>
-            this.yes(this.applicant.whoOwnsOrManagesTheInsitutionDoesTheOwnerOrManagerKnowAboutTheCrime)
-                ? this.pages.pafPersonStudyInstitutionOwnerPage.personStudyInstitutionOwnerYesAnswer(c)
-                : this.pages.pafPersonStudyInstitutionOwnerPage.answerYesNoUnknown(
-                    this.applicant.whoOwnsOrManagesTheInsitutionDoesTheOwnerOrManagerKnowAboutTheCrime
-                ));
-    }
-
-    async answerDoesThePersonOwnACarOrOtherVehicle() {
-        await this.assertThenAnswer(this.pages.pafPersonTransportPage, () =>
-            this.pages.pafPersonTransportPage.answerYesNoUnknown(this.applicant.doesThePersonOwnACarOrOtherVehicle));
-    }
-
-    async answerWhatIsTheVehicleTypePerson() {
-        await this.selectVehicleType(this.applicant.whatIsTheVehicleTypePerson, true);
-    }
-
-    async answerWhatAreTheVehicleDetailsPerson() {
-        await this.assertThenAnswer(this.pages.pafPersonTransportVehicleDetailsPage, () =>
-            this.pages.pafPersonTransportVehicleDetailsPage.personVehicleDetailsAnswer(c));
-    }
-
-    async answerPleaseTellUsAnythingElseAboutThePersonYouAreReportingThatYouThinkWeShouldKnow() {
-        await this.assertThenAnswer(this.pages.pafPersonAnythingElsePage, () =>
-            this.pages.pafPersonAnythingElsePage.personAnythingElseAnswer(c));
-    }
-
-    async answerDoYouWantToTellUsAboutAnotherPersonWhoIsInvolvedInTheSameCrime() {
-        await this.assertThenAnswer(this.pages.pafPersonAdditionalPeoplePage, () =>
-            this.pages.pafPersonAdditionalPeoplePage.answerYesNoUnknown(
-                this.applicant.doYouWantToTellUsAboutAnotherPersonWhoIsInvolvedInTheSameCrime
-            ));
-    }
-
-    async answerWhatIsTheAdditionalPersonsName() {
-        await this.assertThenAnswer(this.pages.pafAdditionalPersonNamePage, () =>
-            this.pages.pafAdditionalPersonNamePage.additionalPersonReportNameAnswer(c));
-    }
-
-    async answerWhatIsTheAdditionalPersonsDateOfBirth() {
-        await this.assertThenAnswer(this.pages.pafAdditionalPersonDobPage, () =>
-            this.pages.pafAdditionalPersonDobPage.additionalPersonReportDobAnswer(c));
-    }
-
-    async answerWhatIsTheAdditionalPersonsApproximateAge() {
-        await this.selectAge(this.applicant.whatIsTheAdditionalPersonsApproximateAgePerson, true);
-    }
-
-    async answerWhatIsTheAdditionalPersonsNationality() {
-        await this.assertThenAnswer(this.pages.pafAdditionalPersonNationalityPage, () =>
-            this.pages.pafAdditionalPersonNationalityPage.additionalPersonReportNationalityAnswer(c));
-    }
-
-    async answerWhatIsTheAdditionalPersonsGender() {
-        await this.selectGender(this.applicant.whatIsTheAdditionalPersonsGenderPerson, true);
-    }
-
-    async answerWhatAreTheAdditionalPersonsFormOfIdentification() {
-        await this.assertThenAnswer(this.pages.pafAdditionalPersonIdPage, async () => {
-            await this.pages.pafAdditionalPersonIdPage.additionalPersonReportIdAnswer(c);
-            await this.pages.pafAdditionalPersonDetailsPage.clickContinueButton();
-        });
-    }
-
-    async answerDoYouWishToReportACompanyBusinessOrEducationProvider() {
-        await this.assertThenAnswer(this.pages.pafOrganisationPage, () =>
-            this.pages.pafOrganisationPage.answerYesNoUnknown(
-                this.applicant.doYouWishToReportACompanyBusinessOrEducationProvider
-            ));
-    }
-
-    async answerWhatIsTheCompanyBusinessOrEducationProvider() {
-        await this.assertThenAnswer(this.pages.pafOrganisationCompanyNamePage, () =>
-            this.pages.pafOrganisationCompanyNamePage.organisationCompanyNameAnswer(c));
-    }
-
-    async answerWhatIsTheAddressOfTheCompanyBusinessOrEducationProvider() {
-        await this.assertThenAnswer(this.pages.pafOrganisationCompanyAddressPage, () =>
-            this.pages.pafOrganisationCompanyAddressPage.organisationCompanyAddressAnswer(c));
-    }
-
-    async answerEnterTheCompanyBusinessOrEducationProvidersContactDetails() {
-        await this.assertThenAnswer(this.pages.pafOrganisationCompanyContactPage, () =>
-            this.pages.pafOrganisationCompanyContactPage.organisationContactDetailsAnswer(c));
-    }
-
-    async answerWhatIsTheTypeOfCompanyBusinessOrEducationProvider() {
-        await this.assertThenAnswer(this.pages.pafOrganisationCompanyTypePage, () =>
-            this.pages.pafOrganisationCompanyTypePage.organisationCompanyTypeAnswer(c));
-    }
-
-    async answerWhoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime2() {
-        await this.assertThenAnswer(this.pages.pafOrganisationCompanyOwnerPage, () =>
-            this.yes(this.applicant.whoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime2)
-                ? this.pages.pafOrganisationCompanyOwnerPage.organisationCompanyOwnerYesAnswer(c)
-                : this.pages.pafOrganisationCompanyOwnerPage.answerYesNoUnknown(
-                    this.applicant.whoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime2
-                ));
-    }
-
-    async answerPleaseTellUsAnythingElseAboutTheCompanyBusinessOrEducationProviderThatYouThinkWeShouldKnow() {
-        await this.assertThenAnswer(this.pages.pafOrganisationCompanyOtherInfoPage, () =>
-            this.pages.pafOrganisationCompanyOtherInfoPage.organisationCompanyOtherInfoAnswer(c));
-    }
-
-    async answerDoYouWantToTellUsAboutAnotherCompanyBusinessOrEducationProviderThatIsInvolvedInTheSameCrime() {
-        await this.assertThenAnswer(this.pages.pafOrganisationCompanyAnotherCompanyPage, () =>
-            this.pages.pafOrganisationCompanyAnotherCompanyPage.answerYesNoUnknown(
-                this.applicant.doYouWantToTellUsAboutAnotherCompanyBusinessOrEducationProviderThatIsInvolvedInTheSameCrime
-            ));
-    }
-
-    async answerOtherInformation() {
-        await this.assertThenAnswer(this.pages.pafOtherInformationPage, () =>
-            this.pages.pafOtherInformationPage.otherInformationAnswer(c));
-    }
-
-    async answerDoYouWantToReportAnotherCrimeByTheSamePersonOrBusiness() {
-        await this.assertThenAnswer(this.pages.pafOtherInformationAnotherCrimePage, () =>
-            this.yes(this.applicant.doYouWantToReportAnotherCrimeByTheSamePersonOrBusiness)
-                ? this.pages.pafOtherInformationAnotherCrimePage.otherInformationAnotherCrimeYesAnswer(c)
-                : this.pages.pafOtherInformationAnotherCrimePage.otherInformationAnotherCrimeNoAnswer());
-    }
-
-    async answerPleaseAttachAnyDocumentsWhichMayHelpUsInvestigateThisCrime() {
-        await this.pages.pafOtherInformationFileUploadPage.assertPageTitle(
-            this.pages.pafOtherInformationFileUploadPage.expectedPageTitle
-        );
-
-        switch (this.applicant.pleaseAttachAnyDocumentsWhichMayHelpUsInvestigateThisCrime.toLowerCase()) {
-            case '1':
-                return this.pages.pafOtherInformationFileUploadPage.answerFileUpload1(c.UPLOAD_FILE);
-            case '2':
-                return this.pages.pafOtherInformationFileUploadPage.answerFileUpload2(c.UPLOAD_FILE);
-            case '3':
-                return this.pages.pafOtherInformationFileUploadPage.answerFileUpload3(c.UPLOAD_FILE);
-            case 'none':
-                return this.pages.basePage.clickContinueButton();
-            default:
-                throw new Error(
-                    `Invalid document type: ${this.applicant.pleaseAttachAnyDocumentsWhichMayHelpUsInvestigateThisCrime}`
-                );
-        }
-    }
-
-    async answerHowDidYouFindOutAboutTheCrime() {
-        await this.assertThenAnswer(this.pages.pafAboutYouPage, () =>
-            this.pages.pafAboutYouPage.aboutYouAnswer(c));
-    }
-
-    async answerDoesAnyoneElseKnowAboutTheCrime() {
-        await this.assertThenAnswer(this.pages.pafAboutYouDoesAnyoneElseKnowPage, () =>
-            this.pages.pafAboutYouDoesAnyoneElseKnowPage.aboutYouDoesAnyoneElseKnowAnswer(c));
-    }
-
-    async answerHaveYouReportedTheCrimeBefore() {
-        await this.assertThenAnswer(this.pages.pafAboutYouHaveYouReportedBeforePage, () =>
-            this.pages.pafAboutYouHaveYouReportedBeforePage.aboutYouHaveYouEverReportedBeforeAnswer(c));
-    }
-
-    async answerHowDoYouKnowThisPersonthesePeople() {
-        await this.assertThenAnswer(this.pages.pafAboutYouHowDoYouKnowThePersonPage, () =>
-            this.pages.pafAboutYouHowDoYouKnowThePersonPage.aboutYouHowDoYouKnowThePersonAnswer(c));
-    }
-
-    async answerCanWeActOnThisInformationWithoutPuttingYouOrOthersAtRisk() {
-        await this.assertThenAnswer(this.pages.pafAboutYouCanUseInfoWithoutRiskPage, () =>
-            this.pages.pafAboutYouCanUseInfoWithoutRiskPage.answerYesNoUnknown(
-                this.applicant.canWeActOnThisInformationWithoutPuttingYouOrOthersAtRisk
-            ));
-    }
-
-    async answerPleaseProvideYourDetails() {
-        await this.assertThenAnswer(this.pages.pafAboutYouDetailsPage, () =>
-            this.pages.pafAboutYouDetailsPage.aboutYouDetailsAnswer(c.FIRST_NAME, c.LAST_NAME));
-    }
-
-    async answerWhatIsYourDateOfBirth() {
-        await this.assertThenAnswer(this.pages.pafAboutYouDobPage, () =>
-            this.pages.pafAboutYouDobPage.aboutYouDobAnswer(c));
-    }
-
-    async answerWhatIsYourNationality() {
-        await this.assertThenAnswer(this.pages.pafAboutYouNationalityPage, () =>
-            this.pages.pafAboutYouNationalityPage.aboutYouNationalityAnswer(c));
-    }
-
-    async answerWhatIsYourGender() {
-        await this.assertThenAnswer(this.pages.pafAboutYouGenderPage, () =>
-            this.pages.pafAboutYouGenderPage.selectAndContinue(this.applicant.whatIsYourGender));
-    }
-
-    async answerCanWeContactYouIfRequiredToDiscussTheInformationYouHaveProvided() {
-        await this.assertThenAnswer(this.pages.pafAboutYouContactPage, () =>
-            this.pages.pafAboutYouContactPage.aboutYouYesAnswer(c));
-    }
-
-    async answerAreYouOver18() {
-        await this.assertThenAnswer(this.pages.pafAboutYouAreYouOver18Page, () =>
-            this.yes(this.applicant.canWeContactYouIfRequiredToDiscussTheInformationYouHaveProvided)
-                ? this.pages.pafAboutYouAreYouOver18Page.aboutYouOver18YesAnswer()
-                : this.pages.pafAboutYouAreYouOver18Page.aboutYouOver18NoAnswer());
-    }
-
     private async completeCrimeSection(transports: CrimeTransport[]) {
-        await this.answerWhatIsTheCrimeYouAreReporting();
-        await this.answerAreThereChildrenInvolved();
-        await this.answerWhenIsTheCrimeHappening();
-        await this.answerDoesTheCrimeInvolveAnyVehiclesTransportOrTravel();
+        await this.pages.pafCrimeTypePage.answerCrimeType(this.applicant.whatIsTheCrimeYouAreReporting);
+        await this.pages.pafCrimeChildrenPage.answerChildrenInvolved(this.applicant.areThereChildrenInvolved);
+        await this.pages.pafCrimeWhenCrimeHappenedPage.answerWhenCrimeHappens(this.applicant.whenIsTheCrimeHappening);
+        await this.pages.pafCrimeTransportPage.answerTransportInvolvement(this.applicant.doesTheCrimeInvolveAnyVehiclesTransportOrTravel);
 
         if (transports.includes('vehicle')) {
-            await this.answerWhatIsTheVehicleType();
-            await this.answerWhatAreTheVehicleDetails();
+            await this.pages.pafCrimeTransportVehicleTypePage.answerVehicleType(this.applicant.whatIsTheVehicleType);
+            await this.pages.pafCrimeTransportVehicleDetailsPage.answerVehicleDetails();
         }
 
         if (transports.includes('boat')) {
-            await this.answerWhatIsTheBoatType();
-            await this.answerWhatAreTheBoatDetails();
+            await this.pages.pafCrimeTransportBoatTypePage.answerBoatType(this.applicant.whatIsTheBoatType);
+            await this.pages.pafCrimeTransportBoatDetailsPage.answerBoatDetails();
         }
 
         if (transports.includes('train')) {
-            await this.answerWhatAreTheTrainDetails();
+            await this.pages.pafCrimeTransportTrainDetailsPage.answerTrainDetails();
         }
 
         if (transports.includes('aeroplane')) {
-            await this.answerWhatAreTheAeroplaneDetails();
+            await this.pages.pafCrimeTransportAeroplaneDetailsPage.answerAeroplaneDetails();
         }
 
-        await this.answerTellUsWhichOfTheFollowingTheCrimeInvolves();
-        await this.answerDoYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace();
-        await this.answerDoYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace();
+        await this.pages.pafCrimeDeliveryPage.answerDeliveryInvolvement(this.applicant.tellUsWhichOfTheFollowingTheCrimeInvolves);
+        await this.pages.pafCrimeLocationPage.answerCrimeLocation(this.applicant.doYouKnowWhereTheCrimeTakesPlaceTookPlaceOrWillTakePlace);
+        await this.pages.pafCrimeAnotherLocationPage.answerAnotherCrimeLocation(this.applicant.doYouWantToTellUsAboutAnotherLocationWhereTheCrimeIsTakingPlace);
     }
 
     private async completeFullPersonInUkSection() {
         await this.completePersonIdentitySection();
-        await this.answerWhereIsThePersonNow();
-        await this.answerWhatIsThePersonsAddressUk();
-        await this.answerWhatTypeOfAddressIsIt();
-        await this.answerWhatIsThePersonsContactDetails();
+        await this.pages.pafPersonWhereIsThePersonNowPage.answerPersonCurrentLocation(this.applicant.whereIsThePersonNow);
+        await this.pages.pafPersonAddressUkPage.answerPersonAddressUk();
+        await this.pages.pafPersonWhatTypeOfAddressIsItPage.answerPersonAddressType(this.applicant.whatTypeOfAddressIsIt);
+        await this.pages.pafPersonContactDetailsPage.answerPersonContactDetails();
         await this.completePersonWorkStudyVehicleAndAdditionalPersonSection();
     }
 
     private async completeFullPersonTravellingSection() {
         await this.completePersonIdentitySection();
-        await this.answerWhereIsThePersonNow();
-        await this.answerWhatCountryIsThePersonTravellingFrom();
+        await this.pages.pafPersonWhereIsThePersonNowPage.answerPersonCurrentLocation(this.applicant.whereIsThePersonNow);
+        await this.pages.pafPersonTravellingToTheUkPage.answerPersonTravellingFrom();
         await this.completePersonWorkStudyVehicleAndAdditionalPersonSection();
     }
 
     private async completeFullPersonOutsideUkSection() {
         await this.completePersonIdentitySection();
-        await this.answerWhereIsThePersonNow();
-        await this.answerWhatIsThePersonsAddressOutsideUk();
-        await this.answerWhatTypeOfAddressIsItOutsideUk();
-        await this.answerWhatIsThePersonsContactDetailsOutsideUk();
+        await this.pages.pafPersonWhereIsThePersonNowPage.answerPersonCurrentLocation(this.applicant.whereIsThePersonNow);
+        await this.pages.pafPersonAddressOutsideUkPage.answerPersonAddressOutsideUk();
+        await this.pages.pafPersonWhatTypeOfAddressIsItOutsideUkPage.answerPersonAddressTypeOutsideUk(this.applicant.whatTypeOfAddressIsIt);
+        await this.pages.pafPersonContactDetailsOutsideUkPage.answerPersonContactDetailsOutsideUk();
         await this.completePersonWorkStudyVehicleAndAdditionalPersonSection();
     }
 
     private async completePersonIdentitySection() {
-        await this.answerDoYouWantToReportAnIndividual();
-        await this.answerWhatIsThePersonsName();
-        await this.answerWhatIsThePersonsDateOfBirth();
-        await this.answerWhatIsThePersonsApproximateAge();
-        await this.answerWhatIsThePersonsNationality();
-        await this.answerWhatIsThePersonsPlaceOfBirth();
-        await this.answerWhatIsThePersonsGender();
-        await this.answerWhatAreThePersonsFormOfIdentification();
+        await this.pages.pafPersonReportPage.answerReportIndividual(this.applicant.doYouWantToReportAnIndividual);
+        await this.pages.pafPersonNamePage.answerPersonName();
+        await this.pages.pafPersonDobPage.answerPersonDateOfBirth();
+        await this.pages.pafPersonAgePage.answerPersonAge(this.applicant.whatIsThePersonsApproximateAge);
+        await this.pages.pafPersonNationalityPage.answerPersonNationality();
+        await this.pages.pafPersonPlaceOfBirthPage.answerPersonPlaceOfBirth();
+        await this.pages.pafPersonGenderPage.answerPersonGender(this.applicant.whatIsThePersonsGender);
+        await this.pages.pafPersonIdPage.answerPersonIdentification();
     }
 
     private async completePersonWorkStudyVehicleAndAdditionalPersonSection() {
-        await this.answerDoYouKnowIfThePersonHasAJob();
-        await this.answerWhatTypeOfJobOrOccupationDoesThePersonHave();
-        await this.answerWhatHoursOfTheDayDoesThePersonWork();
-        await this.answerWhatDaysDoesThePersonWork();
-        await this.answerDoYouKnowWhereThePersonWorks();
-        await this.answerWhatIsTheNameOfTheCompanyThePersonWorksAt();
-        await this.answerWhatIsTheCompanysContactDetails();
-        await this.answerWhoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime();
-        await this.answerDoesThePersonStudy();
-        await this.answerDoYouKnowTheCourseOrTheSubjectOfStudy();
-        await this.answerDoesThePersonStudyInTheUk();
-        await this.answerWhatHoursOfTheDayDoesThePersonStudy();
-        await this.answerWhatDaysDoesThePersonStudy();
-        await this.answerDoYouKnowWhereInTheUkThePersonStudies();
-        await this.answerWhatIsTheNameOfTheCollegeOrUniversity();
-        await this.answerWhatIsTheInstitutionsAddress();
-        await this.answerWhatIsTheInstitutionsContactDetails();
-        await this.answerWhoOwnsOrManagesTheInsitutionDoesTheOwnerOrManagerKnowAboutTheCrime();
-        await this.answerDoesThePersonOwnACarOrOtherVehicle();
-        await this.answerWhatIsTheVehicleTypePerson();
-        await this.answerWhatAreTheVehicleDetailsPerson();
-        await this.answerPleaseTellUsAnythingElseAboutThePersonYouAreReportingThatYouThinkWeShouldKnow();
-        await this.answerDoYouWantToTellUsAboutAnotherPersonWhoIsInvolvedInTheSameCrime();
-        await this.answerWhatIsTheAdditionalPersonsName();
-        await this.answerWhatIsTheAdditionalPersonsDateOfBirth();
-        await this.answerWhatIsTheAdditionalPersonsApproximateAge();
-        await this.answerWhatIsTheAdditionalPersonsNationality();
-        await this.answerWhatIsTheAdditionalPersonsGender();
-        await this.answerWhatAreTheAdditionalPersonsFormOfIdentification();
+        await this.pages.pafPersonOccupationPage.answerJobStatus(this.applicant.doYouKnowIfThePersonHasAJob);
+        await this.pages.pafPersonOccupationTypePage.answerOccupationType();
+        await this.pages.pafPersonOccupationHoursPage.answerWorkHours();
+        await this.pages.pafPersonOccupationDaysPage.answerWorkDays();
+        await this.pages.pafPersonOccupationWherePage.answerWorkLocationKnown(this.applicant.doYouKnowWhereThePersonWorks);
+        await this.pages.pafPersonOccupationCompanyNamePage.answerEmployerCompanyName();
+        await this.pages.pafPersonOccupationCompanyAddressPage.answerEmployerCompanyContactDetails();
+        await this.pages.pafPersonOccupationCompanyOwnerPage.answerCompanyOwnerKnowledge(this.applicant.whoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime);
+        await this.pages.pafPersonStudyPage.answerStudyStatus(this.applicant.doesThePersonStudy);
+        await this.pages.pafPersonStudySubjectPage.answerStudySubject();
+        await this.pages.pafPersonStudyInTheUkPage.answerStudyInUk(this.applicant.doesThePersonStudyInTheUk);
+        await this.pages.pafPersonStudyHoursPage.answerStudyHours();
+        await this.pages.pafPersonStudyDaysPage.answerStudyDays();
+        await this.pages.pafPersonStudyWherePage.answerStudyLocationKnown(this.applicant.doYouKnowWhereInTheUkThePersonStudies);
+        await this.pages.pafPersonStudyNamePage.answerInstitutionName();
+        await this.pages.pafPersonStudyAddressPage.answerInstitutionAddress();
+        await this.pages.pafPersonStudyContactPage.answerInstitutionContactDetails();
+        await this.pages.pafPersonStudyInstitutionOwnerPage.answerInstitutionOwnerKnowledge(this.applicant.whoOwnsOrManagesTheInsitutionDoesTheOwnerOrManagerKnowAboutTheCrime);
+        await this.pages.pafPersonTransportPage.answerPersonOwnsVehicle(this.applicant.doesThePersonOwnACarOrOtherVehicle);
+        await this.pages.pafPersonTransportVehicleTypePage.answerPersonVehicleType(this.applicant.whatIsTheVehicleTypePerson);
+        await this.pages.pafPersonTransportVehicleDetailsPage.answerPersonVehicleDetails();
+        await this.pages.pafPersonAnythingElsePage.answerAdditionalPersonInformation();
+        await this.pages.pafPersonAdditionalPeoplePage.answerAnotherPersonInvolved(this.applicant.doYouWantToTellUsAboutAnotherPersonWhoIsInvolvedInTheSameCrime);
+        await this.pages.pafAdditionalPersonNamePage.answerAdditionalPersonName();
+        await this.pages.pafAdditionalPersonDobPage.answerAdditionalPersonDateOfBirth();
+        await this.pages.pafAdditionalPersonAgePage.answerAdditionalPersonAge(this.applicant.whatIsTheAdditionalPersonsApproximateAgePerson);
+        await this.pages.pafAdditionalPersonNationalityPage.answerAdditionalPersonNationality();
+        await this.pages.pafAdditionalPersonGenderPage.answerAdditionalPersonGender(this.applicant.whatIsTheAdditionalPersonsGenderPerson);
+        await this.pages.pafAdditionalPersonIdPage.answerAdditionalPersonIdentification();
     }
 
     private async completeFullOrganisationSection() {
-        await this.answerDoYouWishToReportACompanyBusinessOrEducationProvider();
-        await this.answerWhatIsTheCompanyBusinessOrEducationProvider();
-        await this.answerWhatIsTheAddressOfTheCompanyBusinessOrEducationProvider();
-        await this.answerEnterTheCompanyBusinessOrEducationProvidersContactDetails();
-        await this.answerWhatIsTheTypeOfCompanyBusinessOrEducationProvider();
-        await this.answerWhoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime2();
-        await this.answerPleaseTellUsAnythingElseAboutTheCompanyBusinessOrEducationProviderThatYouThinkWeShouldKnow();
-        await this.answerDoYouWantToTellUsAboutAnotherCompanyBusinessOrEducationProviderThatIsInvolvedInTheSameCrime();
+        await this.pages.pafOrganisationPage.answerReportOrganisation(this.applicant.doYouWishToReportACompanyBusinessOrEducationProvider);
+        await this.pages.pafOrganisationCompanyNamePage.answerOrganisationName();
+        await this.pages.pafOrganisationCompanyAddressPage.answerOrganisationAddress();
+        await this.pages.pafOrganisationCompanyContactPage.answerOrganisationContactDetails();
+        await this.pages.pafOrganisationCompanyTypePage.answerOrganisationType();
+        await this.pages.pafOrganisationCompanyOwnerPage.answerOrganisationOwnerKnowledge(this.applicant.whoOwnsOrManagesTheCompanyDoesTheOwnerOrManagerKnowAboutTheCrime2);
+        await this.pages.pafOrganisationCompanyOtherInfoPage.answerAdditionalOrganisationInformation();
+        await this.pages.pafOrganisationCompanyAnotherCompanyPage.answerAnotherOrganisationInvolved(this.applicant.doYouWantToTellUsAboutAnotherCompanyBusinessOrEducationProviderThatIsInvolvedInTheSameCrime);
     }
 
     private async completeOtherInformationSection() {
-        await this.answerOtherInformation();
-        await this.answerDoYouWantToReportAnotherCrimeByTheSamePersonOrBusiness();
-        await this.answerPleaseAttachAnyDocumentsWhichMayHelpUsInvestigateThisCrime();
+        await this.pages.pafOtherInformationPage.answerOtherInformation();
+        await this.pages.pafOtherInformationAnotherCrimePage.answerAnotherCrime(this.applicant.doYouWantToReportAnotherCrimeByTheSamePersonOrBusiness);
+        await this.pages.pafOtherInformationFileUploadPage.answerAttachments(this.applicant.pleaseAttachAnyDocumentsWhichMayHelpUsInvestigateThisCrime);
     }
 
     private async completeAboutYouSection() {
-        await this.answerHowDidYouFindOutAboutTheCrime();
-        await this.answerDoesAnyoneElseKnowAboutTheCrime();
-        await this.answerHaveYouReportedTheCrimeBefore();
-        await this.answerHowDoYouKnowThisPersonthesePeople();
-        await this.answerCanWeActOnThisInformationWithoutPuttingYouOrOthersAtRisk();
-        await this.answerPleaseProvideYourDetails();
-        await this.answerWhatIsYourDateOfBirth();
-        await this.answerWhatIsYourNationality();
-        await this.answerWhatIsYourGender();
-        await this.answerCanWeContactYouIfRequiredToDiscussTheInformationYouHaveProvided();
-        await this.answerAreYouOver18();
-    }
-
-    private async selectVehicleType(vehicleType: string, isPersonVehicle: boolean) {
-        const page = isPersonVehicle
-            ? this.pages.pafPersonTransportVehicleTypePage
-            : this.pages.pafCrimeTransportVehicleTypePage;
-        const parentLabel = this.vehicleParentLabel(vehicleType);
-
-        await page.assertPageTitle(page.expectedPageTitle);
-
-        if (parentLabel) {
-            await page.selectByLabel(parentLabel);
-        }
-
-        await page.selectAndContinue(vehicleType);
-    }
-
-    private vehicleParentLabel(vehicleType: string) {
-        if (['Car transporter'].includes(vehicleType)) return 'Car';
-        if (['HGV canvas sided', 'HGV flatbed', 'HGV hard sided', 'HGV refrigerated', 'HGV tanker'].includes(vehicleType)) return 'HGV';
-        if (['Lorry and drag'].includes(vehicleType)) return 'Lorry';
-        if (['Van and trailer', 'Van (other)', '7.5 tonne van'].includes(vehicleType)) return 'Van';
-        return '';
-    }
-
-    private async selectBoatType(boatType: string) {
-        await this.pages.pafCrimeTransportBoatTypePage.assertPageTitle(
-            this.pages.pafCrimeTransportBoatTypePage.expectedPageTitle
-        );
-        await this.pages.pafCrimeTransportBoatTypePage.selectAndContinue(boatType.replace(' (Boat)', ''));
-    }
-
-    private async selectAge(ageRange: string, isAdditionalPerson: boolean) {
-        const page = isAdditionalPerson ? this.pages.pafAdditionalPersonAgePage : this.pages.pafPersonAgePage;
-
-        await page.assertPageTitle(page.expectedPageTitle);
-        await page.selectAndContinue(ageRange);
-    }
-
-    private async selectGender(gender: string, isAdditionalPerson: boolean) {
-        const page = isAdditionalPerson ? this.pages.pafAdditionalPersonGenderPage : this.pages.pafPersonGenderPage;
-
-        await page.assertPageTitle(page.expectedPageTitle);
-        await page.selectAndContinue(gender);
-    }
-
-    private async assertThenAnswer(
-        page: { expectedPageTitle: string; assertPageTitle: (title: string) => Promise<void> },
-        action: () => Promise<void>
-    ) {
-        await page.assertPageTitle(page.expectedPageTitle);
-        await action();
-    }
-
-    private addressLabel(addressType: string) {
-        return addressType.toLowerCase() === 'relative' ? "Relative's address" : addressType;
-    }
-
-    private yes(value: string) {
-        return value.trim().toLowerCase() === 'yes';
-    }
-
-    private na(value: string) {
-        return value.trim().toLowerCase() === 'n/a';
+        await this.pages.pafAboutYouPage.answerHowDidYouFindOutAboutTheCrime();
+        await this.pages.pafAboutYouDoesAnyoneElseKnowPage.answerDoesAnyoneElseKnow();
+        await this.pages.pafAboutYouHaveYouReportedBeforePage.answerHaveYouReportedBefore();
+        await this.pages.pafAboutYouHowDoYouKnowThePersonPage.answerHowDoYouKnowThePerson();
+        await this.pages.pafAboutYouCanUseInfoWithoutRiskPage.answerCanActWithoutRisk(this.applicant.canWeActOnThisInformationWithoutPuttingYouOrOthersAtRisk);
+        await this.pages.pafAboutYouDetailsPage.answerAboutYouDetails();
+        await this.pages.pafAboutYouDobPage.answerAboutYouDateOfBirth();
+        await this.pages.pafAboutYouNationalityPage.answerAboutYouNationality();
+        await this.pages.pafAboutYouGenderPage.answerAboutYouGender(this.applicant.whatIsYourGender);
+        await this.pages.pafAboutYouContactPage.answerAboutYouContactDetails();
+        await this.pages.pafAboutYouAreYouOver18Page.answerAboutYouOver18(this.applicant.canWeContactYouIfRequiredToDiscussTheInformationYouHaveProvided);
     }
 }

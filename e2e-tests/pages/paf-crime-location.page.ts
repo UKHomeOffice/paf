@@ -1,8 +1,19 @@
 import { basePage } from './base-page';
+import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
 export class pafCrimeLocationPage extends basePage {
   readonly expectedPageTitle = 'Do you know where the crime takes place, took place or will take place?';
   readonly pageHeading = this.headerText;
+
+  async answerCrimeLocation(value: string) {
+    await this.assertPageTitle(this.expectedPageTitle);
+    if (value.trim().toLowerCase() === 'yes') {
+      await this.crimeLocationYesAnswer(c);
+    } else {
+      await this.crimeLocationNoAnswer();
+    }
+  }
+
   async crimeLocationYesAnswer(data: Record<string, string>) {
     await this.selectByLabel('Yes');
     await this.fillMany(
