@@ -10,7 +10,7 @@ Given('I visit the Public Allegations Form page', async ({ pages }) => {
 
 When('I fill out my answers for the Public Allegations Form journey pertaining to {string}', async ({ pages }, testScenarios: string) => {
     switch (testScenarios) {
-        case 'Immigration crime - Select all checkboxes (full person and organisation)':
+        case 'Immigration crime - Select all checkboxes (with person details and organisation)':
             await pages.pafCrimeTypePage.answerCrimeType('Immigration all');
             await pages.pafCrimeChildrenPage.answerChildrenInvolved('Yes');
             await pages.pafCrimeWhenCrimeHappenedPage.answerWhenCrimeHappens('Already happened');

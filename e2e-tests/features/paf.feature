@@ -8,7 +8,7 @@ Feature: PAF - Public Allegations Form
     Then I am able to submit my answers to the Public Allegations Form
     Examples:
       | Test Scenarios                                                                      |
-      | Immigration crime - Select all checkboxes (full person and organisation)            |
+      | Immigration crime - Select all checkboxes (with person details and organisation)    |
       | Smuggling - Select all checkboxes (travelling person)                               |
       | Immigration crime - Select all checkboxes (no person or organisation)               |
       | Smuggling - Select all checkboxes (future crime, no person or organisation)         |

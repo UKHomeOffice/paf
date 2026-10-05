@@ -9,12 +9,8 @@ export class basePage {
   constructor(page: Page) {
     this.page = page;
     this.headerText = page.locator('h1');
-    this.continueButton = page
-      .getByRole('button', { name: /^(Continue|Save and continue)$/ })
-      .or(page.locator("input[value='Continue'], input[value='Save and continue']"));
-    this.submitButton = page
-      .getByRole('button', { name: /^(Submit|Confirm submission)$/ })
-      .or(page.locator("input[value='Submit'], input[value='Confirm submission']"));
+    this.continueButton = page.getByRole('button', { name: /^(Continue|Save and continue)$/ });
+    this.submitButton = page.getByRole('button', { name: /^(Submit|Confirm submission)$/ });
   }
 
   async assertPageTitle(expectedTitle: string) {
