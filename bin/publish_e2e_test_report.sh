@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# This script is intended for testing the report publishing logic locally. It simulates the environment variables that would be set in a Drone CI build and attempts to publish a Playwright report as a release asset on GitHub, then posts a comment to the PR with the download link.
-# export GITHUB_APP_TOKEN="TOKEN_HERE"
-# export DRONE_PULL_REQUEST="PR_NUMBER_HERE"
-# export DRONE_REPO="UKHomeOffice/euss-web-messenger"
-# export DRONE_BUILD_NUMBER="BUILD_NUMBER_HERE"
-# export DRONE_BUILD_LINK="https://drone-gh.acp.homeoffice.gov.uk/UKHomeOffice/euss-web-messenger/BUILD_NUMBER_HERE"
-
 set -euo pipefail
 
 # Required environment variables
