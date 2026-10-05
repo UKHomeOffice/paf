@@ -35,11 +35,7 @@ export class basePage {
       return;
     }
 
-    await this.page
-      .getByLabel(label, { exact: true })
-      .or(this.page.getByText(label, { exact: true }))
-      .first()
-      .click();
+    await this.page.getByLabel(label, { exact: true }).click();
   }
 
   async selectAndContinue(label: string) {
