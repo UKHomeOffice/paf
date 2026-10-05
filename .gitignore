@@ -3,6 +3,9 @@ public
 apps/*/translations/*
 !apps/*/translations/src
 node_modules/
+.features-gen
+playwright-report
+test-results
 .env
 .vscode/*
 .idea/vcs.xml

@@ -6,3 +6,7 @@ LICENSE
 README.md
 CONTRIBUTING.md
 coverage
+e2e-tests
+playwright-report
+test-results
+bin/
