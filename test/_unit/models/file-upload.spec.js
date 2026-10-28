@@ -82,4 +82,59 @@ describe('File Upload Model', () => {
       }));
     });
   });
+
+  describe('auth', () => {
+    beforeEach(() => {
+      Model.prototype.auth.restore();
+    });
+
+    it('returns a fallback bearer token when no Keycloak token URL is configured', async () => {
+      sandbox.stub(config.keycloak, 'token').value(undefined);
+      const model = new Model();
+      const requestStub = sandbox.stub(model, '_request');
+
+      const result = await model.auth();
+
+      expect(result).to.deep.equal({ bearer: 'abc123' });
+      expect(requestStub).not.to.have.been.called;
+    });
+
+    it('returns the access token from a successful Keycloak response', async () => {
+      sandbox.stub(config.keycloak, 'token').value('https://keycloak.example.com/token');
+      sandbox.stub(config.keycloak, 'username').value('test-user');
+      sandbox.stub(config.keycloak, 'password').value('test-password');
+      sandbox.stub(config.keycloak, 'clientId').value('test-client');
+      sandbox.stub(config.keycloak, 'secret').value('test-secret');
+      const model = new Model();
+      const requestStub = sandbox.stub(model, '_request').resolves({
+        data: { access_token: 'test-access-token' }
+      });
+
+      const result = await model.auth();
+
+      expect(result).to.deep.equal({ bearer: 'test-access-token' });
+      expect(requestStub).to.have.been.calledOnceWithExactly({
+        url: 'https://keycloak.example.com/token',
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
+        data: {
+          username: 'test-user',
+          password: 'test-password',
+          grant_type: 'password',
+          client_id: 'test-client',
+          client_secret: 'test-secret'
+        },
+        method: 'POST'
+      });
+    });
+
+    it('rethrows errors from the Keycloak request', async () => {
+      sandbox.stub(config.keycloak, 'token').value('https://keycloak.example.com/token');
+      const model = new Model();
+      const error = new Error('Keycloak request failed');
+      error.response = { data: { error: 'invalid_client', error_description: 'Client authentication failed' } };
+      sandbox.stub(model, '_request').rejects(error);
+
+      await expect(model.auth()).to.be.rejectedWith(error);
+    });
+  });
 });
