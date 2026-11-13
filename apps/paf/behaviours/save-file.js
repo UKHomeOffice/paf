@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 const config = require('../../../config');
+const fileUploadConfig = require('../models/file-upload-config');
 const Model = require('../models/file-upload');
 const fileSizeNum = size => size.match(/\d+/g)[0];
 
@@ -22,8 +23,8 @@ module.exports = name => superclass => class extends superclass {
     if (!Object.keys(req.form.errors).length) {
       req.form.values['other-info-file-upload'] = null;
     }
-    const maxNum = fileSizeNum(config.upload.maxFileSize);
-    const maxSize = config.upload.maxFileSize.match(/[a-zA-Z]+/g)[0].toUpperCase();
+    const maxNum = fileSizeNum(fileUploadConfig.maxFileSize);
+    const maxSize = fileUploadConfig.maxFileSize.match(/[a-zA-Z]+/g)[0].toUpperCase();
     return Object.assign({}, super.locals(req, res, next), {
       maxFileSize: `${maxNum} ${maxSize}`
     });
@@ -35,9 +36,9 @@ module.exports = name => superclass => class extends superclass {
       if (fileUpload) {
         const uploadSize = fileUpload.size;
         const mimetype = fileUpload.mimetype;
-        const uploadSizeTooBig = uploadSize > (fileSizeNum(config.upload.maxFileSize) * 1000000);
+        const uploadSizeTooBig = uploadSize > (fileSizeNum(fileUploadConfig.maxFileSize) * 1000000);
         const uploadSizeBeyondServerLimits = uploadSize === null;
-        const invalidMimetype = !config.upload.allowedMimeTypes.includes(mimetype);
+        const invalidMimetype = !fileUploadConfig.allowedMimeTypes.includes(mimetype);
         const invalidSize = uploadSizeTooBig || uploadSizeBeyondServerLimits;
 
         if (invalidSize || invalidMimetype) {

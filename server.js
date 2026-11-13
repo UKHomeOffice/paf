@@ -4,6 +4,7 @@
 const hof = require('hof');
 let settings = require('./hof.settings');
 const config = require('./config.js');
+const fileUploadConfig = require('./apps/paf/models/file-upload-config');
 const busboy = require('busboy');
 const bl = require('bl');
 const _ = require('lodash');
@@ -49,7 +50,7 @@ app.use((req, res, next) => {
       bb = busboy({
         headers: req.headers,
         limits: {
-          fileSize: config.upload.maxFileSizeInBytes
+          fileSize: fileUploadConfig.maxFileSizeInBytes
         }
       });
     } catch (err) {
