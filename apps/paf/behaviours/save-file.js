@@ -1,7 +1,6 @@
 'use strict';
 
 const _ = require('lodash');
-const config = require('../../../config');
 const fileUploadConfig = require('../models/file-upload-config');
 const Model = require('../models/file-upload');
 const fileSizeNum = size => size.match(/\d+/g)[0];
