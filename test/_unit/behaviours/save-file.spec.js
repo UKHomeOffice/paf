@@ -2,118 +2,113 @@
 
 const expect = chai.expect;
 const Behaviour = require('../../../apps/paf/behaviours/save-file');
+const Model = require('../../../apps/paf/models/file-upload');
 
 describe("apps/paf 'save-file' behaviour should ", () => {
-  it('export a function', () => {
-    expect(Behaviour).to.be.a('function');
-  });
-
   class Base {
     process() {}
-    locals() {}
-    saveValues() {}
+    locals() { return {}; }
+    saveValues(req, res, callback) { callback(); }
   }
 
   let req;
   let res;
   let next;
-
+  let sandbox;
   let instance;
 
-  const imageFiles = {
-    image: {
-      name: 'guitar.png',
-      encoding: '7bit',
-      mimetype: 'png',
-      truncated: false,
-      size: 144148
-    }
+  const uploadedFile = {
+    name: 'guitar.png',
+    encoding: '7bit',
+    mimetype: 'image/png',
+    truncated: false,
+    size: 144148,
+    data: Buffer.from('file contents')
   };
 
   beforeEach(() => {
     req = reqres.req();
     res = reqres.res();
-    req.files = imageFiles;
+    req.files = { upload: uploadedFile };
+    req.form.errors = {};
+    req.form.values = {};
+    next = sinon.spy();
+    sandbox = sinon.createSandbox();
+    instance = new (Behaviour('upload')(Base))();
   });
 
-  describe("The save-file ' process ' method", () => {
-    before(() => {
-      sinon.stub(Base.prototype, 'process');
-      instance = new (Behaviour('image')(Base))();
-    });
-
-    it('should be called ', () => {
-      instance.process(req);
-      expect(Base.prototype.process).to.have.been.called;
-    });
-
-    it('should have a file attached to it', () => {
-      req.files = imageFiles;
-      instance.process(req);
-      expect(req.files).to.eql(imageFiles);
-    });
-
-    it('should add files to form.values', () => {
-      req.files.images = imageFiles;
-      instance.process(req);
-      expect(req.form.values.image).to.eql('guitar.png');
-    });
-
-    after(() => {
-      Base.prototype.process.restore();
-    });
+  afterEach(() => {
+    sandbox.restore();
   });
 
-  describe("The save-file ' locals ' method", () => {
-    before(() => {
-      sinon.stub(Base.prototype, 'locals').returns(req, res, next);
-      instance = new (Behaviour('name')(Base))();
-    });
-
-    it('should be called ', () => {
-      req.form.errors = {};
-      instance.locals(req, res, next);
-      expect(Base.prototype.locals).to.have.been.called;
-    });
-
-    it("should not return null to 'other-info-file-upload' on request form values if errors", () => {
-      req.form.errors = { error: 'err' };
-      instance.locals(req, res, next);
-      expect(req.form.values['other-info-file-upload']).to.not.eql(null);
-      expect(req.form.values['other-info-file-upload']).to.eql();
-    });
-
-    it("should return null to 'other-info-file-upload' on request form values if there are no errors", () => {
-      req.form.errors = {};
-      instance.locals(req, res, next);
-      expect(req.form.values['other-info-file-upload']).to.eql(null);
-    });
-
-    after(() => {
-      Base.prototype.locals.restore();
-    });
+  it('exports a function', () => {
+    expect(Behaviour).to.be.a('function');
   });
 
-  describe("The save-file ' saveValues ' method", () => {
-    before(() => {
-      sinon.stub(Base.prototype, 'saveValues').returns(req, res, next);
-      instance = new (Behaviour('name')(Base))();
+  it('passes the processed request to the parent behavior', () => {
+    const process = sandbox.stub(Base.prototype, 'process');
+    const callback = sinon.spy();
+
+    instance.process(req, res, callback);
+
+    expect(req.form.values.upload).to.equal('guitar.png');
+    expect(process).to.have.been.calledWith(req, res, callback);
+  });
+
+  it('clears the upload input value when there are no validation errors', () => {
+    instance.locals(req, res);
+
+    expect(req.form.values.upload).to.equal(null);
+  });
+
+  it('preserves the upload input value when the form has validation errors', () => {
+    req.form.errors = { upload: new Error('invalid') };
+    req.form.values.upload = 'guitar.png';
+
+    instance.locals(req, res);
+
+    expect(req.form.values.upload).to.equal('guitar.png');
+  });
+
+  it('passes through to the parent when no file was uploaded', () => {
+    const saveValues = sandbox.stub(Base.prototype, 'saveValues').callsFake((request, response, callback) => {
+      callback();
+    });
+    delete req.files.upload;
+
+    instance.saveValues(req, res, next);
+
+    expect(saveValues).to.have.been.calledOnce;
+    expect(next).to.have.been.calledOnceWithExactly();
+  });
+
+  it('saves the uploaded file and continues the HOF callback flow', async () => {
+    const saveValues = sandbox.stub(Base.prototype, 'saveValues').callsFake((request, response, callback) => {
+      callback();
+    });
+    const save = sandbox.stub(Model.prototype, 'save').callsFake(function () {
+      this.set('url', '/file/generate-link/id');
+      this.unset('data');
+      return Promise.resolve(this);
     });
 
-    it('should be called ', () => {
-      instance.saveValues(req, res, next);
-      expect(Base.prototype.saveValues).to.have.been.calledOnce;
-    });
+    await instance.saveValues(req, res, next);
 
-    it('should attach files to the sessionModel ', () => {
-      req.sessionModel.set('images', imageFiles);
-      instance.saveValues(req, res, next);
-      const sessionModel = req.sessionModel.get('images');
-      expect(sessionModel.image.name).to.eql('guitar.png');
-    });
+    expect(save).to.have.been.calledOnce;
+    expect(req.sessionModel.get('images')).to.have.lengthOf(1);
+    expect(req.sessionModel.get('images')[0]).to.include({ name: 'guitar.png', url: '/file/generate-link/id' });
+    expect(saveValues).to.have.been.calledOnce;
+    expect(next).to.have.been.calledOnceWithExactly();
+  });
 
-    after(() => {
-      Base.prototype.saveValues.restore();
-    });
+  it('passes upload failures to the HOF error callback without saving form values', async () => {
+    const error = new Error('upload failed');
+    const saveValues = sandbox.stub(Base.prototype, 'saveValues');
+    sandbox.stub(Model.prototype, 'save').rejects(error);
+
+    await instance.saveValues(req, res, next);
+
+    expect(saveValues).not.to.have.been.called;
+    expect(next).to.have.been.calledOnceWithExactly(error);
   });
 });
