@@ -6,7 +6,7 @@ let settings = require('./hof.settings');
 const config = require('./config.js');
 const fileUploadConfig = require('./apps/paf/models/file-upload-config');
 const busboy = require('busboy');
-const bl = require('bl');
+const BufferList = require('bl').default;
 const _ = require('lodash');
 
 settings = Object.assign({}, settings, {
@@ -61,18 +61,30 @@ app.use((req, res, next) => {
       req.body[key] = value;
     });
 
+    let completed = false;
+    const complete = err => {
+      if (completed) {
+        return;
+      }
+      completed = true;
+      next(err);
+    };
+
     bb.on('file', function (key, file, fileInfo) {
-      file.pipe(bl(function (err, d) {
-        if (err || !(d.length || fileInfo.filename)) {
+      file.pipe(new BufferList((err, data) => {
+        if (err) {
+          return complete(err);
+        }
+        if (!(data.length || fileInfo.filename)) {
           return;
         }
         const fileData = {
-          data: file.truncated ? null : d,
+          data: file.truncated ? null : data,
           name: fileInfo.filename || null,
           encoding: fileInfo.encoding,
           mimetype: fileInfo.mimeType,
           truncated: file.truncated,
-          size: file.truncated ? null : Buffer.byteLength(d, 'binary')
+          size: file.truncated ? null : data.length
         };
 
         if (settings.multi) {
@@ -84,19 +96,8 @@ app.use((req, res, next) => {
       }));
     });
 
-    let error;
-
-    bb.on('error', function (err) {
-      error = err;
-      next(err);
-    });
-
-    bb.on('finish', function () {
-      if (error) {
-        return;
-      }
-      next();
-    });
+    bb.on('error', complete);
+    bb.on('finish', () => complete());
     req.files = req.files || {};
     req.body = req.body || {};
     req.pipe(bb);
