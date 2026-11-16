@@ -1,7 +1,6 @@
 module.exports = {
   maxFileSizeInBytes: 100 * 1024 * 1024, // 100MiB in bytes
   maxFileSize: '100mb',
-  requestTimeoutMs: 30000,
   allowedMimeTypes: [
     'application/pdf',
     'application/msword',
