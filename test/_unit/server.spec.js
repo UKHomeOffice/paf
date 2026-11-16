@@ -1,4 +1,6 @@
 
+const { PassThrough } = require('stream');
+
 describe('Server.js app file', () => {
   let hofStub;
   let useStub;
@@ -99,6 +101,43 @@ describe('Server.js app file', () => {
 
     it('should call next once', () => {
       next.should.have.been.calledOnce;
+    });
+  });
+
+  describe('Multipart file uploads', () => {
+    it('buffers uploaded files and continues to the route middleware', async () => {
+      const multipartMiddleware = useStub.getCall(2).args[0];
+      const uploadRequest = new PassThrough();
+      uploadRequest.headers = { 'content-type': 'multipart/form-data; boundary=upload-boundary' };
+      uploadRequest.is = () => 'multipart/form-data';
+      uploadRequest.body = {};
+
+      const body = [
+        '--upload-boundary',
+        'Content-Disposition: form-data; name="other-info-file-upload"; filename="proof.txt"',
+        'Content-Type: text/plain',
+        '',
+        'proof document',
+        '--upload-boundary--',
+        ''
+      ].join('\r\n');
+
+      const nextMiddleware = sinon.stub();
+      const completed = new Promise((resolve, reject) => {
+        nextMiddleware.callsFake(err => err ? reject(err) : resolve());
+      });
+
+      multipartMiddleware(uploadRequest, res, nextMiddleware);
+      uploadRequest.end(body);
+      await completed;
+
+      expect(nextMiddleware).to.have.been.calledOnce;
+      expect(uploadRequest.files['other-info-file-upload']).to.include({
+        name: 'proof.txt',
+        mimetype: 'text/plain',
+        size: Buffer.byteLength('proof document')
+      });
+      expect(uploadRequest.files['other-info-file-upload'].data.toString()).to.equal('proof document');
     });
   });
 

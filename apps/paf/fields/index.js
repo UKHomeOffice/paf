@@ -9,6 +9,7 @@ const airlineCompanies = require('../data/airlineCompanies');
 const occupation = require('../data/occupation');
 const companyTypes = require('../data/companyTypes');
 const dateComponent = require('hof').components.date;
+const formatDate = require('hof').utils.date.formatDate;
 const personaddnationalities = require('../data/addPersonNationalities');
 
 function notBothOptions(vals) {
@@ -18,7 +19,6 @@ function notBothOptions(vals) {
 function lettersAndSpacesOnly(value) {
   return /^[A-Za-z\s]*$/.test(value);
 }
-const moment = require('moment');
 const after1900Validator = { type: 'after', arguments: ['1900'] };
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 const todayDate = new Date().toString();
@@ -1212,7 +1212,7 @@ module.exports = {
     isPageHeading: true,
     mixin: 'input-date',
     validate: ['before', after1900Validator],
-    parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+    parse: d => d && formatDate(d, PRETTY_DATE_FORMAT)
   }),
   personAddAgeRange: {
     mixin: 'radio-group',

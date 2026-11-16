@@ -1,6 +1,6 @@
 'use strict';
 
-const moment = require('moment');
+const formatDate = require('hof').utils.date.formatDate;
 const PRETTY_DATE_FORMAT = 'Do MMMM YYYY';
 const OCCUPATION = require('../data/occupation');
 const COUNTRIES = require('../data/countriesList');
@@ -25,7 +25,7 @@ module.exports = {
     'when-will-crime-happen',
     {
       field: 'date-crime-will-happen',
-      parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+      parse: d => d && formatDate(d, PRETTY_DATE_FORMAT)
     },
     'time-crime-will-happen',
     'when-will-crime-happen-more-info'
@@ -114,7 +114,7 @@ module.exports = {
     'report-person-nickname',
     {
       field: 'report-person-dob',
-      parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+      parse: d => d && formatDate(d, PRETTY_DATE_FORMAT)
     },
     'report-person-age-range',
     {
@@ -278,7 +278,7 @@ module.exports = {
     'about-you-family-name',
     {
       field: 'about-you-dob',
-      parse: d => d && moment(d).format(PRETTY_DATE_FORMAT)
+      parse: d => d && formatDate(d, PRETTY_DATE_FORMAT)
     },
     {
       field: 'about-you-nationality',
