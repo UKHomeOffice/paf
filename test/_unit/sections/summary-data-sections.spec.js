@@ -510,4 +510,69 @@ describe('PAF Summary Data Sections', () => {
       });
     });
   });
+
+  describe('Field parsers', () => {
+    const parserFor = (section, field) => sections[section].find(item => item.field === field).parse;
+
+    it('formats dates and preserves empty date values', () => {
+      const dateFields = [
+        ['crime-time', 'date-crime-will-happen'],
+        ['personal-details', 'report-person-dob'],
+        ['about-you', 'about-you-dob']
+      ];
+
+      dateFields.forEach(([section, field]) => {
+        const parse = parserFor(section, field);
+        expect(parse('2024-01-05')).to.equal('5th January 2024');
+        expect(parse(undefined)).to.equal(undefined);
+      });
+    });
+
+    it('converts country values to labels and returns an empty label for unknown values', () => {
+      const countryFields = [
+        ['crime-transport', 'boat-country-departure'],
+        ['crime-transport', 'train-country-departure'],
+        ['crime-transport', 'airline-country-departure'],
+        ['crime-location', 'crime-location-country'],
+        ['crime-location', 'crime-another-location-country'],
+        ['person-contact', 'report-person-location-outside-uk-address-country'],
+        ['person-contact', 'report-person-location-travel-to-uk-country']
+      ];
+
+      countryFields.forEach(([section, field]) => {
+        const parse = parserFor(section, field);
+        expect(parse('Country-Afghanistan')).to.equal('Afghanistan');
+        expect(parse('unknown-country')).to.equal('');
+      });
+    });
+
+    it('converts nationality, occupation, and company type values to labels', () => {
+      expect(parserFor('personal-details', 'report-person-nationality')('Nationality-Afghanistan'))
+        .to.equal('Afghanistan');
+      expect(parserFor('personal-details', 'report-person-nationality')('unknown-nationality'))
+        .to.equal('');
+      expect(parserFor('about-you', 'about-you-nationality')('Nationality-Afghanistan'))
+        .to.equal('Afghanistan');
+      expect(parserFor('person-occupation', 'report-person-occupation-type')('job-building-construction'))
+        .to.equal('Building/Construction');
+      expect(parserFor('person-occupation', 'report-person-occupation-type')('unknown-occupation'))
+        .to.equal('');
+      expect(parserFor('organisation', 'company-types')('company-building-construction'))
+        .to.equal('Building / Construction');
+      expect(parserFor('organisation', 'company-types')('unknown-company-type'))
+        .to.equal('');
+    });
+
+    it('formats uploaded image names and returns null when images are absent from the session', () => {
+      const parse = parserFor('other-info', 'images');
+      const req = { sessionModel: { get: sinon.stub().returns(['image-one.png']) } };
+
+      expect(parse([{ name: 'image-one.png' }, { name: 'image-two.png' }], req))
+        .to.equal('image-one.png\n————————————————\nimage-two.png');
+      expect(parse([], req)).to.equal('None');
+
+      req.sessionModel.get.returns(undefined);
+      expect(parse([{ name: 'image-one.png' }], req)).to.equal(null);
+    });
+  });
 });
