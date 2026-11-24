@@ -5,6 +5,9 @@ apps/*/translations/*
 node_modules/
 .features-gen
 playwright-report
+allure-results
+allure-report
+playwright-results.json
 test-results
 .env
 .vscode/*

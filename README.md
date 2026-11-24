@@ -30,10 +30,10 @@ Then visit: [http://localhost:8080/](http://localhost:8080/)
 
 ## Playwright CI
 
-Pull requests on `master` and `feature/*` deploy to the branch environment, run `yarn test:e2e` against its internal URL, and publish the HTML report as a GitHub release asset with a PR comment. Configure the following Drone secrets before enabling this flow:
+Pull requests on `master` and `feature/*` deploy to the branch environment, run `yarn test:e2e` against its internal URL, and publish a single-file Allure HTML report as a GitHub release asset with a PR comment. The `nightly_e2e_playwright` cron also generates and publishes the report, including after test failures, and posts result counts and percentages to Slack. The report asset link downloads the HTML file; open it in a browser to view it. Playwright's JSON results are used for the summary, with passed, failed, flaky, and skipped outcomes reported separately. Missing or invalid results are reported as invalid rather than as a successful zero-test run.
 
 - `HOF_GH_APP_ID`, `HOF_GH_APP_PK`, `HOF_GH_APP_INSTALL_ID` for cloning `UKHomeOfficeForms/hof-services-config` (including promotion and security scans).
 - `hof_ukho_gh_app_id`, `hof_ukho_gh_app_pk`, `hof_ukho_gh_app_install_id` for publishing reports to `UKHomeOffice/paf`.
 - `SAS_HOF_EMAIL` for the form's E2E test data.
 
-The GitHub App installations need read access to the config repository and contents-write plus issues-write access to PAF for release assets and PR comments. Configure the Drone cron named `nightly_e2e_playwright` on `master` and provide `NIGHTLY_E2E_BASE_URL`, `SAS_HOF_EMAIL`, and `slack_sas_hof_e2e_tests_webhook` for its run and Slack summary. The URL must point to an already deployed, reachable PAF environment.
+The GitHub App installations need read access to the config repository and contents-write plus issues-write access to PAF for release assets and PR comments. Configure the Drone cron named `nightly_e2e_playwright` on `master` and provide `NIGHTLY_E2E_BASE_URL`, `SAS_HOF_EMAIL`, and `slack_sas_hof_e2e_tests_webhook` for its run and Slack summary. The URL must point to an already deployed, reachable PAF environment. Slack's native message expansion displays longer test-detail summaries; the report link is labelled to make clear that it downloads the single-file HTML asset.
