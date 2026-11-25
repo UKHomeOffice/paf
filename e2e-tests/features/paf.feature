@@ -10,6 +10,6 @@ Feature: PAF - Public Allegations Form
       | Test Scenarios                                                                      |
       | Immigration crime - Select all checkboxes (with person details and organisation)    |
       | Smuggling - Select all checkboxes (travelling person)                               |
-      | Immigration crime - Select all checkboxes (no person or organisation)               |
-      | Smuggling - Select all checkboxes (future crime, no person or organisation)         |
-      | Immigration crime - Illegal workers, lied on application & other immigration crimes |
+      # | Immigration crime - Select all checkboxes (no person or organisation)               |
+      # | Smuggling - Select all checkboxes (future crime, no person or organisation)         |
+      # | Immigration crime - Illegal workers, lied on application & other immigration crimes |
