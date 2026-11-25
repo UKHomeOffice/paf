@@ -32,7 +32,7 @@ Then visit: [http://localhost:8080/](http://localhost:8080/)
 
 Pull requests on `master` and `feature/*` deploy to the branch environment, run `yarn test:e2e` against its internal URL, and publish a single-file Allure report as a GitHub release asset with a PR comment. The `nightly_e2e_playwright` cron also generates and publishes an Allure report after successful or failed tests, and sends a Slack summary. Report links download the HTML file; open it in a browser to view it.
 
-The nightly summary uses Playwright JSON results. Passed, failed, flaky, and skipped are separate outcomes, and percentages use the number of discovered tests. Missing or invalid results and run-level errors are flagged. Slack provides its native message expansion for longer summaries; no separate button is required.
+The Slack notification includes the build status, branch and environment URL. Its summary uses Playwright JSON results without individual test details. Passed, failed, flaky, and skipped are separate outcomes, and percentages use the number of discovered tests. Missing or invalid results and run-level errors are flagged. Slack provides its native message expansion for longer summaries; no separate button is required.
 
 Configure the following Drone secrets before enabling this flow:
 

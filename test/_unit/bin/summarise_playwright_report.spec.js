@@ -16,12 +16,13 @@ describe('Playwright report summary', () => {
       ] }] }]
     };
     const summary = buildSummary(report);
-    expect(summary).to.include('Service Name: PAF');
     expect(summary).to.include('Passed: 25.0% No Of Tests: 1');
     expect(summary).to.include('Failed: 25.0% No Of Tests: 1');
     expect(summary).to.include('Flaky: 25.0% No Of Tests: 1');
     expect(summary).to.include('Skipped: 25.0% No Of Tests: 1');
     expect(summary).to.include('Total Results Reported: 4 of 4');
+    expect(summary).not.to.include('Test details:');
+    expect(summary).not.to.include('Scenarios');
   });
 
   it('reports zero tests without dividing by zero', () => {

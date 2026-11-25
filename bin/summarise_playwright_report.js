@@ -7,8 +7,6 @@ const LABELS = { expected: 'Passed', unexpected: 'Failed', flaky: 'Flaky', skipp
 
 function invalid(reason) {
   return [
-    'Service Name: PAF',
-    'Service Abbreviation: PAF',
     'Passed: N/A No Of Tests: N/A',
     'Failed: N/A No Of Tests: N/A',
     'Flaky: N/A No Of Tests: N/A',
@@ -18,7 +16,7 @@ function invalid(reason) {
   ].join('\n');
 }
 
-function collectTests(suites, titles = []) {
+function collectTests(suites) {
   if (!Array.isArray(suites)) {
     throw new Error('test suites are missing or invalid');
   }
@@ -28,7 +26,6 @@ function collectTests(suites, titles = []) {
         (suite.specs !== undefined && !Array.isArray(suite.specs))) {
       throw new Error('test suites are invalid');
     }
-    const parents = [...titles, suite.title].filter(title => typeof title === 'string' && title);
     for (const spec of suite.specs || []) {
       if (!spec || !Array.isArray(spec.tests)) {
         throw new Error('test entries are missing or invalid');
@@ -37,10 +34,10 @@ function collectTests(suites, titles = []) {
         if (!test || !CATEGORIES.includes(test.status)) {
           throw new Error('test outcomes are missing or invalid');
         }
-        tests.push({ status: test.status, title: [...parents, spec.title].filter(Boolean).join(' > ') });
+        tests.push(test.status);
       }
     }
-    tests.push(...collectTests(suite.suites === undefined ? [] : suite.suites, parents));
+    tests.push(...collectTests(suite.suites === undefined ? [] : suite.suites));
   }
   return tests;
 }
@@ -65,10 +62,8 @@ function buildSummary(report) {
       throw new Error('result count exceeds the supported integer range');
     }
     const matches = CATEGORIES.every(category =>
-      counts[category] === tests.filter(test => test.status === category).length);
+      counts[category] === tests.filter(status => status === category).length);
     const lines = [
-      'Service Name: PAF',
-      'Service Abbreviation: PAF',
       ...CATEGORIES.map(category => {
         const percentage = tests.length ? (counts[category] / tests.length * 100).toFixed(1) : '0.0';
         return `${LABELS[category]}: ${percentage}% No Of Tests: ${counts[category]}`;
@@ -83,9 +78,6 @@ function buildSummary(report) {
     }
     if (matches && !report.errors.length) {
       lines.push('Results: VALID');
-    }
-    if (tests.length) {
-      lines.push('', 'Test details:', ...tests.map(test => `- ${test.title} (${LABELS[test.status]})`));
     }
     return lines.join('\n');
   } catch (error) {
