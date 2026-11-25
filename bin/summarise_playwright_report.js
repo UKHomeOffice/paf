@@ -2,78 +2,111 @@
 
 const fs = require('node:fs');
 
-function readText(path) {
-  return fs.readFileSync(path, 'utf8');
-}
+const CATEGORIES = ['expected', 'unexpected', 'flaky', 'skipped'];
+const LABELS = { expected: 'Passed', unexpected: 'Failed', flaky: 'Flaky', skipped: 'Skipped' };
 
-function durationToSeconds(durationMs) {
-  if (!Number.isFinite(durationMs)) {
-    return 'unknown';
-  }
-  return (durationMs / 1000).toFixed(1);
-}
-
-function parseCount(text, label) {
-  const match = text.match(new RegExp(String.raw`(\d+)\s+${label}`, 'i'));
-  return match ? Number(match[1]) : 0;
-}
-
-function parseDuration(text) {
-  const match = text.match(/\(([^)]+)\)\s*$/m);
-  return match ? match[1] : 'unknown';
-}
-
-function buildSummaryFromText(outputText) {
-  const commandFailure = outputText.match(/(?:playwright|yarn):\s+not found|command not found/i);
-  if (commandFailure) {
-    return [
-      'Playwright Nightly Summary',
-      'Unable to execute Playwright command.',
-      `Error: ${commandFailure[0]}`,
-    ].join('\n');
-  }
-
-  if (!/\d+\s+(?:passed|failed|flaky|skipped)/i.test(outputText)) {
-    return 'Playwright Nightly Summary\nUnable to parse Playwright totals from run output.';
-  }
-
-  const passed = parseCount(outputText, 'passed');
-  const failed = parseCount(outputText, 'failed');
-  const flaky = parseCount(outputText, 'flaky');
-  const skipped = parseCount(outputText, 'skipped');
-  const duration = parseDuration(outputText);
-  const total = passed + failed + flaky + skipped;
-
+function invalid(reason) {
   return [
-    'Playwright Nightly Summary',
-    `Total: ${total}`,
-    `Passed: ${passed}`,
-    `Failed: ${failed}`,
-    `Flaky: ${flaky}`,
-    `Skipped: ${skipped}`,
-    `Duration: ${duration}`,
+    'Passed: N/A No Of Tests: N/A',
+    'Failed: N/A No Of Tests: N/A',
+    'Flaky: N/A No Of Tests: N/A',
+    'Skipped: N/A No Of Tests: N/A',
+    'Total Results Reported: unknown',
+    `Results: INVALID (${reason})`
   ].join('\n');
 }
 
-function main() {
-  const inputPath = process.argv[2];
-  const outputPath = process.argv[3];
-
-  if (!inputPath || !outputPath) {
-    console.error('Usage: node bin/summarise_playwright_report.js <input-text> <output-txt>');
-    process.exit(1);
+function collectOutcomes(suites) {
+  if (!Array.isArray(suites)) {
+    throw new Error('test suites are missing or invalid');
   }
-
-  let summary;
-  try {
-    const outputText = readText(inputPath);
-    summary = buildSummaryFromText(outputText);
-  } catch (error) {
-    summary = `Playwright Nightly Summary\nUnable to parse run output: ${error.message || error}`;
+  const outcomes = [];
+  for (const suite of suites) {
+    if (!suite || typeof suite !== 'object' ||
+        (suite.specs !== undefined && !Array.isArray(suite.specs))) {
+      throw new Error('test suites are invalid');
+    }
+    for (const spec of suite.specs || []) {
+      if (!spec || !Array.isArray(spec.tests)) {
+        throw new Error('test entries are missing or invalid');
+      }
+      for (const test of spec.tests) {
+        if (!test || !CATEGORIES.includes(test.status)) {
+          throw new Error('test outcomes are missing or invalid');
+        }
+        outcomes.push(test.status);
+      }
+    }
+    outcomes.push(...collectOutcomes(suite.suites === undefined ? [] : suite.suites));
   }
-
-  fs.writeFileSync(outputPath, `${summary}\n`, 'utf8');
-  console.log(summary);
+  return outcomes;
 }
 
-main();
+function buildSummary(report) {
+  try {
+    if (!report || typeof report !== 'object' || Array.isArray(report) ||
+        !report.stats || typeof report.stats !== 'object' || !Array.isArray(report.errors)) {
+      throw new Error('Playwright statistics or run errors are missing or invalid');
+    }
+    const outcomes = collectOutcomes(report.suites);
+    const counts = {};
+    for (const category of CATEGORIES) {
+      const count = report.stats[category];
+      if (!Number.isSafeInteger(count) || count < 0) {
+        throw new Error(`stats.${category} must be a non-negative integer`);
+      }
+      counts[category] = count;
+    }
+    const reported = CATEGORIES.reduce((sum, category) => sum + counts[category], 0);
+    if (!Number.isSafeInteger(reported)) {
+      throw new Error('result count exceeds the supported integer range');
+    }
+    const matches = CATEGORIES.every(category =>
+      counts[category] === outcomes.filter(status => status === category).length);
+    const lines = [
+      ...CATEGORIES.map(category => {
+        const percentage = outcomes.length ? (counts[category] / outcomes.length * 100).toFixed(1) : '0.0';
+        return `${LABELS[category]}: ${percentage}% No Of Tests: ${counts[category]}`;
+      }),
+      `Total Results Reported: ${reported} of ${outcomes.length}`
+    ];
+    if (!matches) {
+      lines.push('Results: INVALID (Playwright statistics do not match test outcomes)');
+    }
+    if (report.errors.length) {
+      lines.push(`Results: INVALID (${report.errors.length} Playwright run error(s); see build logs)`);
+    }
+    if (matches && !report.errors.length) {
+      lines.push('Results: VALID');
+    }
+    return lines.join('\n');
+  } catch (error) {
+    return invalid(error.message);
+  }
+}
+
+function main() {
+  const [input, output] = process.argv.slice(2);
+  if (!input || !output) {
+    process.stderr.write('Usage: node bin/summarise_playwright_report.js <playwright-json> <summary-txt>\n');
+    process.exitCode = 1;
+    return;
+  }
+  let summary;
+  try {
+    summary = buildSummary(JSON.parse(fs.readFileSync(input, 'utf8')));
+  } catch (error) {
+    summary = invalid(`unable to read Playwright results: ${error.message}`);
+  }
+  fs.writeFileSync(output, `${summary}\n`);
+  process.stdout.write(`${summary}\n`);
+  if (summary.includes('Results: INVALID')) {
+    process.exitCode = 1;
+  }
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = { buildSummary };
