@@ -76,9 +76,6 @@ function buildSummary(report) {
     if (report.errors.length) {
       lines.push(`Results: INVALID (${report.errors.length} Playwright run error(s); see build logs)`);
     }
-    if (matches && !report.errors.length) {
-      lines.push('Results: VALID');
-    }
     return lines.join('\n');
   } catch (error) {
     return invalid(error.message);
