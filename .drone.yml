@@ -694,14 +694,15 @@ steps:
           esac
         fi
         payload=$(jq -n \
-          --arg status "$test_status" \
+          --arg status "$DRONE_BUILD_STATUS" \
+          --arg test_status "$test_status" \
           --arg branch "$DRONE_BRANCH" \
           --arg environment "$environment" \
           --arg build_link "$DRONE_BUILD_LINK" \
           --arg build_number "$DRONE_BUILD_NUMBER" \
           --arg report_link "$report_link" \
           --rawfile summary /root/.dockersock/nightly-playwright-summary.txt \
-          '{text: ("*Nightly Playwright Tests*\nService Name: PAF\nService Abbreviation: PAF\nTest Status: " + $status + "\nBranch: " + $branch + "\nEnvironment: " + $environment + "\nBuild: <" + $build_link + "|#" + $build_number + ">\n\nTest Results:\n" + $summary + "\n" + $report_link)}')
+          '{text: ("*Nightly Playwright Tests*\nService Name: PAF\nService Abbreviation: PAF\nStatus: " + $status + "\nBranch: " + $branch + "\nEnvironment: " + $environment + "\nBuild: <" + $build_link + "|#" + $build_number + ">\n\nTest Results:\nTest Status: " + $test_status + "\n" + $summary + "\n" + $report_link)}')
         curl --fail-with-body -sS -X POST -H 'Content-Type: application/json' --data "$payload" "$SLACK_WEBHOOK"
     when:
       cron: nightly_e2e_playwright
