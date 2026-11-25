@@ -27,15 +27,7 @@ export default defineConfig({
     workers: process.env.CI ? 2 : 1,
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 1,
-    reporter: [
-        ['list'],
-        ['allure-playwright', {
-            resultsDir: 'allure-results',
-            detail: true,
-            suiteTitle: true,
-        }],
-        ['json', { outputFile: 'playwright-results.json' }],
-    ],
+    reporter: [['html', { open: 'never' }], ['list']],
     use: {
         baseURL,
         viewport: null,
@@ -45,13 +37,13 @@ export default defineConfig({
         headless: !!process.env.CI,
     },
     webServer: process.env.PLAYWRIGHT_BASE_URL
-        ? undefined
-        : {
-            command: 'yarn start:dev',
-            port,
-            reuseExistingServer: !process.env.CI,
-            timeout: 120_000
-        },
+    ? undefined
+    : {
+      command: 'yarn start:dev',
+      port,
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000
+    },
     /* Configure projects for major browsers */
     projects: [
         {

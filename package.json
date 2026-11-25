@@ -18,12 +18,8 @@
     "test:lint": "eslint . --config ./node_modules/eslint-config-hof/default.js",
     "test:ui-integration": "NODE_ENV=test _mocha \"test/_ui-integration/**/*.spec.js\" --exit",
     "test:unit": "NODE_ENV=test nyc _mocha \"test/_unit/**/*.spec.js\"",
-    "allure:clear": "node -e \"require('node:fs').rmSync('allure-results', { recursive: true, force: true })\"",
-    "allure:generate": "allure generate allure-results --clean --single-file -o allure-report",
-    "allure:open": "allure open allure-report",
     "bddgen": "bddgen",
     "test:e2e": "bddgen && playwright test",
-    "test:e2eAndOpenAllureReport": "yarn allure:clear && bddgen && playwright test && yarn allure:generate && yarn allure:open",
     "build": "hof-build",
     "postinstall": "yarn run build"
   },
@@ -40,8 +36,6 @@
   "devDependencies": {
     "@playwright/test": "1.65.0",
     "@types/node": "^26.6.6",
-    "allure-commandline": "^2.46.2",
-    "allure-playwright": "^3.15.0",
     "chai": "^6.2.2",
     "chai-as-promised": "^8.0.2",
     "chai-subset": "^1.6.0",
