@@ -52,7 +52,7 @@ function countTests(suites) {
     return null;
   }
 
-  let count = 0;
+  const counts = Object.fromEntries(CATEGORIES.map(category => [category, 0]));
   for (const suite of suites) {
     if (!suite || typeof suite !== 'object') {
       return null;
@@ -68,16 +68,23 @@ function countTests(suites) {
       if (!spec || typeof spec !== 'object' || !Array.isArray(spec.tests)) {
         return null;
       }
-      count += spec.tests.length;
+      for (const test of spec.tests) {
+        if (!test || !CATEGORIES.includes(test.status)) {
+          return null;
+        }
+        counts[test.status] += 1;
+      }
     }
 
-    const childCount = countTests(children);
-    if (childCount === null) {
+    const childCounts = countTests(children);
+    if (childCounts === null) {
       return null;
     }
-    count += childCount;
+    for (const category of CATEGORIES) {
+      counts[category] += childCounts[category];
+    }
   }
-  return count;
+  return counts;
 }
 
 function buildSummaryFromResults(results) {
@@ -87,9 +94,12 @@ function buildSummaryFromResults(results) {
   if (!results.stats || typeof results.stats !== 'object' || Array.isArray(results.stats)) {
     return resultError('Playwright stats are missing');
   }
-  const discovered = countTests(results.suites);
-  if (discovered === null) {
-    return resultError('Playwright test suites are missing or invalid');
+  const testCounts = countTests(results.suites);
+  if (testCounts === null) {
+    return resultError('Playwright test suites or outcomes are missing or invalid');
+  }
+  if (!Array.isArray(results.errors)) {
+    return resultError('Playwright run errors are missing or invalid');
   }
 
   const counts = {};
@@ -102,13 +112,14 @@ function buildSummaryFromResults(results) {
   }
 
   const reported = CATEGORIES.reduce((sum, category) => sum + counts[category], 0);
+  const discovered = CATEGORIES.reduce((sum, category) => sum + testCounts[category], 0);
   if (!Number.isSafeInteger(reported)) {
     return resultError('Playwright result count exceeds the supported integer range');
   }
   if (results.stats.total !== undefined && results.stats.total !== reported) {
     return resultError(`Playwright stats total (${results.stats.total}) does not match reported results (${reported})`);
   }
-  const isComplete = reported === discovered;
+  const isComplete = CATEGORIES.every(category => counts[category] === testCounts[category]);
 
   const lines = [
     'Service Name: PAF',
@@ -117,11 +128,16 @@ function buildSummaryFromResults(results) {
       `${LABELS[category]}: ${percentage(counts[category], discovered)} No Of Tests: ${counts[category]}`),
     `Total Results Reported: ${reported} of ${discovered}`
   ];
-  if (isComplete) {
+  if (isComplete && results.errors.length === 0) {
     lines.push('Results: VALID');
   } else {
-    lines.push(`Unreported: ${Math.max(0, discovered - reported)}`);
-    lines.push(`Results: INVALID (Playwright reported ${reported} outcomes for ${discovered} discovered tests)`);
+    if (!isComplete) {
+      lines.push(`Unreported: ${Math.max(0, discovered - reported)}`);
+      lines.push('Results: INVALID (Playwright statistics do not match test outcomes)');
+    }
+    if (results.errors.length > 0) {
+      lines.push(`Results: INVALID (${results.errors.length} Playwright run error(s); see build logs)`);
+    }
   }
 
   const titles = getTestTitles(results.suites);

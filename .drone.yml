@@ -286,6 +286,7 @@ steps:
       - node --version
       - yarn install --frozen-lockfile
       - yarn playwright install --with-deps
+      - apt-get update && apt-get install -y --no-install-recommends default-jre-headless
       - test -s /root/.dockersock/branch_url.txt || (echo "Missing deployed branch URL at /root/.dockersock/branch_url.txt" && exit 1)
       - echo "Running Playwright e2e against https://$(cat /root/.dockersock/branch_url.txt)"
       - |
@@ -562,12 +563,6 @@ steps:
         from_secret: NIGHTLY_E2E_BASE_URL
       SAS_HOF_EMAIL:
         from_secret: SAS_HOF_EMAIL
-      GITHUB_APP_ID:
-        from_secret: hof_ukho_gh_app_id
-      GITHUB_APP_PRIVATE_KEY:
-        from_secret: hof_ukho_gh_app_pk
-      GITHUB_APP_INSTALLATION_ID:
-        from_secret: hof_ukho_gh_app_install_id
     volumes:
       - name: dockersock
         path: /root/.dockersock
@@ -576,60 +571,76 @@ steps:
       - n 24.22.2
       - hash -r
       - node --version
-      - apt-get update && apt-get install -y --no-install-recommends curl jq openssl
       - yarn install --frozen-lockfile
       - yarn playwright install --with-deps
+      - apt-get update && apt-get install -y --no-install-recommends default-jre-headless
       - |
         test -n "$NIGHTLY_E2E_BASE_URL" || (echo "Missing NIGHTLY_E2E_BASE_URL" && exit 1)
         case "$NIGHTLY_E2E_BASE_URL" in
           http://*|https://*) base_url="$NIGHTLY_E2E_BASE_URL" ;;
           *) base_url="https://$NIGHTLY_E2E_BASE_URL" ;;
         esac
+        run_output=/root/.dockersock/nightly-playwright-run-output.txt
+        json_output=/root/.dockersock/nightly-playwright-report.json
         summary_output=/root/.dockersock/nightly-playwright-summary.txt
-        report_url_file=/root/.dockersock/nightly-playwright-report-url.txt
-        token_file=/root/.dockersock/nightly-playwright-report-token.txt
-        rm -f "$summary_output" "$report_url_file" "$token_file" playwright-results.json
+        rm -f "$run_output" "$json_output" "$summary_output"
         rm -rf allure-results allure-report
 
         set +e
         yarn bddgen
-        bddgen_exit_code=$?
-        if [ "$bddgen_exit_code" -eq 0 ]; then
-          CI=true PLAYWRIGHT_BASE_URL="$base_url" yarn playwright test
+        playwright_exit_code=$?
+        if [ "$playwright_exit_code" -eq 0 ]; then
+          CI=true PLAYWRIGHT_BASE_URL="$base_url" PLAYWRIGHT_JSON_OUTPUT_NAME="$json_output" \
+            yarn playwright test --reporter=line,json,allure-playwright > "$run_output" 2>&1
           playwright_exit_code=$?
-        else
-          playwright_exit_code="$bddgen_exit_code"
+          tail -n 60 "$run_output"
         fi
 
-        node bin/summarise_playwright_report.js playwright-results.json "$summary_output"
+        node bin/summarise_playwright_report.js "$json_output" "$summary_output"
         summary_exit_code=$?
         yarn allure:generate
         report_exit_code=$?
-
-        publish_exit_code=1
-        if [ "$report_exit_code" -eq 0 ] && [ -s allure-report/index.html ]; then
-          OUTPUT_TOKEN_FILE="$token_file" bash bin/generate_github_app_token.sh
-          token_exit_code=$?
-          if [ "$token_exit_code" -eq 0 ]; then
-            GITHUB_APP_TOKEN="$(cat "$token_file")" \
-              REPORT_URL_FILE="$report_url_file" \
-              bash bin/publish_e2e_test_report.sh
-            publish_exit_code=$?
-          else
-            echo "Failed to create a GitHub App token for the nightly Allure report"
-          fi
-        else
-          echo "Unable to generate the single-file Allure report"
-        fi
-        rm -f "$token_file"
-
+        set -e
         if [ "$playwright_exit_code" -ne 0 ]; then exit "$playwright_exit_code"; fi
         if [ "$summary_exit_code" -ne 0 ]; then exit "$summary_exit_code"; fi
-        if [ "$report_exit_code" -ne 0 ]; then exit "$report_exit_code"; fi
-        exit "$publish_exit_code"
+        exit "$report_exit_code"
     when:
       cron: nightly_e2e_playwright
       event: cron
+
+  - name: cron_generate_github_app_token_for_report
+    <<: *github_app_token_step
+    environment:
+      <<: *github_app_token_secrets_ukho
+      OUTPUT_TOKEN_FILE: /root/.dockersock/nightly-playwright-report-token.txt
+    when:
+      cron: nightly_e2e_playwright
+      event: cron
+      status: [success, failure]
+    depends_on:
+      - cron_nightly_e2e_tests
+
+  - name: cron_publish_nightly_allure_report
+    <<: *node_image
+    volumes:
+      - name: dockersock
+        path: /root/.dockersock
+    commands:
+      - apk add --no-cache bash curl jq
+      - rm -f /root/.dockersock/nightly-playwright-report-url.txt
+      - test -s /root/.dockersock/nightly-playwright-report-token.txt || (echo "Missing GitHub App report token file" && exit 1)
+      - export DRONE_REPO="$${DRONE_REPO:-$GIT_REPO}"
+      - export GITHUB_APP_TOKEN="$(cat /root/.dockersock/nightly-playwright-report-token.txt)"
+      - trap 'rm -f /root/.dockersock/nightly-playwright-report-token.txt' EXIT
+      - unset DRONE_PULL_REQUEST
+      - REPORT_URL_FILE=/root/.dockersock/nightly-playwright-report-url.txt bash bin/publish_e2e_test_report.sh
+    when:
+      cron: nightly_e2e_playwright
+      event: cron
+      status: [success, failure]
+    depends_on:
+      - cron_generate_github_app_token_for_report
+      - cron_nightly_e2e_tests
 
   - name: cron_notify_slack_nightly_e2e
     <<: *node_image
@@ -654,7 +665,7 @@ steps:
         report_link="View Test Report: unavailable (single-file HTML report was not published)"
         if [ -s /root/.dockersock/nightly-playwright-report-url.txt ]; then
           report_url="$(cat /root/.dockersock/nightly-playwright-report-url.txt)"
-          report_link="View Test Report (downloads the single-file HTML report): <${report_url}|View Test Report>"
+          report_link="View Test Report (downloads the single-file HTML report): <$report_url|View Test Report>"
         fi
         payload=$(jq -n \
           --arg report_link "$report_link" \
@@ -667,7 +678,7 @@ steps:
       event: cron
       status: [success, failure]
     depends_on:
-      - cron_nightly_e2e_tests
+      - cron_publish_nightly_allure_report
 
   # Slack notification upon a CRON job fail
   - name: cron_notify_slack_tear_down_pr_envs

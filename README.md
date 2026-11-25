@@ -32,6 +32,10 @@ Then visit: [http://localhost:8080/](http://localhost:8080/)
 
 Pull requests on `master` and `feature/*` deploy to the branch environment, run `yarn test:e2e` against its internal URL, and publish a single-file Allure HTML report as a GitHub release asset with a PR comment. The `nightly_e2e_playwright` cron also generates and publishes the report, including after test failures, and posts result counts and percentages to Slack. The report asset link downloads the HTML file; open it in a browser to view it. Playwright's JSON results are used for the summary, with passed, failed, flaky, and skipped outcomes reported separately. Missing or invalid results are reported as invalid rather than as a successful zero-test run.
 
+The summary checks Playwright's aggregate counts against individual test outcomes and flags run-level errors. Percentages use the number of discovered tests, including flaky and skipped tests.
+
+The nightly pipeline installs Java for Allure, then runs token generation and report publication as separate steps after the tests. The Slack notification runs after publication, including when an earlier step fails.
+
 - `HOF_GH_APP_ID`, `HOF_GH_APP_PK`, `HOF_GH_APP_INSTALL_ID` for cloning `UKHomeOfficeForms/hof-services-config` (including promotion and security scans).
 - `hof_ukho_gh_app_id`, `hof_ukho_gh_app_pk`, `hof_ukho_gh_app_install_id` for publishing reports to `UKHomeOffice/paf`.
 - `SAS_HOF_EMAIL` for the form's E2E test data.
