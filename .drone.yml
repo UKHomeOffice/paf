@@ -563,7 +563,7 @@ steps:
 
   - name: cron_nightly_e2e_tests
     pull: if-not-exists
-    image: mcr.microsoft.com/playwright:v1.63.0-noble
+    image: mcr.microsoft.com/playwright:v1.65.0-noble
     environment:
       NIGHTLY_E2E_BASE_URL:
         from_secret: NIGHTLY_E2E_BASE_URL
@@ -573,7 +573,7 @@ steps:
       - name: dockersock
         path: /root/.dockersock
     commands:
-      - rm -f /root/.dockersock/nightly-playwright-exit-code.txt
+      - rm -f /root/.dockersock/nightly-playwright-run-output.txt /root/.dockersock/nightly-playwright-report.json /root/.dockersock/nightly-playwright-summary.txt /root/.dockersock/nightly-playwright-summary.json /root/.dockersock/nightly-playwright-exit-code.txt /root/.dockersock/nightly-allure-report-url.txt
       - npm install -g n
       - n 24.22.2
       - hash -r
@@ -582,29 +582,38 @@ steps:
       - yarn playwright install --with-deps
       - apt-get update && apt-get install -y --no-install-recommends default-jre-headless
       - |
-        test -n "$NIGHTLY_E2E_BASE_URL" || (echo "Missing NIGHTLY_E2E_BASE_URL" && exit 1)
-        case "$NIGHTLY_E2E_BASE_URL" in
-          http://*|https://*) base_url="$NIGHTLY_E2E_BASE_URL" ;;
-          *) base_url="https://$NIGHTLY_E2E_BASE_URL" ;;
-        esac
         run_output=/root/.dockersock/nightly-playwright-run-output.txt
         json_output=/root/.dockersock/nightly-playwright-report.json
         summary_output=/root/.dockersock/nightly-playwright-summary.txt
-        rm -f "$run_output" "$json_output" "$summary_output" /root/.dockersock/nightly-allure-report-url.txt
+        summary_json=/root/.dockersock/nightly-playwright-summary.json
         rm -rf allure-results allure-report
+
         set +e
-        yarn bddgen
-        playwright_exit_code=$?
-        if [ "$playwright_exit_code" -eq 0 ]; then
-          CI=true PLAYWRIGHT_BASE_URL="$base_url" PLAYWRIGHT_JSON_OUTPUT_NAME="$json_output" \
-            yarn playwright test --reporter=line,json,allure-playwright > "$run_output" 2>&1
-          playwright_exit_code=$?
-          tail -n 60 "$run_output"
+        test_setup_exit_code=0
+        playwright_exit_code=unavailable
+        if [ -z "$NIGHTLY_E2E_BASE_URL" ]; then
+          echo "Missing NIGHTLY_E2E_BASE_URL" >&2
+          test_setup_exit_code=1
+        else
+          case "$NIGHTLY_E2E_BASE_URL" in
+            http://*|https://*) base_url="$NIGHTLY_E2E_BASE_URL" ;;
+            *) base_url="https://$NIGHTLY_E2E_BASE_URL" ;;
+          esac
+          yarn bddgen
+          test_setup_exit_code=$?
+          if [ "$test_setup_exit_code" -eq 0 ]; then
+            CI=true PLAYWRIGHT_BASE_URL="$base_url" PLAYWRIGHT_JSON_OUTPUT_NAME="$json_output" \
+              yarn playwright test --reporter=line,json,allure-playwright > "$run_output" 2>&1
+            playwright_exit_code=$?
+            tail -n 60 "$run_output"
+          fi
         fi
+
         printf '%s:%s\n' "$DRONE_BUILD_NUMBER" "$playwright_exit_code" \
           > /root/.dockersock/nightly-playwright-exit-code.txt
         status_write_exit_code=$?
-        node bin/summarise_playwright_report.js "$json_output" "$summary_output"
+        node bin/summarise_playwright_report.js \
+          "$json_output" "$summary_output" "$playwright_exit_code" "$summary_json" "$DRONE_BUILD_NUMBER"
         summary_exit_code=$?
         report_exit_code=1
         if [ -d allure-results ] && find allure-results -name '*-result.json' -print -quit | grep -q .; then
@@ -614,7 +623,11 @@ steps:
           echo "No Allure results were produced; report cannot be generated" >&2
         fi
         set -e
-        if [ "$playwright_exit_code" -ne 0 ]; then exit "$playwright_exit_code"; fi
+
+        if [ "$playwright_exit_code" != "unavailable" ] && [ "$playwright_exit_code" -ne 0 ]; then
+          exit "$playwright_exit_code"
+        fi
+        if [ "$test_setup_exit_code" -ne 0 ]; then exit "$test_setup_exit_code"; fi
         if [ "$status_write_exit_code" -ne 0 ]; then exit "$status_write_exit_code"; fi
         if [ "$summary_exit_code" -ne 0 ]; then exit "$summary_exit_code"; fi
         exit "$report_exit_code"
@@ -670,10 +683,6 @@ steps:
       - apk add --no-cache curl jq
       - test -n "$SLACK_WEBHOOK" || (echo "Missing nightly E2E Slack webhook" && exit 1)
       - |
-        test -s /root/.dockersock/nightly-playwright-summary.txt || printf '%s\n' \
-          'Results: INVALID (summary artifact missing)' \
-          > /root/.dockersock/nightly-playwright-summary.txt
-      - |
         environment="not configured"
         if [ -n "$NIGHTLY_E2E_BASE_URL" ]; then
           case "$NIGHTLY_E2E_BASE_URL" in
@@ -682,24 +691,68 @@ steps:
           esac
           environment="<$environment_url>"
         fi
-        report_link="View Test Report: unavailable (Allure report was not published)"
+        report_link="<$DRONE_BUILD_LINK|View Drone Build> (Allure report unavailable; see build logs)"
         if [ -s /root/.dockersock/nightly-allure-report-url.txt ]; then
           report_url="$(cat /root/.dockersock/nightly-allure-report-url.txt)"
           report_link="<$report_url|View Test Report> (downloads the single-file HTML report)"
         fi
+
+        exit_code_path=/root/.dockersock/nightly-playwright-exit-code.txt
+        summary_path=/root/.dockersock/nightly-playwright-summary.txt
+        summary_json_path=/root/.dockersock/nightly-playwright-summary.json
+        status_build=""
+        saved_exit_code=""
+        status_data_valid=false
+        if [ -s "$exit_code_path" ]; then
+          IFS=: read -r status_build saved_exit_code < "$exit_code_path"
+          if [ "$status_build" = "$DRONE_BUILD_NUMBER" ] &&
+            { printf '%s\n' "$saved_exit_code" | grep -Eq '^(0|[1-9][0-9]{0,2})$' ||
+              [ "$saved_exit_code" = "unavailable" ]; } &&
+            { [ "$saved_exit_code" = "unavailable" ] || [ "$saved_exit_code" -le 255 ]; }; then
+            status_data_valid=true
+          fi
+        fi
+
+        summary_data_valid=false
+        if [ "$status_data_valid" = true ] && [ "$saved_exit_code" != "unavailable" ] &&
+          [ -s "$summary_json_path" ] && [ -s "$summary_path" ] &&
+          jq -e --arg build "$DRONE_BUILD_NUMBER" --argjson exit_code "$saved_exit_code" \
+            '.valid == true and .buildNumber == $build and .playwrightExitCode == $exit_code' \
+            "$summary_json_path" >/dev/null 2>&1; then
+          if ! grep -q '^Results: INVALID' "$summary_path"; then
+            summary_data_valid=true
+          fi
+        fi
+
+        if [ ! -s "$summary_path" ]; then
+          printf '%s\n' \
+            'Passed: N/A No Of Tests: N/A' \
+            'Failed: N/A No Of Tests: N/A' \
+            'Flaky: N/A No Of Tests: N/A' \
+            'Skipped: N/A No Of Tests: N/A' \
+            'Total Results Reported: unknown' \
+            'Results: INVALID (Playwright summary is missing; check the E2E build logs)' \
+            > "$summary_path"
+        fi
+        results="$(cat "$summary_path")"
+        if [ "$summary_data_valid" != true ] &&
+          ! printf '%s\n' "$results" | grep -q '^Results: INVALID'; then
+          results="${results}
+        Results: INVALID (Playwright status or summary is missing, invalid, or belongs to another build)"
+        fi
+
         test_status="Failed"
-        if [ -s /root/.dockersock/nightly-playwright-exit-code.txt ]; then
-          case "$(cat /root/.dockersock/nightly-playwright-exit-code.txt)" in
-            "$DRONE_BUILD_NUMBER:0") test_status="Passed" ;;
-            *) test_status="Failed" ;;
-          esac
+        if [ "$status_data_valid" = true ] && [ "$summary_data_valid" = true ] &&
+          [ "$saved_exit_code" -eq 0 ] &&
+          jq -e '.testStatus == "Passed"' "$summary_json_path" >/dev/null 2>&1; then
+          test_status="Passed"
         fi
         test_color="danger"
         if [ "$test_status" = "Passed" ]; then
           test_color="good"
         fi
         payload=$(jq -n \
-          --arg status "$DRONE_BUILD_STATUS" \
+          --arg status "${DRONE_BUILD_STATUS:-unknown}" \
           --arg test_status "$test_status" \
           --arg test_color "$test_color" \
           --arg branch "$DRONE_BRANCH" \
@@ -707,8 +760,8 @@ steps:
           --arg build_link "$DRONE_BUILD_LINK" \
           --arg build_number "$DRONE_BUILD_NUMBER" \
           --arg report_link "$report_link" \
-          --rawfile summary /root/.dockersock/nightly-playwright-summary.txt \
-          '{text: ("****************** Start of PAF Test Report ******************\nNightly Playwright Tests\nStatus: " + $test_status), attachments: [{color: $test_color, mrkdwn_in: ["text"], text: ("Service Name: PAF\nService Abbreviation: PAF\nStatus: " + $status + "\nBranch: " + $branch + "\nEnvironment: " + $environment + "\nBuild: <" + $build_link + "|#" + $build_number + ">\nTest Status: " + $test_status + "\n\nTest Results:\n" + $summary + "\n\n" + $report_link + "\n\n****************** End of PAF Test Report ******************") }]}')
+          --arg summary "$results" \
+          '{text: ("****************** Start of PAF Test Report ******************\nNightly Playwright Tests\nStatus: " + $test_status), mrkdwn: false, attachments: [{color: $test_color, fallback: ("****************** Start of PAF Test Report ******************\nNightly Playwright Tests\nStatus: " + $test_status), mrkdwn_in: ["text"], text: ("Service Name: PAF\nService Abbreviation: PAF\nStatus: " + $status + "\nBranch: " + $branch + "\nEnvironment: " + $environment + "\nBuild: <" + $build_link + "|#" + $build_number + ">\nTest Status: " + $test_status + "\n\nTest Results:\n" + $summary + "\n\n" + $report_link + "\n\n****************** End of PAF Test Report ******************") }]}')
         curl --fail-with-body -sS -X POST -H 'Content-Type: application/json' --data "$payload" "$SLACK_WEBHOOK"
     when:
       cron: nightly_e2e_playwright

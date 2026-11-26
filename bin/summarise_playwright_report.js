@@ -2,25 +2,27 @@
 
 const fs = require('node:fs');
 
-const CATEGORIES = ['expected', 'unexpected', 'flaky', 'skipped'];
-const LABELS = { expected: 'Passed', unexpected: 'Failed', flaky: 'Flaky', skipped: 'Skipped' };
+const CATEGORIES = [
+  { key: 'expected', label: 'Passed' },
+  { key: 'unexpected', label: 'Failed' },
+  { key: 'flaky', label: 'Flaky' },
+  { key: 'skipped', label: 'Skipped' }
+];
 
-function invalid(reason) {
-  return [
-    'Passed: N/A No Of Tests: N/A',
-    'Failed: N/A No Of Tests: N/A',
-    'Flaky: N/A No Of Tests: N/A',
-    'Skipped: N/A No Of Tests: N/A',
-    'Total Results Reported: unknown',
-    `Results: INVALID (${reason})`
-  ].join('\n');
+function parseExitCode(value) {
+  if (typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 && value <= 255) {
+    return value;
+  }
+  if (typeof value === 'string' && /^(0|[1-9]\d{0,2})$/.test(value) && Number(value) <= 255) {
+    return Number(value);
+  }
+  return null;
 }
 
-function collectOutcomes(suites) {
+function collectOutcomes(suites, outcomes = []) {
   if (!Array.isArray(suites)) {
     throw new Error('test suites are missing or invalid');
   }
-  const outcomes = [];
   for (const suite of suites) {
     if (!suite || typeof suite !== 'object' ||
         (suite.specs !== undefined && !Array.isArray(suite.specs))) {
@@ -31,73 +33,140 @@ function collectOutcomes(suites) {
         throw new Error('test entries are missing or invalid');
       }
       for (const test of spec.tests) {
-        if (!test || !CATEGORIES.includes(test.status)) {
+        if (!test || !CATEGORIES.some(category => category.key === test.status)) {
           throw new Error('test outcomes are missing or invalid');
         }
         outcomes.push(test.status);
       }
     }
-    outcomes.push(...collectOutcomes(suite.suites === undefined ? [] : suite.suites));
+    collectOutcomes(suite.suites === undefined ? [] : suite.suites, outcomes);
   }
   return outcomes;
 }
 
-function buildSummary(report) {
+function buildSummary(report, rawExitCode, buildNumber, readError) {
+  const playwrightExitCode = parseExitCode(rawExitCode);
+  const issues = [];
+  if (playwrightExitCode === null) {
+    issues.push('Playwright exit status is missing or invalid');
+  }
+  if (typeof buildNumber !== 'string' || buildNumber.length === 0) {
+    issues.push('Drone build number is missing');
+  }
+  if (readError) {
+    issues.push(readError);
+  }
+
+  let counts = null;
+  let percentages = null;
+  let reported = null;
+  let discovered = null;
+
   try {
     if (!report || typeof report !== 'object' || Array.isArray(report) ||
         !report.stats || typeof report.stats !== 'object' || !Array.isArray(report.errors)) {
       throw new Error('Playwright statistics or run errors are missing or invalid');
     }
+
     const outcomes = collectOutcomes(report.suites);
-    const counts = {};
-    for (const category of CATEGORIES) {
-      const count = report.stats[category];
+    discovered = outcomes.length;
+    counts = {};
+    for (const { key } of CATEGORIES) {
+      const count = report.stats[key];
       if (!Number.isSafeInteger(count) || count < 0) {
-        throw new Error(`stats.${category} must be a non-negative integer`);
+        throw new Error(`stats.${key} must be a non-negative integer`);
       }
-      counts[category] = count;
+      counts[key] = count;
     }
-    const reported = CATEGORIES.reduce((sum, category) => sum + counts[category], 0);
+    reported = CATEGORIES.reduce((sum, { key }) => sum + counts[key], 0);
     if (!Number.isSafeInteger(reported)) {
       throw new Error('result count exceeds the supported integer range');
     }
-    const matches = CATEGORIES.every(category =>
-      counts[category] === outcomes.filter(status => status === category).length);
-    const lines = [
-      ...CATEGORIES.map(category => {
-        const percentage = outcomes.length ? (counts[category] / outcomes.length * 100).toFixed(1) : '0.0';
-        return `${LABELS[category]}: ${percentage}% No Of Tests: ${counts[category]}`;
-      }),
-      `Total Results Reported: ${reported} of ${outcomes.length}`
-    ];
-    if (!matches) {
-      lines.push('Results: INVALID (Playwright statistics do not match test outcomes)');
+
+    const outcomeCounts = Object.fromEntries(CATEGORIES.map(({ key }) =>
+      [key, outcomes.filter(status => status === key).length]));
+    if (discovered === 0) {
+      issues.push('no test outcomes were reported');
+    } else if (CATEGORIES.some(({ key }) => counts[key] !== outcomeCounts[key])) {
+      issues.push('Playwright statistics do not match test outcomes');
+    }
+    if (playwrightExitCode === 0 && counts.unexpected > 0) {
+      issues.push('Playwright exited successfully despite unexpected test outcomes');
     }
     if (report.errors.length) {
-      lines.push(`Results: INVALID (${report.errors.length} Playwright run error(s); see build logs)`);
+      issues.push(`${report.errors.length} Playwright run error(s); see build logs`);
     }
-    return lines.join('\n');
+    percentages = Object.fromEntries(CATEGORIES.map(({ key }) =>
+      [key, discovered ? Number((counts[key] / discovered * 100).toFixed(1)) : 0]));
   } catch (error) {
-    return invalid(error.message);
+    issues.push(error.message);
+    counts = null;
+    percentages = null;
+    reported = null;
+    discovered = null;
   }
+
+  const valid = issues.length === 0;
+  return {
+    valid,
+    testStatus: valid && playwrightExitCode === 0 ? 'Passed' : 'Failed',
+    buildNumber: typeof buildNumber === 'string' && buildNumber.length ? buildNumber : null,
+    playwrightExitCode,
+    counts,
+    percentages,
+    reported,
+    discovered,
+    issues
+  };
+}
+
+function summaryText(summary) {
+  if (!summary.counts || !summary.percentages ||
+      summary.reported === null || summary.discovered === null) {
+    return [
+      'Passed: N/A No Of Tests: N/A',
+      'Failed: N/A No Of Tests: N/A',
+      'Flaky: N/A No Of Tests: N/A',
+      'Skipped: N/A No Of Tests: N/A',
+      'Total Results Reported: unknown',
+      `Results: INVALID (${summary.issues.join('; ') || 'Playwright results are invalid'})`
+    ].join('\n');
+  }
+
+  const lines = CATEGORIES.map(({ key, label }) =>
+    `${label}: ${summary.percentages[key].toFixed(1)}% No Of Tests: ${summary.counts[key]}`);
+  lines.push(`Total Results Reported: ${summary.reported} of ${summary.discovered}`);
+  if (!summary.valid) {
+    lines.push(`Results: INVALID (${summary.issues.join('; ')})`);
+  }
+  return lines.join('\n');
 }
 
 function main() {
-  const [input, output] = process.argv.slice(2);
-  if (!input || !output) {
-    process.stderr.write('Usage: node bin/summarise_playwright_report.js <playwright-json> <summary-txt>\n');
+  const [inputPath, textOutputPath, rawExitCode, jsonOutputPath, buildNumber] = process.argv.slice(2);
+  if (!inputPath || !textOutputPath || !jsonOutputPath) {
+    process.stderr.write(
+      'Usage: node bin/summarise_playwright_report.js <playwright-json> <summary-txt> ' +
+      '<playwright-exit-code> <summary-json> <build-number>\n'
+    );
     process.exitCode = 1;
     return;
   }
-  let summary;
+
+  let report;
+  let readError;
   try {
-    summary = buildSummary(JSON.parse(fs.readFileSync(input, 'utf8')));
+    report = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
   } catch (error) {
-    summary = invalid(`unable to read Playwright results: ${error.message}`);
+    readError = `unable to read Playwright results: ${error.message}`;
   }
-  fs.writeFileSync(output, `${summary}\n`);
-  process.stdout.write(`${summary}\n`);
-  if (summary.includes('Results: INVALID')) {
+
+  const summary = buildSummary(report, rawExitCode, buildNumber, readError);
+  const text = summaryText(summary);
+  fs.writeFileSync(textOutputPath, `${text}\n`, 'utf8');
+  fs.writeFileSync(jsonOutputPath, `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
+  process.stdout.write(`${text}\n`);
+  if (!summary.valid) {
     process.exitCode = 1;
   }
 }
@@ -106,4 +175,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { buildSummary };
+module.exports = { buildSummary, summaryText };

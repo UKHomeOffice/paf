@@ -19,7 +19,7 @@
     "test:ui-integration": "NODE_ENV=test _mocha \"test/_ui-integration/**/*.spec.js\" --exit",
     "test:unit": "NODE_ENV=test nyc _mocha \"test/_unit/**/*.spec.js\"",
     "bddgen": "bddgen",
-    "test:e2e": "bddgen && playwright test",
+    "test:e2e": "yarn allure:clear && bddgen && playwright test",
     "build": "hof-build",
     "allure:clear": "node -e \"require('node:fs').rmSync('allure-results', { recursive: true, force: true })\"",
     "allure:generate": "allure generate allure-results --clean --single-file -o allure-report",
