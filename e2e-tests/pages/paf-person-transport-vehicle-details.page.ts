@@ -2,11 +2,17 @@ import { basePage } from './base-page';
 import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
 export class pafPersonTransportVehicleDetailsPage extends basePage {
-  readonly expectedPageTitle = "What are the vehicle's details?";
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: What are the vehicle's details? – GOV.UK"
+      : "What are the vehicle's details? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerPersonVehicleDetails() {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
     await this.personVehicleDetailsAnswer(c);
   }
 

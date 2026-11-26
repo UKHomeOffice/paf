@@ -1,11 +1,17 @@
 import { basePage } from './base-page';
 
 export class pafCrimeTypePage extends basePage {
-  readonly expectedPageTitle = 'What is the crime you are reporting?';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: What is the crime you are reporting? – GOV.UK"
+      : "What is the crime you are reporting? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerCrimeType(crimeType: string) {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
 
     switch (crimeType) {
       case 'Immigration all':

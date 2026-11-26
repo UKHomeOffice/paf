@@ -2,11 +2,17 @@ import { basePage } from './base-page';
 import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
 export class pafOtherInformationFileUploadPage extends basePage {
-  readonly expectedPageTitle = 'Please attach any documents which may help us investigate this crime';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: Please attach any documents which may help us investigate this crime – GOV.UK"
+      : "Please attach any documents which may help us investigate this crime – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerAttachments(value: string) {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
 
     switch (value.toLowerCase()) {
       case '1':

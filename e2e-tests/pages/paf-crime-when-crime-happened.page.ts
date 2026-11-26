@@ -2,11 +2,17 @@ import { basePage } from './base-page';
 import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
 export class pafCrimeWhenCrimeHappenedPage extends basePage {
-  readonly expectedPageTitle = 'When is the crime happening?';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: When is the crime happening? – GOV.UK"
+      : "When is the crime happening? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerWhenCrimeHappens(value: string) {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
 
     switch (value) {
       case 'Happening now':

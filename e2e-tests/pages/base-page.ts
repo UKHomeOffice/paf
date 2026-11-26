@@ -15,7 +15,7 @@ export class basePage {
   }
 
   async assertPageTitle(expectedTitle: string) {
-    await expect(this.headerText).toContainText(expectedTitle);
+    await expect(this.page).toHaveTitle(expectedTitle);
   }
 
   async assertAccessibility() {

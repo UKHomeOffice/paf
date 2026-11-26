@@ -2,11 +2,17 @@ import { basePage } from './base-page';
 import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
 export class pafPersonOccupationHoursPage extends basePage {
-  readonly expectedPageTitle = 'What hours of the day does the person work?';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: What hours of the day does the person work? – GOV.UK"
+      : "What hours of the day does the person work? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerWorkHours() {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
     await this.personOccupationHoursAnswer(c);
   }
   

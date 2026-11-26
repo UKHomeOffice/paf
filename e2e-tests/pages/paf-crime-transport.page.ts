@@ -1,11 +1,17 @@
 import { basePage } from './base-page';
 
 export class pafCrimeTransportPage extends basePage {
-  readonly expectedPageTitle = 'Does the crime involve any vehicles, transport or travel?';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: Does the crime involve any vehicles, transport or travel? – GOV.UK"
+      : "Does the crime involve any vehicles, transport or travel? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerTransportInvolvement(transport: string) {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
 
     switch (transport) {
       case "I don't know":

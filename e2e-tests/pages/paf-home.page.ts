@@ -2,7 +2,13 @@ import { basePage } from './base-page';
 import { Locator, Page } from '@playwright/test';
 
 export class pafHomePage extends basePage {
-  readonly expectedPageTitle = 'Report an immigration or customs crime';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: Report an immigration or customs crime – Public Allegations Form – GOV.UK"
+      : "Report an immigration or customs crime – Public Allegations Form – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
   readonly startNowButton: Locator;
   readonly acceptCookiesButton: Locator;
@@ -38,7 +44,7 @@ export class pafHomePage extends basePage {
   }
 
   async start() {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
     await this.startNowButton.click();
   }
 }

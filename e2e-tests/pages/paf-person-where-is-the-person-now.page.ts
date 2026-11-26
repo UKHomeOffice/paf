@@ -1,11 +1,17 @@
 import { basePage } from './base-page';
 
 export class pafPersonWhereIsThePersonNowPage extends basePage {
-  readonly expectedPageTitle = 'Where is the person now?';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: Where is the person now? – GOV.UK"
+      : "Where is the person now? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerPersonCurrentLocation(value: string) {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
     await this.selectAndContinue(value);
   }
 }

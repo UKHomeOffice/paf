@@ -1,11 +1,17 @@
 import { basePage } from './base-page';
 
 export class pafCrimeWhenWillCrimeHappenPage extends basePage {
-  readonly expectedPageTitle = 'When will the crime happen?';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: When will the crime happen? – GOV.UK"
+      : "When will the crime happen? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerWhenCrimeWillHappen(value: string) {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
 
     switch (value) {
       case 'In the next 24 hours':

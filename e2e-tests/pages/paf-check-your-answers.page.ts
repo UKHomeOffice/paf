@@ -1,7 +1,13 @@
 import { basePage } from './base-page';
 
 export class pafCheckYourAnswersPage extends basePage {
-  readonly expectedPageTitle = 'Check your answers before submitting your application.';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: Check your answers before submitting your application. – GOV.UK"
+      : "Check your answers before submitting your application. – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
   readonly confirmSubmissionButton = this.page
     .getByRole('button', { name: 'Confirm submission' })

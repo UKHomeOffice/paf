@@ -1,11 +1,17 @@
 import { basePage } from './base-page';
 
 export class pafCrimeTransportVehicleTypePage extends basePage {
-  readonly expectedPageTitle = 'What is the vehicle type?';
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: What is the vehicle type? – GOV.UK"
+      : "What is the vehicle type? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerVehicleType(vehicleType: string) {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
     const parentLabel = this.vehicleParentLabel(vehicleType);
 
     if (parentLabel) {

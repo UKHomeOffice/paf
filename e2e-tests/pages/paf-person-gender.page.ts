@@ -1,11 +1,17 @@
 import { basePage } from './base-page';
 
 export class pafPersonGenderPage extends basePage {
-  readonly expectedPageTitle = "What is the person's gender?";
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
+
+    return title.startsWith('Error')
+      ? "Error: What is the person's gender? – GOV.UK"
+      : "What is the person's gender? – GOV.UK";
+  }
   readonly pageHeading = this.headerText;
 
   async answerPersonGender(value: string) {
-    await this.assertPageTitle(this.expectedPageTitle);
+    await this.assertPageTitle(await this.expectedPageTitle());
     await this.selectAndContinue(value);
   }
 }
