@@ -6,12 +6,16 @@ export class basePage {
   readonly headerText: Locator;
   readonly continueButton: Locator;
   readonly submitButton: Locator;
+  readonly thereIsAProblemText: Locator;
+  readonly errorSummaryList: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.headerText = page.locator('h1');
     this.continueButton = page.getByRole('button', { name: /^(Continue|Save and continue)$/ });
     this.submitButton = page.getByRole('button', { name: /^(Submit|Confirm submission)$/ });
+    this.thereIsAProblemText = page.locator('#error-summary-title');
+    this.errorSummaryList = page.locator("[class='govuk-list govuk-error-summary__list']");
   }
 
   async assertPageTitle(expectedTitle: string) {
@@ -115,5 +119,13 @@ export class basePage {
   async completeTextPage(ids: string[], value: string) {
     await this.fillMany(ids, value);
     await this.clickContinueButton();
+  }
+
+  async getThereIsAProblemTextErrorText(): Promise<string | null> {
+    return await this.thereIsAProblemText.textContent();
+  }
+
+  async getErrorSummaryListText(): Promise<string | null> {
+    return await this.errorSummaryList.textContent();
   }
 }

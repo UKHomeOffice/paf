@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test';
 import { createBdd } from 'playwright-bdd';
 import { Pages, test } from '../fixture/fixtures';
 
@@ -7,6 +8,45 @@ Given('I visit the Public Allegations Form page', async ({ pages }) => {
     await pages.pafHomePage.openPaf();
     await pages.pafHomePage.start();
 });
+
+When('I select continue', async ({ pages, page }) => {
+    await pages.basePage.clickContinueButton();
+});
+
+Then('I should see {string} error message displayed', async ({ pages }, expectedErrorMessage: string) => {
+    const actualErrorMessageLocator = await pages.basePage.getThereIsAProblemTextErrorText();
+    expect(expectedErrorMessage).toEqual(actualErrorMessageLocator!);
+});
+
+Then('I should see {string} error summary', async ({ pages }, expectedErrorMessage: string) => {
+    const expectedErrorArray = expectedErrorMessage.trim().split('¬');
+
+    const actualText = await pages.basePage.getErrorSummaryListText();
+    const actualErrorArray = actualText!
+        .replaceAll('\t', '') // remove ALL tabs
+        .trim()             // remove leading/trailing whitespace
+        .split(/\r?\n/);    // handle all newline types
+
+    expect(actualErrorArray).toEqual(expectedErrorArray);
+});
+
+When('I choose to complete {string} page', async ({ pages }, pageName: string) => {
+    switch (pageName) {
+            case 'What is the crime you are reporting?':
+                await pages.pafCrimeTypePage.answerCrimeType('Immigration all');
+                break;
+            case 'Are there children involved? (A child is anyone under 18 years of age)':
+                await pages.pafCrimeChildrenPage.answerChildrenInvolved('Yes');
+                break;
+
+        default:
+            throw new Error(`Unknown PAF scenario description: ${pageName}`);
+    }
+});
+
+
+
+
 
 When('I fill out my answers for the Public Allegations Form journey pertaining to {string}', async ({ pages }, testScenarios: string) => {
     switch (testScenarios) {
