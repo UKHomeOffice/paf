@@ -573,6 +573,7 @@ steps:
       - name: dockersock
         path: /root/.dockersock
     commands:
+      - rm -f /root/.dockersock/nightly-playwright-exit-code.txt
       - npm install -g n
       - n 24.22.2
       - hash -r
@@ -600,7 +601,8 @@ steps:
           playwright_exit_code=$?
           tail -n 60 "$run_output"
         fi
-        printf '%s\n' "$playwright_exit_code" > /root/.dockersock/nightly-playwright-exit-code.txt
+        printf '%s:%s\n' "$DRONE_BUILD_NUMBER" "$playwright_exit_code" \
+          > /root/.dockersock/nightly-playwright-exit-code.txt
         status_write_exit_code=$?
         node bin/summarise_playwright_report.js "$json_output" "$summary_output"
         summary_exit_code=$?
@@ -685,16 +687,15 @@ steps:
           report_url="$(cat /root/.dockersock/nightly-allure-report-url.txt)"
           report_link="<$report_url|View Test Report> (downloads the single-file HTML report)"
         fi
-        test_status="failed (test exit code unavailable)"
+        test_status="Failed"
         if [ -s /root/.dockersock/nightly-playwright-exit-code.txt ]; then
           case "$(cat /root/.dockersock/nightly-playwright-exit-code.txt)" in
-            0) test_status="success" ;;
-            ''|*[!0-9]*) test_status="failed (test exit code invalid)" ;;
-            *) test_status="failed" ;;
+            "$DRONE_BUILD_NUMBER:0") test_status="Passed" ;;
+            *) test_status="Failed" ;;
           esac
         fi
         test_color="danger"
-        if [ "$test_status" = "success" ]; then
+        if [ "$test_status" = "Passed" ]; then
           test_color="good"
         fi
         payload=$(jq -n \
@@ -707,7 +708,7 @@ steps:
           --arg build_number "$DRONE_BUILD_NUMBER" \
           --arg report_link "$report_link" \
           --rawfile summary /root/.dockersock/nightly-playwright-summary.txt \
-          '{text: ("`****************** Start of PAF Test Report ******************`\n*Nightly Playwright Tests*\nService Name: PAF\nService Abbreviation: PAF\nStatus: " + $status + "\nBranch: " + $branch + "\nEnvironment: " + $environment + "\nBuild: <" + $build_link + "|#" + $build_number + ">\n\nTest Results:\n" + $summary + "\n" + $report_link + "\n\n`****************** End of PAF Test Report ******************`"), attachments: [{color: $test_color, text: ("Test Status: " + $test_status)}]}')
+          '{text: ("****************** Start of PAF Test Report ******************\nNightly Playwright Tests\nStatus: " + $test_status), attachments: [{color: $test_color, mrkdwn_in: ["text"], text: ("Service Name: PAF\nService Abbreviation: PAF\nStatus: " + $status + "\nBranch: " + $branch + "\nEnvironment: " + $environment + "\nBuild: <" + $build_link + "|#" + $build_number + ">\nTest Status: " + $test_status + "\n\nTest Results:\n" + $summary + "\n\n" + $report_link + "\n\n****************** End of PAF Test Report ******************") }]}')
         curl --fail-with-body -sS -X POST -H 'Content-Type: application/json' --data "$payload" "$SLACK_WEBHOOK"
     when:
       cron: nightly_e2e_playwright
