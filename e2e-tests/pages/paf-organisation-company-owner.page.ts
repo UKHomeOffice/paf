@@ -14,15 +14,11 @@ export class pafOrganisationCompanyOwnerPage extends basePage {
   async answerOrganisationOwnerKnowledge(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());
     if (value.trim().toLowerCase() === 'yes') {
-      await this.organisationCompanyOwnerYesAnswer(c);
+      await this.selectByLabel('Yes');
+      await this.fillIfPresent('company-owner', c.TEXT);
+      await this.clickContinueButton();
     } else {
       await this.answerYesNoUnknown(value);
     }
-  }
-
-  async organisationCompanyOwnerYesAnswer(data: Record<string, string>) {
-    await this.selectByLabel('Yes');
-    await this.fillIfPresent('company-owner', data.TEXT);
-    await this.clickContinueButton();
   }
 }

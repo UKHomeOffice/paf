@@ -9,14 +9,9 @@ export class pafPersonStudyHoursPage extends basePage {
       ? "Error: What hours of the day does the person study? – GOV.UK"
       : "What hours of the day does the person study? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerStudyHours() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personOccupationHoursAnswer(c);
-  }
-  
-  async personOccupationHoursAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['report-person-study-hours'], data.TEXT);
+    await this.completeTextPage(['report-person-study-hours'], c.TEXT);
   }
 }

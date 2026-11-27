@@ -8,7 +8,6 @@ export class pafPersonOccupationPage extends basePage {
       ? "Error: Do you know if the person has a job? – GOV.UK"
       : "Do you know if the person has a job? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerJobStatus(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());

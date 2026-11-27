@@ -8,7 +8,6 @@ export class pafPersonGenderPage extends basePage {
       ? "Error: What is the person's gender? – GOV.UK"
       : "What is the person's gender? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonGender(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());

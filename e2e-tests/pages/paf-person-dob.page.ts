@@ -9,15 +9,10 @@ export class pafPersonDobPage extends basePage {
       ? "Error: What is the person's date of birth? – GOV.UK"
       : "What is the person's date of birth? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonDateOfBirth() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personReportDobAnswer(c);
-  }
-  
-  async personReportDobAnswer(data: Record<string, string>) {
-    await this.fillDateByPrefix('report-person-dob', data.DOB);
+    await this.fillDateByPrefix('report-person-dob', c.DOB);
     await this.clickContinueButton();
   }
 }

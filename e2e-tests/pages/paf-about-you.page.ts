@@ -14,11 +14,7 @@ export class pafAboutYouPage extends basePage {
 
   async answerHowDidYouFindOutAboutTheCrime() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.aboutYouAnswer(c);
-  }
-
-  async aboutYouAnswer(data: Record<string, string>) {
-    await this.howDidYouFindOutAboutTheCrime.fill(data.TEXT);
+    await this.howDidYouFindOutAboutTheCrime.fill(c.TEXT);
     await this.clickContinueButton();
   }
 }

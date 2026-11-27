@@ -3,6 +3,8 @@ Feature: PAF validation
 
   Scenario: Validate required answers and the future crime date
     Given I visit the Public Allegations Form page
+    When I choose to complete "Report an immigration or customs crime" page
+
 # What is the crime you are reporting?
     And I select continue
     Then I should see "There is a problem" error message displayed

@@ -9,14 +9,9 @@ export class pafPersonIdPage extends basePage {
       ? "Error: What are the person's forms of identification? – GOV.UK"
       : "What are the person's forms of identification? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonIdentification() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personReportIdAnswer(c);
-  }
-  
-  async personReportIdAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['report-person-passport', 'report-person-id', 'report-person-ni'], data.TEXT);
+    await this.completeTextPage(['report-person-passport', 'report-person-id', 'report-person-ni'], c.TEXT);
   }
 }

@@ -13,11 +13,7 @@ export class pafAboutYouDobPage extends basePage {
 
   async answerAboutYouDateOfBirth() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.aboutYouDobAnswer(c);
-  }
-
-  async aboutYouDobAnswer(data: Record<string, string>) {
-    await this.fillDateByPrefix('about-you-dob', data.DOB);
+    await this.fillDateByPrefix('about-you-dob', c.DOB);
     await this.clickContinueButton();
   }
 }

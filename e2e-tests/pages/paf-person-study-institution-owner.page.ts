@@ -9,20 +9,15 @@ export class pafPersonStudyInstitutionOwnerPage extends basePage {
       ? "Error: Institution Owner – GOV.UK"
       : "Institution Owner – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerInstitutionOwnerKnowledge(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());
     if (value.trim().toLowerCase() === 'yes') {
-      await this.personStudyInstitutionOwnerYesAnswer(c);
+      await this.selectByLabel('Yes');
+      await this.fillIfPresent('report-person-study-institution-owner', c.TEXT);
+      await this.clickContinueButton();
     } else {
       await this.answerYesNoUnknown(value);
     }
-  }
-  
-  async personStudyInstitutionOwnerYesAnswer(data: Record<string, string>) {
-    await this.selectByLabel('Yes');
-    await this.fillIfPresent('report-person-study-institution-owner', data.TEXT);
-    await this.clickContinueButton();
   }
 }

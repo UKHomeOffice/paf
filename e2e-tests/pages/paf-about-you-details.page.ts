@@ -13,12 +13,8 @@ export class pafAboutYouDetailsPage extends basePage {
 
   async answerAboutYouDetails() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.aboutYouDetailsAnswer(c.FIRST_NAME, c.LAST_NAME);
-  }
-
-  async aboutYouDetailsAnswer(firstName: string, lastName: string) {
-    await this.fillIfPresent('about-you-first-name', firstName);
-    await this.fillIfPresent('about-you-family-name', lastName);
+    await this.fillIfPresent('about-you-first-name', c.FIRST_NAME);
+    await this.fillIfPresent('about-you-family-name', c.LAST_NAME);
     await this.clickContinueButton();
   }
 }

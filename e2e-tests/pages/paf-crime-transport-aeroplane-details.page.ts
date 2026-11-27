@@ -13,35 +13,13 @@ export class pafCrimeTransportAeroplaneDetailsPage extends basePage {
 
   async answerAeroplaneDetails() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.crimeAirlineCompanyAnswer(c);
-    await this.crimeAirlineFlightNumberAnswer(c);
-    await this.crimeAirlineCountryDepartureAnswer(c);
-    await this.crimeAirportDepartureAnswer(c);
-    await this.crimeAirportArrivalAnswer(c);
-    await this.crimeAirportDepartureTimeAnswer(c);
-    await this.crimeAirportArrivalTimeAnswer(c);
+    await this.autocompleteById('airline-company', c.AIRLINE);
+    await this.fillIfPresent('airline-flight-number', c.FLIGHT_NUMBER);
+    await this.autocompleteById('airline-country-departure', c.COUNTRY);
+    await this.fillIfPresent('airport-departure', c.TEXT);
+    await this.fillIfPresent('airport-arrival', c.TEXT);
+    await this.fillIfPresent('airport-departure-time', c.DEPARTURE_TIME);
+    await this.fillIfPresent('airport-arrival-time', c.ARRIVAL_TIME);
     await this.clickContinueButton();
-  }
-
-  async crimeAirlineCompanyAnswer(data: Record<string, string>) {
-    await this.autocompleteById('airline-company', data.AIRLINE);
-  }
-  async crimeAirlineFlightNumberAnswer(data: Record<string, string>) {
-    await this.fillIfPresent('airline-flight-number', data.FLIGHT_NUMBER);
-  }
-  async crimeAirlineCountryDepartureAnswer(data: Record<string, string>) {
-    await this.autocompleteById('airline-country-departure', data.COUNTRY);
-  }
-  async crimeAirportDepartureAnswer(data: Record<string, string>) {
-    await this.fillIfPresent('airport-departure', data.TEXT);
-  }
-  async crimeAirportArrivalAnswer(data: Record<string, string>) {
-    await this.fillIfPresent('airport-arrival', data.TEXT);
-  }
-  async crimeAirportDepartureTimeAnswer(data: Record<string, string>) {
-    await this.fillIfPresent('airport-departure-time', data.DEPARTURE_TIME);
-  }
-  async crimeAirportArrivalTimeAnswer(data: Record<string, string>) {
-    await this.fillIfPresent('airport-arrival-time', data.ARRIVAL_TIME);
   }
 }

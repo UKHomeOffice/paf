@@ -13,10 +13,6 @@ export class pafCrimeMoreInformationPage extends basePage {
 
   async answerAdditionalCrimeTimeInformation() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.crimeMoreInformationAnswer(c);
-  }
-
-  async crimeMoreInformationAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['when-will-crime-happen-more-info'], data.TEXT);
+    await this.completeTextPage(['when-will-crime-happen-more-info'], c.TEXT);
   }
 }

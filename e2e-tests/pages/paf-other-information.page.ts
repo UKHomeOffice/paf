@@ -9,16 +9,11 @@ export class pafOtherInformationPage extends basePage {
       ? "Error: Other information – GOV.UK"
       : "Other information – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
   readonly otherInformationBox = this.page.locator('#other-info-description');
 
   async answerOtherInformation() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.otherInformationAnswer(c);
-  }
-
-  async otherInformationAnswer(data: Record<string, string>) {
-    await this.otherInformationBox.fill(data.TEXT);
+    await this.otherInformationBox.fill(c.TEXT);
     await this.clickContinueButton();
   }
 }

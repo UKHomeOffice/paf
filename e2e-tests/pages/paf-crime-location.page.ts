@@ -14,29 +14,24 @@ export class pafCrimeLocationPage extends basePage {
   async answerCrimeLocation(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());
     if (value.trim().toLowerCase() === 'yes') {
-      await this.crimeLocationYesAnswer(c);
+      await this.selectByLabel('Yes');
+      await this.fillMany(
+        [
+          'crime-location-address-line1',
+          'crime-location-address-line2',
+          'crime-location-address-town',
+          'crime-location-address-county'
+        ],
+        c.ADDRESS_LINE_1
+      );
+      await this.fillIfPresent('crime-location-address-postcode', c.POSTCODE);
+      await this.fillIfPresent('crime-location-phone', c.TELEPHONE);
+      await this.autocompleteById('crime-location-country', c.COUNTRY_UK);
+      await this.clickContinueButton();
     } else {
-      await this.crimeLocationNoAnswer();
+          await this.selectAndContinue('No');
+
     }
   }
 
-  async crimeLocationYesAnswer(data: Record<string, string>) {
-    await this.selectByLabel('Yes');
-    await this.fillMany(
-      [
-        'crime-location-address-line1',
-        'crime-location-address-line2',
-        'crime-location-address-town',
-        'crime-location-address-county'
-      ],
-      data.ADDRESS_LINE_1
-    );
-    await this.fillIfPresent('crime-location-address-postcode', data.POSTCODE);
-    await this.fillIfPresent('crime-location-phone', data.TELEPHONE);
-    await this.autocompleteById('crime-location-country', data.COUNTRY_UK);
-    await this.clickContinueButton();
-  }
-  async crimeLocationNoAnswer() {
-    await this.selectAndContinue('No');
-  }
 }

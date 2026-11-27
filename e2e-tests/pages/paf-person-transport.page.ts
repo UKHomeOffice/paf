@@ -8,7 +8,6 @@ export class pafPersonTransportPage extends basePage {
       ? "Error: Does the person own a car or other vehicle? – GOV.UK"
       : "Does the person own a car or other vehicle? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonOwnsVehicle(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());

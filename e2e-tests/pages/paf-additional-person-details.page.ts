@@ -8,5 +8,4 @@ export class pafAdditionalPersonDetailsPage extends basePage {
       ? "Error: Additional People – GOV.UK"
       : "Additional People – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 }

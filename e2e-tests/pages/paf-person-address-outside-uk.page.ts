@@ -9,14 +9,9 @@ export class pafPersonAddressOutsideUkPage extends basePage {
       ? "Error: What is the person's address (Outside UK)? – GOV.UK"
       : "What is the person's address (Outside UK)? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonAddressOutsideUk() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personAddressOutsideUkAnswer(c);
-  }
-
-  async personAddressOutsideUkAnswer(data: Record<string, string>) {
     await this.fillMany(
       [
         'report-person-location-outside-uk-address-line1',
@@ -25,9 +20,9 @@ export class pafPersonAddressOutsideUkPage extends basePage {
         'report-person-location-outside-uk-address-county',
         'report-person-location-outside-uk-address-postcode'
       ],
-      data.ADDRESS_LINE_1
+      c.ADDRESS_LINE_1
     );
-    await this.autocompleteById('report-person-location-outside-uk-address-country', data.COUNTRY);
+    await this.autocompleteById('report-person-location-outside-uk-address-country', c.COUNTRY);
     await this.clickContinueButton();
   }
 }

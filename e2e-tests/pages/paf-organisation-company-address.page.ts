@@ -13,15 +13,11 @@ export class pafOrganisationCompanyAddressPage extends basePage {
 
   async answerOrganisationAddress() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.organisationCompanyAddressAnswer(c);
-  }
-
-  async organisationCompanyAddressAnswer(data: Record<string, string>) {
     await this.fillMany(
       ['company-address-line1', 'company-address-line2', 'company-town', 'company-county'],
-      data.ADDRESS_LINE_1
+      c.ADDRESS_LINE_1
     );
-    await this.fillIfPresent('company-postcode', data.POSTCODE);
+    await this.fillIfPresent('company-postcode', c.POSTCODE);
     await this.clickContinueButton();
   }
 }

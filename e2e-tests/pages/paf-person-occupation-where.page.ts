@@ -8,7 +8,6 @@ export class pafPersonOccupationWherePage extends basePage {
       ? "Error: Do you know where the person works? – GOV.UK"
       : "Do you know where the person works? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerWorkLocationKnown(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());

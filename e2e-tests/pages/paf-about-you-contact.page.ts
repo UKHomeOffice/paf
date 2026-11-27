@@ -13,13 +13,9 @@ export class pafAboutYouContactPage extends basePage {
 
   async answerAboutYouContactDetails() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.aboutYouYesAnswer(c);
-  }
-
-  async aboutYouYesAnswer(data: Record<string, string>) {
     await this.selectByLabel('Yes');
-    await this.fillIfPresent('contact-number', data.TELEPHONE);
-    await this.fillIfPresent('when-to-contact', data.TEXT);
+    await this.fillIfPresent('contact-number', c.TELEPHONE);
+    await this.fillIfPresent('when-to-contact', c.TEXT);
     await this.clickContinueButton();
   }
 }

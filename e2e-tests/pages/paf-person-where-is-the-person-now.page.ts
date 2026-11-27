@@ -8,7 +8,6 @@ export class pafPersonWhereIsThePersonNowPage extends basePage {
       ? "Error: Where is the person now? – GOV.UK"
       : "Where is the person now? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonCurrentLocation(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());

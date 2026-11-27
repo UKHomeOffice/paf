@@ -9,14 +9,9 @@ export class pafCrimeTransportVehicleDetailsPage extends basePage {
       ? "Error: What are the vehicle details? – GOV.UK"
       : "What are the vehicle details? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerVehicleDetails() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.crimeVehicleDetailsAnswer(c);
-  }
-
-  async crimeVehicleDetailsAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['vehicle-model', 'vehicle-make', 'vehicle-colour', 'vehicle-registration'], data.TEXT);
+    await this.completeTextPage(['vehicle-model', 'vehicle-make', 'vehicle-colour', 'vehicle-registration'], c.TEXT);
   }
 }

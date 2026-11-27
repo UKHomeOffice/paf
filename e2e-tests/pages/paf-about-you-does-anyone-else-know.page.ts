@@ -13,10 +13,6 @@ export class pafAboutYouDoesAnyoneElseKnowPage extends basePage {
 
   async answerDoesAnyoneElseKnow() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.aboutYouDoesAnyoneElseKnowAnswer(c);
-  }
-
-  async aboutYouDoesAnyoneElseKnowAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['does-anyone-else-know'], data.TEXT);
+    await this.completeTextPage(['does-anyone-else-know'], c.TEXT);
   }
 }

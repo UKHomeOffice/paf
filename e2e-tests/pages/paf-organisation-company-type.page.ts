@@ -13,11 +13,7 @@ export class pafOrganisationCompanyTypePage extends basePage {
 
   async answerOrganisationType() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.organisationCompanyTypeAnswer(c);
-  }
-
-  async organisationCompanyTypeAnswer(data: Record<string, string>) {
-    await this.autocompleteById('company-types', data.ORGANISATION_TYPE);
+    await this.autocompleteById('company-types', c.ORGANISATION_TYPE);
     await this.clickContinueButton();
   }
 }

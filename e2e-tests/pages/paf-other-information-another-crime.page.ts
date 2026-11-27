@@ -14,18 +14,12 @@ export class pafOtherInformationAnotherCrimePage extends basePage {
   async answerAnotherCrime(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());
     if (value.trim().toLowerCase() === 'yes') {
-      await this.otherInformationAnotherCrimeYesAnswer(c);
+      await this.selectByLabel('Yes');
+      await this.fillIfPresent('other-info-another-crime-description', c.TEXT);
+      await this.clickContinueButton();
     } else {
-      await this.otherInformationAnotherCrimeNoAnswer();
+      await this.answerYesNoUnknown('No');
     }
   }
 
-  async otherInformationAnotherCrimeYesAnswer(data: Record<string, string>) {
-    await this.selectByLabel('Yes');
-    await this.fillIfPresent('other-info-another-crime-description', data.TEXT);
-    await this.clickContinueButton();
-  }
-  async otherInformationAnotherCrimeNoAnswer() {
-    await this.answerYesNoUnknown('No');
-  }
 }

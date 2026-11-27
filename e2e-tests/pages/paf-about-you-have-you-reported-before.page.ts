@@ -13,9 +13,6 @@ export class pafAboutYouHaveYouReportedBeforePage extends basePage {
 
   async answerHaveYouReportedBefore() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.aboutYouHaveYouEverReportedBeforeAnswer(c);
-  }
-  async aboutYouHaveYouEverReportedBeforeAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['have-you-reported-before'], data.TEXT);
+    await this.completeTextPage(['have-you-reported-before'], c.TEXT);
   }
 }

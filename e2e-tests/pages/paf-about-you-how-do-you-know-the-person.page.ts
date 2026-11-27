@@ -13,9 +13,6 @@ export class pafAboutYouHowDoYouKnowThePersonPage extends basePage {
 
   async answerHowDoYouKnowThePerson() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.aboutYouHowDoYouKnowThePersonAnswer(c);
-  }
-  async aboutYouHowDoYouKnowThePersonAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['how-do-you-know-the-person'], data.TEXT);
+    await this.completeTextPage(['how-do-you-know-the-person'], c.TEXT); 
   }
 }

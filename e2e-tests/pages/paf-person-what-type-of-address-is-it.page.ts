@@ -8,7 +8,6 @@ export class pafPersonWhatTypeOfAddressIsItPage extends basePage {
       ? "Error: What type of address is it? – GOV.UK"
       : "What type of address is it? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonAddressType(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());

@@ -8,7 +8,6 @@ export class pafPersonReportPage extends basePage {
       ? "Error: The Person – GOV.UK"
       : "The Person – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerReportIndividual(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());

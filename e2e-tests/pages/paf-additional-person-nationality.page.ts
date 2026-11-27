@@ -13,11 +13,7 @@ export class pafAdditionalPersonNationalityPage extends basePage {
 
   async answerAdditionalPersonNationality() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.additionalPersonReportNationalityAnswer(c);
-  }
-
-  async additionalPersonReportNationalityAnswer(data: Record<string, string>) {
-    await this.autocompleteById('personAddNationality', data.NATIONALITY);
+    await this.autocompleteById('personAddNationality', c.NATIONALITY);
     await this.clickContinueButton();
   }
 }

@@ -9,14 +9,9 @@ export class pafPersonPlaceOfBirthPage extends basePage {
       ? "Error: What is the person's place of birth? – GOV.UK"
       : "What is the person's place of birth? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonPlaceOfBirth() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personReportPlaceOfBirthAnswer(c);
-  }
-  
-  async personReportPlaceOfBirthAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['report-person-place-of-birth'], data.COUNTRY);
+    await this.completeTextPage(['report-person-place-of-birth'], c.COUNTRY);
   }
 }

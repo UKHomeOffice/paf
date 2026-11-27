@@ -9,46 +9,29 @@ export class pafCrimeWhenCrimeHappenedPage extends basePage {
       ? "Error: When is the crime happening? – GOV.UK"
       : "When is the crime happening? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerWhenCrimeHappens(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());
 
     switch (value) {
       case 'Happening now':
-        return this.crimeHappeningNowAnswer(c);
+        await this.selectByLabel('Happening now');
+        await this.fillIfPresent('happening-now-info', c.TEXT);
+        return this.clickContinueButton();
       case 'Ongoing':
-        return this.crimeOngoingAnswer(c);
+        await this.selectByLabel('Ongoing');
+        await this.fillIfPresent('ongoing-info', c.TEXT);
+        return this.clickContinueButton();
       case 'Already happened':
-        return this.crimeAlreadyHappenedAnswer(c);
+        await this.selectByLabel('Already happened');
+        await this.fillIfPresent('already-happened-info', c.TEXT);
+        return this.clickContinueButton();
       case 'Not yet happened':
-        return this.crimeNotYetHappenedAnswer();
+        return await this.selectAndContinue('Not yet happened');
       case "I don't know":
-        return this.crimeIdontKnowAnswer();
+        return await this.selectAndContinue("I don't know");
       default:
         throw new Error(`Invalid when crime happened: ${value}`);
     }
-  }
-
-  async crimeHappeningNowAnswer(data: Record<string, string>) {
-    await this.selectByLabel('Happening now');
-    await this.fillIfPresent('happening-now-info', data.TEXT);
-    await this.clickContinueButton();
-  }
-  async crimeOngoingAnswer(data: Record<string, string>) {
-    await this.selectByLabel('Ongoing');
-    await this.fillIfPresent('ongoing-info', data.TEXT);
-    await this.clickContinueButton();
-  }
-  async crimeAlreadyHappenedAnswer(data: Record<string, string>) {
-    await this.selectByLabel('Already happened');
-    await this.fillIfPresent('already-happened-info', data.TEXT);
-    await this.clickContinueButton();
-  }
-  async crimeNotYetHappenedAnswer() {
-    await this.selectAndContinue('Not yet happened');
-  }
-  async crimeIdontKnowAnswer() {
-    await this.selectAndContinue("I don't know");
   }
 }

@@ -9,14 +9,9 @@ export class pafPersonAnythingElsePage extends basePage {
       ? "Error: Please tell us anything else about the person you are reporting that you think we should know – GOV.UK"
       : "Please tell us anything else about the person you are reporting that you think we should know – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerAdditionalPersonInformation() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personAnythingElseAnswer(c);
-  }
-
-  async personAnythingElseAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['report-person-anything-else'], data.TEXT);
+    await this.completeTextPage(['report-person-anything-else'], c.TEXT);
   }
 }

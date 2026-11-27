@@ -8,7 +8,6 @@ export class pafPersonAdditionalPeoplePage extends basePage {
       ? "Error: Do you want to tell us about another person who is involved in the same crime? – GOV.UK"
       : "Do you want to tell us about another person who is involved in the same crime? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerAnotherPersonInvolved(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());

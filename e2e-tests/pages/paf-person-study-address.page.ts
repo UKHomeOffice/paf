@@ -9,14 +9,9 @@ export class pafPersonStudyAddressPage extends basePage {
       ? "Error: What is the institution's address (if known)? – GOV.UK"
       : "What is the institution's address (if known)? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerInstitutionAddress() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personStudyAddressAnswer(c);
-  }
-  
-  async personStudyAddressAnswer(data: Record<string, string>) {
     await this.fillMany(
       [
         'report-person-study-address-line1',
@@ -24,9 +19,9 @@ export class pafPersonStudyAddressPage extends basePage {
         'report-person-study-address-town',
         'report-person-study-address-county'
       ],
-      data.ADDRESS_LINE_1
+      c.ADDRESS_LINE_1
     );
-    await this.fillIfPresent('report-person-study-address-postcode', data.POSTCODE);
+    await this.fillIfPresent('report-person-study-address-postcode', c.POSTCODE);
     await this.clickContinueButton();
   }
 }

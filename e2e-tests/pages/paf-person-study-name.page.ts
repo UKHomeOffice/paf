@@ -9,14 +9,9 @@ export class pafPersonStudyNamePage extends basePage {
       ? "Error: What is the name of college or university? – GOV.UK"
       : "What is the name of college or university? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerInstitutionName() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personStudyNameAnswer(c);
-  }
-  
-  async personStudyNameAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['report-person-study-name'], data.TEXT);
+    await this.completeTextPage(['report-person-study-name'], c.TEXT);
   }
 }

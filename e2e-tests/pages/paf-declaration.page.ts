@@ -10,8 +10,9 @@ export class pafDeclarationPage extends basePage {
       ? "Error: Declaration – GOV.UK"
       : "Declaration – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
+
   async submitApplication() {
+    await this.assertPageTitle(await this.expectedPageTitle());
     await this.clickSubmitButton();
   }
   async assertApplicationSuccessful() {

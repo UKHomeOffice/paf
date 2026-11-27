@@ -6,9 +6,10 @@ export const { Given, Then, When } = createBdd(test);
 
 Given('I visit the Public Allegations Form page', async ({ pages }) => {
     await pages.pafHomePage.openPaf();
-    await pages.pafHomePage.start();
 });
 
+
+/// ******************************************************** Start ********************************************************
 When('I select continue', async ({ pages, page }) => {
     await pages.basePage.clickContinueButton();
 });
@@ -30,25 +31,79 @@ Then('I should see {string} error summary', async ({ pages }, expectedErrorMessa
     expect(actualErrorArray).toEqual(expectedErrorArray);
 });
 
+
+Then('the {string} page should have no accessibility violations', async ({ pages }, arg: string) => {
+    await pages.basePage.assertAccessibility();
+});
+
+
 When('I choose to complete {string} page', async ({ pages }, pageName: string) => {
     switch (pageName) {
-            case 'What is the crime you are reporting?':
-                await pages.pafCrimeTypePage.answerCrimeType('Immigration all');
-                break;
-            case 'Are there children involved? (A child is anyone under 18 years of age)':
-                await pages.pafCrimeChildrenPage.answerChildrenInvolved('Yes');
-                break;
-
+        case 'Report an immigration or customs crime':
+            await pages.pafHomePage.start();
+            break;
+        case 'What is the crime you are reporting?':
+            await pages.pafCrimeTypePage.answerCrimeType('Immigration all');
+            break;
+        case 'Are there children involved? (A child is anyone under 18 years of age)':
+            await pages.pafCrimeChildrenPage.answerChildrenInvolved('Yes');
+            break;
+        case 'When is the crime happening?':
+            await pages.pafCrimeWhenCrimeHappenedPage.answerWhenCrimeHappens('Already happened');
+            break;
+        case 'Does the crime involve any vehicles, transport or travel?':
+            await pages.pafCrimeTransportPage.answerTransportInvolvement('All');
+            break;
+        case 'What is the vehicle type?':
+            await pages.pafCrimeTransportVehicleTypePage.answerVehicleType('Coach');
+            break;
+        case 'What are the vehicle details?':
+            await pages.pafCrimeTransportVehicleDetailsPage.answerVehicleDetails();
+            break;
+        case 'What is the boat type?':
+            await pages.pafCrimeTransportBoatTypePage.answerBoatType('Containership');
+            break;
+        case 'What are the boat details?':
+            await pages.pafCrimeTransportBoatDetailsPage.answerBoatDetails();
+            break;
+        case 'What are the train details?':
+            await pages.pafCrimeTransportTrainDetailsPage.answerTrainDetails();
+            break;
+        case 'What are the aeroplane details?':
+            await pages.pafCrimeTransportAeroplaneDetailsPage.answerAeroplaneDetails();
+            break;
+        case 'Tell us which of the following the crime involves:':
+            await pages.pafCrimeDeliveryPage.answerDeliveryInvolvement('Freight or cargo');
+            break;
+        case 'Do you know where the crime takes place, took place or will take place?':
+            await pages.pafCrimeLocationPage.answerCrimeLocation('Yes');
+            break;
+        case 'Do you want to tell us about another location where the crime is taking place?':
+            await pages.pafCrimeAnotherLocationPage.answerAnotherCrimeLocation('Yes');
+            break;
+        case 'The Person':
+            await pages.pafPersonReportPage.answerReportIndividual('Yes');
+            break;
+        case "What is the person's name?":
+            await pages.pafPersonNamePage.answerPersonName();
+            break;
+        case "What is the person's date of birth?":
+            await pages.pafPersonDobPage.answerPersonDateOfBirth();
+            break;
+        case "What is the person's approximate age?":
+            await pages.pafPersonAgePage.answerPersonAge('35-44');
+            break;
         default:
             throw new Error(`Unknown PAF scenario description: ${pageName}`);
     }
 });
 
 
-
+/// ******************************************************** End ********************************************************
 
 
 When('I fill out my answers for the Public Allegations Form journey pertaining to {string}', async ({ pages }, testScenarios: string) => {
+    await pages.pafHomePage.start();
     switch (testScenarios) {
         case 'Immigration crime - Select all checkboxes (with person details and organisation)':
             await pages.pafCrimeTypePage.answerCrimeType('Immigration all');

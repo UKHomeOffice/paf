@@ -9,15 +9,10 @@ export class pafPersonNationalityPage extends basePage {
       ? "Error: What is the person's nationality? – GOV.UK"
       : "What is the person's nationality? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonNationality() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personReportNationalityAnswer(c);
-  }
-  
-  async personReportNationalityAnswer(data: Record<string, string>) {
-    await this.autocompleteById('report-person-nationality', data.NATIONALITY);
+    await this.autocompleteById('report-person-nationality', c.NATIONALITY);
     await this.clickContinueButton();
   }
 }

@@ -13,11 +13,7 @@ export class pafAdditionalPersonIdPage extends basePage {
 
   async answerAdditionalPersonIdentification() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.additionalPersonReportIdAnswer(c);
+    await this.completeTextPage(['personAddPassport', 'personAddId', 'personAddNi'], c.TEXT);
     await this.clickContinueButton();
-  }
-
-  async additionalPersonReportIdAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['personAddPassport', 'personAddId', 'personAddNi'], data.TEXT);
   }
 }

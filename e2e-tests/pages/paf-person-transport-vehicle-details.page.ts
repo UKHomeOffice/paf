@@ -9,15 +9,9 @@ export class pafPersonTransportVehicleDetailsPage extends basePage {
       ? "Error: What are the vehicle's details? – GOV.UK"
       : "What are the vehicle's details? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonVehicleDetails() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personVehicleDetailsAnswer(c);
-  }
-
-
-  async personVehicleDetailsAnswer(data: Record<string, string>) {
     await this.completeTextPage(
       [
         'report-person-transport-vehicle-make',
@@ -26,7 +20,7 @@ export class pafPersonTransportVehicleDetailsPage extends basePage {
         'report-person-transport-vehicle-registration',
         'report-person-transport-vehicle-anything-else'
       ],
-      data.TEXT
+      c.TEXT
     );
   }
 }

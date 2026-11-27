@@ -13,13 +13,9 @@ export class pafAdditionalPersonNamePage extends basePage {
 
   async answerAdditionalPersonName() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.additionalPersonReportNameAnswer(c);
-  }
-
-  async additionalPersonReportNameAnswer(data: Record<string, string>) {
-    await this.fillIfPresent('personAddFirstName', data.FIRST_NAME);
-    await this.fillIfPresent('personAddFamilyName', data.LAST_NAME);
-    await this.fillIfPresent('personAddNickname', data.NICKNAME);
+    await this.fillIfPresent('personAddFirstName', c.FIRST_NAME);
+    await this.fillIfPresent('personAddFamilyName', c.LAST_NAME);
+    await this.fillIfPresent('personAddNickname', c.NICKNAME);
     await this.clickContinueButton();
   }
 }

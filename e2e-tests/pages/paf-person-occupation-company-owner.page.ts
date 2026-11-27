@@ -9,20 +9,15 @@ export class pafPersonOccupationCompanyOwnerPage extends basePage {
       ? "Error: Company Owner – GOV.UK"
       : "Company Owner – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerCompanyOwnerKnowledge(value: string) {
     await this.assertPageTitle(await this.expectedPageTitle());
     if (value.trim().toLowerCase() === 'yes') {
-      await this.personOccupationCompanyOwnerYesAnswer(c);
+      await this.selectByLabel('Yes');
+      await this.fillIfPresent('report-person-occupation-company-owner', c.TEXT);
+      await this.clickContinueButton();
     } else {
       await this.answerYesNoUnknown(value);
     }
-  }
-  
-  async personOccupationCompanyOwnerYesAnswer(data: Record<string, string>) {
-    await this.selectByLabel('Yes');
-    await this.fillIfPresent('report-person-occupation-company-owner', data.TEXT);
-    await this.clickContinueButton();
   }
 }

@@ -13,13 +13,9 @@ export class pafCrimeDateTimeCrimeWillHappenPage extends basePage {
 
   async answerCrimeDateTime() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.crimeDateTimeAnswer(c);
-  }
-
-  async crimeDateTimeAnswer(data: Record<string, string>) {
-    await this.fillDateByPrefix('date-crime-will-happen', data.FUTURE_DATE);
-    await this.fillIfPresent('time-crime-will-happen-hour', data.TIME_HOUR);
-    await this.fillIfPresent('time-crime-will-happen-minute', data.TIME_MINUTE);
+    await this.fillDateByPrefix('date-crime-will-happen', c.FUTURE_DATE);
+    await this.fillIfPresent('time-crime-will-happen-hour', c.TIME_HOUR);
+    await this.fillIfPresent('time-crime-will-happen-minute', c.TIME_MINUTE);
     await this.clickContinueButton();
   }
 }

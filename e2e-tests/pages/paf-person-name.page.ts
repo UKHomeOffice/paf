@@ -9,17 +9,12 @@ export class pafPersonNamePage extends basePage {
       ? "Error: What is the person's name? – GOV.UK"
       : "What is the person's name? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerPersonName() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personReportNameAnswer(c);
-  }
-  
-  async personReportNameAnswer(data: Record<string, string>) {
-    await this.fillIfPresent('report-person-first-name', data.FIRST_NAME);
-    await this.fillIfPresent('report-person-family-name', data.LAST_NAME);
-    await this.fillIfPresent('report-person-nickname', data.NICKNAME);
+    await this.fillIfPresent('report-person-first-name', c.FIRST_NAME);
+    await this.fillIfPresent('report-person-family-name', c.LAST_NAME);
+    await this.fillIfPresent('report-person-nickname', c.NICKNAME);
     await this.clickContinueButton();
   }
 }

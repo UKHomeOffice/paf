@@ -13,13 +13,9 @@ export class pafOrganisationCompanyContactPage extends basePage {
 
   async answerOrganisationContactDetails() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.organisationContactDetailsAnswer(c);
-  }
-
-  async organisationContactDetailsAnswer(data: Record<string, string>) {
-    await this.fillIfPresent('company-phone', data.TELEPHONE);
-    await this.fillIfPresent('company-email', data.SAS_HOF_EMAIL);
-    await this.fillIfPresent('company-website', data.WEBSITE);
+    await this.fillIfPresent('company-phone', c.TELEPHONE);
+    await this.fillIfPresent('company-email', c.SAS_HOF_EMAIL);
+    await this.fillIfPresent('company-website', c.WEBSITE);
     await this.clickContinueButton();
   }
 }

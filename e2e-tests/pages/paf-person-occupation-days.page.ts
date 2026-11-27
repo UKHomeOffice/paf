@@ -9,14 +9,9 @@ export class pafPersonOccupationDaysPage extends basePage {
       ? "Error: What days does the person work? – GOV.UK"
       : "What days does the person work? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerWorkDays() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personOccupationDaysAnswer(c);
-  }
-  
-  async personOccupationDaysAnswer(data: Record<string, string>) {
-    await this.completeTextPage(['report-person-occupation-days'], data.TEXT);
+    await this.completeTextPage(['report-person-occupation-days'], c.TEXT);
   }
 }

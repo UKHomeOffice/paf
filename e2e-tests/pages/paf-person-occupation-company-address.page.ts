@@ -9,14 +9,9 @@ export class pafPersonOccupationCompanyAddressPage extends basePage {
       ? "Error: What is the company's contact details (if known)? – GOV.UK"
       : "What is the company's contact details (if known)? – GOV.UK";
   }
-  readonly pageHeading = this.headerText;
 
   async answerEmployerCompanyContactDetails() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.personOccupationCompanyAddressUkAnswer(c);
-  }
-  
-  async personOccupationCompanyAddressUkAnswer(data: Record<string, string>) {
     await this.fillMany(
       [
         'report-person-occupation-company-address-line1',
@@ -24,11 +19,11 @@ export class pafPersonOccupationCompanyAddressPage extends basePage {
         'report-person-occupation-company-address-town',
         'report-person-occupation-company-address-county'
       ],
-      data.ADDRESS_LINE_1
+      c.ADDRESS_LINE_1
     );
-    await this.fillIfPresent('report-person-occupation-company-address-postcode', data.POSTCODE);
-    await this.fillIfPresent('report-person-occupation-company-phone', data.TELEPHONE);
-    await this.fillIfPresent('report-person-occupation-company-email', data.SAS_HOF_EMAIL);
+    await this.fillIfPresent('report-person-occupation-company-address-postcode', c.POSTCODE);
+    await this.fillIfPresent('report-person-occupation-company-phone', c.TELEPHONE);
+    await this.fillIfPresent('report-person-occupation-company-email', c.SAS_HOF_EMAIL);
     await this.clickContinueButton();
   }
 }

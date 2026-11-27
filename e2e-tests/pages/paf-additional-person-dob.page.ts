@@ -13,11 +13,7 @@ export class pafAdditionalPersonDobPage extends basePage {
 
   async answerAdditionalPersonDateOfBirth() {
     await this.assertPageTitle(await this.expectedPageTitle());
-    await this.additionalPersonReportDobAnswer(c);
-  }
-
-  async additionalPersonReportDobAnswer(data: Record<string, string>) {
-    await this.fillDateByPrefix('personAddDob', data.DOB);
+    await this.fillDateByPrefix('personAddDob', c.DOB);
     await this.clickContinueButton();
   }
 }
