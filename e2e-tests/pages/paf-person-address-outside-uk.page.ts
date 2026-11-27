@@ -2,15 +2,16 @@ import { basePage } from './base-page';
 import { ConstantsLib as c } from '../utility-helper/constants-lib';
 
 export class pafPersonAddressOutsideUkPage extends basePage {
-  readonly expectedPageTitle = "What is the person's address (Outside UK)?";
-  readonly pageHeading = this.headerText;
+  async expectedPageTitle(): Promise<string> {
+    const title = await this.page.title();
 
-  async answerPersonAddressOutsideUk() {
-    await this.assertPageTitle(this.expectedPageTitle);
-    await this.personAddressOutsideUkAnswer(c);
+    return title.startsWith('Error')
+      ? "Error: What is the person's address (Outside UK)? – GOV.UK"
+      : "What is the person's address (Outside UK)? – GOV.UK";
   }
 
-  async personAddressOutsideUkAnswer(data: Record<string, string>) {
+  async answerPersonAddressOutsideUk() {
+    await this.assertPageTitle(await this.expectedPageTitle());
     await this.fillMany(
       [
         'report-person-location-outside-uk-address-line1',
@@ -19,9 +20,9 @@ export class pafPersonAddressOutsideUkPage extends basePage {
         'report-person-location-outside-uk-address-county',
         'report-person-location-outside-uk-address-postcode'
       ],
-      data.ADDRESS_LINE_1
+      c.ADDRESS_LINE_1
     );
-    await this.autocompleteById('report-person-location-outside-uk-address-country', data.COUNTRY);
+    await this.autocompleteById('report-person-location-outside-uk-address-country', c.COUNTRY);
     await this.clickContinueButton();
   }
 }

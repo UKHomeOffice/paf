@@ -1,20 +1,46 @@
 import { expect, Locator, Page } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 export class basePage {
   readonly page: Page;
   readonly headerText: Locator;
   readonly continueButton: Locator;
   readonly submitButton: Locator;
+  readonly thereIsAProblemText: Locator;
+  readonly errorSummaryList: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.headerText = page.locator('h1');
     this.continueButton = page.getByRole('button', { name: /^(Continue|Save and continue)$/ });
     this.submitButton = page.getByRole('button', { name: /^(Submit|Confirm submission)$/ });
+    this.thereIsAProblemText = page.locator('#error-summary-title');
+    this.errorSummaryList = page.locator("[class='govuk-list govuk-error-summary__list']");
   }
 
   async assertPageTitle(expectedTitle: string) {
-    await expect(this.headerText).toContainText(expectedTitle);
+    await expect(this.page).toHaveTitle(expectedTitle);
+  }
+
+  async assertAccessibility() {
+    const results = await this.scanForAccessibilityIssues();
+    // Record violations without stopping the test; it still fails in the final report.That what the expect.soft does.
+    // Format violation details as JSON with two-space indentation for readability.
+    expect.soft(results.violations, JSON.stringify(results.violations, null, 2)).toEqual([]);
+  }
+
+  async scanForAccessibilityIssues() {
+    await this.page.waitForLoadState('load');
+    await expect(this.headerText).toBeVisible();
+
+    return new AxeBuilder({ page: this.page })
+      // Runs axe in legacy mode: analyses/scans the current page context, without opening a new page
+      .setLegacyMode()
+      .withTags([
+        'wcag2a',
+        'wcag2aa',
+      ])
+      .analyze();
   }
 
   async clickContinueButton() {
@@ -93,5 +119,13 @@ export class basePage {
   async completeTextPage(ids: string[], value: string) {
     await this.fillMany(ids, value);
     await this.clickContinueButton();
+  }
+
+  async getThereIsAProblemTextErrorText(): Promise<string | null> {
+    return await this.thereIsAProblemText.textContent();
+  }
+
+  async getErrorSummaryListText(): Promise<string | null> {
+    return await this.errorSummaryList.textContent();
   }
 }
