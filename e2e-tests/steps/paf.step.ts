@@ -38,11 +38,7 @@ Then('the {string} page should have no accessibility violations', async ({ pages
 
 
 When('I choose to complete {string} page', async ({ pages, page }, pageName: string) => {
-    const pathname = new URL(page.url()).pathname;
-    const isAdditionalPerson = /\/add-person(?:\/|-|$)/.test(pathname);
-
     const addPersonPath = page.url().includes('/add-person');
-
     switch (pageName) {
         case 'Report an immigration or customs crime':
             await pages.pafHomePage.start();

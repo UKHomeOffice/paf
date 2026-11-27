@@ -47,7 +47,23 @@ Feature: PAF - Accessibility
     When I choose to complete "Do you know where the crime takes place, took place or will take place?" page
     Then the "Do you want to tell us about another location where the crime is taking place?" page should have no accessibility violations
 
-
     When I choose to complete "Do you want to tell us about another location where the crime is taking place?" page
     Then the "The Person" page should have no accessibility violations
 
+    When I choose to complete "The Person" page
+    Then the "What is the person's name?" page should have no accessibility violations
+    
+    When I choose to complete "What is the person's name?" page
+    Then the "What is the person's date of birth?" page should have no accessibility violations
+
+    When I choose to complete "What is the person's date of birth?" page
+    Then the "What is the person's approximate age?" page should have no accessibility violations
+
+    When I choose to complete "What is the person's approximate age?" page
+    Then the "What is the person's nationality?" page should have no accessibility violations
+
+    When I choose to complete "What is the person's nationality?" page
+    Then the "What is the person's place of birth?" page should have no accessibility violations
+
+    When I choose to complete "What is the person's place of birth?" page
+    Then the "What are the person's forms of identification?" page should have no accessibility violations
